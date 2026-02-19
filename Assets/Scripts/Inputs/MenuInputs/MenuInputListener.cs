@@ -87,7 +87,7 @@ public class MenuInputListener: MonoBehaviour
         if (!context.performed)
             return;
 
-        if (!IsGameplayScene())
+        if (IsMainMenuScene())
             return;
 
         if (menuManager == null)

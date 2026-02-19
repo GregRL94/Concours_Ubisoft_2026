@@ -11,14 +11,14 @@ using UnityEngine.UI;
 public class SettingsMenu : Menu
 {
     [Header("Audio")]
-    [SerializeField] private AudioMixer _audioMixer;
-    [SerializeField] private Slider _masterVolumeSlider;
-    [SerializeField] private Slider _musicVolumeSlider;
-    [SerializeField] private Slider _sfxVolumeSlider;
-    [SerializeField] private Slider _uiVolumeSlider;
+    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private Slider masterVolumeSlider;
+    [SerializeField] private Slider musicVolumeSlider;
+    [SerializeField] private Slider sfxVolumeSlider;
+    [SerializeField] private Slider uiVolumeSlider;
 
     [Header("Graphics")]
-    [SerializeField] private TextMeshProUGUI _resolutionText;
+    [SerializeField] private TextMeshProUGUI resolutionText;
     [SerializeField] private Image leftArrowImage;
     [SerializeField] private Image rightArrowImage;
     [SerializeField] private Color pressedColor = Color.black;
@@ -26,14 +26,14 @@ public class SettingsMenu : Menu
     private Color _leftArrowOriginalColor;
     private Color _rightArrowOriginalColor;
 
-    [SerializeField] private Toggle _fullscreenToggle;
-    [SerializeField] private bool _isFullscreenToggle;
+    [SerializeField] private Toggle fullscreenToggle;
+    [SerializeField] private bool isFullscreenToggle;
 
-    [SerializeField] private Toggle _vSyncToggle;
-    [SerializeField] private bool _isVSyncToggle;
+    [SerializeField] private Toggle vSyncToggle;
+    [SerializeField] private bool isVSyncToggle;
 
-    private Resolution[] _resolutions;
-    private int _currentResolutionIndex;
+    private Resolution[] resolutions;
+    private int currentResolutionIndex;
     [SerializeField] private Selectable sideArrowSelectable; // side scroll resolutions
 
 
@@ -55,49 +55,49 @@ public class SettingsMenu : Menu
     // AUDIO
     private void SetupAudioUI()
     {
-        _masterVolumeSlider.onValueChanged.AddListener(SetMasterVolume);
-        _musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
-        _sfxVolumeSlider.onValueChanged.AddListener(SetSFXVolume);
-        _uiVolumeSlider.onValueChanged.AddListener(SetUIVolume);
+        masterVolumeSlider.onValueChanged.AddListener(SetMasterVolume);
+        musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
+        sfxVolumeSlider.onValueChanged.AddListener(SetSFXVolume);
+        uiVolumeSlider.onValueChanged.AddListener(SetUIVolume);
     }
 
     public void SetMasterVolume(float value)
     {
-        _audioMixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20f);
+        audioMixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20f);
     }
 
     public void SetMusicVolume(float value)
     {
-        _audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20f);
+        audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20f);
     }
 
     public void SetSFXVolume(float value)
     {
-        _audioMixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20f);
+        audioMixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20f);
     }
 
     public void SetUIVolume(float value)
     {
-        _audioMixer.SetFloat("UIVolume", Mathf.Log10(value) * 20f);
+        audioMixer.SetFloat("UIVolume", Mathf.Log10(value) * 20f);
     }
 
     // GRAPHICS
     private void SetupGraphicsUI()
     {
-        _fullscreenToggle.isOn = _isFullscreenToggle;
-        _vSyncToggle.isOn = _isVSyncToggle;
+        fullscreenToggle.isOn = isFullscreenToggle;
+        vSyncToggle.isOn = isVSyncToggle;
     }
 
     private void SetupResolutions()
     {
-        _resolutions = Screen.resolutions;
+        resolutions = Screen.resolutions;
 
-        for (int i = 0; i < _resolutions.Length; i++)
+        for (int i = 0; i < resolutions.Length; i++)
         {
-            if (_resolutions[i].width == Screen.currentResolution.width &&
-                _resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.currentResolution.width &&
+                resolutions[i].height == Screen.currentResolution.height)
             {
-                _currentResolutionIndex = i;
+                currentResolutionIndex = i;
                 break;
             }
         }
@@ -106,18 +106,18 @@ public class SettingsMenu : Menu
 
     private void UpdateResolutionText()
     {
-        Resolution res = _resolutions[_currentResolutionIndex];
-        _resolutionText.text = $"{res.width} x {res.height}";
+        Resolution res = resolutions[currentResolutionIndex];
+        resolutionText.text = $"{res.width} x {res.height}";
     }
 
     public void NextResolution()
     {
         AudioManager.Instance.PlaySound("UI_Submit");
 
-        _currentResolutionIndex++;
+        currentResolutionIndex++;
 
-        if (_currentResolutionIndex >= _resolutions.Length)
-            _currentResolutionIndex = 0;
+        if (currentResolutionIndex >= resolutions.Length)
+            currentResolutionIndex = 0;
 
         ApplyResolution();
     }
@@ -126,17 +126,17 @@ public class SettingsMenu : Menu
     {
         AudioManager.Instance.PlaySound("UI_Submit");
 
-        _currentResolutionIndex--;
+        currentResolutionIndex--;
 
-        if (_currentResolutionIndex < 0)
-            _currentResolutionIndex = _resolutions.Length - 1;
+        if (currentResolutionIndex < 0)
+            currentResolutionIndex = resolutions.Length - 1;
 
         ApplyResolution();
     }
 
     private void ApplyResolution()
     {
-        Resolution res = _resolutions[_currentResolutionIndex];
+        Resolution res = resolutions[currentResolutionIndex];
         Screen.SetResolution(res.width, res.height, Screen.fullScreen);
         UpdateResolutionText();
     }
@@ -180,7 +180,7 @@ public class SettingsMenu : Menu
 
     private void HandlePrintNavigate(Vector2 dir)
     {
-        Debug.Log("Woow two request on the same function from others script MAGNIFIQUE EN BOUCLE !");
+        //Debug.Log("Woow two request on the same function");
     }
 
 

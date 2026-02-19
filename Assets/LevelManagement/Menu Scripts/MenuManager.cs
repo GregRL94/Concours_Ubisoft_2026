@@ -119,7 +119,7 @@ public class MenuManager : MonoBehaviour
             return;
 
         Menu top = menuStack.Pop();
-        print("top " + top);
+        //print("top " + top);
         top.HideDisplay();
 
         if (menuStack.Count > 0)
