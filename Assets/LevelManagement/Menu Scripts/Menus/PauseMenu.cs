@@ -1,0 +1,46 @@
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
+public class PauseMenu : Menu
+{
+
+    public void OnResumePressed()
+    {
+        AudioManager.Instance.PlaySound("UI_Submit");
+        MenuManager.Instance.CloseMenu();
+    }
+
+    public void OnRestartPressed()
+    {
+        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlaySound("UI_Submit");
+        LevelLoader.ReloadLevel();
+    }
+
+    public void OnMainMenuPressed()
+    {
+        MenuManager.Instance.CloseMenu();
+        AudioManager.Instance.StopMusic();
+        LevelLoader.LoadMainMenuLevel();
+    }
+
+    public void OnQuitPressed()
+    {
+        Application.Quit();
+        #if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false; // Exit option for editor 
+        #endif
+    }
+    private void OnEnable()
+    {
+        Time.timeScale = 0f;
+    }
+
+    private void OnDisable()
+    {
+        Time.timeScale = 1.0f;
+    }
+
+}
+
