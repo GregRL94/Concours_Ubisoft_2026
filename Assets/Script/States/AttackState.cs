@@ -1,5 +1,8 @@
 using UnityEngine;
-
+/**
+ * Diego Felipe Duran Lezama
+ * 2026-02-20
+ */
 public class AttackState : EnemyState
 {
     private float _nextFireTime;
