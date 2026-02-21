@@ -4,7 +4,7 @@ using UnityEngine.AI; //Obligatoire pour le NavMesh
 public class PatrolState : EnemyState
 {
     private NavMeshAgent _agent;
-    private float _patrolRadius = 5f;
+    private float _patrolRadius = 22.7f;
     private float _waitTime = 2f;
     private float _timer;
 
