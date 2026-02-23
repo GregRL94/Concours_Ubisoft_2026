@@ -5,9 +5,9 @@ public class UniversalPlayerControls : MonoBehaviour
 {
 
     #region Attributes & Properties
-    private InputActionAsset _inputActionAsset;
+    private InputActionAsset _inputActionAsset; // The attached PlayerInput component's InputActionAsset
     private InputActionMap _actionMap;
-    private PlayerActions _playerActions;
+    private PlayerActions _playerActions; // The script that handles input behaviour
     private Gamepad _gamepad;
 
     public Vector2 DpadInputs { get; private set; }
@@ -20,30 +20,29 @@ public class UniversalPlayerControls : MonoBehaviour
         _actionMap = _inputActionAsset.FindActionMap("Player");
         _playerActions = GetComponent<PlayerActions>();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        EnablePlayerInputs(true);
     }
     #endregion
 
     #region Input Callbacks
-    private void OnDpadActions(InputAction.CallbackContext context)
+    private void OnDPadActions(InputAction.CallbackContext context)
     {
-        DpadInputs = context.ReadValue<Vector2>(); // Handle D-pad inputs
+        DpadInputs = context.ReadValue<Vector2>(); // Whenever the DPad is used, update the DpadInputs property with the current input value
+    }
+
+    private void OnDPadCanceled(InputAction.CallbackContext context)
+    {
+        DpadInputs = Vector2.zero; // When the DPad input is canceled (released), reset the DpadInputs to zero
     }
 
     private void OnMainAbility(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            _playerActions.PerformMainAbility(); // Handle main ability activation
+            _playerActions.PerformMainAbility();
         }
     }
 
@@ -51,7 +50,7 @@ public class UniversalPlayerControls : MonoBehaviour
     {
         if (context.performed)
         {
-            _playerActions.PerformSecondaryAbility(); // Handle secondary ability activation
+            _playerActions.PerformSecondaryAbility();
         }
     }
     #endregion
@@ -66,13 +65,15 @@ public class UniversalPlayerControls : MonoBehaviour
         if (enable)
         {
             _actionMap.Enable();
-            dPadActions.performed += OnDpadActions;
+            dPadActions.performed += OnDPadActions;
+            dPadActions.canceled += OnDPadCanceled;
             mainAbility.performed += OnMainAbility;
             secondaryAbility.performed += OnSecondaryAbility;
         }
         else
         {
-            dPadActions.performed -= OnDpadActions;
+            dPadActions.performed -= OnDPadActions;
+            dPadActions.canceled -= OnDPadCanceled;
             mainAbility.performed -= OnMainAbility;
             secondaryAbility.performed -= OnSecondaryAbility;
             _actionMap.Disable();
