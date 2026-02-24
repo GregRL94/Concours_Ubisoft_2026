@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
     public ChaseState ChaseState { get; private set; }
     public AttackState AttackState { get; private set; }
 
-
+//tod
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,6 +43,10 @@ public class EnemyAI : MonoBehaviour
     {
         currentHealth = maxHealth;
         StateMachine.Initialize(PatrolState);
+        if (EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.RegisterEnemy(this);
+        }
     }
 
     // Update is called once per frame
@@ -66,6 +70,11 @@ public class EnemyAI : MonoBehaviour
 
     private void Die()
     {
+        if (EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.UnRegisterEnemy(this);
+        }
+        
         Debug.Log("ENEMY DIEEED!!!");
         Destroy(gameObject);
     }

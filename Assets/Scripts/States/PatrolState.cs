@@ -7,7 +7,7 @@ public class PatrolState : EnemyState
     private float _patrolRadius = 22.7f;
     private float _waitTime = 2f;
     private float _timer;
-
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public PatrolState(EnemyAI enemy, EnemyStateMachine stateMachine) : base(enemy, stateMachine)
     {
