@@ -720,7 +720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1802715233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802715232}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05ef1ed542a89fd4d87fe74cf1290e05, type: 3}
   m_Name: 
@@ -1052,6 +1052,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5527720431463666314, guid: af0edce6a750ae7459ed68bf3b2b5273, type: 3}
+      propertyPath: detectionRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276922060709080670, guid: af0edce6a750ae7459ed68bf3b2b5273, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1105,6 +1113,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4327053440269322756, guid: 78a206e05b520c54caabead0866d325e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 11439582249cdfc4abb7d574fd025b79, type: 2}
     - target: {fileID: 6058532891729365024, guid: 78a206e05b520c54caabead0866d325e, type: 3}
       propertyPath: m_Name
       value: NavMesh
