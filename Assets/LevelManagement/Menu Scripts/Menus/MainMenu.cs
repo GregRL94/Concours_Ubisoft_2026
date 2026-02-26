@@ -7,6 +7,7 @@ public class MainMenu : Menu
     [Header("Main Menu Options")]
     [SerializeField] private Menu settingsMenu;
     [SerializeField] private Menu creditsMenu;
+    [SerializeField] private Menu playerChoiceMenu;
 
     [Header("Transition & Loading")]
     [SerializeField] private float playDelay = 0.5f;
@@ -27,7 +28,10 @@ public class MainMenu : Menu
     {
         AudioManager.Instance.PlaySound("UI_Submit");
         yield return new WaitForSeconds(playDelay);
-        TransitionManager.Instance.TransitionToScene(sceneName, fadeTransition, pauseDelay);
+        //TransitionManager.Instance.TransitionToScene(sceneName, fadeTransition, pauseDelay);
+        //TransitionManager.Instance.FadeInCurrentScene(null, MenuManager.Instance.GetPlayerChoiceMenu(), 0f);
+        if (playerChoiceMenu != null)
+            MenuManager.Instance.OpenMenu(playerChoiceMenu);
     }
 
     public void OnSettingsPressed()
