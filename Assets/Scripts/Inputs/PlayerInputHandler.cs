@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    public PlayerRoleManager.PlayerRole Role { get; private set; }
+    public PlayerRole Role { get; private set; }
 
     private PlayerMapActions actions;
 
@@ -16,7 +16,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction aoeAction;
 
     // Relie les actions a travers la manette de chaque joueur && no swap
-    public void Initialize(PlayerRoleManager.PlayerRole role, Gamepad gamepad)
+    public void Initialize(PlayerRole role, Gamepad gamepad)
     {
         Role = role;
 
@@ -49,7 +49,7 @@ public class PlayerInputHandler : MonoBehaviour
     // MOVEMENT ROLE
     public Vector2 GetMovement()
     {
-        if (Role != PlayerRoleManager.PlayerRole.Movement)
+        if (Role != PlayerRole.Movement)
             return Vector2.zero;
 
         return moveAction.ReadValue<Vector2>();
@@ -57,20 +57,20 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool MeleePressed()
     {
-        return Role == PlayerRoleManager.PlayerRole.Movement &&
+        return Role == PlayerRole.Movement &&
                meleeAction.WasPressedThisFrame();
     }
 
     public bool GrapplePressed()
     {
-        return Role == PlayerRoleManager.PlayerRole.Movement &&
+        return Role == PlayerRole.Movement &&
                grappleAction.WasPressedThisFrame();
     }
 
     // SHOOT ROLE
     public Vector2 GetAim()
     {
-        if (Role != PlayerRoleManager.PlayerRole.Shoot)
+        if (Role != PlayerRole.Shoot)
             return Vector2.zero;
 
         return aimAction.ReadValue<Vector2>();
@@ -78,13 +78,13 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool ShootPressed()
     {
-        return Role == PlayerRoleManager.PlayerRole.Shoot &&
+        return Role == PlayerRole.Shoot &&
                shootAction.WasPressedThisFrame();
     }
 
     public bool AOEPressed()
     {
-        return Role == PlayerRoleManager.PlayerRole.Shoot &&
+        return Role == PlayerRole.Shoot &&
                aoeAction.WasPressedThisFrame();
     }
 }

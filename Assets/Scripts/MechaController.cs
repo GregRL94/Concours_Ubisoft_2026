@@ -10,7 +10,7 @@ public class MechaController : MonoBehaviour
     // Injecte les inputs des joueurs selon leur role choisi 
     public void GameplayInitialize(PlayerInputHandler p1, PlayerInputHandler p2)
     {
-        if (p1.Role == PlayerRoleManager.PlayerRole.Movement)
+        if (p1.Role == PlayerRole.Movement)
         {
             movementPlayer = p1;
             shootPlayer = p2;

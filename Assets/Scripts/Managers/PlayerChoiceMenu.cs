@@ -306,13 +306,13 @@ public class PlayerChoiceMenu : Menu
         );
     }
 
-    private PlayerRoleManager.PlayerRole SlotToManagerRole(PlayerSlot slot)
+    private PlayerRole SlotToManagerRole(PlayerSlot slot)
     {
         return slot switch
         {
-            PlayerSlot.Left => PlayerRoleManager.PlayerRole.Movement,
-            PlayerSlot.Right => PlayerRoleManager.PlayerRole.Shoot,
-            _ => PlayerRoleManager.PlayerRole.None
+            PlayerSlot.Left => PlayerRole.Movement,
+            PlayerSlot.Right => PlayerRole.Shoot,
+            _ => PlayerRole.None
         };
     }
 }

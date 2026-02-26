@@ -7,14 +7,6 @@ public class PlayerRoleManager : MonoBehaviour
 {
     public static PlayerRoleManager Instance;
 
-    // Choix de role dispo
-    public enum PlayerRole
-    {
-        None,
-        Movement,
-        Shoot
-    }
-
     public PlayerRole Player1Role { get; private set; } = PlayerRole.None;
     public PlayerRole Player2Role { get; private set; } = PlayerRole.None;
 
