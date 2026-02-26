@@ -19,8 +19,9 @@ public class MenuManager : MonoBehaviour
     [Header("Canvas Menus")]
     [SerializeField] private Menu mainMenu;
     [SerializeField] private Menu pauseMenu;
-    [SerializeField] private Menu gameOverMenu;
-    [SerializeField] private Menu endMenu;
+    //[SerializeField] private Menu gameOverMenu;
+    //[SerializeField] private Menu endMenu;
+    [SerializeField] private Menu playerChoiceMenu;
 
 
     [Header("Debug Variables")]
@@ -43,7 +44,6 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         HideMenusDebug();
-
         if (mainMenu != null && SceneManager.GetActiveScene().name == SCENE_MAIN_MENU)
             OpenMenu(mainMenu);
     }
@@ -69,14 +69,18 @@ public class MenuManager : MonoBehaviour
             //pauseMenu = FindObjectOfType<PauseMenu>(true);
             pauseMenu = FindAnyObjectByType<PauseMenu>(FindObjectsInactive.Include);
 
-
-        if (gameOverMenu == null)
-            //gameOverMenu = FindObjectOfType<GameOverMenu>(true);
-            gameOverMenu = FindAnyObjectByType<GameOverMenu>(FindObjectsInactive.Include);
-
-        if (endMenu == null)
+        if (playerChoiceMenu == null)
             //endMenu = FindObjectOfType<EndMenu>(true);
-            endMenu = FindAnyObjectByType<EndMenu>(FindObjectsInactive.Include);
+            playerChoiceMenu = FindAnyObjectByType<PlayerChoiceMenu>(FindObjectsInactive.Include);
+
+        //if (gameOverMenu == null)
+        //    //gameOverMenu = FindObjectOfType<GameOverMenu>(true);
+        //    gameOverMenu = FindAnyObjectByType<GameOverMenu>(FindObjectsInactive.Include);
+
+        //if (endMenu == null)
+        //    //endMenu = FindObjectOfType<EndMenu>(true);
+        //    endMenu = FindAnyObjectByType<EndMenu>(FindObjectsInactive.Include);
+
 
         HideMenusDebug();
 
@@ -145,11 +149,15 @@ public class MenuManager : MonoBehaviour
     {
         return pauseMenu != null && pauseMenu.gameObject.activeInHierarchy;
     }
-
-    public bool IsGameOverMenuActive()
+    public bool IsPlayerChoiceMenuActive()
     {
-        return gameOverMenu != null && gameOverMenu.gameObject.activeInHierarchy;
+        return playerChoiceMenu != null && playerChoiceMenu.gameObject.activeInHierarchy;
     }
+
+    //public bool IsGameOverMenuActive()
+    //{
+    //    return gameOverMenu != null && gameOverMenu.gameObject.activeInHierarchy;
+    //}
 
     public PauseMenu GetPauseMenu()
     {
@@ -158,19 +166,27 @@ public class MenuManager : MonoBehaviour
 
         return pauseMenu as PauseMenu;
     }
-    public GameOverMenu GetGameOverMenu()
-    {
-        if (gameOverMenu == null)
-            gameOverMenu = FindAnyObjectByType<GameOverMenu>(FindObjectsInactive.Include);
 
-        return gameOverMenu as GameOverMenu;
-    }
-    public EndMenu GetEndMenu()
+    public PlayerChoiceMenu GetPlayerChoiceMenu()
     {
-        if (endMenu == null)
-            endMenu = FindAnyObjectByType<EndMenu>(FindObjectsInactive.Include);
+     if (playerChoiceMenu == null)
+            playerChoiceMenu = FindAnyObjectByType<PlayerChoiceMenu>(FindObjectsInactive.Include);
 
-        return endMenu as EndMenu;
+        return playerChoiceMenu as PlayerChoiceMenu;
     }
+    //public GameOverMenu GetGameOverMenu()
+    //{
+    //    if (gameOverMenu == null)
+    //        gameOverMenu = FindAnyObjectByType<GameOverMenu>(FindObjectsInactive.Include);
+
+    //    return gameOverMenu as GameOverMenu;
+    //}
+    //public EndMenu GetEndMenu()
+    //{
+    //    if (endMenu == null)
+    //        endMenu = FindAnyObjectByType<EndMenu>(FindObjectsInactive.Include);
+
+    //    return endMenu as EndMenu;
+    //}
 }
 

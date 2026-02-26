@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour
 
     public void EnableAll()
     {
-        Inputs. UI.Enable();
+        Inputs.UI.Enable();
         Inputs.Player.Enable();
 
         if (UIInputModule)
