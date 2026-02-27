@@ -79,7 +79,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool ShootPressed()
     {
         return Role == PlayerRole.Shoot &&
-               shootAction.WasPressedThisFrame();
+               shootAction.IsPressed();
     }
 
     public bool AOEPressed()
