@@ -23,13 +23,7 @@ public class PlayerInputInitializer : MonoBehaviour
         }
 
         // Applique role par default si moins que 2 manettes
-        prm.DefaultRoleDebug();
-
-        if (prm == null || !prm.AreRolesValid())
-        {
-            Debug.LogError("Roles invalides !");
-            return;
-        }
+        //prm.DefaultRoleDebug();
 
         if (mecha == null)
         {
@@ -39,20 +33,24 @@ public class PlayerInputInitializer : MonoBehaviour
 
         // Cree les input handler de chaque joueur
         GameObject p1Obj = new GameObject("P1_Input");
-        GameObject p2Obj = new GameObject("P2_Input");
-
         var p1Handler = p1Obj.AddComponent<PlayerInputHandler>();
-        var p2Handler = p2Obj.AddComponent<PlayerInputHandler>();
-
-        // Initialise les roles des joueurs 
         p1Handler.Initialize(prm.Player1Role, prm.Player1Gamepad);
-        p2Handler.Initialize(prm.Player2Role, prm.Player2Gamepad);
 
-        // Initialise les inputs des joueurs selon leur role choisi vers le mecha
+        PlayerInputHandler p2Handler = null;
+        // Seulement si une deuxième manette existe
+        if (prm.Player2Gamepad != null)
+        {
+            GameObject p2Obj = new GameObject("P2_Input");
+            p2Handler = p2Obj.AddComponent<PlayerInputHandler>();
+            p2Handler.Initialize(prm.Player2Role, prm.Player2Gamepad);
+        }
+        else
+        {
+            Debug.Log("Mode Debug 1 manette : P2 non initialisé");
+        }
+
         mecha.GameplayInitialize(p1Handler, p2Handler);
 
         Debug.Log("Coop Gameplay Initialisé");
     }
-
-
 }

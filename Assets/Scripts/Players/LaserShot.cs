@@ -4,7 +4,6 @@ public class LaserShot : MonoBehaviour
 {
     private float _speed;
     private float _damage;
-
     private float _lifetime;
     private LayerMask _impactLayerMask;
 
@@ -21,10 +20,11 @@ public class LaserShot : MonoBehaviour
         }
     }
 
-    public void SetupLaserShoot(float speed, float damage, LayerMask impactLayerMask)
+    public void SetupLaserShoot(float speed, float damage, float lifeTime, LayerMask impactLayerMask)
     {
         _speed = speed;
         _damage = damage;
+        _lifetime = lifeTime;
         _impactLayerMask = impactLayerMask;
     }
 
@@ -38,9 +38,17 @@ public class LaserShot : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Laser collided with " + collision.gameObject.name);
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            return; // Ignore collisions with the player
+        }
+        if (collider.TryGetComponent(out IHit hitComponent))
+        {
+            hitComponent.OnHit(_damage);
+        }
+        Debug.Log("Laser collided with " + collider.gameObject.name);
         _Destroy();
     }
 }

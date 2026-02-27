@@ -173,7 +173,7 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f9658d8d-5afd-4b77-9b49-272f0f6058fa"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -195,7 +195,7 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c82b733e-1b79-41cb-80aa-8d7c4c888cf7"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",

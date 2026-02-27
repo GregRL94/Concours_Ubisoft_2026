@@ -52,6 +52,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (Role != PlayerRole.Movement)
             return Vector2.zero;
 
+        //Debug.Log($"Player {gameObject.name} Move Input: {moveAction.ReadValue<Vector2>()}");
         return moveAction.ReadValue<Vector2>();
     }
 

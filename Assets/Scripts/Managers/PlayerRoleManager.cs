@@ -7,8 +7,8 @@ public class PlayerRoleManager : MonoBehaviour
 {
     public static PlayerRoleManager Instance;
 
-    public PlayerRole Player1Role { get; private set; } = PlayerRole.None;
-    public PlayerRole Player2Role { get; private set; } = PlayerRole.None;
+    [field: SerializeField] public PlayerRole Player1Role { get; private set; } = PlayerRole.None;
+    [field: SerializeField] public PlayerRole Player2Role { get; private set; } = PlayerRole.None;
 
     public Gamepad Player1Gamepad { get; private set; }
     public Gamepad Player2Gamepad { get; private set; }
@@ -79,7 +79,7 @@ public class PlayerRoleManager : MonoBehaviour
         Player1Gamepad = connectedGamepads.Count > 0 ? connectedGamepads[0] : null;
         Player2Gamepad = connectedGamepads.Count > 1 ? connectedGamepads[1] : null;
 
-        //Debug.Log($" Active Pads  P1: {Player1Gamepad} | P2: {Player2Gamepad}");
+        Debug.Log($" Active Pads  P1: {Player1Gamepad} | P2: {Player2Gamepad}");
     }
 
     // ROLE LOGIC
@@ -101,31 +101,6 @@ public class PlayerRoleManager : MonoBehaviour
 
         if (Player1Gamepad == null || Player2Gamepad == null)
             return false;
-
-        return true;
-    }
-
-    // Methode Debug qui permet au dev qui possedent une manette
-    // d'avoir directement un role attribué par defaut
-    public bool DefaultRoleDebug()
-    {
-        // Seulement hors Main Menu
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-            return false;
-
-        if (AreRolesValid())
-            return false;
-
-        // Besoin d'au moins une manette
-        if (Player1Gamepad == null)
-            return false;
-
-        // Appliquer role par defaut
-        Player1Role = PlayerRole.Movement;
-        Player2Role = PlayerRole.Shoot;
-
-        Debug.Log("Roles attribué par défaut \n" +
-                    $" Roles  P1: {Player1Role} | P2: {Player2Role}");
 
         return true;
     }
