@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour, IHit
 {
     public EnemyState.EnemyStateMachine StateMachine { get; set; }
     [Header("Parametre de deplacement")] 
@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     //public Transform[] waypoints; // Points de patrouille
     [Header("Parametre de gestion de vie")]
     public int maxHealth = 100;
-    private int currentHealth;
+    private float currentHealth;
     [Header("Parametre de combat")] 
     public float detectionRange = 7f;
     public float attackRange = 4f;
@@ -68,6 +68,7 @@ public class EnemyAI : MonoBehaviour
         StateMachine.CurrentState.FixedUpdate();
     }
 
+    
     private void Die()
     {
         if (EnemyManager.Instance != null)
@@ -85,5 +86,17 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRange);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    public void OnHit(float damage)
+    {
+        currentHealth -= damage;
+        
+    }
+
+    public void OnHit(float damage, float repelForce, Vector2 repelDirection)
+    {
+        currentHealth -= damage;
+        rb.AddForce(repelDirection * repelForce, ForceMode2D.Impulse);
     }
 }
