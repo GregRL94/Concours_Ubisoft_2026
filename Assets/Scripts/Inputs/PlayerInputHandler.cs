@@ -32,8 +32,18 @@ public class PlayerInputHandler : MonoBehaviour
         shootAction = actions.Player.Shoot;
         aoeAction = actions.Player.AOEAttack;
 
-        // NO SWAP CONTROLLER 
-        actions.devices = new InputDevice[] { gamepad };
+        if (gamepad != null)
+        {
+            // Bind ce gamepad
+            actions.devices = new InputDevice[] { gamepad };
+            Debug.Log($"Gamepad assigné à {role}");
+        }
+        else
+        {
+            // Bind le clavier
+            actions.devices = new InputDevice[] { Keyboard.current };
+            Debug.Log($"Keyboard assigné à {role}");
+        }
 
         actions.Enable();
     }
