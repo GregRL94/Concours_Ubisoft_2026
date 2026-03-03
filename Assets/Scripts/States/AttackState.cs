@@ -16,22 +16,41 @@ public class AttackState : EnemyState
         float dist = Vector2.Distance(enemy.transform.position, enemy.Player.position);
 
 
-        if (dist > enemy.attackRange)
+        if (dist > enemy.data.attackRange)
+        {
+            if (enemy.data is KamikazeData kData)
+            {
+                Explode(kData);
+            }else if (Time.time > _nextFireTime)
+            {
+                Shoot();
+                _nextFireTime = Time.time + 1f / enemy.data.fireRate;
+            }
+        }
+        else
         {
             stateMachine.ChangeState(enemy.ChaseState);
         }
-
-
-        if (Time.time >= _nextFireTime)
-        {
-            Shoot();
-            _nextFireTime = Time.time + 1f / enemy.fireRate;
-        }
-        
     }
 
+    void Explode(KamikazeData kData)
+    {
+        Debug.Log("BOOOOM");
+        if(kData.explosionEffect != null)
+            Object.Instantiate(kData.explosionEffect, enemy.transform.position, Quaternion.identity);
+        
+        //Logique du degats
+        Collider2D hit = Physics2D.OverlapCircle(enemy.transform.position, kData.explosionRadius, LayerMask.GetMask("Player"));
+        if (hit != null)
+        {
+            // hit.GetComponent<PlayerHealth>().TakeDamage(kData.explosionDamage);
+        }
+
+        // 3. L'ennemi disparaît
+        Object.Destroy(enemy.gameObject);
+    }
     void Shoot()
     {
-        Object.Instantiate(enemy.bulletPrefab,enemy.firePoint.position, enemy.firePoint.rotation);
+        Object.Instantiate(enemy.data.projectilePrefab,enemy.firePoint.position, enemy.firePoint.rotation);
     }
 }

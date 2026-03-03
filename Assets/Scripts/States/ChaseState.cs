@@ -13,7 +13,7 @@ public class ChaseState : EnemyState
 
     public override void Enter()
     {
-        _agent.speed = enemy.moveSpeed * 1.5f;
+        _agent.speed = enemy.data.moveSpeed * 1.5f;
     }
 
     public override void Update()
@@ -21,8 +21,8 @@ public class ChaseState : EnemyState
         float dist = Vector2.Distance(enemy.transform.position, enemy.Player.transform.position);
         
         //Transition vers Attaque ou Patrouille 
-        if(dist <= enemy.attackRange) stateMachine.ChangeState(enemy.AttackState);
-        else if (dist>enemy.detectionRange)stateMachine.ChangeState(enemy.PatrolState);
+        if(dist <= enemy.data.attackRange) stateMachine.ChangeState(enemy.AttackState);
+        else if (dist>enemy.data.detectionRange)stateMachine.ChangeState(enemy.PatrolState);
         
         //On donne la cible au navMesh 
         _agent.SetDestination(enemy.Player.position);

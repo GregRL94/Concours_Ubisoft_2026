@@ -1,22 +1,19 @@
 using System;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour, IHit
 {
-    public EnemyState.EnemyStateMachine StateMachine { get; set; }
-    [Header("Parametre de deplacement")] 
-    public float moveSpeed = 3f;
-    //public Transform[] waypoints; // Points de patrouille
-    [Header("Parametre de gestion de vie")]
-    public int maxHealth = 100;
-    private float currentHealth;
-    [Header("Parametre de combat")] 
-    public float detectionRange = 7f;
-    public float attackRange = 4f;
-    public GameObject bulletPrefab;
+    [Header("Donnees de l'ennemi")] 
+    public EnemyData data; //Nouvellle fiche de stats ScriptableObj
+    
+    [Header("Références de combat")]
     public Transform firePoint;
-    public float fireRate = 1f;
-
+    public EnemyState.EnemyStateMachine StateMachine { get; set; }
+    
+    
+    //Variables privees synchronisees avec Data
+    private float currentHealth;
+    public NavMeshAgent Agent { get; set; } 
     public Transform Player { get; private set; }
     public Rigidbody2D rb { get; private set; }
 
@@ -24,12 +21,20 @@ public class EnemyAI : MonoBehaviour, IHit
     public PatrolState PatrolState { get; private set; }
     public ChaseState ChaseState { get; private set; }
     public AttackState AttackState { get; private set; }
-
-//tod
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        Agent = GetComponent<NavMeshAgent>();
         Player = GameObject.FindGameObjectWithTag("Player").transform;
+        
+        // Configuration automatique de NavMesh via la Data
+        if (Agent != null && data != null)
+        {
+            Agent.speed = data.moveSpeed;
+            Agent.stoppingDistance = data.stopDistance;
+            Agent.updatePosition = false;
+            Agent.updateUpAxis = false;
+        }
 
         StateMachine = new EnemyState.EnemyStateMachine();
         //Initialisastion des etats concrets 
@@ -41,12 +46,14 @@ public class EnemyAI : MonoBehaviour, IHit
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentHealth = maxHealth;
+        if (data != null) currentHealth = data.maxHealth;
         StateMachine.Initialize(PatrolState);
+
         if (EnemyManager.Instance != null)
         {
             EnemyManager.Instance.RegisterEnemy(this);
         }
+        
     }
 
     // Update is called once per frame
@@ -83,9 +90,9 @@ public class EnemyAI : MonoBehaviour, IHit
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        Gizmos.DrawWireSphere(transform.position, data.detectionRange);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, data.attackRange);
     }
 
     public void OnHit(float damage)
