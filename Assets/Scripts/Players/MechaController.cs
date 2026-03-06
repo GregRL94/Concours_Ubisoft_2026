@@ -157,6 +157,7 @@ public class MechaController : MonoBehaviour
 
     private void ShootLaser(GameObject _laserShotPrefab, Vector2 shootingPoint, Quaternion laserShotRotation)
     {
+        AudioManager.Instance.PlaySound("SFX_Player_laser_tir");
         GameObject laserShotGO = Instantiate(_laserShotPrefab, shootingPoint, laserShotRotation);
         if (laserShotGO.TryGetComponent(out LaserShot laserShotComponent))
         {

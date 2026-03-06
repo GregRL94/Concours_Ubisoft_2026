@@ -45,3 +45,35 @@ MonoBehaviour:
     loop: 0
     randomizePitch: 0
     pitchRange: 0
+  - id: SFX_Player_movement
+    clip: {fileID: 8300000, guid: f2cfe673ca472284992fdc9e444a2990, type: 3}
+    type: 1
+    volume: 0.644
+    pitch: 1
+    loop: 1
+    randomizePitch: 0
+    pitchRange: 0.5
+  - id: SFX_Player_laser_tir
+    clip: {fileID: 8300000, guid: f3c13c02109b00e4c829ea78a531f779, type: 3}
+    type: 1
+    volume: 0.644
+    pitch: 1
+    loop: 1
+    randomizePitch: 0
+    pitchRange: 0.5
+  - id: SFX_Ennemi_attackhit_light
+    clip: {fileID: 8300000, guid: af33905c307818b4d8e629759abab9a4, type: 3}
+    type: 1
+    volume: 0.644
+    pitch: 1
+    loop: 1
+    randomizePitch: 0
+    pitchRange: 0.5
+  - id: SFX_Ennemi_attackhit_heavy
+    clip: {fileID: 8300000, guid: f3eea7ae60a10d54da1f914b8e6e3891, type: 3}
+    type: 1
+    volume: 0.644
+    pitch: 1
+    loop: 1
+    randomizePitch: 0
+    pitchRange: 0.5
