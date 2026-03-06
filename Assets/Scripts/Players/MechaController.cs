@@ -28,8 +28,10 @@ public class MechaController : MonoBehaviour
 
     [Header("SHOOTING PLAYER PARAMETERS")]
     [Header("Shooting parameters")]
-    [SerializeField] private GameObject _laserShotPrefab;
+    [SerializeField] private GameObject _aimingCursor;
     [SerializeField] private Transform _shootingPoint;
+    [SerializeField] private GameObject _laserShotPrefab;
+    [SerializeField] private float _aimingCursorSpeed = 3f;
     [SerializeField] private float _fireRate = 2f;
     [SerializeField] private float _laserShotSpeed;
     [SerializeField] private float _laserShotDamage = 5f;
@@ -111,10 +113,17 @@ public class MechaController : MonoBehaviour
     {
         Vector2 aim = shootPlayer.GetAim();
 
-        if (aim != Vector2.zero)
+        _aimingCursor.transform.Translate(_aimingCursorSpeed * Time.deltaTime * aim);
+        
+        Vector2 aimDirection = _aimingCursor.transform.position - transform.position;
+        if (aimDirection != Vector2.zero)
         {
-            _mechaTop.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(aim.x, aim.y, _offsetAngleDeg)); // Rotation du buste du mecha selon la direction de visée
-        }            
+            _mechaTop.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(aimDirection.x, aimDirection.y, _offsetAngleDeg)); // Rotation du buste du mecha selon la direction de visée
+        }
+        //if (aim != Vector2.zero)
+        //{
+        //    _mechaTop.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(aim.x, aim.y, _offsetAngleDeg)); // Rotation du buste du mecha selon la direction de visée
+        //}
 
         if (shootPlayer.ShootPressed() && _laserCoolDown >= 1 / _fireRate)
         {
