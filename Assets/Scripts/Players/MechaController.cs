@@ -52,6 +52,7 @@ public class MechaController : MonoBehaviour
     private float _meleeTimer;
     private float _aoeTimer;
     private Vector2 _lastNonZeroDir;
+    private bool _isPlayingMvtSound = false;
 
     // Injecte les inputs des joueurs selon leur role choisi 
     public void GameplayInitialize(PlayerInputHandler p1, PlayerInputHandler p2)
@@ -87,6 +88,21 @@ public class MechaController : MonoBehaviour
         if (move != Vector2.zero)
         {
             _lastNonZeroDir = move;
+
+            // Son de mouvement du mech
+            if (!_isPlayingMvtSound)
+            {
+                AudioManager.Instance.PlaySound("SFX_Player_movement");
+                _isPlayingMvtSound = true;
+            }
+        }
+        else
+        {
+            if (_isPlayingMvtSound)
+            {
+                AudioManager.Instance.StopSound("SFX_Player_movement");
+                _isPlayingMvtSound = false;
+            }
         }
 
         if (movementPlayer.MeleePressed() && _meleeTimer >= _meleeAttackCooldown)
@@ -169,6 +185,7 @@ public class MechaController : MonoBehaviour
 
     private void GroundSmash(float radius, float damage, float repelForce)
     {
+        AudioManager.Instance.PlaySound("SFX_Player_aoe");
         foreach (Collider2D hitObject in Physics2D.OverlapCircleAll(transform.position, radius, _enemyLayer))
         {
             if (hitObject.TryGetComponent(out IHit hitComponent))

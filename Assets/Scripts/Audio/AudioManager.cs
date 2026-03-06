@@ -285,6 +285,36 @@ public class AudioManager : MonoBehaviour
             Destroy(go, source.clip.length);
     }
 
+    public void StopSound(string soundId, Vector3? position = null)
+    {
+        SoundData sound = library.Get(soundId);
+
+        if (sound == null || sound.clip == null)
+        {
+            Debug.LogWarning($"[AudioManager] Sound not found: {soundId}");
+            return;
+        }
+
+        GameObject go = GameObject.Find($"{soundId}");
+        //DontDestroyOnLoad(go);
+
+        //if (position.HasValue)
+        //    go.transform.position = position.Value;
+
+        AudioSource source = go.GetComponent<AudioSource>();
+        //source.clip = sound.clip;
+        //source.volume = sound.volume;
+        //source.pitch = GetPitch(sound);
+        //source.loop = sound.loop;
+        //source.outputAudioMixerGroup = GetMixer(sound.type);
+        //source.spatialBlend = position.HasValue ? 1f : 0f;
+
+        source.Stop();
+        
+        //if (!sound.loop)
+        Destroy(go);
+    }
+    
     // GETTERS
     private float GetPitch(SoundData sound)
     {
