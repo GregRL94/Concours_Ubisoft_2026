@@ -36,13 +36,11 @@ public class PlayerInputHandler : MonoBehaviour
         {
             // Bind ce gamepad
             actions.devices = new InputDevice[] { gamepad };
-            Debug.Log($"Gamepad assigné à {role}");
         }
         else
         {
             // Bind le clavier
             actions.devices = new InputDevice[] { Keyboard.current };
-            Debug.Log($"Keyboard assigné à {role}");
         }
 
         actions.Enable();
@@ -98,4 +96,20 @@ public class PlayerInputHandler : MonoBehaviour
         return Role == PlayerRole.Shoot &&
                aoeAction.WasPressedThisFrame();
     }
+
+    public bool UltimateComboPressed()
+    {
+        if (Role == PlayerRole.Movement)
+        {
+            return /*meleeAction.IsPressed() && */grappleAction.IsPressed();
+        }
+
+        if (Role == PlayerRole.Shoot)
+        {
+            return /*shootAction.IsPressed() && */aoeAction.IsPressed();
+        }
+
+        return false;
+    }
+
 }
