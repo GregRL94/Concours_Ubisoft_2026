@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class MechaController : MonoBehaviour
@@ -10,7 +8,6 @@ public class MechaController : MonoBehaviour
     [SerializeField] private GameObject _mechaBase;
     [SerializeField] private GameObject _mechaTop;
     [SerializeField] private float _offsetAngleDeg;
-    [SerializeField] private LayerMask _enemyLayer;
     [Space]
 
     [Header("MOVING PLAYER PARAMETERS")]
@@ -19,9 +16,13 @@ public class MechaController : MonoBehaviour
     [SerializeField] private float _dashSpeedFactor = 3f;
     [SerializeField] private float _dashDuration = 0.5f;
     [SerializeField] private float _dashCooldown = 2f;
+    [SerializeField] private bool _dashDoesDamage = true;
+    [SerializeField] private LayerMask _dashImpactsWhat;
+    [SerializeField] private float _dashDamage = 10f;
     [Header("Melee attack parameters")]
     [SerializeField] private Transform _meleeAttackPoint;
     [SerializeField] private Vector2 _meleeAttackHitBox;
+    [SerializeField] private LayerMask _meleeAttackImpactsWhat;
     [SerializeField] private float _meleeDamage = 10f;
     [SerializeField] private float _meleeAttackCooldown = 1f;
     [Space]
@@ -31,12 +32,14 @@ public class MechaController : MonoBehaviour
     [SerializeField] private GameObject _aimingCursor;
     [SerializeField] private Transform _shootingPoint;
     [SerializeField] private GameObject _laserShotPrefab;
+    [SerializeField] private LayerMask _laserImpactsWhat;
     [SerializeField] private float _aimingCursorSpeed = 3f;
     [SerializeField] private float _fireRate = 2f;
     [SerializeField] private float _laserShotSpeed;
     [SerializeField] private float _laserShotDamage = 5f;
     [SerializeField] private float _laserShotLifeTime = 10f;
     [Header("AOE parameters")]
+    [SerializeField] private LayerMask _aoeImpactsWhat;
     [SerializeField] private float _aoeRadius = 3f;
     [SerializeField] private float _aoeDamage = 5f;
     [SerializeField] private float _aoeRepelForce = 2f;
@@ -93,7 +96,7 @@ public class MechaController : MonoBehaviour
 
         if (movementPlayer.MeleePressed() && _meleeTimer >= _meleeAttackCooldown)
         {
-            MeleeAttack(move, _meleeAttackHitBox.x, _meleeAttackHitBox.y, _enemyLayer);
+            MeleeAttack(move, _meleeAttackHitBox.x, _meleeAttackHitBox.y, _meleeAttackImpactsWhat);
         }
 
         if (movementPlayer.GrapplePressed() && _dashCooldownTimer >= _dashCooldown)
@@ -103,6 +106,10 @@ public class MechaController : MonoBehaviour
                 StopCoroutine(_currentDashCoroutine);
             }                
             _currentDashCoroutine = StartCoroutine(Dash());
+            if (_mechaBase.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
+            {
+                impulseSource.GenerateImpulse();
+            }
         }
 
         _rb2D.linearVelocity = move * _currentSpeed; // Déplacement du mecha selon les inputs du joueur de mouvement
@@ -133,6 +140,10 @@ public class MechaController : MonoBehaviour
         if (shootPlayer.AOEPressed() && _aoeTimer >= _aoeCooldown)
         {
             GroundSmash(_aoeRadius, _aoeDamage, _aoeRepelForce);
+            if (_mechaTop.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
+            {
+                impulseSource.GenerateImpulse();
+            }
         }
     }
 
@@ -169,7 +180,7 @@ public class MechaController : MonoBehaviour
         GameObject laserShotGO = Instantiate(_laserShotPrefab, shootingPoint, laserShotRotation);
         if (laserShotGO.TryGetComponent(out LaserShot laserShotComponent))
         {
-            laserShotComponent.SetupLaserShoot(_laserShotSpeed, _laserShotDamage, _laserShotLifeTime, _enemyLayer);
+            laserShotComponent.SetupLaserShoot(_laserShotSpeed, _laserShotDamage, _laserShotLifeTime, _laserImpactsWhat);
         }
         _laserCoolDown = 0f;
         Debug.Log("SHOOT");
@@ -177,7 +188,7 @@ public class MechaController : MonoBehaviour
 
     private void GroundSmash(float radius, float damage, float repelForce)
     {
-        foreach (Collider2D hitObject in Physics2D.OverlapCircleAll(transform.position, radius, _enemyLayer))
+        foreach (Collider2D hitObject in Physics2D.OverlapCircleAll(transform.position, radius, _aoeImpactsWhat))
         {
             if (hitObject.TryGetComponent(out IHit hitComponent))
             {
@@ -195,5 +206,17 @@ public class MechaController : MonoBehaviour
         _laserCoolDown += Time.deltaTime;
         _meleeTimer += Time.deltaTime;
         _aoeTimer += Time.deltaTime;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (_isDashing && _dashDoesDamage && ((1 << collision.gameObject.layer) & _dashImpactsWhat) != 0)
+        {
+            if (collision.collider.TryGetComponent(out IHit hitComponent))
+            {
+                hitComponent.OnHit(_dashDamage); // Inflige des dégâts de dash
+                Debug.Log("DASH HIT");
+            }
+        }
     }
 }

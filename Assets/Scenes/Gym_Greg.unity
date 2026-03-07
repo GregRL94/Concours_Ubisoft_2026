@@ -406,6 +406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 303997983}
   - component: {fileID: 303997984}
+  - component: {fileID: 303997985}
   m_Layer: 6
   m_Name: Mecha_Top
   m_TagString: Untagged
@@ -488,6 +489,59 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &303997985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303997982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseSource
+  ImpulseDefinition:
+    ImpulseChannel: 1
+    ImpulseShape: 3
+    CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ImpulseDuration: 0.2
+    ImpulseType: 0
+    DissipationRate: 0.25
+    RawSignal: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    RepeatMode: 0
+    Randomize: 1
+    TimeEnvelope:
+      AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AttackTime: 0
+      SustainTime: 0.2
+      DecayTime: 0.7
+      ScaleWithImpact: 1
+      HoldForever: 0
+    ImpactRadius: 100
+    DirectionMode: 0
+    DissipationMode: 2
+    DissipationDistance: 100
+    PropagationSpeed: 343
+  DefaultVelocity: {x: 0, y: -1, z: 0}
 --- !u!1 &332842792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,7 +1089,7 @@ GameObject:
   - component: {fileID: 696885366}
   - component: {fileID: 696885365}
   - component: {fileID: 696885368}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,25 +1649,36 @@ MonoBehaviour:
   _mechaBase: {fileID: 1787370445}
   _mechaTop: {fileID: 303997982}
   _offsetAngleDeg: -90
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
   _movementSpeed: 5
   _dashSpeedFactor: 6
   _dashDuration: 0.1
   _dashCooldown: 2
+  _dashDoesDamage: 1
+  _dashImpactsWhat:
+    serializedVersion: 2
+    m_Bits: 384
+  _dashDamage: 10
   _meleeAttackPoint: {fileID: 1462839782}
   _meleeAttackHitBox: {x: 0.5, y: 1}
+  _meleeAttackImpactsWhat:
+    serializedVersion: 2
+    m_Bits: 384
   _meleeDamage: 25
   _meleeAttackCooldown: 1
   _aimingCursor: {fileID: 925201913}
   _shootingPoint: {fileID: 1803244475}
   _laserShotPrefab: {fileID: 7801827202018218392, guid: feff21240f8dc67438716ba915efda8f, type: 3}
+  _laserImpactsWhat:
+    serializedVersion: 2
+    m_Bits: 640
   _aimingCursorSpeed: 3
   _fireRate: 4
   _laserShotSpeed: 15
   _laserShotDamage: 10
   _laserShotLifeTime: 1
+  _aoeImpactsWhat:
+    serializedVersion: 2
+    m_Bits: 384
   _aoeRadius: 1.5
   _aoeDamage: 25
   _aoeRepelForce: 20
@@ -2027,25 +2092,36 @@ MonoBehaviour:
   _mechaBase: {fileID: 0}
   _mechaTop: {fileID: 0}
   _offsetAngleDeg: 0
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
   _movementSpeed: 5
   _dashSpeedFactor: 3
   _dashDuration: 0.5
   _dashCooldown: 2
+  _dashDoesDamage: 1
+  _dashImpactsWhat:
+    serializedVersion: 2
+    m_Bits: 0
+  _dashDamage: 10
   _meleeAttackPoint: {fileID: 0}
   _meleeAttackHitBox: {x: 0, y: 0}
+  _meleeAttackImpactsWhat:
+    serializedVersion: 2
+    m_Bits: 0
   _meleeDamage: 10
   _meleeAttackCooldown: 1
   _aimingCursor: {fileID: 0}
   _shootingPoint: {fileID: 0}
   _laserShotPrefab: {fileID: 0}
+  _laserImpactsWhat:
+    serializedVersion: 2
+    m_Bits: 0
   _aimingCursorSpeed: 3
   _fireRate: 2
   _laserShotSpeed: 0
   _laserShotDamage: 5
   _laserShotLifeTime: 10
+  _aoeImpactsWhat:
+    serializedVersion: 2
+    m_Bits: 0
   _aoeRadius: 3
   _aoeDamage: 5
   _aoeRepelForce: 2
@@ -2186,7 +2262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseListener
   ApplyAfter: 2
   ChannelMask: 1
-  Gain: 1.25
+  Gain: 1
   Use2DDistance: 1
   UseCameraSpace: 1
   SignalCombinationMode: 0
@@ -2218,6 +2294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1787370446}
   - component: {fileID: 1787370447}
+  - component: {fileID: 1787370448}
   m_Layer: 6
   m_Name: Mecha_base
   m_TagString: Untagged
@@ -2302,6 +2379,59 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1787370448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787370445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseSource
+  ImpulseDefinition:
+    ImpulseChannel: 1
+    ImpulseShape: 4
+    CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ImpulseDuration: 0.1
+    ImpulseType: 0
+    DissipationRate: 0.25
+    RawSignal: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    RepeatMode: 0
+    Randomize: 1
+    TimeEnvelope:
+      AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AttackTime: 0
+      SustainTime: 0.2
+      DecayTime: 0.7
+      ScaleWithImpact: 1
+      HoldForever: 0
+    ImpactRadius: 100
+    DirectionMode: 0
+    DissipationMode: 2
+    DissipationDistance: 100
+    PropagationSpeed: 343
+  DefaultVelocity: {x: 0, y: -0.25, z: 0}
 --- !u!1 &1803244474
 GameObject:
   m_ObjectHideFlags: 0
