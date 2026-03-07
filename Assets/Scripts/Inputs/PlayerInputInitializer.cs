@@ -16,41 +16,37 @@ public class PlayerInputInitializer : MonoBehaviour
     {
         var prm = PlayerRoleManager.Instance;
 
-        if (prm == null)
-        {
-            Debug.LogError("PlayerRoleManager manquant !");
+        if (prm == null || mecha == null)
             return;
-        }
 
-        // Applique role par default si moins que 2 manettes
-        //prm.DefaultRoleDebug();
-
-        if (mecha == null)
-        {
-            Debug.LogError("Mecha manquant !");
-            return;
-        }
-
-        // Cree les input handler de chaque joueur
         GameObject p1Obj = new GameObject("P1_Input");
         var p1Handler = p1Obj.AddComponent<PlayerInputHandler>();
-        p1Handler.Initialize(prm.Player1Role, prm.Player1Gamepad);
 
-        PlayerInputHandler p2Handler = null;
-        // Seulement si une deuxième manette existe
-        if (prm.Player2Gamepad != null)
+        GameObject p2Obj = new GameObject("P2_Input");
+        var p2Handler = p2Obj.AddComponent<PlayerInputHandler>();
+
+        bool hasP1Pad = prm.Player1Gamepad != null;
+        bool hasP2Pad = prm.Player2Gamepad != null;
+
+        // 2 manettes
+        if (hasP1Pad && hasP2Pad)
         {
-            GameObject p2Obj = new GameObject("P2_Input");
-            p2Handler = p2Obj.AddComponent<PlayerInputHandler>();
+            p1Handler.Initialize(prm.Player1Role, prm.Player1Gamepad);
             p2Handler.Initialize(prm.Player2Role, prm.Player2Gamepad);
         }
+        // 1 manette
+        else if (hasP1Pad)
+        {
+            p1Handler.Initialize(prm.Player1Role, prm.Player1Gamepad);
+            p2Handler.Initialize(prm.Player2Role, null); // Keyboard
+        }
+        // 0 manette
         else
         {
-            Debug.Log("Mode Debug 1 manette : P2 non initialisé");
+            p1Handler.Initialize(prm.Player1Role, null); // Keyboard
+            p2Handler.Initialize(prm.Player2Role, null); // Keyboard
         }
 
         mecha.GameplayInitialize(p1Handler, p2Handler);
-
-        Debug.Log("Coop Gameplay Initialisé");
     }
 }

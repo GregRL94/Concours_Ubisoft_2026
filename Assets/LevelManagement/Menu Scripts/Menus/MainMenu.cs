@@ -11,9 +11,9 @@ public class MainMenu : Menu
 
     [Header("Transition & Loading")]
     [SerializeField] private float playDelay = 0.5f;
-    [SerializeField] private float pauseDelay = 2f;
+    //[SerializeField] private float pauseDelay = 2f;
     [SerializeField] private FadeTransition fadeTransition;
-    [SerializeField] private string sceneName = "Level";
+    //[SerializeField] private string sceneName = "Level";
 
     private void OnEnable()
     {

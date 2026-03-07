@@ -79,7 +79,7 @@ public class PlayerRoleManager : MonoBehaviour
         Player1Gamepad = connectedGamepads.Count > 0 ? connectedGamepads[0] : null;
         Player2Gamepad = connectedGamepads.Count > 1 ? connectedGamepads[1] : null;
 
-        Debug.Log($" Active Pads  P1: {Player1Gamepad} | P2: {Player2Gamepad}");
+        //Debug.Log($" Active Pads  P1: {Player1Gamepad} | P2: {Player2Gamepad}");
     }
 
     // ROLE LOGIC
@@ -88,7 +88,7 @@ public class PlayerRoleManager : MonoBehaviour
         Player1Role = p1Role;
         Player2Role = p2Role;
 
-        Debug.Log($" Roles  P1: {p1Role} | P2: {p2Role}");
+        //Debug.Log($" Roles  P1: {p1Role} | P2: {p2Role}");
     }
 
     public bool AreRolesValid()
