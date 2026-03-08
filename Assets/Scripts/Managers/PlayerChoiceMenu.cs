@@ -34,6 +34,7 @@ public class PlayerChoiceMenu : Menu
 
     [Header("Confirm Config")]
     [SerializeField] private float confirmTime = 1.2f;
+    [SerializeField] private string sceneName = "Gym_Greg";
 
     private PlayerSlot p1Slot = PlayerSlot.Center;
     private PlayerSlot p2Slot = PlayerSlot.Center;
@@ -300,7 +301,7 @@ public class PlayerChoiceMenu : Menu
         );
 
         TransitionManager.Instance.TransitionToScene(
-            "LevelTest",
+            sceneName,
             fadeTransition,
             0.5f
         );

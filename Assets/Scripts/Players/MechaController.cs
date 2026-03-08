@@ -38,6 +38,7 @@ public class MechaController : MonoBehaviour
     [SerializeField] private float _laserShotSpeed;
     [SerializeField] private float _laserShotDamage = 5f;
     [SerializeField] private float _laserShotLifeTime = 10f;
+
     [Header("AOE parameters")]
     [SerializeField] private LayerMask _aoeImpactsWhat;
     [SerializeField] private float _aoeRadius = 3f;
@@ -45,12 +46,25 @@ public class MechaController : MonoBehaviour
     [SerializeField] private float _aoeRepelForce = 2f;
     [SerializeField] private float _aoeCooldown = 5f;
 
+    [Header("Ultimate Team Attack parameters")]
+    [SerializeField] private float _ultimateHoldDuration = 3f;
+    [SerializeField] private float _ultimateMax = 100f;
+    [SerializeField] private float _ultimateInputForgiveness = 0.12f;
+    private float _ultimateCharge = 0f;
+    private bool _isAttemptingUltimate = false;
+    private bool _ultimateReady = true; // debug pour l'instant
+    private float _ultimateHoldTimer = 0f;
+
+    [Header("Mecha Ability Ref")]
+    [SerializeField] private MechaAbilityUI abilityUI;
+    [SerializeField] private MechaUltimateUI ultimateUI;
+
     private PlayerInputHandler movementPlayer;
     private PlayerInputHandler shootPlayer;
     private Coroutine _currentDashCoroutine;
     private Rigidbody2D _rb2D;
 
-    private float _currentSpeed;    
+    private float _currentSpeed;
     private float _dashCooldownTimer;
     private bool _isDashing;
     private float _laserCoolDown;
@@ -76,14 +90,28 @@ public class MechaController : MonoBehaviour
     {
         _rb2D = GetComponent<Rigidbody2D>();
         _currentSpeed = _movementSpeed;
+
+        ultimateUI?.Initialize(_ultimateMax);
+
     }
 
-    // Mettre a jour la fonctionnalité des joueurs
+    // Mettre a jour la fonctionnalitï¿½ des joueurs
     private void Update()
     {
         UpdateTimers();
-        if (movementPlayer != null) { HandleMovement(); }
-        if (shootPlayer != null) { HandleCombat(); }
+
+        if (movementPlayer != null && shootPlayer != null)
+            HandleUltimate();
+
+        // si tentative d'ultimate -> on bloque les abilities
+        if (_isAttemptingUltimate)
+            return;
+
+        if (movementPlayer != null)
+            HandleMovement();
+
+        if (shootPlayer != null)
+            HandleCombat();
     }
 
     private void HandleMovement()
@@ -104,7 +132,7 @@ public class MechaController : MonoBehaviour
             if (_currentDashCoroutine != null)
             {
                 StopCoroutine(_currentDashCoroutine);
-            }                
+            }
             _currentDashCoroutine = StartCoroutine(Dash());
             if (_mechaBase.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
             {
@@ -112,8 +140,8 @@ public class MechaController : MonoBehaviour
             }
         }
 
-        _rb2D.linearVelocity = move * _currentSpeed; // Déplacement du mecha selon les inputs du joueur de mouvement
-        _mechaBase.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(_lastNonZeroDir.x, _lastNonZeroDir.y, _offsetAngleDeg)); // Rotation de la base du mecha selon la direction de déplacement
+        _rb2D.linearVelocity = move * _currentSpeed; // Dï¿½placement du mecha selon les inputs du joueur de mouvement
+        _mechaBase.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(_lastNonZeroDir.x, _lastNonZeroDir.y, _offsetAngleDeg)); // Rotation de la base du mecha selon la direction de dï¿½placement
     }
 
     private void HandleCombat()
@@ -125,17 +153,17 @@ public class MechaController : MonoBehaviour
         Vector2 aimDirection = _aimingCursor.transform.position - transform.position;
         if (aimDirection != Vector2.zero)
         {
-            _mechaTop.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(aimDirection.x, aimDirection.y, _offsetAngleDeg)); // Rotation du buste du mecha selon la direction de visée
+            _mechaTop.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(aimDirection.x, aimDirection.y, _offsetAngleDeg)); // Rotation du buste du mecha selon la direction de visï¿½e
         }
         //if (aim != Vector2.zero)
         //{
-        //    _mechaTop.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(aim.x, aim.y, _offsetAngleDeg)); // Rotation du buste du mecha selon la direction de visée
+        //    _mechaTop.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(aim.x, aim.y, _offsetAngleDeg)); // Rotation du buste du mecha selon la direction de visï¿½e
         //}
 
         if (shootPlayer.ShootPressed() && _laserCoolDown >= 1 / _fireRate)
         {
             ShootLaser(_laserShotPrefab, _shootingPoint.position, _shootingPoint.rotation);
-        }            
+        }
 
         if (shootPlayer.AOEPressed() && _aoeTimer >= _aoeCooldown)
         {
@@ -147,18 +175,71 @@ public class MechaController : MonoBehaviour
         }
     }
 
+    private void HandleUltimate()
+    {
+        ultimateUI?.UpdateCharge(_ultimateCharge);
+
+        if (_ultimateCharge >= _ultimateMax)
+        {
+            _ultimateCharge = _ultimateMax;
+            _ultimateReady = true;
+        }
+
+        if (!_ultimateReady)
+            return;
+
+        bool movementCombo = movementPlayer.UltimateComboPressed();
+        bool shootCombo = shootPlayer.UltimateComboPressed();
+
+        _isAttemptingUltimate = movementCombo || shootCombo;
+
+        // les deux joueurs doivent hold
+        if (movementCombo && shootCombo)
+        {
+            _ultimateHoldTimer += Time.deltaTime;
+
+            ultimateUI?.UpdateCoopHold(_ultimateHoldTimer / _ultimateHoldDuration);
+
+            if (_ultimateHoldTimer >= _ultimateHoldDuration)
+            {
+                ActivateUltimate();
+            }
+        }
+        else
+        {
+            _ultimateHoldTimer = 0f;
+            ultimateUI?.UpdateCoopHold(_ultimateHoldTimer);
+        }
+    }
+
+    private void ActivateUltimate()
+    {
+        Debug.Log("ULTIMATE TEAM ATTACK UNLEASHED !!!");
+
+        _ultimateReady = false;
+        _ultimateCharge = 0;
+        _ultimateHoldTimer = 0f;
+
+        _isAttemptingUltimate = false;
+
+        ultimateUI?.UpdateCoopHold(_ultimateHoldTimer);
+        ultimateUI?.ResetUltimate();
+    }
+
+
     IEnumerator Dash()
-    {        
+    {
         float startTime = Time.time;
         _isDashing = true;
         _currentSpeed = _movementSpeed * _dashSpeedFactor;
         while (Time.time < startTime + _dashDuration)
-        {            
+        {
             yield return null;
         }
         _currentSpeed = _movementSpeed;
         _dashCooldownTimer = 0f;
-        _isDashing = false;        
+        _isDashing = false;
+        abilityUI?.TriggerAbility("Dash", _dashCooldown);
     }
 
     private void MeleeAttack(Vector2 attackDir, float attackWidth, float attackHeight, LayerMask layerMask)
@@ -172,6 +253,7 @@ public class MechaController : MonoBehaviour
             }
         }
         _meleeTimer = 0f;
+        abilityUI?.TriggerAbility("Melee", _meleeAttackCooldown);
         Debug.Log("MELEE");
     }
 
@@ -183,6 +265,9 @@ public class MechaController : MonoBehaviour
             laserShotComponent.SetupLaserShoot(_laserShotSpeed, _laserShotDamage, _laserShotLifeTime, _laserImpactsWhat);
         }
         _laserCoolDown = 0f;
+
+        abilityUI?.TriggerAbility("Laser", 1f / _fireRate);
+        //AudioManager.Instance.PlaySound("SFX_Laser");
         Debug.Log("SHOOT");
     }
 
@@ -197,6 +282,7 @@ public class MechaController : MonoBehaviour
             }
         }
         _aoeTimer = 0f;
+        abilityUI?.TriggerAbility("AOE", _aoeCooldown);
         Debug.Log("AOE");
     }
 
@@ -206,6 +292,10 @@ public class MechaController : MonoBehaviour
         _laserCoolDown += Time.deltaTime;
         _meleeTimer += Time.deltaTime;
         _aoeTimer += Time.deltaTime;
+
+        // utimate team attack cooldown
+        _ultimateCharge += Time.deltaTime * 10f;
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -214,7 +304,7 @@ public class MechaController : MonoBehaviour
         {
             if (collision.collider.TryGetComponent(out IHit hitComponent))
             {
-                hitComponent.OnHit(_dashDamage); // Inflige des dégâts de dash
+                hitComponent.OnHit(_dashDamage); // Inflige des dï¿½gï¿½ts de dash
                 Debug.Log("DASH HIT");
             }
         }
