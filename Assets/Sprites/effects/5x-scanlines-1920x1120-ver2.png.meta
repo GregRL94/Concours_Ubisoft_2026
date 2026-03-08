@@ -1,676 +1,676 @@
 fileFormatVersion: 2
-guid: 3ee849c3e6625b2479094e4fe9d1854a
+guid: 26602c2074b20c54ca7e7867e4e4712a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3645586423410428435
-    second: 5x-scanlines-1920x1120_0
+      213: 6522012447691147212
+    second: 5x-scanlines-1920x1120-ver2_0
   - first:
-      213: -4238870896346304452
-    second: 5x-scanlines-1920x1120_1
+      213: 2113226917243751481
+    second: 5x-scanlines-1920x1120-ver2_1
   - first:
-      213: -8152677416542296016
-    second: 5x-scanlines-1920x1120_2
+      213: 4032971947716614367
+    second: 5x-scanlines-1920x1120-ver2_2
   - first:
-      213: -2971861219923282532
-    second: 5x-scanlines-1920x1120_3
+      213: -7247834513585202791
+    second: 5x-scanlines-1920x1120-ver2_3
   - first:
-      213: 7202794415271454479
-    second: 5x-scanlines-1920x1120_4
+      213: -1369858700279165442
+    second: 5x-scanlines-1920x1120-ver2_4
   - first:
-      213: -2116722148216941196
-    second: 5x-scanlines-1920x1120_5
+      213: 1233090886015627792
+    second: 5x-scanlines-1920x1120-ver2_5
   - first:
-      213: -6091808797642618513
-    second: 5x-scanlines-1920x1120_6
+      213: 7162909065143533821
+    second: 5x-scanlines-1920x1120-ver2_6
   - first:
-      213: -2392336639327501693
-    second: 5x-scanlines-1920x1120_7
+      213: 2396516331725051760
+    second: 5x-scanlines-1920x1120-ver2_7
   - first:
-      213: -6271801730396930725
-    second: 5x-scanlines-1920x1120_8
+      213: 689542216430401768
+    second: 5x-scanlines-1920x1120-ver2_8
   - first:
-      213: 5844910511961256301
-    second: 5x-scanlines-1920x1120_9
+      213: -1054330232713873911
+    second: 5x-scanlines-1920x1120-ver2_9
   - first:
-      213: 4609102633731228747
-    second: 5x-scanlines-1920x1120_10
+      213: 2923212128111834370
+    second: 5x-scanlines-1920x1120-ver2_10
   - first:
-      213: -8845763954305428270
-    second: 5x-scanlines-1920x1120_11
+      213: 8392530432388792829
+    second: 5x-scanlines-1920x1120-ver2_11
   - first:
-      213: 1447305804276753473
-    second: 5x-scanlines-1920x1120_12
+      213: -8655258315834068487
+    second: 5x-scanlines-1920x1120-ver2_12
   - first:
-      213: -506152459095373679
-    second: 5x-scanlines-1920x1120_13
+      213: -4039152068460545224
+    second: 5x-scanlines-1920x1120-ver2_13
   - first:
-      213: 3693368583547113824
-    second: 5x-scanlines-1920x1120_14
+      213: 2466468710087186750
+    second: 5x-scanlines-1920x1120-ver2_14
   - first:
-      213: 845704883043212954
-    second: 5x-scanlines-1920x1120_15
+      213: -2171088725145931542
+    second: 5x-scanlines-1920x1120-ver2_15
   - first:
-      213: 8945559917501825978
-    second: 5x-scanlines-1920x1120_16
+      213: 643572775184881644
+    second: 5x-scanlines-1920x1120-ver2_16
   - first:
-      213: -9022588129685308283
-    second: 5x-scanlines-1920x1120_17
+      213: 680076996841914326
+    second: 5x-scanlines-1920x1120-ver2_17
   - first:
-      213: -6059690237872148492
-    second: 5x-scanlines-1920x1120_18
+      213: 5792156596818538749
+    second: 5x-scanlines-1920x1120-ver2_18
   - first:
-      213: -5814046260821389514
-    second: 5x-scanlines-1920x1120_19
+      213: -4345255184873053152
+    second: 5x-scanlines-1920x1120-ver2_19
   - first:
-      213: 611415864127969270
-    second: 5x-scanlines-1920x1120_20
+      213: -6849493631559952639
+    second: 5x-scanlines-1920x1120-ver2_20
   - first:
-      213: -4361199412716951939
-    second: 5x-scanlines-1920x1120_21
+      213: -4257297763408472103
+    second: 5x-scanlines-1920x1120-ver2_21
   - first:
-      213: -4933013885605770736
-    second: 5x-scanlines-1920x1120_22
+      213: 5642526721279821294
+    second: 5x-scanlines-1920x1120-ver2_22
   - first:
-      213: 5423761746846835444
-    second: 5x-scanlines-1920x1120_23
+      213: -6756382214788773112
+    second: 5x-scanlines-1920x1120-ver2_23
   - first:
-      213: -7552907337344158366
-    second: 5x-scanlines-1920x1120_24
+      213: -2585046976184341200
+    second: 5x-scanlines-1920x1120-ver2_24
   - first:
-      213: -5032057449755115410
-    second: 5x-scanlines-1920x1120_25
+      213: 3287965273493773795
+    second: 5x-scanlines-1920x1120-ver2_25
   - first:
-      213: 4496745481490911897
-    second: 5x-scanlines-1920x1120_26
+      213: -3139533412373060317
+    second: 5x-scanlines-1920x1120-ver2_26
   - first:
-      213: 2186418041420284125
-    second: 5x-scanlines-1920x1120_27
+      213: -1229443025161980288
+    second: 5x-scanlines-1920x1120-ver2_27
   - first:
-      213: -125100933707924938
-    second: 5x-scanlines-1920x1120_28
+      213: 3392561695444762563
+    second: 5x-scanlines-1920x1120-ver2_28
   - first:
-      213: 3959844844102017641
-    second: 5x-scanlines-1920x1120_29
+      213: -5293424880714901530
+    second: 5x-scanlines-1920x1120-ver2_29
   - first:
-      213: 1818592547867429452
-    second: 5x-scanlines-1920x1120_30
+      213: 9109317473672869479
+    second: 5x-scanlines-1920x1120-ver2_30
   - first:
-      213: 4694544583483542182
-    second: 5x-scanlines-1920x1120_31
+      213: 8035259310399475282
+    second: 5x-scanlines-1920x1120-ver2_31
   - first:
-      213: -5086312751467461164
-    second: 5x-scanlines-1920x1120_32
+      213: 655626629255274819
+    second: 5x-scanlines-1920x1120-ver2_32
   - first:
-      213: 6923283888089527496
-    second: 5x-scanlines-1920x1120_33
+      213: 1128388807965953852
+    second: 5x-scanlines-1920x1120-ver2_33
   - first:
-      213: -8536046761895026438
-    second: 5x-scanlines-1920x1120_34
+      213: 5341745252031350409
+    second: 5x-scanlines-1920x1120-ver2_34
   - first:
-      213: 6145581266717276468
-    second: 5x-scanlines-1920x1120_35
+      213: 5263012883997042122
+    second: 5x-scanlines-1920x1120-ver2_35
   - first:
-      213: 8506967151799909533
-    second: 5x-scanlines-1920x1120_36
+      213: 4621273174981795642
+    second: 5x-scanlines-1920x1120-ver2_36
   - first:
-      213: 7057420344947042788
-    second: 5x-scanlines-1920x1120_37
+      213: 5647935988146080638
+    second: 5x-scanlines-1920x1120-ver2_37
   - first:
-      213: -8679071013925178754
-    second: 5x-scanlines-1920x1120_38
+      213: 340545147805706660
+    second: 5x-scanlines-1920x1120-ver2_38
   - first:
-      213: -8584348236041626228
-    second: 5x-scanlines-1920x1120_39
+      213: 2599664941790627246
+    second: 5x-scanlines-1920x1120-ver2_39
   - first:
-      213: -6665642325615956812
-    second: 5x-scanlines-1920x1120_40
+      213: 6381597612951898496
+    second: 5x-scanlines-1920x1120-ver2_40
   - first:
-      213: 2552147289173484125
-    second: 5x-scanlines-1920x1120_41
+      213: 7894819338865745319
+    second: 5x-scanlines-1920x1120-ver2_41
   - first:
-      213: 4728763562239854544
-    second: 5x-scanlines-1920x1120_42
+      213: 7432984498314616677
+    second: 5x-scanlines-1920x1120-ver2_42
   - first:
-      213: -1757676227087670845
-    second: 5x-scanlines-1920x1120_43
+      213: -7594438890353875191
+    second: 5x-scanlines-1920x1120-ver2_43
   - first:
-      213: 7451442812891271747
-    second: 5x-scanlines-1920x1120_44
+      213: 1659736814932506048
+    second: 5x-scanlines-1920x1120-ver2_44
   - first:
-      213: 1892531834355758395
-    second: 5x-scanlines-1920x1120_45
+      213: -7611904985034024060
+    second: 5x-scanlines-1920x1120-ver2_45
   - first:
-      213: -3639046061899263079
-    second: 5x-scanlines-1920x1120_46
+      213: 3865231306996054756
+    second: 5x-scanlines-1920x1120-ver2_46
   - first:
-      213: 2951024110528395652
-    second: 5x-scanlines-1920x1120_47
+      213: -2609360599943754265
+    second: 5x-scanlines-1920x1120-ver2_47
   - first:
-      213: 1832070819308877565
-    second: 5x-scanlines-1920x1120_48
+      213: 4125537102442198945
+    second: 5x-scanlines-1920x1120-ver2_48
   - first:
-      213: 4311246076455111027
-    second: 5x-scanlines-1920x1120_49
+      213: 8347372484832495978
+    second: 5x-scanlines-1920x1120-ver2_49
   - first:
-      213: 2013180104161879146
-    second: 5x-scanlines-1920x1120_50
+      213: -3754841689910373672
+    second: 5x-scanlines-1920x1120-ver2_50
   - first:
-      213: -1451851730304154440
-    second: 5x-scanlines-1920x1120_51
+      213: 3412943067826109687
+    second: 5x-scanlines-1920x1120-ver2_51
   - first:
-      213: -1851190646556021735
-    second: 5x-scanlines-1920x1120_52
+      213: -1895073402430070549
+    second: 5x-scanlines-1920x1120-ver2_52
   - first:
-      213: -5879949714652453644
-    second: 5x-scanlines-1920x1120_53
+      213: -1816576557076328809
+    second: 5x-scanlines-1920x1120-ver2_53
   - first:
-      213: 1857815059265691602
-    second: 5x-scanlines-1920x1120_54
+      213: 9159627380257319464
+    second: 5x-scanlines-1920x1120-ver2_54
   - first:
-      213: -8314500186568480972
-    second: 5x-scanlines-1920x1120_55
+      213: -5588228901221349030
+    second: 5x-scanlines-1920x1120-ver2_55
   - first:
-      213: -6919519054079606903
-    second: 5x-scanlines-1920x1120_56
+      213: 300870520872458085
+    second: 5x-scanlines-1920x1120-ver2_56
   - first:
-      213: 187288720750048080
-    second: 5x-scanlines-1920x1120_57
+      213: -7319183970120363703
+    second: 5x-scanlines-1920x1120-ver2_57
   - first:
-      213: 3214550649057975697
-    second: 5x-scanlines-1920x1120_58
+      213: -8512355749332352207
+    second: 5x-scanlines-1920x1120-ver2_58
   - first:
-      213: 5601082239783973743
-    second: 5x-scanlines-1920x1120_59
+      213: -7716690030948405380
+    second: 5x-scanlines-1920x1120-ver2_59
   - first:
-      213: 7438813854629350846
-    second: 5x-scanlines-1920x1120_60
+      213: 5260431970071881957
+    second: 5x-scanlines-1920x1120-ver2_60
   - first:
-      213: -5376121097069143490
-    second: 5x-scanlines-1920x1120_61
+      213: 8191198944287692855
+    second: 5x-scanlines-1920x1120-ver2_61
   - first:
-      213: -1751629061033845372
-    second: 5x-scanlines-1920x1120_62
+      213: -2087786703382221864
+    second: 5x-scanlines-1920x1120-ver2_62
   - first:
-      213: 8868802494784131351
-    second: 5x-scanlines-1920x1120_63
+      213: -4749590407205927441
+    second: 5x-scanlines-1920x1120-ver2_63
   - first:
-      213: -4951228231723950285
-    second: 5x-scanlines-1920x1120_64
+      213: -8886024664068239075
+    second: 5x-scanlines-1920x1120-ver2_64
   - first:
-      213: 7685904169692619080
-    second: 5x-scanlines-1920x1120_65
+      213: 2405340335623146559
+    second: 5x-scanlines-1920x1120-ver2_65
   - first:
-      213: -8109083136086236398
-    second: 5x-scanlines-1920x1120_66
+      213: -1406868407998630847
+    second: 5x-scanlines-1920x1120-ver2_66
   - first:
-      213: 2005332074483405277
-    second: 5x-scanlines-1920x1120_67
+      213: -3039460390296764317
+    second: 5x-scanlines-1920x1120-ver2_67
   - first:
-      213: 8246789999280528721
-    second: 5x-scanlines-1920x1120_68
+      213: -7774171423664495036
+    second: 5x-scanlines-1920x1120-ver2_68
   - first:
-      213: 4312792429899074432
-    second: 5x-scanlines-1920x1120_69
+      213: 4523878206513733801
+    second: 5x-scanlines-1920x1120-ver2_69
   - first:
-      213: 2059495026939420585
-    second: 5x-scanlines-1920x1120_70
+      213: 9210695238926469284
+    second: 5x-scanlines-1920x1120-ver2_70
   - first:
-      213: -684611459914563092
-    second: 5x-scanlines-1920x1120_71
+      213: -5281420037509549714
+    second: 5x-scanlines-1920x1120-ver2_71
   - first:
-      213: -2090051451218336258
-    second: 5x-scanlines-1920x1120_72
+      213: -2917493305448016937
+    second: 5x-scanlines-1920x1120-ver2_72
   - first:
-      213: 4556243350975202874
-    second: 5x-scanlines-1920x1120_73
+      213: 6392298762590968101
+    second: 5x-scanlines-1920x1120-ver2_73
   - first:
-      213: -273333073968014015
-    second: 5x-scanlines-1920x1120_74
+      213: 8742165840900752409
+    second: 5x-scanlines-1920x1120-ver2_74
   - first:
-      213: -1188837148686025239
-    second: 5x-scanlines-1920x1120_75
+      213: -5357912645297271153
+    second: 5x-scanlines-1920x1120-ver2_75
   - first:
-      213: 1141924211449734847
-    second: 5x-scanlines-1920x1120_76
+      213: 5536477380458944744
+    second: 5x-scanlines-1920x1120-ver2_76
   - first:
-      213: 1020459931463733663
-    second: 5x-scanlines-1920x1120_77
+      213: 3234503935775860130
+    second: 5x-scanlines-1920x1120-ver2_77
   - first:
-      213: -2009412548238492019
-    second: 5x-scanlines-1920x1120_78
+      213: 9014436825644138033
+    second: 5x-scanlines-1920x1120-ver2_78
   - first:
-      213: -4200643227851686353
-    second: 5x-scanlines-1920x1120_79
+      213: 8811656483418337785
+    second: 5x-scanlines-1920x1120-ver2_79
   - first:
-      213: -480646045242183285
-    second: 5x-scanlines-1920x1120_80
+      213: 7317334301172522046
+    second: 5x-scanlines-1920x1120-ver2_80
   - first:
-      213: 5372445556787424564
-    second: 5x-scanlines-1920x1120_81
+      213: -4475468742770946195
+    second: 5x-scanlines-1920x1120-ver2_81
   - first:
-      213: -4286113630096907927
-    second: 5x-scanlines-1920x1120_82
+      213: -4633576664485552195
+    second: 5x-scanlines-1920x1120-ver2_82
   - first:
-      213: 3695575210335587290
-    second: 5x-scanlines-1920x1120_83
+      213: 6111094706485188338
+    second: 5x-scanlines-1920x1120-ver2_83
   - first:
-      213: -7888057902173799006
-    second: 5x-scanlines-1920x1120_84
+      213: 3468822299370096232
+    second: 5x-scanlines-1920x1120-ver2_84
   - first:
-      213: 225229990202590348
-    second: 5x-scanlines-1920x1120_85
+      213: 2351853186239523865
+    second: 5x-scanlines-1920x1120-ver2_85
   - first:
-      213: -7355499213360665440
-    second: 5x-scanlines-1920x1120_86
+      213: 8987111564169923347
+    second: 5x-scanlines-1920x1120-ver2_86
   - first:
-      213: -8971382948380231428
-    second: 5x-scanlines-1920x1120_87
+      213: 8349902535177271777
+    second: 5x-scanlines-1920x1120-ver2_87
   - first:
-      213: 5067149725778501989
-    second: 5x-scanlines-1920x1120_88
+      213: 5776785418993656117
+    second: 5x-scanlines-1920x1120-ver2_88
   - first:
-      213: -7787310710042939486
-    second: 5x-scanlines-1920x1120_89
+      213: 6279711227067654900
+    second: 5x-scanlines-1920x1120-ver2_89
   - first:
-      213: -4545943148468769444
-    second: 5x-scanlines-1920x1120_90
+      213: 7150123745160400719
+    second: 5x-scanlines-1920x1120-ver2_90
   - first:
-      213: 4885458057486906168
-    second: 5x-scanlines-1920x1120_91
+      213: 7246856563185405511
+    second: 5x-scanlines-1920x1120-ver2_91
   - first:
-      213: -8993845329146541157
-    second: 5x-scanlines-1920x1120_92
+      213: -278450994713757442
+    second: 5x-scanlines-1920x1120-ver2_92
   - first:
-      213: -1678429507313876479
-    second: 5x-scanlines-1920x1120_93
+      213: 5750960635324267445
+    second: 5x-scanlines-1920x1120-ver2_93
   - first:
-      213: -8516761582879495923
-    second: 5x-scanlines-1920x1120_94
+      213: -3575829730814969079
+    second: 5x-scanlines-1920x1120-ver2_94
   - first:
-      213: 8457893272669937417
-    second: 5x-scanlines-1920x1120_95
+      213: 5822369190381018258
+    second: 5x-scanlines-1920x1120-ver2_95
   - first:
-      213: -6241388266004525328
-    second: 5x-scanlines-1920x1120_96
+      213: 7672521898113880845
+    second: 5x-scanlines-1920x1120-ver2_96
   - first:
-      213: -5110543174454716592
-    second: 5x-scanlines-1920x1120_97
+      213: -5426121699366579388
+    second: 5x-scanlines-1920x1120-ver2_97
   - first:
-      213: 3759141284401958388
-    second: 5x-scanlines-1920x1120_98
+      213: -2893492396942263629
+    second: 5x-scanlines-1920x1120-ver2_98
   - first:
-      213: 4644533214902486509
-    second: 5x-scanlines-1920x1120_99
+      213: 3478198855791195806
+    second: 5x-scanlines-1920x1120-ver2_99
   - first:
-      213: 2161947816955472380
-    second: 5x-scanlines-1920x1120_100
+      213: 3808761528064163875
+    second: 5x-scanlines-1920x1120-ver2_100
   - first:
-      213: 6494160249629109969
-    second: 5x-scanlines-1920x1120_101
+      213: -4866814509424775258
+    second: 5x-scanlines-1920x1120-ver2_101
   - first:
-      213: 4159535594162390935
-    second: 5x-scanlines-1920x1120_102
+      213: 6706498700305564025
+    second: 5x-scanlines-1920x1120-ver2_102
   - first:
-      213: 1900983798150519101
-    second: 5x-scanlines-1920x1120_103
+      213: 6410145945840250378
+    second: 5x-scanlines-1920x1120-ver2_103
   - first:
-      213: 6462360945098527255
-    second: 5x-scanlines-1920x1120_104
+      213: -976669086063884008
+    second: 5x-scanlines-1920x1120-ver2_104
   - first:
-      213: -4447269726277916899
-    second: 5x-scanlines-1920x1120_105
+      213: 9166547314347306305
+    second: 5x-scanlines-1920x1120-ver2_105
   - first:
-      213: -5622792532776397284
-    second: 5x-scanlines-1920x1120_106
+      213: -1608659859001067688
+    second: 5x-scanlines-1920x1120-ver2_106
   - first:
-      213: 1446424521561144111
-    second: 5x-scanlines-1920x1120_107
+      213: 565186814116242153
+    second: 5x-scanlines-1920x1120-ver2_107
   - first:
-      213: 178137223406686528
-    second: 5x-scanlines-1920x1120_108
+      213: 5234796122666927068
+    second: 5x-scanlines-1920x1120-ver2_108
   - first:
-      213: 3916127322243854339
-    second: 5x-scanlines-1920x1120_109
+      213: 6030073799034663053
+    second: 5x-scanlines-1920x1120-ver2_109
   - first:
-      213: 3946152077795650696
-    second: 5x-scanlines-1920x1120_110
+      213: -3238521277078265090
+    second: 5x-scanlines-1920x1120-ver2_110
   - first:
-      213: -7965863800056580422
-    second: 5x-scanlines-1920x1120_111
+      213: 387998199443472557
+    second: 5x-scanlines-1920x1120-ver2_111
   - first:
-      213: -4896495302232252133
-    second: 5x-scanlines-1920x1120_112
+      213: 7911026091702823389
+    second: 5x-scanlines-1920x1120-ver2_112
   - first:
-      213: -727928101389067171
-    second: 5x-scanlines-1920x1120_113
+      213: 6918398568417536068
+    second: 5x-scanlines-1920x1120-ver2_113
   - first:
-      213: 8094277564751756346
-    second: 5x-scanlines-1920x1120_114
+      213: 384075592637584882
+    second: 5x-scanlines-1920x1120-ver2_114
   - first:
-      213: -5367192504118836676
-    second: 5x-scanlines-1920x1120_115
+      213: -1453301151416026252
+    second: 5x-scanlines-1920x1120-ver2_115
   - first:
-      213: -2542262234036182013
-    second: 5x-scanlines-1920x1120_116
+      213: -374994402208094487
+    second: 5x-scanlines-1920x1120-ver2_116
   - first:
-      213: -7306652714450712759
-    second: 5x-scanlines-1920x1120_117
+      213: -121887009608299088
+    second: 5x-scanlines-1920x1120-ver2_117
   - first:
-      213: -396728216019735276
-    second: 5x-scanlines-1920x1120_118
+      213: -3617763519431631432
+    second: 5x-scanlines-1920x1120-ver2_118
   - first:
-      213: 5924625055647567789
-    second: 5x-scanlines-1920x1120_119
+      213: 2011981193993445149
+    second: 5x-scanlines-1920x1120-ver2_119
   - first:
-      213: -1738613452821440190
-    second: 5x-scanlines-1920x1120_120
+      213: 2454408465703790274
+    second: 5x-scanlines-1920x1120-ver2_120
   - first:
-      213: -7349420322172128331
-    second: 5x-scanlines-1920x1120_121
+      213: 64299670926786876
+    second: 5x-scanlines-1920x1120-ver2_121
   - first:
-      213: 4785973936121748535
-    second: 5x-scanlines-1920x1120_122
+      213: -2837036879597557010
+    second: 5x-scanlines-1920x1120-ver2_122
   - first:
-      213: -7703921579009461188
-    second: 5x-scanlines-1920x1120_123
+      213: -4459189909041815372
+    second: 5x-scanlines-1920x1120-ver2_123
   - first:
-      213: 4876019169384362577
-    second: 5x-scanlines-1920x1120_124
+      213: 6148302124600310622
+    second: 5x-scanlines-1920x1120-ver2_124
   - first:
-      213: 3572716711614003256
-    second: 5x-scanlines-1920x1120_125
+      213: 3061946476053524521
+    second: 5x-scanlines-1920x1120-ver2_125
   - first:
-      213: 7569907157772356313
-    second: 5x-scanlines-1920x1120_126
+      213: -3731183537940545034
+    second: 5x-scanlines-1920x1120-ver2_126
   - first:
-      213: -8167615056345327708
-    second: 5x-scanlines-1920x1120_127
+      213: -403557548540580150
+    second: 5x-scanlines-1920x1120-ver2_127
   - first:
-      213: -489028357369004544
-    second: 5x-scanlines-1920x1120_128
+      213: 4191739880275019559
+    second: 5x-scanlines-1920x1120-ver2_128
   - first:
-      213: -4977312491675201312
-    second: 5x-scanlines-1920x1120_129
+      213: 5667314256283648338
+    second: 5x-scanlines-1920x1120-ver2_129
   - first:
-      213: 8270749946456100659
-    second: 5x-scanlines-1920x1120_130
+      213: -10235854635180761
+    second: 5x-scanlines-1920x1120-ver2_130
   - first:
-      213: -1056378738100880929
-    second: 5x-scanlines-1920x1120_131
+      213: -7640981951211043102
+    second: 5x-scanlines-1920x1120-ver2_131
   - first:
-      213: -7675281847321446624
-    second: 5x-scanlines-1920x1120_132
+      213: 6986267325497380547
+    second: 5x-scanlines-1920x1120-ver2_132
   - first:
-      213: -4849439059862162043
-    second: 5x-scanlines-1920x1120_133
+      213: 5626970225946278740
+    second: 5x-scanlines-1920x1120-ver2_133
   - first:
-      213: -3902414732590807267
-    second: 5x-scanlines-1920x1120_134
+      213: 6340330567912239752
+    second: 5x-scanlines-1920x1120-ver2_134
   - first:
-      213: -7188601386816344773
-    second: 5x-scanlines-1920x1120_135
+      213: 3442849635875705037
+    second: 5x-scanlines-1920x1120-ver2_135
   - first:
-      213: -8840001362982716384
-    second: 5x-scanlines-1920x1120_136
+      213: 7566503289834487884
+    second: 5x-scanlines-1920x1120-ver2_136
   - first:
-      213: 2682621285045728879
-    second: 5x-scanlines-1920x1120_137
+      213: -9165662859771920825
+    second: 5x-scanlines-1920x1120-ver2_137
   - first:
-      213: 5635843518387905632
-    second: 5x-scanlines-1920x1120_138
+      213: 5131896734306929519
+    second: 5x-scanlines-1920x1120-ver2_138
   - first:
-      213: -8765551386787763005
-    second: 5x-scanlines-1920x1120_139
+      213: -7882086794450795534
+    second: 5x-scanlines-1920x1120-ver2_139
   - first:
-      213: 8945644813299085526
-    second: 5x-scanlines-1920x1120_140
+      213: 1308011439181965246
+    second: 5x-scanlines-1920x1120-ver2_140
   - first:
-      213: -6525243511646946510
-    second: 5x-scanlines-1920x1120_141
+      213: 9061531096963466067
+    second: 5x-scanlines-1920x1120-ver2_141
   - first:
-      213: 2560974987215992376
-    second: 5x-scanlines-1920x1120_142
+      213: -1655747044268568778
+    second: 5x-scanlines-1920x1120-ver2_142
   - first:
-      213: -2585830654993595744
-    second: 5x-scanlines-1920x1120_143
+      213: -1853712890615304857
+    second: 5x-scanlines-1920x1120-ver2_143
   - first:
-      213: -5967325205651558756
-    second: 5x-scanlines-1920x1120_144
+      213: -151103217965329724
+    second: 5x-scanlines-1920x1120-ver2_144
   - first:
-      213: -6139327171963550754
-    second: 5x-scanlines-1920x1120_145
+      213: 1254657015419053309
+    second: 5x-scanlines-1920x1120-ver2_145
   - first:
-      213: 8817641655463064029
-    second: 5x-scanlines-1920x1120_146
+      213: 2085238788858913970
+    second: 5x-scanlines-1920x1120-ver2_146
   - first:
-      213: 4410983605844873607
-    second: 5x-scanlines-1920x1120_147
+      213: 4453376990779372736
+    second: 5x-scanlines-1920x1120-ver2_147
   - first:
-      213: -8312329952545810393
-    second: 5x-scanlines-1920x1120_148
+      213: 4490674178382081328
+    second: 5x-scanlines-1920x1120-ver2_148
   - first:
-      213: -6567596684933504281
-    second: 5x-scanlines-1920x1120_149
+      213: -4490674479811125680
+    second: 5x-scanlines-1920x1120-ver2_149
   - first:
-      213: 2018177371420045183
-    second: 5x-scanlines-1920x1120_150
+      213: -6714049603177890665
+    second: 5x-scanlines-1920x1120-ver2_150
   - first:
-      213: -3540352514292873722
-    second: 5x-scanlines-1920x1120_151
+      213: 5857316786785974885
+    second: 5x-scanlines-1920x1120-ver2_151
   - first:
-      213: -3213120700477229574
-    second: 5x-scanlines-1920x1120_152
+      213: -6090391015525343011
+    second: 5x-scanlines-1920x1120-ver2_152
   - first:
-      213: -7508158104081818612
-    second: 5x-scanlines-1920x1120_153
+      213: -4186020552701811803
+    second: 5x-scanlines-1920x1120-ver2_153
   - first:
-      213: 8580887170559823693
-    second: 5x-scanlines-1920x1120_154
+      213: -2699855215012150956
+    second: 5x-scanlines-1920x1120-ver2_154
   - first:
-      213: 7570198408766249564
-    second: 5x-scanlines-1920x1120_155
+      213: 5237261265929732273
+    second: 5x-scanlines-1920x1120-ver2_155
   - first:
-      213: -2215054415265658149
-    second: 5x-scanlines-1920x1120_156
+      213: -8099656657944665987
+    second: 5x-scanlines-1920x1120-ver2_156
   - first:
-      213: -4666268013712088478
-    second: 5x-scanlines-1920x1120_157
+      213: -198463237553114777
+    second: 5x-scanlines-1920x1120-ver2_157
   - first:
-      213: 7796682220856676125
-    second: 5x-scanlines-1920x1120_158
+      213: 6798472538207854263
+    second: 5x-scanlines-1920x1120-ver2_158
   - first:
-      213: 1448786706927762624
-    second: 5x-scanlines-1920x1120_159
+      213: -5994399704868006594
+    second: 5x-scanlines-1920x1120-ver2_159
   - first:
-      213: -7730735805674558017
-    second: 5x-scanlines-1920x1120_160
+      213: 8991353253565201063
+    second: 5x-scanlines-1920x1120-ver2_160
   - first:
-      213: -9218282556108259414
-    second: 5x-scanlines-1920x1120_161
+      213: 4084945651175324732
+    second: 5x-scanlines-1920x1120-ver2_161
   - first:
-      213: 5876393575711461197
-    second: 5x-scanlines-1920x1120_162
+      213: -3818607198723169695
+    second: 5x-scanlines-1920x1120-ver2_162
   - first:
-      213: -6860554666946062640
-    second: 5x-scanlines-1920x1120_163
+      213: -3981314041356268643
+    second: 5x-scanlines-1920x1120-ver2_163
   - first:
-      213: 9023548774300208904
-    second: 5x-scanlines-1920x1120_164
+      213: 3570381653212343946
+    second: 5x-scanlines-1920x1120-ver2_164
   - first:
-      213: 4728134543858452233
-    second: 5x-scanlines-1920x1120_165
+      213: 8906058110955308356
+    second: 5x-scanlines-1920x1120-ver2_165
   - first:
-      213: -8845944140301590235
-    second: 5x-scanlines-1920x1120_166
+      213: -9019005366368520944
+    second: 5x-scanlines-1920x1120-ver2_166
   - first:
-      213: -2385511714094443494
-    second: 5x-scanlines-1920x1120_167
+      213: -5536326582808028583
+    second: 5x-scanlines-1920x1120-ver2_167
   - first:
-      213: 3806860878553123860
-    second: 5x-scanlines-1920x1120_168
+      213: 2361608352455471246
+    second: 5x-scanlines-1920x1120-ver2_168
   - first:
-      213: 6198760803056522651
-    second: 5x-scanlines-1920x1120_169
+      213: 2037254879421853917
+    second: 5x-scanlines-1920x1120-ver2_169
   - first:
-      213: 2170900025305637409
-    second: 5x-scanlines-1920x1120_170
+      213: 2656190540065017790
+    second: 5x-scanlines-1920x1120-ver2_170
   - first:
-      213: 1313047543972037517
-    second: 5x-scanlines-1920x1120_171
+      213: 6661049484360951308
+    second: 5x-scanlines-1920x1120-ver2_171
   - first:
-      213: -8915865811006063979
-    second: 5x-scanlines-1920x1120_172
+      213: 5075844283131289385
+    second: 5x-scanlines-1920x1120-ver2_172
   - first:
-      213: 643765870558157342
-    second: 5x-scanlines-1920x1120_173
+      213: -2612122846571790295
+    second: 5x-scanlines-1920x1120-ver2_173
   - first:
-      213: 2093402665789972592
-    second: 5x-scanlines-1920x1120_174
+      213: 4500718563230647200
+    second: 5x-scanlines-1920x1120-ver2_174
   - first:
-      213: -4429142269530040330
-    second: 5x-scanlines-1920x1120_175
+      213: -2111319260240802430
+    second: 5x-scanlines-1920x1120-ver2_175
   - first:
-      213: 27883985079178434
-    second: 5x-scanlines-1920x1120_176
+      213: 1795034489558154092
+    second: 5x-scanlines-1920x1120-ver2_176
   - first:
-      213: 2486901588820350146
-    second: 5x-scanlines-1920x1120_177
+      213: 1422016892694808008
+    second: 5x-scanlines-1920x1120-ver2_177
   - first:
-      213: -8334365876010749559
-    second: 5x-scanlines-1920x1120_178
+      213: -6556991714077330602
+    second: 5x-scanlines-1920x1120-ver2_178
   - first:
-      213: -6460083941508869477
-    second: 5x-scanlines-1920x1120_179
+      213: -5888907134085130012
+    second: 5x-scanlines-1920x1120-ver2_179
   - first:
-      213: -8085227957226249131
-    second: 5x-scanlines-1920x1120_180
+      213: 7935065610715661908
+    second: 5x-scanlines-1920x1120-ver2_180
   - first:
-      213: 8615165531482273187
-    second: 5x-scanlines-1920x1120_181
+      213: 2359500514901422302
+    second: 5x-scanlines-1920x1120-ver2_181
   - first:
-      213: 2600108888710320343
-    second: 5x-scanlines-1920x1120_182
+      213: 3648209412395768522
+    second: 5x-scanlines-1920x1120-ver2_182
   - first:
-      213: 7541700585058420503
-    second: 5x-scanlines-1920x1120_183
+      213: 5694581033437998167
+    second: 5x-scanlines-1920x1120-ver2_183
   - first:
-      213: 6428409796325904968
-    second: 5x-scanlines-1920x1120_184
+      213: 1207550828458986470
+    second: 5x-scanlines-1920x1120-ver2_184
   - first:
-      213: -5154565074391267593
-    second: 5x-scanlines-1920x1120_185
+      213: -3362622934177111281
+    second: 5x-scanlines-1920x1120-ver2_185
   - first:
-      213: 4006723859800268822
-    second: 5x-scanlines-1920x1120_186
+      213: -7404270121010409801
+    second: 5x-scanlines-1920x1120-ver2_186
   - first:
-      213: 947736651438103072
-    second: 5x-scanlines-1920x1120_187
+      213: -8221269741011309896
+    second: 5x-scanlines-1920x1120-ver2_187
   - first:
-      213: 6452540750856068083
-    second: 5x-scanlines-1920x1120_188
+      213: 56528989272511847
+    second: 5x-scanlines-1920x1120-ver2_188
   - first:
-      213: 7210263759623581628
-    second: 5x-scanlines-1920x1120_189
+      213: -4543837965294103473
+    second: 5x-scanlines-1920x1120-ver2_189
   - first:
-      213: 1712918930732998300
-    second: 5x-scanlines-1920x1120_190
+      213: -7149431960626325419
+    second: 5x-scanlines-1920x1120-ver2_190
   - first:
-      213: 5153092333074768913
-    second: 5x-scanlines-1920x1120_191
+      213: -3076420216598611577
+    second: 5x-scanlines-1920x1120-ver2_191
   - first:
-      213: -5028898230662339937
-    second: 5x-scanlines-1920x1120_192
+      213: 187223731452729270
+    second: 5x-scanlines-1920x1120-ver2_192
   - first:
-      213: 3225789256674467445
-    second: 5x-scanlines-1920x1120_193
+      213: 8713284845560848118
+    second: 5x-scanlines-1920x1120-ver2_193
   - first:
-      213: 1581491988930290047
-    second: 5x-scanlines-1920x1120_194
+      213: -5464073361892300302
+    second: 5x-scanlines-1920x1120-ver2_194
   - first:
-      213: 4969638217343003637
-    second: 5x-scanlines-1920x1120_195
+      213: 5293148930121459691
+    second: 5x-scanlines-1920x1120-ver2_195
   - first:
-      213: 4539431788104607995
-    second: 5x-scanlines-1920x1120_196
+      213: 8568693736780982071
+    second: 5x-scanlines-1920x1120-ver2_196
   - first:
-      213: 7545280248760662668
-    second: 5x-scanlines-1920x1120_197
+      213: 6244344663440527617
+    second: 5x-scanlines-1920x1120-ver2_197
   - first:
-      213: -4996564133704245865
-    second: 5x-scanlines-1920x1120_198
+      213: 5682688103761810970
+    second: 5x-scanlines-1920x1120-ver2_198
   - first:
-      213: 5863795786897315773
-    second: 5x-scanlines-1920x1120_199
+      213: 5576426172469729141
+    second: 5x-scanlines-1920x1120-ver2_199
   - first:
-      213: -2931182254848414671
-    second: 5x-scanlines-1920x1120_200
+      213: 1292910808818778138
+    second: 5x-scanlines-1920x1120-ver2_200
   - first:
-      213: -4025136668230670715
-    second: 5x-scanlines-1920x1120_201
+      213: -2486268975490943963
+    second: 5x-scanlines-1920x1120-ver2_201
   - first:
-      213: -8132173179055669137
-    second: 5x-scanlines-1920x1120_202
+      213: -447184111506632872
+    second: 5x-scanlines-1920x1120-ver2_202
   - first:
-      213: 542436011277306101
-    second: 5x-scanlines-1920x1120_203
+      213: 8524446625073872186
+    second: 5x-scanlines-1920x1120-ver2_203
   - first:
-      213: -7124768720539936133
-    second: 5x-scanlines-1920x1120_204
+      213: 3362989294335256923
+    second: 5x-scanlines-1920x1120-ver2_204
   - first:
-      213: 5224064851416576229
-    second: 5x-scanlines-1920x1120_205
+      213: -9074779291798955350
+    second: 5x-scanlines-1920x1120-ver2_205
   - first:
-      213: -5416644848923736309
-    second: 5x-scanlines-1920x1120_206
+      213: -4223487212868843263
+    second: 5x-scanlines-1920x1120-ver2_206
   - first:
-      213: -2208169859489069652
-    second: 5x-scanlines-1920x1120_207
+      213: 7158864317590346371
+    second: 5x-scanlines-1920x1120-ver2_207
   - first:
-      213: -4735436200010720031
-    second: 5x-scanlines-1920x1120_208
+      213: 328172795376008028
+    second: 5x-scanlines-1920x1120-ver2_208
   - first:
-      213: 7917318284541797350
-    second: 5x-scanlines-1920x1120_209
+      213: 235913481671530679
+    second: 5x-scanlines-1920x1120-ver2_209
   - first:
-      213: 2561244834420730125
-    second: 5x-scanlines-1920x1120_210
+      213: 987067574719919849
+    second: 5x-scanlines-1920x1120-ver2_210
   - first:
-      213: 3307650090784906965
-    second: 5x-scanlines-1920x1120_211
+      213: -7409672857088040585
+    second: 5x-scanlines-1920x1120-ver2_211
   - first:
-      213: -1026081309130778228
-    second: 5x-scanlines-1920x1120_212
+      213: 974292793403668524
+    second: 5x-scanlines-1920x1120-ver2_212
   - first:
-      213: 1165765526292735576
-    second: 5x-scanlines-1920x1120_213
+      213: 6876463580873748745
+    second: 5x-scanlines-1920x1120-ver2_213
   - first:
-      213: -330487692083692141
-    second: 5x-scanlines-1920x1120_214
+      213: -2453193315333512197
+    second: 5x-scanlines-1920x1120-ver2_214
   - first:
-      213: -8970336743686848417
-    second: 5x-scanlines-1920x1120_215
+      213: -7972526871742522251
+    second: 5x-scanlines-1920x1120-ver2_215
   - first:
-      213: -169217660818315947
-    second: 5x-scanlines-1920x1120_216
+      213: -8518537190360638332
+    second: 5x-scanlines-1920x1120-ver2_216
   - first:
-      213: -7374374838594621394
-    second: 5x-scanlines-1920x1120_217
+      213: -7543638340222211558
+    second: 5x-scanlines-1920x1120-ver2_217
   - first:
-      213: 8830325277571439468
-    second: 5x-scanlines-1920x1120_218
+      213: -4271532256592517528
+    second: 5x-scanlines-1920x1120-ver2_218
   - first:
-      213: 7901541252595147548
-    second: 5x-scanlines-1920x1120_219
+      213: -5494057877049590627
+    second: 5x-scanlines-1920x1120-ver2_219
   - first:
-      213: 6742442665522291920
-    second: 5x-scanlines-1920x1120_220
+      213: -7496003923494311031
+    second: 5x-scanlines-1920x1120-ver2_220
   - first:
-      213: 3959865472082430249
-    second: 5x-scanlines-1920x1120_221
+      213: 4245660249600219804
+    second: 5x-scanlines-1920x1120-ver2_221
   - first:
-      213: 8327493644036979387
-    second: 5x-scanlines-1920x1120_222
+      213: -8919889373714306902
+    second: 5x-scanlines-1920x1120-ver2_222
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -766,7 +766,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_0
+      name: 5x-scanlines-1920x1120-ver2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -781,14 +781,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de572aa8676486dc0800000000000000
-      internalID: -3645586423410428435
+      spriteID: cc78e4d14c7d28a50800000000000000
+      internalID: 6522012447691147212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_1
+      name: 5x-scanlines-1920x1120-ver2_1
       rect:
         serializedVersion: 2
         x: 0
@@ -803,14 +803,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c307986d0618c25c0800000000000000
-      internalID: -4238870896346304452
+      spriteID: 93c8b145fa0b35d10800000000000000
+      internalID: 2113226917243751481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_2
+      name: 5x-scanlines-1920x1120-ver2_2
       rect:
         serializedVersion: 2
         x: 0
@@ -825,14 +825,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 038a5aa951fdbde80800000000000000
-      internalID: -8152677416542296016
+      spriteID: fd893cc6e9ef7f730800000000000000
+      internalID: 4032971947716614367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_3
+      name: 5x-scanlines-1920x1120-ver2_3
       rect:
         serializedVersion: 2
         x: 0
@@ -847,14 +847,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c95b6b057f3d1c6d0800000000000000
-      internalID: -2971861219923282532
+      spriteID: 99910fa19e48a6b90800000000000000
+      internalID: -7247834513585202791
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_4
+      name: 5x-scanlines-1920x1120-ver2_4
       rect:
         serializedVersion: 2
         x: 0
@@ -869,14 +869,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f072c60db5775f360800000000000000
-      internalID: 7202794415271454479
+      spriteID: efdc16915c84dfce0800000000000000
+      internalID: -1369858700279165442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_5
+      name: 5x-scanlines-1920x1120-ver2_5
       rect:
         serializedVersion: 2
         x: 0
@@ -891,14 +891,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 475d35bcb64ef92e0800000000000000
-      internalID: -2116722148216941196
+      spriteID: 012bbbca0a1dc1110800000000000000
+      internalID: 1233090886015627792
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_6
+      name: 5x-scanlines-1920x1120-ver2_6
       rect:
         serializedVersion: 2
         x: 0
@@ -913,14 +913,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f6989e0ac2c857ba0800000000000000
-      internalID: -6091808797642618513
+      spriteID: df04e4218d3c76360800000000000000
+      internalID: 7162909065143533821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_7
+      name: 5x-scanlines-1920x1120-ver2_7
       rect:
         serializedVersion: 2
         x: 0
@@ -935,14 +935,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3828bbd6086bcced0800000000000000
-      internalID: -2392336639327501693
+      spriteID: 077d4ea08e2224120800000000000000
+      internalID: 2396516331725051760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_8
+      name: 5x-scanlines-1920x1120-ver2_8
       rect:
         serializedVersion: 2
         x: 0
@@ -957,14 +957,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5db20e3e8516f8a0800000000000000
-      internalID: -6271801730396930725
+      spriteID: 8e838f31efeb19900800000000000000
+      internalID: 689542216430401768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_9
+      name: 5x-scanlines-1920x1120-ver2_9
       rect:
         serializedVersion: 2
         x: 0
@@ -979,14 +979,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d61b569942b4d1150800000000000000
-      internalID: 5844910511961256301
+      spriteID: 906722b4d344e51f0800000000000000
+      internalID: -1054330232713873911
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_10
+      name: 5x-scanlines-1920x1120-ver2_10
       rect:
         serializedVersion: 2
         x: 0
@@ -1001,14 +1001,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b440ed0ec62d6ff30800000000000000
-      internalID: 4609102633731228747
+      spriteID: 205383351f5519820800000000000000
+      internalID: 2923212128111834370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_11
+      name: 5x-scanlines-1920x1120-ver2_11
       rect:
         serializedVersion: 2
         x: 0
@@ -1023,14 +1023,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d49ba8ec888d3580800000000000000
-      internalID: -8845763954305428270
+      spriteID: df1803576f1487470800000000000000
+      internalID: 8392530432388792829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_12
+      name: 5x-scanlines-1920x1120-ver2_12
       rect:
         serializedVersion: 2
         x: 0
@@ -1045,14 +1045,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 144e649f5fcd51410800000000000000
-      internalID: 1447305804276753473
+      spriteID: 9f1f6755b6852e780800000000000000
+      internalID: -8655258315834068487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_13
+      name: 5x-scanlines-1920x1120-ver2_13
       rect:
         serializedVersion: 2
         x: 0
@@ -1067,14 +1067,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1980e692509c9f8f0800000000000000
-      internalID: -506152459095373679
+      spriteID: 83bff95189c02f7c0800000000000000
+      internalID: -4039152068460545224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_14
+      name: 5x-scanlines-1920x1120-ver2_14
       rect:
         serializedVersion: 2
         x: 0
@@ -1089,14 +1089,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 061d9ee882b714330800000000000000
-      internalID: 3693368583547113824
+      spriteID: e39dc525938aa3220800000000000000
+      internalID: 2466468710087186750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_15
+      name: 5x-scanlines-1920x1120-ver2_15
       rect:
         serializedVersion: 2
         x: 0
@@ -1111,14 +1111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9e9a924c1c8cbb00800000000000000
-      internalID: 845704883043212954
+      spriteID: ae032d1be4ebed1e0800000000000000
+      internalID: -2171088725145931542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_16
+      name: 5x-scanlines-1920x1120-ver2_16
       rect:
         serializedVersion: 2
         x: 0
@@ -1133,14 +1133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab34baf6953052c70800000000000000
-      internalID: 8945559917501825978
+      spriteID: ce7d10c770e6ee800800000000000000
+      internalID: 643572775184881644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_17
+      name: 5x-scanlines-1920x1120-ver2_17
       rect:
         serializedVersion: 2
         x: 0
@@ -1155,14 +1155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58c737756e359c280800000000000000
-      internalID: -9022588129685308283
+      spriteID: 6df3da8ec6e107900800000000000000
+      internalID: 680076996841914326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_18
+      name: 5x-scanlines-1920x1120-ver2_18
       rect:
         serializedVersion: 2
         x: 0
@@ -1177,14 +1177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ff6ab295d7a7eba0800000000000000
-      internalID: -6059690237872148492
+      spriteID: df0fdc49cbfd16050800000000000000
+      internalID: 5792156596818538749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_19
+      name: 5x-scanlines-1920x1120-ver2_19
       rect:
         serializedVersion: 2
         x: 0
@@ -1199,14 +1199,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63f8d0cdabb505fa0800000000000000
-      internalID: -5814046260821389514
+      spriteID: 024a7377e6d82b3c0800000000000000
+      internalID: -4345255184873053152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_20
+      name: 5x-scanlines-1920x1120-ver2_20
       rect:
         serializedVersion: 2
         x: 0
@@ -1221,14 +1221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f7d26f2d7f2c7800800000000000000
-      internalID: 611415864127969270
+      spriteID: 107919f05d5b1f0a0800000000000000
+      internalID: -6849493631559952639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_21
+      name: 5x-scanlines-1920x1120-ver2_21
       rect:
         serializedVersion: 2
         x: 0
@@ -1243,14 +1243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d762d52ad38e973c0800000000000000
-      internalID: -4361199412716951939
+      spriteID: 9d719f48d3a0be4c0800000000000000
+      internalID: -4257297763408472103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_22
+      name: 5x-scanlines-1920x1120-ver2_22
       rect:
         serializedVersion: 2
         x: 0
@@ -1265,14 +1265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01a066cd10a6a8bb0800000000000000
-      internalID: -4933013885605770736
+      spriteID: ee5888958284e4e40800000000000000
+      internalID: 5642526721279821294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_23
+      name: 5x-scanlines-1920x1120-ver2_23
       rect:
         serializedVersion: 2
         x: 0
@@ -1287,14 +1287,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f2682b8292154b40800000000000000
-      internalID: 5423761746846835444
+      spriteID: 80b8fb82c228c32a0800000000000000
+      internalID: -6756382214788773112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_24
+      name: 5x-scanlines-1920x1120-ver2_24
       rect:
         serializedVersion: 2
         x: 0
@@ -1309,14 +1309,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 265f8203bceae2790800000000000000
-      internalID: -7552907337344158366
+      spriteID: 03da5d8a871102cd0800000000000000
+      internalID: -2585046976184341200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_25
+      name: 5x-scanlines-1920x1120-ver2_25
       rect:
         serializedVersion: 2
         x: 0
@@ -1331,14 +1331,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e600df1196a8a2ab0800000000000000
-      internalID: -5032057449755115410
+      spriteID: 3ed9a60fef231ad20800000000000000
+      internalID: 3287965273493773795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_26
+      name: 5x-scanlines-1920x1120-ver2_26
       rect:
         serializedVersion: 2
         x: 0
@@ -1353,14 +1353,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 992db9dc036a76e30800000000000000
-      internalID: 4496745481490911897
+      spriteID: 325a803def22e64d0800000000000000
+      internalID: -3139533412373060317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_27
+      name: 5x-scanlines-1920x1120-ver2_27
       rect:
         serializedVersion: 2
         x: 0
@@ -1375,14 +1375,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd08c51ef97b75e10800000000000000
-      internalID: 2186418041420284125
+      spriteID: 08673ad151420fee0800000000000000
+      internalID: -1229443025161980288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_28
+      name: 5x-scanlines-1920x1120-ver2_28
       rect:
         serializedVersion: 2
         x: 0
@@ -1397,14 +1397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63af4451d5d834ef0800000000000000
-      internalID: -125100933707924938
+      spriteID: 3cff49f23ecc41f20800000000000000
+      internalID: 3392561695444762563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_29
+      name: 5x-scanlines-1920x1120-ver2_29
       rect:
         serializedVersion: 2
         x: 0
@@ -1419,14 +1419,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 962ec52d7e134f630800000000000000
-      internalID: 3959844844102017641
+      spriteID: 6e716c3ed1af986b0800000000000000
+      internalID: -5293424880714901530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_30
+      name: 5x-scanlines-1920x1120-ver2_30
       rect:
         serializedVersion: 2
         x: 0
@@ -1441,14 +1441,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4a8fc67940fc3910800000000000000
-      internalID: 1818592547867429452
+      spriteID: 766b784aafbca6e70800000000000000
+      internalID: 9109317473672869479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_31
+      name: 5x-scanlines-1920x1120-ver2_31
       rect:
         serializedVersion: 2
         x: 0
@@ -1463,14 +1463,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6aa45c80d6f562140800000000000000
-      internalID: 4694544583483542182
+      spriteID: 25ec28a25c9f28f60800000000000000
+      internalID: 8035259310399475282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_32
+      name: 5x-scanlines-1920x1120-ver2_32
       rect:
         serializedVersion: 2
         x: 0
@@ -1485,14 +1485,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d50e304089c969b0800000000000000
-      internalID: -5086312751467461164
+      spriteID: 3412c0612f0491900800000000000000
+      internalID: 655626629255274819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_33
+      name: 5x-scanlines-1920x1120-ver2_33
       rect:
         serializedVersion: 2
         x: 0
@@ -1507,14 +1507,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c4f2ccd302741060800000000000000
-      internalID: 6923283888089527496
+      spriteID: c3f465374a7d8af00800000000000000
+      internalID: 1128388807965953852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_34
+      name: 5x-scanlines-1920x1120-ver2_34
       rect:
         serializedVersion: 2
         x: 0
@@ -1529,14 +1529,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af0af1b22bed98980800000000000000
-      internalID: -8536046761895026438
+      spriteID: 98645f34101b12a40800000000000000
+      internalID: 5341745252031350409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_35
+      name: 5x-scanlines-1920x1120-ver2_35
       rect:
         serializedVersion: 2
         x: 0
@@ -1551,14 +1551,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4397af4f99d794550800000000000000
-      internalID: 6145581266717276468
+      spriteID: ac5a2f6555af90940800000000000000
+      internalID: 5263012883997042122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_36
+      name: 5x-scanlines-1920x1120-ver2_36
       rect:
         serializedVersion: 2
         x: 0
@@ -1573,14 +1573,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9c33fe7d81de0670800000000000000
-      internalID: 8506967151799909533
+      spriteID: a3fd4d4d77f022040800000000000000
+      internalID: 4621273174981795642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_37
+      name: 5x-scanlines-1920x1120-ver2_37
       rect:
         serializedVersion: 2
         x: 0
@@ -1595,14 +1595,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4e9ee23796ef0f160800000000000000
-      internalID: 7057420344947042788
+      spriteID: e7b879f6bdf716e40800000000000000
+      internalID: 5647935988146080638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_38
+      name: 5x-scanlines-1920x1120-ver2_38
       rect:
         serializedVersion: 2
         x: 0
@@ -1617,14 +1617,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e72b99285eebd8780800000000000000
-      internalID: -8679071013925178754
+      spriteID: 4a921f4f10cd9b400800000000000000
+      internalID: 340545147805706660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_39
+      name: 5x-scanlines-1920x1120-ver2_39
       rect:
         serializedVersion: 2
         x: 0
@@ -1639,14 +1639,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8ddc7ad2c44ed880800000000000000
-      internalID: -8584348236041626228
+      spriteID: ea5877ead7dd31420800000000000000
+      internalID: 2599664941790627246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_40
+      name: 5x-scanlines-1920x1120-ver2_40
       rect:
         serializedVersion: 2
         x: 0
@@ -1661,14 +1661,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4bc2ad5fe91ee73a0800000000000000
-      internalID: -6665642325615956812
+      spriteID: 0898a73c73dff8850800000000000000
+      internalID: 6381597612951898496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_41
+      name: 5x-scanlines-1920x1120-ver2_41
       rect:
         serializedVersion: 2
         x: 0
@@ -1683,14 +1683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d5269a9007c0b6320800000000000000
-      internalID: 2552147289173484125
+      spriteID: 7ad1af23c58009d60800000000000000
+      internalID: 7894819338865745319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_42
+      name: 5x-scanlines-1920x1120-ver2_42
       rect:
         serializedVersion: 2
         x: 0
@@ -1705,14 +1705,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d70e12e761ff9140800000000000000
-      internalID: 4728763562239854544
+      spriteID: 56f17030504472760800000000000000
+      internalID: 7432984498314616677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_43
+      name: 5x-scanlines-1920x1120-ver2_43
       rect:
         serializedVersion: 2
         x: 0
@@ -1727,14 +1727,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c16a46b8ca7b97e0800000000000000
-      internalID: -1757676227087670845
+      spriteID: 907ab08f0122b9690800000000000000
+      internalID: -7594438890353875191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_44
+      name: 5x-scanlines-1920x1120-ver2_44
       rect:
         serializedVersion: 2
         x: 0
@@ -1749,14 +1749,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 342958642c7d86760800000000000000
-      internalID: 7451442812891271747
+      spriteID: 0c5b0bae6d1980710800000000000000
+      internalID: 1659736814932506048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_45
+      name: 5x-scanlines-1920x1120-ver2_45
       rect:
         serializedVersion: 2
         x: 0
@@ -1771,14 +1771,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b35b4e02daf934a10800000000000000
-      internalID: 1892531834355758395
+      spriteID: 48b9507eeb41d5690800000000000000
+      internalID: -7611904985034024060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_46
+      name: 5x-scanlines-1920x1120-ver2_46
       rect:
         serializedVersion: 2
         x: 0
@@ -1793,14 +1793,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 993d53f13e28f7dc0800000000000000
-      internalID: -3639046061899263079
+      spriteID: 4eaf734156f04a530800000000000000
+      internalID: 3865231306996054756
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_47
+      name: 5x-scanlines-1920x1120-ver2_47
       rect:
         serializedVersion: 2
         x: 0
@@ -1815,14 +1815,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 48978a71bc424f820800000000000000
-      internalID: 2951024110528395652
+      spriteID: 7edc37dfb50b9cbd0800000000000000
+      internalID: -2609360599943754265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_48
+      name: 5x-scanlines-1920x1120-ver2_48
       rect:
         serializedVersion: 2
         x: 0
@@ -1837,14 +1837,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df6b34414b2dc6910800000000000000
-      internalID: 1832070819308877565
+      spriteID: 1a7f2caf22ad04930800000000000000
+      internalID: 4125537102442198945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_49
+      name: 5x-scanlines-1920x1120-ver2_49
       rect:
         serializedVersion: 2
         x: 0
@@ -1859,14 +1859,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 379476ee67f94db30800000000000000
-      internalID: 4311246076455111027
+      spriteID: a698f467c03d7d370800000000000000
+      internalID: 8347372484832495978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_50
+      name: 5x-scanlines-1920x1120-ver2_50
       rect:
         serializedVersion: 2
         x: 0
@@ -1881,14 +1881,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a64e37173a040fb10800000000000000
-      internalID: 2013180104161879146
+      spriteID: 8d29015806f14ebc0800000000000000
+      internalID: -3754841689910373672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_51
+      name: 5x-scanlines-1920x1120-ver2_51
       rect:
         serializedVersion: 2
         x: 0
@@ -1903,14 +1903,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b44fa42b8cf9dbe0800000000000000
-      internalID: -1451851730304154440
+      spriteID: 7fc386c33a53d5f20800000000000000
+      internalID: 3412943067826109687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_52
+      name: 5x-scanlines-1920x1120-ver2_52
       rect:
         serializedVersion: 2
         x: 0
@@ -1925,14 +1925,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91ca08c3aef3f46e0800000000000000
-      internalID: -1851190646556021735
+      spriteID: be06dd0f7c853b5e0800000000000000
+      internalID: -1895073402430070549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_53
+      name: 5x-scanlines-1920x1120-ver2_53
       rect:
         serializedVersion: 2
         x: 0
@@ -1947,14 +1947,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f42bf843e8366ea0800000000000000
-      internalID: -5879949714652453644
+      spriteID: 79ec928fe393ac6e0800000000000000
+      internalID: -1816576557076328809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_54
+      name: 5x-scanlines-1920x1120-ver2_54
       rect:
         serializedVersion: 2
         x: 0
@@ -1969,14 +1969,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2df17e904f848c910800000000000000
-      internalID: 1857815059265691602
+      spriteID: 82aed2392988d1f70800000000000000
+      internalID: 9159627380257319464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_55
+      name: 5x-scanlines-1920x1120-ver2_55
       rect:
         serializedVersion: 2
         x: 0
@@ -1991,14 +1991,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 437aaa6e126fc9c80800000000000000
-      internalID: -8314500186568480972
+      spriteID: a59412b0c6f9272b0800000000000000
+      internalID: -5588228901221349030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_56
+      name: 5x-scanlines-1920x1120-ver2_56
       rect:
         serializedVersion: 2
         x: 0
@@ -2013,14 +2013,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98fb90dd41ee8ff90800000000000000
-      internalID: -6919519054079606903
+      spriteID: 5675df70528ec2400800000000000000
+      internalID: 300870520872458085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_57
+      name: 5x-scanlines-1920x1120-ver2_57
       rect:
         serializedVersion: 2
         x: 0
@@ -2035,14 +2035,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0537eb66912699200800000000000000
-      internalID: 187288720750048080
+      spriteID: 9411e3735f80d6a90800000000000000
+      internalID: -7319183970120363703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_58
+      name: 5x-scanlines-1920x1120-ver2_58
       rect:
         serializedVersion: 2
         x: 0
@@ -2057,14 +2057,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19d1a9da8c06c9c20800000000000000
-      internalID: 3214550649057975697
+      spriteID: 1338a4fdb890ed980800000000000000
+      internalID: -8512355749332352207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_59
+      name: 5x-scanlines-1920x1120-ver2_59
       rect:
         serializedVersion: 2
         x: 0
@@ -2079,14 +2079,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f63b21c0f9a0bbd40800000000000000
-      internalID: 5601082239783973743
+      spriteID: c7fa5873d4fc8e490800000000000000
+      internalID: -7716690030948405380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_60
+      name: 5x-scanlines-1920x1120-ver2_60
       rect:
         serializedVersion: 2
         x: 0
@@ -2101,14 +2101,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ebdcf6bc9c9fb3760800000000000000
-      internalID: 7438813854629350846
+      spriteID: 5e82e3d710fc00940800000000000000
+      internalID: 5260431970071881957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_61
+      name: 5x-scanlines-1920x1120-ver2_61
       rect:
         serializedVersion: 2
         x: 0
@@ -2123,14 +2123,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e3ad5bb985e2465b0800000000000000
-      internalID: -5376121097069143490
+      spriteID: 73892de7a0cfca170800000000000000
+      internalID: 8191198944287692855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_62
+      name: 5x-scanlines-1920x1120-ver2_62
       rect:
         serializedVersion: 2
         x: 0
@@ -2145,14 +2145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 48d93d646a6f0b7e0800000000000000
-      internalID: -1751629061033845372
+      spriteID: 8db6e1a0e01b603e0800000000000000
+      internalID: -2087786703382221864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_63
+      name: 5x-scanlines-1920x1120-ver2_63
       rect:
         serializedVersion: 2
         x: 0
@@ -2167,14 +2167,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 711d4bc41e0541b70800000000000000
-      internalID: 8868802494784131351
+      spriteID: fe543e560b0161eb0800000000000000
+      internalID: -4749590407205927441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_64
+      name: 5x-scanlines-1920x1120-ver2_64
       rect:
         serializedVersion: 2
         x: 0
@@ -2189,14 +2189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33f553ee724b94bb0800000000000000
-      internalID: -4951228231723950285
+      spriteID: d115ad0f5af7ea480800000000000000
+      internalID: -8886024664068239075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_65
+      name: 5x-scanlines-1920x1120-ver2_65
       rect:
         serializedVersion: 2
         x: 0
@@ -2211,14 +2211,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 841e834ee11d9aa60800000000000000
-      internalID: 7685904169692619080
+      spriteID: f3c8cbc8a4c716120800000000000000
+      internalID: 2405340335623146559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_66
+      name: 5x-scanlines-1920x1120-ver2_66
       rect:
         serializedVersion: 2
         x: 0
@@ -2233,14 +2233,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 213287bf9dfb67f80800000000000000
-      internalID: -8109083136086236398
+      spriteID: 144b58703acc97ce0800000000000000
+      internalID: -1406868407998630847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_67
+      name: 5x-scanlines-1920x1120-ver2_67
       rect:
         serializedVersion: 2
         x: 0
@@ -2255,14 +2255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd1d744a5ee54db10800000000000000
-      internalID: 2005332074483405277
+      spriteID: 360cd77f0eaa1d5d0800000000000000
+      internalID: -3039460390296764317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_68
+      name: 5x-scanlines-1920x1120-ver2_68
       rect:
         serializedVersion: 2
         x: 0
@@ -2277,14 +2277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15d1c5c9fcb727270800000000000000
-      internalID: 8246789999280528721
+      spriteID: 4462c7d87489c1490800000000000000
+      internalID: -7774171423664495036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_69
+      name: 5x-scanlines-1920x1120-ver2_69
       rect:
         serializedVersion: 2
         x: 0
@@ -2299,14 +2299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08bc0266ddd1adb30800000000000000
-      internalID: 4312792429899074432
+      spriteID: 9a0e162a24b08ce30800000000000000
+      internalID: 4523878206513733801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_70
+      name: 5x-scanlines-1920x1120-ver2_70
       rect:
         serializedVersion: 2
         x: 0
@@ -2321,14 +2321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9af5869b0dbc49c10800000000000000
-      internalID: 2059495026939420585
+      spriteID: 4a8089af486f2df70800000000000000
+      internalID: 9210695238926469284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_71
+      name: 5x-scanlines-1920x1120-ver2_71
       rect:
         serializedVersion: 2
         x: 0
@@ -2343,14 +2343,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ce181a22185cf76f0800000000000000
-      internalID: -684611459914563092
+      spriteID: e61fc924570a4b6b0800000000000000
+      internalID: -5281420037509549714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_72
+      name: 5x-scanlines-1920x1120-ver2_72
       rect:
         serializedVersion: 2
         x: 0
@@ -2365,14 +2365,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef567d75745aef2e0800000000000000
-      internalID: -2090051451218336258
+      spriteID: 7d3d036db4bf287d0800000000000000
+      internalID: -2917493305448016937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_73
+      name: 5x-scanlines-1920x1120-ver2_73
       rect:
         serializedVersion: 2
         x: 0
@@ -2387,14 +2387,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a36cc1d00370b3f30800000000000000
-      internalID: 4556243350975202874
+      spriteID: 52957625bd106b850800000000000000
+      internalID: 6392298762590968101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_74
+      name: 5x-scanlines-1920x1120-ver2_74
       rect:
         serializedVersion: 2
         x: 0
@@ -2409,14 +2409,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14d55c4740de43cf0800000000000000
-      internalID: -273333073968014015
+      spriteID: 914817aa389625970800000000000000
+      internalID: 8742165840900752409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_75
+      name: 5x-scanlines-1920x1120-ver2_75
       rect:
         serializedVersion: 2
         x: 0
@@ -2431,14 +2431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9edf7c879e6608fe0800000000000000
-      internalID: -1188837148686025239
+      spriteID: f8e8b7726ded4a5b0800000000000000
+      internalID: -5357912645297271153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_76
+      name: 5x-scanlines-1920x1120-ver2_76
       rect:
         serializedVersion: 2
         x: 0
@@ -2453,14 +2453,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb621e7250ee8df00800000000000000
-      internalID: 1141924211449734847
+      spriteID: 8e89d3118d485dc40800000000000000
+      internalID: 5536477380458944744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_77
+      name: 5x-scanlines-1920x1120-ver2_77
       rect:
         serializedVersion: 2
         x: 0
@@ -2475,14 +2475,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f915a6aa6e6692e00800000000000000
-      internalID: 1020459931463733663
+      spriteID: 2a5e584413443ec20800000000000000
+      internalID: 3234503935775860130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_78
+      name: 5x-scanlines-1920x1120-ver2_78
       rect:
         serializedVersion: 2
         x: 0
@@ -2497,14 +2497,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8e38070fe12d14e0800000000000000
-      internalID: -2009412548238492019
+      spriteID: 13ef7ba4886b91d70800000000000000
+      internalID: 9014436825644138033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_79
+      name: 5x-scanlines-1920x1120-ver2_79
       rect:
         serializedVersion: 2
         x: 0
@@ -2519,14 +2519,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f2effbf7d3154b5c0800000000000000
-      internalID: -4200643227851686353
+      spriteID: 9f1fae0b2ea494a70800000000000000
+      internalID: 8811656483418337785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_80
+      name: 5x-scanlines-1920x1120-ver2_80
       rect:
         serializedVersion: 2
         x: 0
@@ -2541,14 +2541,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b81b4aae7f66459f0800000000000000
-      internalID: -480646045242183285
+      spriteID: e3c5b2c27c46c8560800000000000000
+      internalID: 7317334301172522046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_81
+      name: 5x-scanlines-1920x1120-ver2_81
       rect:
         serializedVersion: 2
         x: 0
@@ -2563,14 +2563,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43da07bf4c2ce8a40800000000000000
-      internalID: 5372445556787424564
+      spriteID: d6f06c7f3e0f3e1c0800000000000000
+      internalID: -4475468742770946195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_82
+      name: 5x-scanlines-1920x1120-ver2_82
       rect:
         serializedVersion: 2
         x: 0
@@ -2585,14 +2585,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9612d1bbc5aa484c0800000000000000
-      internalID: -4286113630096907927
+      spriteID: dbf9cc9c29a32bfb0800000000000000
+      internalID: -4633576664485552195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_83
+      name: 5x-scanlines-1920x1120-ver2_83
       rect:
         serializedVersion: 2
         x: 0
@@ -2607,14 +2607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: adbcac4e212594330800000000000000
-      internalID: 3695575210335587290
+      spriteID: 2f6d1d0f148fec450800000000000000
+      internalID: 6111094706485188338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_84
+      name: 5x-scanlines-1920x1120-ver2_84
       rect:
         serializedVersion: 2
         x: 0
@@ -2629,14 +2629,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2adb735712df78290800000000000000
-      internalID: -7888057902173799006
+      spriteID: 86688eea08bb32030800000000000000
+      internalID: 3468822299370096232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_85
+      name: 5x-scanlines-1920x1120-ver2_85
       rect:
         serializedVersion: 2
         x: 0
@@ -2651,14 +2651,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c844ac69b7d202300800000000000000
-      internalID: 225229990202590348
+      spriteID: 91c6da1230673a020800000000000000
+      internalID: 2351853186239523865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_86
+      name: 5x-scanlines-1920x1120-ver2_86
       rect:
         serializedVersion: 2
         x: 0
@@ -2673,14 +2673,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ace8f1cf640ce990800000000000000
-      internalID: -7355499213360665440
+      spriteID: 31b47231a52a8bc70800000000000000
+      internalID: 8987111564169923347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_87
+      name: 5x-scanlines-1920x1120-ver2_87
       rect:
         serializedVersion: 2
         x: 0
@@ -2695,14 +2695,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf8bcc9adbe3f7380800000000000000
-      internalID: -8971382948380231428
+      spriteID: 1e9ff56bd10d0e370800000000000000
+      internalID: 8349902535177271777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_88
+      name: 5x-scanlines-1920x1120-ver2_88
       rect:
         serializedVersion: 2
         x: 0
@@ -2717,14 +2717,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 561eeb424d1225640800000000000000
-      internalID: 5067149725778501989
+      spriteID: 531e5ca5bb34b2050800000000000000
+      internalID: 5776785418993656117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_89
+      name: 5x-scanlines-1920x1120-ver2_89
       rect:
         serializedVersion: 2
         x: 0
@@ -2739,14 +2739,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2afab4c0b2aede390800000000000000
-      internalID: -7787310710042939486
+      spriteID: 4f26665f614062750800000000000000
+      internalID: 6279711227067654900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_90
+      name: 5x-scanlines-1920x1120-ver2_90
       rect:
         serializedVersion: 2
         x: 0
@@ -2761,14 +2761,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5de56abac099e0c0800000000000000
-      internalID: -4545943148468769444
+      spriteID: f4f0f5ac9a75a3360800000000000000
+      internalID: 7150123745160400719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_91
+      name: 5x-scanlines-1920x1120-ver2_91
       rect:
         serializedVersion: 2
         x: 0
@@ -2783,14 +2783,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 833b3911832acc340800000000000000
-      internalID: 4885458057486906168
+      spriteID: 74ecfd216a1029460800000000000000
+      internalID: 7246856563185405511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_92
+      name: 5x-scanlines-1920x1120-ver2_92
       rect:
         serializedVersion: 2
         x: 0
@@ -2805,14 +2805,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9b0a6713517f2380800000000000000
-      internalID: -8993845329146541157
+      spriteID: ef87bbcab4eb22cf0800000000000000
+      internalID: -278450994713757442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_93
+      name: 5x-scanlines-1920x1120-ver2_93
       rect:
         serializedVersion: 2
         x: 0
@@ -2827,14 +2827,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 102c50c714505b8e0800000000000000
-      internalID: -1678429507313876479
+      spriteID: 5bbf1c95a348fcf40800000000000000
+      internalID: 5750960635324267445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_94
+      name: 5x-scanlines-1920x1120-ver2_94
       rect:
         serializedVersion: 2
         x: 0
@@ -2849,14 +2849,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0926cfc6726ec980800000000000000
-      internalID: -8516761582879495923
+      spriteID: 90b3e7d2ec9106ec0800000000000000
+      internalID: -3575829730814969079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_95
+      name: 5x-scanlines-1920x1120-ver2_95
       rect:
         serializedVersion: 2
         x: 0
@@ -2871,14 +2871,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90f58a1ae19706570800000000000000
-      internalID: 8457893272669937417
+      spriteID: 29cd6df2ee53dc050800000000000000
+      internalID: 5822369190381018258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_96
+      name: 5x-scanlines-1920x1120-ver2_96
       rect:
         serializedVersion: 2
         x: 0
@@ -2893,14 +2893,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0fe428bb0722269a0800000000000000
-      internalID: -6241388266004525328
+      spriteID: d03db7cf3064a7a60800000000000000
+      internalID: 7672521898113880845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_97
+      name: 5x-scanlines-1920x1120-ver2_97
       rect:
         serializedVersion: 2
         x: 0
@@ -2915,14 +2915,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05754554f04b319b0800000000000000
-      internalID: -5110543174454716592
+      spriteID: 4435731301b82b4b0800000000000000
+      internalID: -5426121699366579388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_98
+      name: 5x-scanlines-1920x1120-ver2_98
       rect:
         serializedVersion: 2
         x: 0
@@ -2937,14 +2937,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4fdc845d4172b2430800000000000000
-      internalID: 3759141284401958388
+      spriteID: 3ba76ffceff38d7d0800000000000000
+      internalID: -2893492396942263629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_99
+      name: 5x-scanlines-1920x1120-ver2_99
       rect:
         serializedVersion: 2
         x: 0
@@ -2959,14 +2959,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de504c5e952b47040800000000000000
-      internalID: 4644533214902486509
+      spriteID: e96ba995e6b054030800000000000000
+      internalID: 3478198855791195806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_100
+      name: 5x-scanlines-1920x1120-ver2_100
       rect:
         serializedVersion: 2
         x: 0
@@ -2981,14 +2981,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf9ef84c518c00e10800000000000000
-      internalID: 2161947816955472380
+      spriteID: 320407a1e607bd430800000000000000
+      internalID: 3808761528064163875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_101
+      name: 5x-scanlines-1920x1120-ver2_101
       rect:
         serializedVersion: 2
         x: 0
@@ -3003,14 +3003,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1deea99e654ef1a50800000000000000
-      internalID: 6494160249629109969
+      spriteID: 6afe40a3df9957cb0800000000000000
+      internalID: -4866814509424775258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_102
+      name: 5x-scanlines-1920x1120-ver2_102
       rect:
         serializedVersion: 2
         x: 0
@@ -3025,14 +3025,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79784a0b593a9b930800000000000000
-      internalID: 4159535594162390935
+      spriteID: 971055e0905421d50800000000000000
+      internalID: 6706498700305564025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_103
+      name: 5x-scanlines-1920x1120-ver2_103
       rect:
         serializedVersion: 2
         x: 0
@@ -3047,14 +3047,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d39d88c41b6a16a10800000000000000
-      internalID: 1900983798150519101
+      spriteID: a0ee73c76c965f850800000000000000
+      internalID: 6410145945840250378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_104
+      name: 5x-scanlines-1920x1120-ver2_104
       rect:
         serializedVersion: 2
         x: 0
@@ -3069,14 +3069,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71294fe5a0beea950800000000000000
-      internalID: 6462360945098527255
+      spriteID: 8198e0e04ac2272f0800000000000000
+      internalID: -976669086063884008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_105
+      name: 5x-scanlines-1920x1120-ver2_105
       rect:
         serializedVersion: 2
         x: 0
@@ -3091,14 +3091,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d172bd02fbf1842c0800000000000000
-      internalID: -4447269726277916899
+      spriteID: 14d6b78473e163f70800000000000000
+      internalID: 9166547314347306305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_106
+      name: 5x-scanlines-1920x1120-ver2_106
       rect:
         serializedVersion: 2
         x: 0
@@ -3113,14 +3113,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c16d4267bf3d7f1b0800000000000000
-      internalID: -5622792532776397284
+      spriteID: 857bfcb9164eca9e0800000000000000
+      internalID: -1608659859001067688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_107
+      name: 5x-scanlines-1920x1120-ver2_107
       rect:
         serializedVersion: 2
         x: 0
@@ -3135,14 +3135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f2bf01a507bb21410800000000000000
-      internalID: 1446424521561144111
+      spriteID: 9e22227b962f7d700800000000000000
+      internalID: 565186814116242153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_108
+      name: 5x-scanlines-1920x1120-ver2_108
       rect:
         serializedVersion: 2
         x: 0
@@ -3157,14 +3157,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0411e626cded87200800000000000000
-      internalID: 178137223406686528
+      spriteID: cd38723a65bb5a840800000000000000
+      internalID: 5234796122666927068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_109
+      name: 5x-scanlines-1920x1120-ver2_109
       rect:
         serializedVersion: 2
         x: 0
@@ -3179,14 +3179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 300fb811d01e85630800000000000000
-      internalID: 3916127322243854339
+      spriteID: d80f9d8eb202fa350800000000000000
+      internalID: 6030073799034663053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_110
+      name: 5x-scanlines-1920x1120-ver2_110
       rect:
         serializedVersion: 2
         x: 0
@@ -3201,14 +3201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88cedaa386c83c630800000000000000
-      internalID: 3946152077795650696
+      spriteID: ef2a4329e067e03d0800000000000000
+      internalID: -3238521277078265090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_111
+      name: 5x-scanlines-1920x1120-ver2_111
       rect:
         serializedVersion: 2
         x: 0
@@ -3223,14 +3223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab6fb7c2411937190800000000000000
-      internalID: -7965863800056580422
+      spriteID: da0c1538e42726500800000000000000
+      internalID: 387998199443472557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_112
+      name: 5x-scanlines-1920x1120-ver2_112
       rect:
         serializedVersion: 2
         x: 0
@@ -3245,14 +3245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b11e31227772c0cb0800000000000000
-      internalID: -4896495302232252133
+      spriteID: dd92bc4e05c99cd60800000000000000
+      internalID: 7911026091702823389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_113
+      name: 5x-scanlines-1920x1120-ver2_113
       rect:
         serializedVersion: 2
         x: 0
@@ -3267,14 +3267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d5c1eae9f31e5e5f0800000000000000
-      internalID: -727928101389067171
+      spriteID: 448291db7d6130060800000000000000
+      internalID: 6918398568417536068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_114
+      name: 5x-scanlines-1920x1120-ver2_114
       rect:
         serializedVersion: 2
         x: 0
@@ -3289,14 +3289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a3c31705f86a45070800000000000000
-      internalID: 8094277564751756346
+      spriteID: 2f59f0277b2845500800000000000000
+      internalID: 384075592637584882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_115
+      name: 5x-scanlines-1920x1120-ver2_115
       rect:
         serializedVersion: 2
         x: 0
@@ -3311,14 +3311,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c328bd6aad6e385b0800000000000000
-      internalID: -5367192504118836676
+      spriteID: 47b7e2e7d46d4dbe0800000000000000
+      internalID: -1453301151416026252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_116
+      name: 5x-scanlines-1920x1120-ver2_116
       rect:
         serializedVersion: 2
         x: 0
@@ -3333,14 +3333,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 304e166b7f118bcd0800000000000000
-      internalID: -2542262234036182013
+      spriteID: 9e660a7f390cbcaf0800000000000000
+      internalID: -374994402208094487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_117
+      name: 5x-scanlines-1920x1120-ver2_117
       rect:
         serializedVersion: 2
         x: 0
@@ -3355,14 +3355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 947850a811e899a90800000000000000
-      internalID: -7306652714450712759
+      spriteID: 0bd00991968fe4ef0800000000000000
+      internalID: -121887009608299088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_118
+      name: 5x-scanlines-1920x1120-ver2_118
       rect:
         serializedVersion: 2
         x: 0
@@ -3377,14 +3377,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41de4cb1ac98e7af0800000000000000
-      internalID: -396728216019735276
+      spriteID: 8bd19ee2f3f1bcdc0800000000000000
+      internalID: -3617763519431631432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_119
+      name: 5x-scanlines-1920x1120-ver2_119
       rect:
         serializedVersion: 2
         x: 0
@@ -3399,14 +3399,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: daf804d191f783250800000000000000
-      internalID: 5924625055647567789
+      spriteID: d1fdeba6c3efbeb10800000000000000
+      internalID: 2011981193993445149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_120
+      name: 5x-scanlines-1920x1120-ver2_120
       rect:
         serializedVersion: 2
         x: 0
@@ -3421,14 +3421,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 249dcd6b6443fd7e0800000000000000
-      internalID: -1738613452821440190
+      spriteID: 2c66cfbde7fcf0220800000000000000
+      internalID: 2454408465703790274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_121
+      name: 5x-scanlines-1920x1120-ver2_121
       rect:
         serializedVersion: 2
         x: 0
@@ -3443,14 +3443,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5b3b4e7e72d910a90800000000000000
-      internalID: -7349420322172128331
+      spriteID: c3104c4c53074e000800000000000000
+      internalID: 64299670926786876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_122
+      name: 5x-scanlines-1920x1120-ver2_122
       rect:
         serializedVersion: 2
         x: 0
@@ -3465,14 +3465,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 73c90de00f13b6240800000000000000
-      internalID: 4785973936121748535
+      spriteID: eeaa7e04df1d0a8d0800000000000000
+      internalID: -2837036879597557010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_123
+      name: 5x-scanlines-1920x1120-ver2_123
       rect:
         serializedVersion: 2
         x: 0
@@ -3487,14 +3487,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c34bca9142c261590800000000000000
-      internalID: -7703921579009461188
+      spriteID: 4b06e8d4766cd12c0800000000000000
+      internalID: -4459189909041815372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_124
+      name: 5x-scanlines-1920x1120-ver2_124
       rect:
         serializedVersion: 2
         x: 0
@@ -3509,14 +3509,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 152762da9991ba340800000000000000
-      internalID: 4876019169384362577
+      spriteID: e5bb49c0538235550800000000000000
+      internalID: 6148302124600310622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_125
+      name: 5x-scanlines-1920x1120-ver2_125
       rect:
         serializedVersion: 2
         x: 0
@@ -3531,14 +3531,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 838bade8be6d49130800000000000000
-      internalID: 3572716711614003256
+      spriteID: 920fd6ad8183e7a20800000000000000
+      internalID: 3061946476053524521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_126
+      name: 5x-scanlines-1920x1120-ver2_126
       rect:
         serializedVersion: 2
         x: 0
@@ -3553,14 +3553,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9da45b1f376bd0960800000000000000
-      internalID: 7569907157772356313
+      spriteID: 6f1c445475c283cc0800000000000000
+      internalID: -3731183537940545034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_127
+      name: 5x-scanlines-1920x1120-ver2_127
       rect:
         serializedVersion: 2
         x: 0
@@ -3575,14 +3575,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a79760516dc6ae80800000000000000
-      internalID: -8167615056345327708
+      spriteID: aceafc83c86466af0800000000000000
+      internalID: -403557548540580150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_128
+      name: 5x-scanlines-1920x1120-ver2_128
       rect:
         serializedVersion: 2
         x: 0
@@ -3597,14 +3597,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00e7de9cc4f9639f0800000000000000
-      internalID: -489028357369004544
+      spriteID: 72781aa563d0c2a30800000000000000
+      internalID: 4191739880275019559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_129
+      name: 5x-scanlines-1920x1120-ver2_129
       rect:
         serializedVersion: 2
         x: 0
@@ -3619,14 +3619,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e0d595e8a80deab0800000000000000
-      internalID: -4977312491675201312
+      spriteID: 2514b441a4856ae40800000000000000
+      internalID: 5667314256283648338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_130
+      name: 5x-scanlines-1920x1120-ver2_130
       rect:
         serializedVersion: 2
         x: 0
@@ -3641,14 +3641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33fc898814b97c270800000000000000
-      internalID: 8270749946456100659
+      spriteID: 72d5f706b82abdff0800000000000000
+      internalID: -10235854635180761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_131
+      name: 5x-scanlines-1920x1120-ver2_131
       rect:
         serializedVersion: 2
         x: 0
@@ -3663,14 +3663,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fd9b837722df651f0800000000000000
-      internalID: -1056378738100880929
+      spriteID: 2e605e62667c5f590800000000000000
+      internalID: -7640981951211043102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_132
+      name: 5x-scanlines-1920x1120-ver2_132
       rect:
         serializedVersion: 2
         x: 0
@@ -3685,14 +3685,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 027b66343dbeb7590800000000000000
-      internalID: -7675281847321446624
+      spriteID: 3ce80322e1534f060800000000000000
+      internalID: 6986267325497380547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_133
+      name: 5x-scanlines-1920x1120-ver2_133
       rect:
         serializedVersion: 2
         x: 0
@@ -3707,14 +3707,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 585f2055ed453bcb0800000000000000
-      internalID: -4849439059862162043
+      spriteID: 45b3a378b93071e40800000000000000
+      internalID: 5626970225946278740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_134
+      name: 5x-scanlines-1920x1120-ver2_134
       rect:
         serializedVersion: 2
         x: 0
@@ -3729,14 +3729,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d178ca10a76d7d9c0800000000000000
-      internalID: -3902414732590807267
+      spriteID: 882b5fa1f016df750800000000000000
+      internalID: 6340330567912239752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_135
+      name: 5x-scanlines-1920x1120-ver2_135
       rect:
         serializedVersion: 2
         x: 0
@@ -3751,14 +3751,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3d6ee22025fc3c90800000000000000
-      internalID: -7188601386816344773
+      spriteID: dc05479b08577cf20800000000000000
+      internalID: 3442849635875705037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_136
+      name: 5x-scanlines-1920x1120-ver2_136
       rect:
         serializedVersion: 2
         x: 0
@@ -3773,14 +3773,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 02c3271c891025580800000000000000
-      internalID: -8840001362982716384
+      spriteID: c40c86e27ae910960800000000000000
+      internalID: 7566503289834487884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_137
+      name: 5x-scanlines-1920x1120-ver2_137
       rect:
         serializedVersion: 2
         x: 0
@@ -3795,14 +3795,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f667d0a78d59a3520800000000000000
-      internalID: 2682621285045728879
+      spriteID: 74ebd48d0360dc080800000000000000
+      internalID: -9165662859771920825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_138
+      name: 5x-scanlines-1920x1120-ver2_138
       rect:
         serializedVersion: 2
         x: 0
@@ -3817,14 +3817,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 064e23be1d9863e40800000000000000
-      internalID: 5635843518387905632
+      spriteID: f6b0a50d3e8283740800000000000000
+      internalID: 5131896734306929519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_139
+      name: 5x-scanlines-1920x1120-ver2_139
       rect:
         serializedVersion: 2
         x: 0
@@ -3839,14 +3839,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3cc2512a4718a5680800000000000000
-      internalID: -8765551386787763005
+      spriteID: 2f386ff42d33d9290800000000000000
+      internalID: -7882086794450795534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_140
+      name: 5x-scanlines-1920x1120-ver2_140
       rect:
         serializedVersion: 2
         x: 0
@@ -3861,14 +3861,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d0f187cf80552c70800000000000000
-      internalID: 8945644813299085526
+      spriteID: eb7a69a497df62210800000000000000
+      internalID: 1308011439181965246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_141
+      name: 5x-scanlines-1920x1120-ver2_141
       rect:
         serializedVersion: 2
         x: 0
@@ -3883,14 +3883,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 23b7c5f299da175a0800000000000000
-      internalID: -6525243511646946510
+      spriteID: 353c9abc58601cd70800000000000000
+      internalID: 9061531096963466067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_142
+      name: 5x-scanlines-1920x1120-ver2_142
       rect:
         serializedVersion: 2
         x: 0
@@ -3905,14 +3905,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8367ba7ae296a8320800000000000000
-      internalID: 2560974987215992376
+      spriteID: 63f0874f5da9509e0800000000000000
+      internalID: -1655747044268568778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_143
+      name: 5x-scanlines-1920x1120-ver2_143
       rect:
         serializedVersion: 2
         x: 0
@@ -3927,14 +3927,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a28ac738b84d1cd0800000000000000
-      internalID: -2585830654993595744
+      spriteID: 76def4782f94646e0800000000000000
+      internalID: -1853712890615304857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_144
+      name: 5x-scanlines-1920x1120-ver2_144
       rect:
         serializedVersion: 2
         x: 0
@@ -3949,14 +3949,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9e67e9775dcf2da0800000000000000
-      internalID: -5967325205651558756
+      spriteID: 4c212c08c6c27edf0800000000000000
+      internalID: -151103217965329724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_145
+      name: 5x-scanlines-1920x1120-ver2_145
       rect:
         serializedVersion: 2
         x: 0
@@ -3971,14 +3971,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed38533f67abccaa0800000000000000
-      internalID: -6139327171963550754
+      spriteID: df4210778ef696110800000000000000
+      internalID: 1254657015419053309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_146
+      name: 5x-scanlines-1920x1120-ver2_146
       rect:
         serializedVersion: 2
         x: 0
@@ -3993,14 +3993,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd130962e5e8e5a70800000000000000
-      internalID: 8817641655463064029
+      spriteID: 2b42dc161a140fc10800000000000000
+      internalID: 2085238788858913970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_147
+      name: 5x-scanlines-1920x1120-ver2_147
       rect:
         serializedVersion: 2
         x: 0
@@ -4015,14 +4015,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78194781836f63d30800000000000000
-      internalID: 4410983605844873607
+      spriteID: 0c47d4237c29dcd30800000000000000
+      internalID: 4453376990779372736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_148
+      name: 5x-scanlines-1920x1120-ver2_148
       rect:
         serializedVersion: 2
         x: 0
@@ -4037,14 +4037,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 728daa2e2fba4ac80800000000000000
-      internalID: -8312329952545810393
+      spriteID: 03dab746f54125e30800000000000000
+      internalID: 4490674178382081328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_149
+      name: 5x-scanlines-1920x1120-ver2_149
       rect:
         serializedVersion: 2
         x: 0
@@ -4059,14 +4059,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e261869c953bd4a0800000000000000
-      internalID: -6567596684933504281
+      spriteID: 05e12fc6a5beda1c0800000000000000
+      internalID: -4490674479811125680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_150
+      name: 5x-scanlines-1920x1120-ver2_150
       rect:
         serializedVersion: 2
         x: 0
@@ -4081,14 +4081,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7f293560a1020c10800000000000000
-      internalID: 2018177371420045183
+      spriteID: 79cba3e5577e2d2a0800000000000000
+      internalID: -6714049603177890665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_151
+      name: 5x-scanlines-1920x1120-ver2_151
       rect:
         serializedVersion: 2
         x: 0
@@ -4103,14 +4103,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 60689e555242edec0800000000000000
-      internalID: -3540352514292873722
+      spriteID: 56a7f4d859e594150800000000000000
+      internalID: 5857316786785974885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_152
+      name: 5x-scanlines-1920x1120-ver2_152
       rect:
         serializedVersion: 2
         x: 0
@@ -4125,14 +4125,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af5b99b2fb3b863d0800000000000000
-      internalID: -3213120700477229574
+      spriteID: dd0a160c3a59a7ba0800000000000000
+      internalID: -6090391015525343011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_153
+      name: 5x-scanlines-1920x1120-ver2_153
       rect:
         serializedVersion: 2
         x: 0
@@ -4147,14 +4147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c0c9bb8fbf9adc790800000000000000
-      internalID: -7508158104081818612
+      spriteID: 5a369bd5c7448e5c0800000000000000
+      internalID: -4186020552701811803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_154
+      name: 5x-scanlines-1920x1120-ver2_154
       rect:
         serializedVersion: 2
         x: 0
@@ -4169,14 +4169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d4fccea0b6f651770800000000000000
-      internalID: 8580887170559823693
+      spriteID: 45107348cff288ad0800000000000000
+      internalID: -2699855215012150956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_155
+      name: 5x-scanlines-1920x1120-ver2_155
       rect:
         serializedVersion: 2
         x: 0
@@ -4191,14 +4191,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5a5db9185fbe0960800000000000000
-      internalID: 7570198408766249564
+      spriteID: 1b087a78f5d7ea840800000000000000
+      internalID: 5237261265929732273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_156
+      name: 5x-scanlines-1920x1120-ver2_156
       rect:
         serializedVersion: 2
         x: 0
@@ -4213,14 +4213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bda0ee3cebb8241e0800000000000000
-      internalID: -2215054415265658149
+      spriteID: d70a494fe2d389f80800000000000000
+      internalID: -8099656657944665987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_157
+      name: 5x-scanlines-1920x1120-ver2_157
       rect:
         serializedVersion: 2
         x: 0
@@ -4235,14 +4235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2626ce7e6f51e3fb0800000000000000
-      internalID: -4666268013712088478
+      spriteID: 7613ca8acbaee3df0800000000000000
+      internalID: -198463237553114777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_158
+      name: 5x-scanlines-1920x1120-ver2_158
       rect:
         serializedVersion: 2
         x: 0
@@ -4257,14 +4257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1f04c8db21633c60800000000000000
-      internalID: 7796682220856676125
+      spriteID: 7be902fe0c6095e50800000000000000
+      internalID: 6798472538207854263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_159
+      name: 5x-scanlines-1920x1120-ver2_159
       rect:
         serializedVersion: 2
         x: 0
@@ -4279,14 +4279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ccbcbd75df1b1410800000000000000
-      internalID: 1448786706927762624
+      spriteID: e35d2a56a3d9fcca0800000000000000
+      internalID: -5994399704868006594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_160
+      name: 5x-scanlines-1920x1120-ver2_160
       rect:
         serializedVersion: 2
         x: 0
@@ -4301,14 +4301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fbdef527eb8e6b490800000000000000
-      internalID: -7730735805674558017
+      spriteID: 7aa7ec85524b7cc70800000000000000
+      internalID: 8991353253565201063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_161
+      name: 5x-scanlines-1920x1120-ver2_161
       rect:
         serializedVersion: 2
         x: 0
@@ -4323,14 +4323,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aafbcf31bd4121080800000000000000
-      internalID: -9218282556108259414
+      spriteID: c3cf4114d64a0b830800000000000000
+      internalID: 4084945651175324732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_162
+      name: 5x-scanlines-1920x1120-ver2_162
       rect:
         serializedVersion: 2
         x: 0
@@ -4345,14 +4345,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d4f4ba892d42d8150800000000000000
-      internalID: 5876393575711461197
+      spriteID: 1622b5f0cf4910bc0800000000000000
+      internalID: -3818607198723169695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_163
+      name: 5x-scanlines-1920x1120-ver2_163
       rect:
         serializedVersion: 2
         x: 0
@@ -4367,14 +4367,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d6188211e96ac0a0800000000000000
-      internalID: -6860554666946062640
+      spriteID: d9b4fa929f78fb8c0800000000000000
+      internalID: -3981314041356268643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_164
+      name: 5x-scanlines-1920x1120-ver2_164
       rect:
         serializedVersion: 2
         x: 0
@@ -4389,14 +4389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80f43992dc51a3d70800000000000000
-      internalID: 9023548774300208904
+      spriteID: a8e2b48623b8c8130800000000000000
+      internalID: 3570381653212343946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_165
+      name: 5x-scanlines-1920x1120-ver2_165
       rect:
         serializedVersion: 2
         x: 0
@@ -4411,14 +4411,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 907cfe02155bd9140800000000000000
-      internalID: 4728134543858452233
+      spriteID: 4454a746aaca89b70800000000000000
+      internalID: 8906058110955308356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_166
+      name: 5x-scanlines-1920x1120-ver2_166
       rect:
         serializedVersion: 2
         x: 0
@@ -4433,14 +4433,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 52120661ca4ec3580800000000000000
-      internalID: -8845944140301590235
+      spriteID: 015334e676e06d280800000000000000
+      internalID: -9019005366368520944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_167
+      name: 5x-scanlines-1920x1120-ver2_167
       rect:
         serializedVersion: 2
         x: 0
@@ -4455,14 +4455,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a141ed92cb5f4eed0800000000000000
-      internalID: -2385511714094443494
+      spriteID: 95adc2f3e440b23b0800000000000000
+      internalID: -5536326582808028583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_168
+      name: 5x-scanlines-1920x1120-ver2_168
       rect:
         serializedVersion: 2
         x: 0
@@ -4477,14 +4477,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41c8d77accfa4d430800000000000000
-      internalID: 3806860878553123860
+      spriteID: e8034b2c84e16c020800000000000000
+      internalID: 2361608352455471246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_169
+      name: 5x-scanlines-1920x1120-ver2_169
       rect:
         serializedVersion: 2
         x: 0
@@ -4499,14 +4499,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b959cc1ab1c660650800000000000000
-      internalID: 6198760803056522651
+      spriteID: dd0fedcd488c54c10800000000000000
+      internalID: 2037254879421853917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_170
+      name: 5x-scanlines-1920x1120-ver2_170
       rect:
         serializedVersion: 2
         x: 0
@@ -4521,14 +4521,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 122aa333216902e10800000000000000
-      internalID: 2170900025305637409
+      spriteID: ebf045c193facd420800000000000000
+      internalID: 2656190540065017790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_171
+      name: 5x-scanlines-1920x1120-ver2_171
       rect:
         serializedVersion: 2
         x: 0
@@ -4543,14 +4543,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8307afc8c1e83210800000000000000
-      internalID: 1313047543972037517
+      spriteID: c0622aad63dc07c50800000000000000
+      internalID: 6661049484360951308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_172
+      name: 5x-scanlines-1920x1120-ver2_172
       rect:
         serializedVersion: 2
         x: 0
@@ -4565,14 +4565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59afeed784b744480800000000000000
-      internalID: -8915865811006063979
+      spriteID: 92fdc378b75017640800000000000000
+      internalID: 5075844283131289385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_173
+      name: 5x-scanlines-1920x1120-ver2_173
       rect:
         serializedVersion: 2
         x: 0
@@ -4587,14 +4587,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1a932106ad1fe800800000000000000
-      internalID: 643765870558157342
+      spriteID: 92008645c10efbbd0800000000000000
+      internalID: -2612122846571790295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_174
+      name: 5x-scanlines-1920x1120-ver2_174
       rect:
         serializedVersion: 2
         x: 0
@@ -4609,14 +4609,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 070644a12a24d0d10800000000000000
-      internalID: 2093402665789972592
+      spriteID: 0a38e5bffa3c57e30800000000000000
+      internalID: 4500718563230647200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_175
+      name: 5x-scanlines-1920x1120-ver2_175
       rect:
         serializedVersion: 2
         x: 0
@@ -4631,14 +4631,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f79efc82968882c0800000000000000
-      internalID: -4429142269530040330
+      spriteID: 28d08eda15613b2e0800000000000000
+      internalID: -2111319260240802430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_176
+      name: 5x-scanlines-1920x1120-ver2_176
       rect:
         serializedVersion: 2
         x: 0
@@ -4653,14 +4653,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c411913650136000800000000000000
-      internalID: 27883985079178434
+      spriteID: c6b30b59b5e39e810800000000000000
+      internalID: 1795034489558154092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_177
+      name: 5x-scanlines-1920x1120-ver2_177
       rect:
         serializedVersion: 2
         x: 0
@@ -4675,14 +4675,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c4ddf0a1df338220800000000000000
-      internalID: 2486901588820350146
+      spriteID: 8c5cda964d40cb310800000000000000
+      internalID: 1422016892694808008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_178
+      name: 5x-scanlines-1920x1120-ver2_178
       rect:
         serializedVersion: 2
         x: 0
@@ -4697,14 +4697,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 981fd34a462665c80800000000000000
-      internalID: -8334365876010749559
+      spriteID: 653bd37c6c2e005a0800000000000000
+      internalID: -6556991714077330602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_179
+      name: 5x-scanlines-1920x1120-ver2_179
       rect:
         serializedVersion: 2
         x: 0
@@ -4719,14 +4719,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b929827d1eb2956a0800000000000000
-      internalID: -6460083941508869477
+      spriteID: 4e8979d8926664ea0800000000000000
+      internalID: -5888907134085130012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_180
+      name: 5x-scanlines-1920x1120-ver2_180
       rect:
         serializedVersion: 2
         x: 0
@@ -4741,14 +4741,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 554e871a2008bcf80800000000000000
-      internalID: -8085227957226249131
+      spriteID: 456002491240f1e60800000000000000
+      internalID: 7935065610715661908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_181
+      name: 5x-scanlines-1920x1120-ver2_181
       rect:
         serializedVersion: 2
         x: 0
@@ -4763,14 +4763,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a5b031e7673f8770800000000000000
-      internalID: 8615165531482273187
+      spriteID: ed0fc069731aeb020800000000000000
+      internalID: 2359500514901422302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_182
+      name: 5x-scanlines-1920x1120-ver2_182
       rect:
         serializedVersion: 2
         x: 0
@@ -4785,14 +4785,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7d01ae02241751420800000000000000
-      internalID: 2600108888710320343
+      spriteID: aca161ca12b01a230800000000000000
+      internalID: 3648209412395768522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_183
+      name: 5x-scanlines-1920x1120-ver2_183
       rect:
         serializedVersion: 2
         x: 0
@@ -4807,14 +4807,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71743c679b089a860800000000000000
-      internalID: 7541700585058420503
+      spriteID: 75cafba5747370f40800000000000000
+      internalID: 5694581033437998167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_184
+      name: 5x-scanlines-1920x1120-ver2_184
       rect:
         serializedVersion: 2
         x: 0
@@ -4829,14 +4829,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 84295ac86ac463950800000000000000
-      internalID: 6428409796325904968
+      spriteID: 6ebc682a41512c010800000000000000
+      internalID: 1207550828458986470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_185
+      name: 5x-scanlines-1920x1120-ver2_185
       rect:
         serializedVersion: 2
         x: 0
@@ -4851,14 +4851,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f60649ff5e4778b0800000000000000
-      internalID: -5154565074391267593
+      spriteID: f03aaced1409551d0800000000000000
+      internalID: -3362622934177111281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_186
+      name: 5x-scanlines-1920x1120-ver2_186
       rect:
         serializedVersion: 2
         x: 0
@@ -4873,14 +4873,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6102a783f1eba9730800000000000000
-      internalID: 4006723859800268822
+      spriteID: 7bec220fd8fbe3990800000000000000
+      internalID: -7404270121010409801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_187
+      name: 5x-scanlines-1920x1120-ver2_187
       rect:
         serializedVersion: 2
         x: 0
@@ -4895,14 +4895,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 02a16919679072d00800000000000000
-      internalID: 947736651438103072
+      spriteID: 8ba6a5c8abe28ed80800000000000000
+      internalID: -8221269741011309896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_188
+      name: 5x-scanlines-1920x1120-ver2_188
       rect:
         serializedVersion: 2
         x: 0
@@ -4917,14 +4917,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fb128930a70c8950800000000000000
-      internalID: 6452540750856068083
+      spriteID: 7659915f0d4d8c000800000000000000
+      internalID: 56528989272511847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_189
+      name: 5x-scanlines-1920x1120-ver2_189
       rect:
         serializedVersion: 2
         x: 0
@@ -4939,14 +4939,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cbf6c3110b0001460800000000000000
-      internalID: 7210263759623581628
+      spriteID: f4416b1e17b01f0c0800000000000000
+      internalID: -4543837965294103473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_190
+      name: 5x-scanlines-1920x1120-ver2_190
       rect:
         serializedVersion: 2
         x: 0
@@ -4961,14 +4961,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9ed16b21b285c710800000000000000
-      internalID: 1712918930732998300
+      spriteID: 5581b09d28d18cc90800000000000000
+      internalID: -7149431960626325419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_191
+      name: 5x-scanlines-1920x1120-ver2_191
       rect:
         serializedVersion: 2
         x: 0
@@ -4983,14 +4983,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 114e5b7bc26738740800000000000000
-      internalID: 5153092333074768913
+      spriteID: 7893fc1dc1c5e45d0800000000000000
+      internalID: -3076420216598611577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_192
+      name: 5x-scanlines-1920x1120-ver2_192
       rect:
         serializedVersion: 2
         x: 0
@@ -5005,14 +5005,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f92e7c514b3c53ab0800000000000000
-      internalID: -5028898230662339937
+      spriteID: 6b753c6edf6299200800000000000000
+      internalID: 187223731452729270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_193
+      name: 5x-scanlines-1920x1120-ver2_193
       rect:
         serializedVersion: 2
         x: 0
@@ -5027,14 +5027,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57e5a5cec3e44cc20800000000000000
-      internalID: 3225789256674467445
+      spriteID: 6fed27ee66ecbe870800000000000000
+      internalID: 8713284845560848118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_194
+      name: 5x-scanlines-1920x1120-ver2_194
       rect:
         serializedVersion: 2
         x: 0
@@ -5049,14 +5049,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f71e057b59692f510800000000000000
-      internalID: 1581491988930290047
+      spriteID: 2f92cbd2a36bb24b0800000000000000
+      internalID: -5464073361892300302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_195
+      name: 5x-scanlines-1920x1120-ver2_195
       rect:
         serializedVersion: 2
         x: 0
@@ -5071,14 +5071,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5fb6feed0a3b7f440800000000000000
-      internalID: 4969638217343003637
+      spriteID: be7e02b58ea057940800000000000000
+      internalID: 5293148930121459691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_196
+      name: 5x-scanlines-1920x1120-ver2_196
       rect:
         serializedVersion: 2
         x: 0
@@ -5093,14 +5093,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf8671c092d4ffe30800000000000000
-      internalID: 4539431788104607995
+      spriteID: 737e1f10e8d1ae670800000000000000
+      internalID: 8568693736780982071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_197
+      name: 5x-scanlines-1920x1120-ver2_197
       rect:
         serializedVersion: 2
         x: 0
@@ -5115,14 +5115,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8a762ed86836b860800000000000000
-      internalID: 7545280248760662668
+      spriteID: 1019a7f236e58a650800000000000000
+      internalID: 6244344663440527617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_198
+      name: 5x-scanlines-1920x1120-ver2_198
       rect:
         serializedVersion: 2
         x: 0
@@ -5137,14 +5137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79dd911b463a8aab0800000000000000
-      internalID: -4996564133704245865
+      spriteID: a169f02e8b6fcde40800000000000000
+      internalID: 5682688103761810970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_199
+      name: 5x-scanlines-1920x1120-ver2_199
       rect:
         serializedVersion: 2
         x: 0
@@ -5159,14 +5159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: db752715333606150800000000000000
-      internalID: 5863795786897315773
+      spriteID: 577df360f02736d40800000000000000
+      internalID: 5576426172469729141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_200
+      name: 5x-scanlines-1920x1120-ver2_200
       rect:
         serializedVersion: 2
         x: 0
@@ -5181,14 +5181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 13ce4dfe4495257d0800000000000000
-      internalID: -2931182254848414671
+      spriteID: a1008edc78751f110800000000000000
+      internalID: 1292910808818778138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_201
+      name: 5x-scanlines-1920x1120-ver2_201
       rect:
         serializedVersion: 2
         x: 0
@@ -5203,14 +5203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58626bdb687d328c0800000000000000
-      internalID: -4025136668230670715
+      spriteID: 524b9c32a8ffe7dd0800000000000000
+      internalID: -2486268975490943963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_202
+      name: 5x-scanlines-1920x1120-ver2_202
       rect:
         serializedVersion: 2
         x: 0
@@ -5225,14 +5225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f608d6a6497b42f80800000000000000
-      internalID: -8132173179055669137
+      spriteID: 85fc27c7b684bc9f0800000000000000
+      internalID: -447184111506632872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_203
+      name: 5x-scanlines-1920x1120-ver2_203
       rect:
         serializedVersion: 2
         x: 0
@@ -5247,14 +5247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f84095adae178700800000000000000
-      internalID: 542436011277306101
+      spriteID: a3d3e428a0bec4670800000000000000
+      internalID: 8524446625073872186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_204
+      name: 5x-scanlines-1920x1120-ver2_204
       rect:
         serializedVersion: 2
         x: 0
@@ -5269,14 +5269,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b7a1769e89cbf1d90800000000000000
-      internalID: -7124768720539936133
+      spriteID: b596b4002fcbbae20800000000000000
+      internalID: 3362989294335256923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_205
+      name: 5x-scanlines-1920x1120-ver2_205
       rect:
         serializedVersion: 2
         x: 0
@@ -5291,14 +5291,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e0f948dd4b9f7840800000000000000
-      internalID: 5224064851416576229
+      spriteID: aaa90497058ef0280800000000000000
+      internalID: -9074779291798955350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_206
+      name: 5x-scanlines-1920x1120-ver2_206
       rect:
         serializedVersion: 2
         x: 0
@@ -5313,14 +5313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b078371653634d4b0800000000000000
-      internalID: -5416644848923736309
+      spriteID: 1094c83c1c82365c0800000000000000
+      internalID: -4223487212868843263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_207
+      name: 5x-scanlines-1920x1120-ver2_207
       rect:
         serializedVersion: 2
         x: 0
@@ -5335,14 +5335,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca50e6156310b51e0800000000000000
-      internalID: -2208169859489069652
+      spriteID: 38a1135ea25695360800000000000000
+      internalID: 7158864317590346371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_208
+      name: 5x-scanlines-1920x1120-ver2_208
       rect:
         serializedVersion: 2
         x: 0
@@ -5357,14 +5357,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ecd5d19dd9584eb0800000000000000
-      internalID: -4735436200010720031
+      spriteID: c5b755d2b67ed8400800000000000000
+      internalID: 328172795376008028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_209
+      name: 5x-scanlines-1920x1120-ver2_209
       rect:
         serializedVersion: 2
         x: 0
@@ -5379,14 +5379,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6e3a1d33807ffdd60800000000000000
-      internalID: 7917318284541797350
+      spriteID: 7b8d1c8cf02264300800000000000000
+      internalID: 235913481671530679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_210
+      name: 5x-scanlines-1920x1120-ver2_210
       rect:
         serializedVersion: 2
         x: 0
@@ -5401,14 +5401,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d09a37a5b9e5b8320800000000000000
-      internalID: 2561244834420730125
+      spriteID: 9e6bc70cab4c2bd00800000000000000
+      internalID: 987067574719919849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_211
+      name: 5x-scanlines-1920x1120-ver2_211
       rect:
         serializedVersion: 2
         x: 0
@@ -5423,14 +5423,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ded58e9b3227ed20800000000000000
-      internalID: 3307650090784906965
+      spriteID: 771e96b6bcd8b2990800000000000000
+      internalID: -7409672857088040585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_212
+      name: 5x-scanlines-1920x1120-ver2_212
       rect:
         serializedVersion: 2
         x: 0
@@ -5445,14 +5445,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c89979a5c70a2c1f0800000000000000
-      internalID: -1026081309130778228
+      spriteID: c287c023222658d00800000000000000
+      internalID: 974292793403668524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_213
+      name: 5x-scanlines-1920x1120-ver2_213
       rect:
         serializedVersion: 2
         x: 0
@@ -5467,14 +5467,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8562316d191ad2010800000000000000
-      internalID: 1165765526292735576
+      spriteID: 901f3e8913b1e6f50800000000000000
+      internalID: 6876463580873748745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_214
+      name: 5x-scanlines-1920x1120-ver2_214
       rect:
         serializedVersion: 2
         x: 0
@@ -5489,14 +5489,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39d76bee13fd96bf0800000000000000
-      internalID: -330487692083692141
+      spriteID: bf3ee226da184fdd0800000000000000
+      internalID: -2453193315333512197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_215
+      name: 5x-scanlines-1920x1120-ver2_215
       rect:
         serializedVersion: 2
         x: 0
@@ -5511,14 +5511,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5049ec2246f28380800000000000000
-      internalID: -8970336743686848417
+      spriteID: 57cd787ec05eb5190800000000000000
+      internalID: -7972526871742522251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_216
+      name: 5x-scanlines-1920x1120-ver2_216
       rect:
         serializedVersion: 2
         x: 0
@@ -5533,14 +5533,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 555a33d1f61d6adf0800000000000000
-      internalID: -169217660818315947
+      spriteID: 48c999afe8318c980800000000000000
+      internalID: -8518537190360638332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_217
+      name: 5x-scanlines-1920x1120-ver2_217
       rect:
         serializedVersion: 2
         x: 0
@@ -5555,14 +5555,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e203df8c725f8a990800000000000000
-      internalID: -7374374838594621394
+      spriteID: a1aa901c5ec9f4790800000000000000
+      internalID: -7543638340222211558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_218
+      name: 5x-scanlines-1920x1120-ver2_218
       rect:
         serializedVersion: 2
         x: 0
@@ -5577,14 +5577,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6b5ccc0e0e9b8a70800000000000000
-      internalID: 8830325277571439468
+      spriteID: 8662e2f4b0878b4c0800000000000000
+      internalID: -4271532256592517528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_219
+      name: 5x-scanlines-1920x1120-ver2_219
       rect:
         serializedVersion: 2
         x: 0
@@ -5599,14 +5599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c136703b7e9e7ad60800000000000000
-      internalID: 7901541252595147548
+      spriteID: d9cb507387f21c3b0800000000000000
+      internalID: -5494057877049590627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_220
+      name: 5x-scanlines-1920x1120-ver2_220
       rect:
         serializedVersion: 2
         x: 0
@@ -5621,14 +5621,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d4e4ec91e7f19d50800000000000000
-      internalID: 6742442665522291920
+      spriteID: 98bef29a528d8f790800000000000000
+      internalID: -7496003923494311031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_221
+      name: 5x-scanlines-1920x1120-ver2_221
       rect:
         serializedVersion: 2
         x: 0
@@ -5643,14 +5643,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 929cec5aaa444f630800000000000000
-      internalID: 3959865472082430249
+      spriteID: c9ada66a08d9bea30800000000000000
+      internalID: 4245660249600219804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5x-scanlines-1920x1120_222
+      name: 5x-scanlines-1920x1120-ver2_222
       rect:
         serializedVersion: 2
         x: 0
@@ -5665,8 +5665,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bbab52a2953319370800000000000000
-      internalID: 8327493644036979387
+      spriteID: aa82afbcfdf263480800000000000000
+      internalID: -8919889373714306902
       vertices: []
       indices: 
       edges: []
@@ -5685,229 +5685,229 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      5x-scanlines-1920x1120_0: -3645586423410428435
-      5x-scanlines-1920x1120_1: -4238870896346304452
-      5x-scanlines-1920x1120_10: 4609102633731228747
-      5x-scanlines-1920x1120_100: 2161947816955472380
-      5x-scanlines-1920x1120_101: 6494160249629109969
-      5x-scanlines-1920x1120_102: 4159535594162390935
-      5x-scanlines-1920x1120_103: 1900983798150519101
-      5x-scanlines-1920x1120_104: 6462360945098527255
-      5x-scanlines-1920x1120_105: -4447269726277916899
-      5x-scanlines-1920x1120_106: -5622792532776397284
-      5x-scanlines-1920x1120_107: 1446424521561144111
-      5x-scanlines-1920x1120_108: 178137223406686528
-      5x-scanlines-1920x1120_109: 3916127322243854339
-      5x-scanlines-1920x1120_11: -8845763954305428270
-      5x-scanlines-1920x1120_110: 3946152077795650696
-      5x-scanlines-1920x1120_111: -7965863800056580422
-      5x-scanlines-1920x1120_112: -4896495302232252133
-      5x-scanlines-1920x1120_113: -727928101389067171
-      5x-scanlines-1920x1120_114: 8094277564751756346
-      5x-scanlines-1920x1120_115: -5367192504118836676
-      5x-scanlines-1920x1120_116: -2542262234036182013
-      5x-scanlines-1920x1120_117: -7306652714450712759
-      5x-scanlines-1920x1120_118: -396728216019735276
-      5x-scanlines-1920x1120_119: 5924625055647567789
-      5x-scanlines-1920x1120_12: 1447305804276753473
-      5x-scanlines-1920x1120_120: -1738613452821440190
-      5x-scanlines-1920x1120_121: -7349420322172128331
-      5x-scanlines-1920x1120_122: 4785973936121748535
-      5x-scanlines-1920x1120_123: -7703921579009461188
-      5x-scanlines-1920x1120_124: 4876019169384362577
-      5x-scanlines-1920x1120_125: 3572716711614003256
-      5x-scanlines-1920x1120_126: 7569907157772356313
-      5x-scanlines-1920x1120_127: -8167615056345327708
-      5x-scanlines-1920x1120_128: -489028357369004544
-      5x-scanlines-1920x1120_129: -4977312491675201312
-      5x-scanlines-1920x1120_13: -506152459095373679
-      5x-scanlines-1920x1120_130: 8270749946456100659
-      5x-scanlines-1920x1120_131: -1056378738100880929
-      5x-scanlines-1920x1120_132: -7675281847321446624
-      5x-scanlines-1920x1120_133: -4849439059862162043
-      5x-scanlines-1920x1120_134: -3902414732590807267
-      5x-scanlines-1920x1120_135: -7188601386816344773
-      5x-scanlines-1920x1120_136: -8840001362982716384
-      5x-scanlines-1920x1120_137: 2682621285045728879
-      5x-scanlines-1920x1120_138: 5635843518387905632
-      5x-scanlines-1920x1120_139: -8765551386787763005
-      5x-scanlines-1920x1120_14: 3693368583547113824
-      5x-scanlines-1920x1120_140: 8945644813299085526
-      5x-scanlines-1920x1120_141: -6525243511646946510
-      5x-scanlines-1920x1120_142: 2560974987215992376
-      5x-scanlines-1920x1120_143: -2585830654993595744
-      5x-scanlines-1920x1120_144: -5967325205651558756
-      5x-scanlines-1920x1120_145: -6139327171963550754
-      5x-scanlines-1920x1120_146: 8817641655463064029
-      5x-scanlines-1920x1120_147: 4410983605844873607
-      5x-scanlines-1920x1120_148: -8312329952545810393
-      5x-scanlines-1920x1120_149: -6567596684933504281
-      5x-scanlines-1920x1120_15: 845704883043212954
-      5x-scanlines-1920x1120_150: 2018177371420045183
-      5x-scanlines-1920x1120_151: -3540352514292873722
-      5x-scanlines-1920x1120_152: -3213120700477229574
-      5x-scanlines-1920x1120_153: -7508158104081818612
-      5x-scanlines-1920x1120_154: 8580887170559823693
-      5x-scanlines-1920x1120_155: 7570198408766249564
-      5x-scanlines-1920x1120_156: -2215054415265658149
-      5x-scanlines-1920x1120_157: -4666268013712088478
-      5x-scanlines-1920x1120_158: 7796682220856676125
-      5x-scanlines-1920x1120_159: 1448786706927762624
-      5x-scanlines-1920x1120_16: 8945559917501825978
-      5x-scanlines-1920x1120_160: -7730735805674558017
-      5x-scanlines-1920x1120_161: -9218282556108259414
-      5x-scanlines-1920x1120_162: 5876393575711461197
-      5x-scanlines-1920x1120_163: -6860554666946062640
-      5x-scanlines-1920x1120_164: 9023548774300208904
-      5x-scanlines-1920x1120_165: 4728134543858452233
-      5x-scanlines-1920x1120_166: -8845944140301590235
-      5x-scanlines-1920x1120_167: -2385511714094443494
-      5x-scanlines-1920x1120_168: 3806860878553123860
-      5x-scanlines-1920x1120_169: 6198760803056522651
-      5x-scanlines-1920x1120_17: -9022588129685308283
-      5x-scanlines-1920x1120_170: 2170900025305637409
-      5x-scanlines-1920x1120_171: 1313047543972037517
-      5x-scanlines-1920x1120_172: -8915865811006063979
-      5x-scanlines-1920x1120_173: 643765870558157342
-      5x-scanlines-1920x1120_174: 2093402665789972592
-      5x-scanlines-1920x1120_175: -4429142269530040330
-      5x-scanlines-1920x1120_176: 27883985079178434
-      5x-scanlines-1920x1120_177: 2486901588820350146
-      5x-scanlines-1920x1120_178: -8334365876010749559
-      5x-scanlines-1920x1120_179: -6460083941508869477
-      5x-scanlines-1920x1120_18: -6059690237872148492
-      5x-scanlines-1920x1120_180: -8085227957226249131
-      5x-scanlines-1920x1120_181: 8615165531482273187
-      5x-scanlines-1920x1120_182: 2600108888710320343
-      5x-scanlines-1920x1120_183: 7541700585058420503
-      5x-scanlines-1920x1120_184: 6428409796325904968
-      5x-scanlines-1920x1120_185: -5154565074391267593
-      5x-scanlines-1920x1120_186: 4006723859800268822
-      5x-scanlines-1920x1120_187: 947736651438103072
-      5x-scanlines-1920x1120_188: 6452540750856068083
-      5x-scanlines-1920x1120_189: 7210263759623581628
-      5x-scanlines-1920x1120_19: -5814046260821389514
-      5x-scanlines-1920x1120_190: 1712918930732998300
-      5x-scanlines-1920x1120_191: 5153092333074768913
-      5x-scanlines-1920x1120_192: -5028898230662339937
-      5x-scanlines-1920x1120_193: 3225789256674467445
-      5x-scanlines-1920x1120_194: 1581491988930290047
-      5x-scanlines-1920x1120_195: 4969638217343003637
-      5x-scanlines-1920x1120_196: 4539431788104607995
-      5x-scanlines-1920x1120_197: 7545280248760662668
-      5x-scanlines-1920x1120_198: -4996564133704245865
-      5x-scanlines-1920x1120_199: 5863795786897315773
-      5x-scanlines-1920x1120_2: -8152677416542296016
-      5x-scanlines-1920x1120_20: 611415864127969270
-      5x-scanlines-1920x1120_200: -2931182254848414671
-      5x-scanlines-1920x1120_201: -4025136668230670715
-      5x-scanlines-1920x1120_202: -8132173179055669137
-      5x-scanlines-1920x1120_203: 542436011277306101
-      5x-scanlines-1920x1120_204: -7124768720539936133
-      5x-scanlines-1920x1120_205: 5224064851416576229
-      5x-scanlines-1920x1120_206: -5416644848923736309
-      5x-scanlines-1920x1120_207: -2208169859489069652
-      5x-scanlines-1920x1120_208: -4735436200010720031
-      5x-scanlines-1920x1120_209: 7917318284541797350
-      5x-scanlines-1920x1120_21: -4361199412716951939
-      5x-scanlines-1920x1120_210: 2561244834420730125
-      5x-scanlines-1920x1120_211: 3307650090784906965
-      5x-scanlines-1920x1120_212: -1026081309130778228
-      5x-scanlines-1920x1120_213: 1165765526292735576
-      5x-scanlines-1920x1120_214: -330487692083692141
-      5x-scanlines-1920x1120_215: -8970336743686848417
-      5x-scanlines-1920x1120_216: -169217660818315947
-      5x-scanlines-1920x1120_217: -7374374838594621394
-      5x-scanlines-1920x1120_218: 8830325277571439468
-      5x-scanlines-1920x1120_219: 7901541252595147548
-      5x-scanlines-1920x1120_22: -4933013885605770736
-      5x-scanlines-1920x1120_220: 6742442665522291920
-      5x-scanlines-1920x1120_221: 3959865472082430249
-      5x-scanlines-1920x1120_222: 8327493644036979387
-      5x-scanlines-1920x1120_23: 5423761746846835444
-      5x-scanlines-1920x1120_24: -7552907337344158366
-      5x-scanlines-1920x1120_25: -5032057449755115410
-      5x-scanlines-1920x1120_26: 4496745481490911897
-      5x-scanlines-1920x1120_27: 2186418041420284125
-      5x-scanlines-1920x1120_28: -125100933707924938
-      5x-scanlines-1920x1120_29: 3959844844102017641
-      5x-scanlines-1920x1120_3: -2971861219923282532
-      5x-scanlines-1920x1120_30: 1818592547867429452
-      5x-scanlines-1920x1120_31: 4694544583483542182
-      5x-scanlines-1920x1120_32: -5086312751467461164
-      5x-scanlines-1920x1120_33: 6923283888089527496
-      5x-scanlines-1920x1120_34: -8536046761895026438
-      5x-scanlines-1920x1120_35: 6145581266717276468
-      5x-scanlines-1920x1120_36: 8506967151799909533
-      5x-scanlines-1920x1120_37: 7057420344947042788
-      5x-scanlines-1920x1120_38: -8679071013925178754
-      5x-scanlines-1920x1120_39: -8584348236041626228
-      5x-scanlines-1920x1120_4: 7202794415271454479
-      5x-scanlines-1920x1120_40: -6665642325615956812
-      5x-scanlines-1920x1120_41: 2552147289173484125
-      5x-scanlines-1920x1120_42: 4728763562239854544
-      5x-scanlines-1920x1120_43: -1757676227087670845
-      5x-scanlines-1920x1120_44: 7451442812891271747
-      5x-scanlines-1920x1120_45: 1892531834355758395
-      5x-scanlines-1920x1120_46: -3639046061899263079
-      5x-scanlines-1920x1120_47: 2951024110528395652
-      5x-scanlines-1920x1120_48: 1832070819308877565
-      5x-scanlines-1920x1120_49: 4311246076455111027
-      5x-scanlines-1920x1120_5: -2116722148216941196
-      5x-scanlines-1920x1120_50: 2013180104161879146
-      5x-scanlines-1920x1120_51: -1451851730304154440
-      5x-scanlines-1920x1120_52: -1851190646556021735
-      5x-scanlines-1920x1120_53: -5879949714652453644
-      5x-scanlines-1920x1120_54: 1857815059265691602
-      5x-scanlines-1920x1120_55: -8314500186568480972
-      5x-scanlines-1920x1120_56: -6919519054079606903
-      5x-scanlines-1920x1120_57: 187288720750048080
-      5x-scanlines-1920x1120_58: 3214550649057975697
-      5x-scanlines-1920x1120_59: 5601082239783973743
-      5x-scanlines-1920x1120_6: -6091808797642618513
-      5x-scanlines-1920x1120_60: 7438813854629350846
-      5x-scanlines-1920x1120_61: -5376121097069143490
-      5x-scanlines-1920x1120_62: -1751629061033845372
-      5x-scanlines-1920x1120_63: 8868802494784131351
-      5x-scanlines-1920x1120_64: -4951228231723950285
-      5x-scanlines-1920x1120_65: 7685904169692619080
-      5x-scanlines-1920x1120_66: -8109083136086236398
-      5x-scanlines-1920x1120_67: 2005332074483405277
-      5x-scanlines-1920x1120_68: 8246789999280528721
-      5x-scanlines-1920x1120_69: 4312792429899074432
-      5x-scanlines-1920x1120_7: -2392336639327501693
-      5x-scanlines-1920x1120_70: 2059495026939420585
-      5x-scanlines-1920x1120_71: -684611459914563092
-      5x-scanlines-1920x1120_72: -2090051451218336258
-      5x-scanlines-1920x1120_73: 4556243350975202874
-      5x-scanlines-1920x1120_74: -273333073968014015
-      5x-scanlines-1920x1120_75: -1188837148686025239
-      5x-scanlines-1920x1120_76: 1141924211449734847
-      5x-scanlines-1920x1120_77: 1020459931463733663
-      5x-scanlines-1920x1120_78: -2009412548238492019
-      5x-scanlines-1920x1120_79: -4200643227851686353
-      5x-scanlines-1920x1120_8: -6271801730396930725
-      5x-scanlines-1920x1120_80: -480646045242183285
-      5x-scanlines-1920x1120_81: 5372445556787424564
-      5x-scanlines-1920x1120_82: -4286113630096907927
-      5x-scanlines-1920x1120_83: 3695575210335587290
-      5x-scanlines-1920x1120_84: -7888057902173799006
-      5x-scanlines-1920x1120_85: 225229990202590348
-      5x-scanlines-1920x1120_86: -7355499213360665440
-      5x-scanlines-1920x1120_87: -8971382948380231428
-      5x-scanlines-1920x1120_88: 5067149725778501989
-      5x-scanlines-1920x1120_89: -7787310710042939486
-      5x-scanlines-1920x1120_9: 5844910511961256301
-      5x-scanlines-1920x1120_90: -4545943148468769444
-      5x-scanlines-1920x1120_91: 4885458057486906168
-      5x-scanlines-1920x1120_92: -8993845329146541157
-      5x-scanlines-1920x1120_93: -1678429507313876479
-      5x-scanlines-1920x1120_94: -8516761582879495923
-      5x-scanlines-1920x1120_95: 8457893272669937417
-      5x-scanlines-1920x1120_96: -6241388266004525328
-      5x-scanlines-1920x1120_97: -5110543174454716592
-      5x-scanlines-1920x1120_98: 3759141284401958388
-      5x-scanlines-1920x1120_99: 4644533214902486509
+      5x-scanlines-1920x1120-ver2_0: 6522012447691147212
+      5x-scanlines-1920x1120-ver2_1: 2113226917243751481
+      5x-scanlines-1920x1120-ver2_10: 2923212128111834370
+      5x-scanlines-1920x1120-ver2_100: 3808761528064163875
+      5x-scanlines-1920x1120-ver2_101: -4866814509424775258
+      5x-scanlines-1920x1120-ver2_102: 6706498700305564025
+      5x-scanlines-1920x1120-ver2_103: 6410145945840250378
+      5x-scanlines-1920x1120-ver2_104: -976669086063884008
+      5x-scanlines-1920x1120-ver2_105: 9166547314347306305
+      5x-scanlines-1920x1120-ver2_106: -1608659859001067688
+      5x-scanlines-1920x1120-ver2_107: 565186814116242153
+      5x-scanlines-1920x1120-ver2_108: 5234796122666927068
+      5x-scanlines-1920x1120-ver2_109: 6030073799034663053
+      5x-scanlines-1920x1120-ver2_11: 8392530432388792829
+      5x-scanlines-1920x1120-ver2_110: -3238521277078265090
+      5x-scanlines-1920x1120-ver2_111: 387998199443472557
+      5x-scanlines-1920x1120-ver2_112: 7911026091702823389
+      5x-scanlines-1920x1120-ver2_113: 6918398568417536068
+      5x-scanlines-1920x1120-ver2_114: 384075592637584882
+      5x-scanlines-1920x1120-ver2_115: -1453301151416026252
+      5x-scanlines-1920x1120-ver2_116: -374994402208094487
+      5x-scanlines-1920x1120-ver2_117: -121887009608299088
+      5x-scanlines-1920x1120-ver2_118: -3617763519431631432
+      5x-scanlines-1920x1120-ver2_119: 2011981193993445149
+      5x-scanlines-1920x1120-ver2_12: -8655258315834068487
+      5x-scanlines-1920x1120-ver2_120: 2454408465703790274
+      5x-scanlines-1920x1120-ver2_121: 64299670926786876
+      5x-scanlines-1920x1120-ver2_122: -2837036879597557010
+      5x-scanlines-1920x1120-ver2_123: -4459189909041815372
+      5x-scanlines-1920x1120-ver2_124: 6148302124600310622
+      5x-scanlines-1920x1120-ver2_125: 3061946476053524521
+      5x-scanlines-1920x1120-ver2_126: -3731183537940545034
+      5x-scanlines-1920x1120-ver2_127: -403557548540580150
+      5x-scanlines-1920x1120-ver2_128: 4191739880275019559
+      5x-scanlines-1920x1120-ver2_129: 5667314256283648338
+      5x-scanlines-1920x1120-ver2_13: -4039152068460545224
+      5x-scanlines-1920x1120-ver2_130: -10235854635180761
+      5x-scanlines-1920x1120-ver2_131: -7640981951211043102
+      5x-scanlines-1920x1120-ver2_132: 6986267325497380547
+      5x-scanlines-1920x1120-ver2_133: 5626970225946278740
+      5x-scanlines-1920x1120-ver2_134: 6340330567912239752
+      5x-scanlines-1920x1120-ver2_135: 3442849635875705037
+      5x-scanlines-1920x1120-ver2_136: 7566503289834487884
+      5x-scanlines-1920x1120-ver2_137: -9165662859771920825
+      5x-scanlines-1920x1120-ver2_138: 5131896734306929519
+      5x-scanlines-1920x1120-ver2_139: -7882086794450795534
+      5x-scanlines-1920x1120-ver2_14: 2466468710087186750
+      5x-scanlines-1920x1120-ver2_140: 1308011439181965246
+      5x-scanlines-1920x1120-ver2_141: 9061531096963466067
+      5x-scanlines-1920x1120-ver2_142: -1655747044268568778
+      5x-scanlines-1920x1120-ver2_143: -1853712890615304857
+      5x-scanlines-1920x1120-ver2_144: -151103217965329724
+      5x-scanlines-1920x1120-ver2_145: 1254657015419053309
+      5x-scanlines-1920x1120-ver2_146: 2085238788858913970
+      5x-scanlines-1920x1120-ver2_147: 4453376990779372736
+      5x-scanlines-1920x1120-ver2_148: 4490674178382081328
+      5x-scanlines-1920x1120-ver2_149: -4490674479811125680
+      5x-scanlines-1920x1120-ver2_15: -2171088725145931542
+      5x-scanlines-1920x1120-ver2_150: -6714049603177890665
+      5x-scanlines-1920x1120-ver2_151: 5857316786785974885
+      5x-scanlines-1920x1120-ver2_152: -6090391015525343011
+      5x-scanlines-1920x1120-ver2_153: -4186020552701811803
+      5x-scanlines-1920x1120-ver2_154: -2699855215012150956
+      5x-scanlines-1920x1120-ver2_155: 5237261265929732273
+      5x-scanlines-1920x1120-ver2_156: -8099656657944665987
+      5x-scanlines-1920x1120-ver2_157: -198463237553114777
+      5x-scanlines-1920x1120-ver2_158: 6798472538207854263
+      5x-scanlines-1920x1120-ver2_159: -5994399704868006594
+      5x-scanlines-1920x1120-ver2_16: 643572775184881644
+      5x-scanlines-1920x1120-ver2_160: 8991353253565201063
+      5x-scanlines-1920x1120-ver2_161: 4084945651175324732
+      5x-scanlines-1920x1120-ver2_162: -3818607198723169695
+      5x-scanlines-1920x1120-ver2_163: -3981314041356268643
+      5x-scanlines-1920x1120-ver2_164: 3570381653212343946
+      5x-scanlines-1920x1120-ver2_165: 8906058110955308356
+      5x-scanlines-1920x1120-ver2_166: -9019005366368520944
+      5x-scanlines-1920x1120-ver2_167: -5536326582808028583
+      5x-scanlines-1920x1120-ver2_168: 2361608352455471246
+      5x-scanlines-1920x1120-ver2_169: 2037254879421853917
+      5x-scanlines-1920x1120-ver2_17: 680076996841914326
+      5x-scanlines-1920x1120-ver2_170: 2656190540065017790
+      5x-scanlines-1920x1120-ver2_171: 6661049484360951308
+      5x-scanlines-1920x1120-ver2_172: 5075844283131289385
+      5x-scanlines-1920x1120-ver2_173: -2612122846571790295
+      5x-scanlines-1920x1120-ver2_174: 4500718563230647200
+      5x-scanlines-1920x1120-ver2_175: -2111319260240802430
+      5x-scanlines-1920x1120-ver2_176: 1795034489558154092
+      5x-scanlines-1920x1120-ver2_177: 1422016892694808008
+      5x-scanlines-1920x1120-ver2_178: -6556991714077330602
+      5x-scanlines-1920x1120-ver2_179: -5888907134085130012
+      5x-scanlines-1920x1120-ver2_18: 5792156596818538749
+      5x-scanlines-1920x1120-ver2_180: 7935065610715661908
+      5x-scanlines-1920x1120-ver2_181: 2359500514901422302
+      5x-scanlines-1920x1120-ver2_182: 3648209412395768522
+      5x-scanlines-1920x1120-ver2_183: 5694581033437998167
+      5x-scanlines-1920x1120-ver2_184: 1207550828458986470
+      5x-scanlines-1920x1120-ver2_185: -3362622934177111281
+      5x-scanlines-1920x1120-ver2_186: -7404270121010409801
+      5x-scanlines-1920x1120-ver2_187: -8221269741011309896
+      5x-scanlines-1920x1120-ver2_188: 56528989272511847
+      5x-scanlines-1920x1120-ver2_189: -4543837965294103473
+      5x-scanlines-1920x1120-ver2_19: -4345255184873053152
+      5x-scanlines-1920x1120-ver2_190: -7149431960626325419
+      5x-scanlines-1920x1120-ver2_191: -3076420216598611577
+      5x-scanlines-1920x1120-ver2_192: 187223731452729270
+      5x-scanlines-1920x1120-ver2_193: 8713284845560848118
+      5x-scanlines-1920x1120-ver2_194: -5464073361892300302
+      5x-scanlines-1920x1120-ver2_195: 5293148930121459691
+      5x-scanlines-1920x1120-ver2_196: 8568693736780982071
+      5x-scanlines-1920x1120-ver2_197: 6244344663440527617
+      5x-scanlines-1920x1120-ver2_198: 5682688103761810970
+      5x-scanlines-1920x1120-ver2_199: 5576426172469729141
+      5x-scanlines-1920x1120-ver2_2: 4032971947716614367
+      5x-scanlines-1920x1120-ver2_20: -6849493631559952639
+      5x-scanlines-1920x1120-ver2_200: 1292910808818778138
+      5x-scanlines-1920x1120-ver2_201: -2486268975490943963
+      5x-scanlines-1920x1120-ver2_202: -447184111506632872
+      5x-scanlines-1920x1120-ver2_203: 8524446625073872186
+      5x-scanlines-1920x1120-ver2_204: 3362989294335256923
+      5x-scanlines-1920x1120-ver2_205: -9074779291798955350
+      5x-scanlines-1920x1120-ver2_206: -4223487212868843263
+      5x-scanlines-1920x1120-ver2_207: 7158864317590346371
+      5x-scanlines-1920x1120-ver2_208: 328172795376008028
+      5x-scanlines-1920x1120-ver2_209: 235913481671530679
+      5x-scanlines-1920x1120-ver2_21: -4257297763408472103
+      5x-scanlines-1920x1120-ver2_210: 987067574719919849
+      5x-scanlines-1920x1120-ver2_211: -7409672857088040585
+      5x-scanlines-1920x1120-ver2_212: 974292793403668524
+      5x-scanlines-1920x1120-ver2_213: 6876463580873748745
+      5x-scanlines-1920x1120-ver2_214: -2453193315333512197
+      5x-scanlines-1920x1120-ver2_215: -7972526871742522251
+      5x-scanlines-1920x1120-ver2_216: -8518537190360638332
+      5x-scanlines-1920x1120-ver2_217: -7543638340222211558
+      5x-scanlines-1920x1120-ver2_218: -4271532256592517528
+      5x-scanlines-1920x1120-ver2_219: -5494057877049590627
+      5x-scanlines-1920x1120-ver2_22: 5642526721279821294
+      5x-scanlines-1920x1120-ver2_220: -7496003923494311031
+      5x-scanlines-1920x1120-ver2_221: 4245660249600219804
+      5x-scanlines-1920x1120-ver2_222: -8919889373714306902
+      5x-scanlines-1920x1120-ver2_23: -6756382214788773112
+      5x-scanlines-1920x1120-ver2_24: -2585046976184341200
+      5x-scanlines-1920x1120-ver2_25: 3287965273493773795
+      5x-scanlines-1920x1120-ver2_26: -3139533412373060317
+      5x-scanlines-1920x1120-ver2_27: -1229443025161980288
+      5x-scanlines-1920x1120-ver2_28: 3392561695444762563
+      5x-scanlines-1920x1120-ver2_29: -5293424880714901530
+      5x-scanlines-1920x1120-ver2_3: -7247834513585202791
+      5x-scanlines-1920x1120-ver2_30: 9109317473672869479
+      5x-scanlines-1920x1120-ver2_31: 8035259310399475282
+      5x-scanlines-1920x1120-ver2_32: 655626629255274819
+      5x-scanlines-1920x1120-ver2_33: 1128388807965953852
+      5x-scanlines-1920x1120-ver2_34: 5341745252031350409
+      5x-scanlines-1920x1120-ver2_35: 5263012883997042122
+      5x-scanlines-1920x1120-ver2_36: 4621273174981795642
+      5x-scanlines-1920x1120-ver2_37: 5647935988146080638
+      5x-scanlines-1920x1120-ver2_38: 340545147805706660
+      5x-scanlines-1920x1120-ver2_39: 2599664941790627246
+      5x-scanlines-1920x1120-ver2_4: -1369858700279165442
+      5x-scanlines-1920x1120-ver2_40: 6381597612951898496
+      5x-scanlines-1920x1120-ver2_41: 7894819338865745319
+      5x-scanlines-1920x1120-ver2_42: 7432984498314616677
+      5x-scanlines-1920x1120-ver2_43: -7594438890353875191
+      5x-scanlines-1920x1120-ver2_44: 1659736814932506048
+      5x-scanlines-1920x1120-ver2_45: -7611904985034024060
+      5x-scanlines-1920x1120-ver2_46: 3865231306996054756
+      5x-scanlines-1920x1120-ver2_47: -2609360599943754265
+      5x-scanlines-1920x1120-ver2_48: 4125537102442198945
+      5x-scanlines-1920x1120-ver2_49: 8347372484832495978
+      5x-scanlines-1920x1120-ver2_5: 1233090886015627792
+      5x-scanlines-1920x1120-ver2_50: -3754841689910373672
+      5x-scanlines-1920x1120-ver2_51: 3412943067826109687
+      5x-scanlines-1920x1120-ver2_52: -1895073402430070549
+      5x-scanlines-1920x1120-ver2_53: -1816576557076328809
+      5x-scanlines-1920x1120-ver2_54: 9159627380257319464
+      5x-scanlines-1920x1120-ver2_55: -5588228901221349030
+      5x-scanlines-1920x1120-ver2_56: 300870520872458085
+      5x-scanlines-1920x1120-ver2_57: -7319183970120363703
+      5x-scanlines-1920x1120-ver2_58: -8512355749332352207
+      5x-scanlines-1920x1120-ver2_59: -7716690030948405380
+      5x-scanlines-1920x1120-ver2_6: 7162909065143533821
+      5x-scanlines-1920x1120-ver2_60: 5260431970071881957
+      5x-scanlines-1920x1120-ver2_61: 8191198944287692855
+      5x-scanlines-1920x1120-ver2_62: -2087786703382221864
+      5x-scanlines-1920x1120-ver2_63: -4749590407205927441
+      5x-scanlines-1920x1120-ver2_64: -8886024664068239075
+      5x-scanlines-1920x1120-ver2_65: 2405340335623146559
+      5x-scanlines-1920x1120-ver2_66: -1406868407998630847
+      5x-scanlines-1920x1120-ver2_67: -3039460390296764317
+      5x-scanlines-1920x1120-ver2_68: -7774171423664495036
+      5x-scanlines-1920x1120-ver2_69: 4523878206513733801
+      5x-scanlines-1920x1120-ver2_7: 2396516331725051760
+      5x-scanlines-1920x1120-ver2_70: 9210695238926469284
+      5x-scanlines-1920x1120-ver2_71: -5281420037509549714
+      5x-scanlines-1920x1120-ver2_72: -2917493305448016937
+      5x-scanlines-1920x1120-ver2_73: 6392298762590968101
+      5x-scanlines-1920x1120-ver2_74: 8742165840900752409
+      5x-scanlines-1920x1120-ver2_75: -5357912645297271153
+      5x-scanlines-1920x1120-ver2_76: 5536477380458944744
+      5x-scanlines-1920x1120-ver2_77: 3234503935775860130
+      5x-scanlines-1920x1120-ver2_78: 9014436825644138033
+      5x-scanlines-1920x1120-ver2_79: 8811656483418337785
+      5x-scanlines-1920x1120-ver2_8: 689542216430401768
+      5x-scanlines-1920x1120-ver2_80: 7317334301172522046
+      5x-scanlines-1920x1120-ver2_81: -4475468742770946195
+      5x-scanlines-1920x1120-ver2_82: -4633576664485552195
+      5x-scanlines-1920x1120-ver2_83: 6111094706485188338
+      5x-scanlines-1920x1120-ver2_84: 3468822299370096232
+      5x-scanlines-1920x1120-ver2_85: 2351853186239523865
+      5x-scanlines-1920x1120-ver2_86: 8987111564169923347
+      5x-scanlines-1920x1120-ver2_87: 8349902535177271777
+      5x-scanlines-1920x1120-ver2_88: 5776785418993656117
+      5x-scanlines-1920x1120-ver2_89: 6279711227067654900
+      5x-scanlines-1920x1120-ver2_9: -1054330232713873911
+      5x-scanlines-1920x1120-ver2_90: 7150123745160400719
+      5x-scanlines-1920x1120-ver2_91: 7246856563185405511
+      5x-scanlines-1920x1120-ver2_92: -278450994713757442
+      5x-scanlines-1920x1120-ver2_93: 5750960635324267445
+      5x-scanlines-1920x1120-ver2_94: -3575829730814969079
+      5x-scanlines-1920x1120-ver2_95: 5822369190381018258
+      5x-scanlines-1920x1120-ver2_96: 7672521898113880845
+      5x-scanlines-1920x1120-ver2_97: -5426121699366579388
+      5x-scanlines-1920x1120-ver2_98: -2893492396942263629
+      5x-scanlines-1920x1120-ver2_99: 3478198855791195806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
