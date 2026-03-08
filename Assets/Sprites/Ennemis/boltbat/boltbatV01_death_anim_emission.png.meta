@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 9c7811c8e216c804e818a850417149a7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -309486609083285448
+    second: boltbatV01_death_anim_emission_0
+  - first:
+      213: 5982700168498456336
+    second: boltbatV01_death_anim_emission_1
+  - first:
+      213: -6287075589408194065
+    second: boltbatV01_death_anim_emission_2
+  - first:
+      213: 4165030215775943430
+    second: boltbatV01_death_anim_emission_3
+  - first:
+      213: 2340295678373081221
+    second: boltbatV01_death_anim_emission_4
+  - first:
+      213: -285828665607280860
+    second: boltbatV01_death_anim_emission_5
+  - first:
+      213: -4918168730955003331
+    second: boltbatV01_death_anim_emission_6
+  - first:
+      213: -4848009044104510528
+    second: boltbatV01_death_anim_emission_7
+  - first:
+      213: -419561315380886709
+    second: boltbatV01_death_anim_emission_8
+  - first:
+      213: 4234769161271673082
+    second: boltbatV01_death_anim_emission_9
+  - first:
+      213: -4754145317361384456
+    second: boltbatV01_death_anim_emission_10
+  - first:
+      213: -4371952759267233781
+    second: boltbatV01_death_anim_emission_11
+  - first:
+      213: 1546865452393894763
+    second: boltbatV01_death_anim_emission_12
+  - first:
+      213: -2286181426921544374
+    second: boltbatV01_death_anim_emission_13
+  - first:
+      213: -1501177231066377055
+    second: boltbatV01_death_anim_emission_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 3
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 830c9da919b74bbf0800000000000000
+      internalID: -309486609083285448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_1
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 2
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01725050b12d60350800000000000000
+      internalID: 5982700168498456336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 3
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe18b41df02dfb8a0800000000000000
+      internalID: -6287075589408194065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 4
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60bf71af9e82dc930800000000000000
+      internalID: 4165030215775943430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_4
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 3
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5803fc225866a7020800000000000000
+      internalID: 2340295678373081221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_5
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 2
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 427aadfc758880cf0800000000000000
+      internalID: -285828665607280860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_6
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 9
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3a4ef5c8972fbbb0800000000000000
+      internalID: -4918168730955003331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_7
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 2
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c30542d57968bcb0800000000000000
+      internalID: -4848009044104510528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_8
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 0
+        width: 161
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b430a33e43b6d2af0800000000000000
+      internalID: -419561315380886709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_9
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 7
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af0806b8d1ce4ca30800000000000000
+      internalID: 4234769161271673082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_10
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 15
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3861cb502e50eb0800000000000000
+      internalID: -4754145317361384456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_11
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 2
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0076190124b353c0800000000000000
+      internalID: -4371952759267233781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_12
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 21
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b63134deee1977510800000000000000
+      internalID: 1546865452393894763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_13
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 9
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a45ee3cda1ad540e0800000000000000
+      internalID: -2286181426921544374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_death_anim_emission_14
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 12
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a4526d034fba2be0800000000000000
+      internalID: -1501177231066377055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      boltbatV01_death_anim_emission_0: -309486609083285448
+      boltbatV01_death_anim_emission_1: 5982700168498456336
+      boltbatV01_death_anim_emission_10: -4754145317361384456
+      boltbatV01_death_anim_emission_11: -4371952759267233781
+      boltbatV01_death_anim_emission_12: 1546865452393894763
+      boltbatV01_death_anim_emission_13: -2286181426921544374
+      boltbatV01_death_anim_emission_14: -1501177231066377055
+      boltbatV01_death_anim_emission_2: -6287075589408194065
+      boltbatV01_death_anim_emission_3: 4165030215775943430
+      boltbatV01_death_anim_emission_4: 2340295678373081221
+      boltbatV01_death_anim_emission_5: -285828665607280860
+      boltbatV01_death_anim_emission_6: -4918168730955003331
+      boltbatV01_death_anim_emission_7: -4848009044104510528
+      boltbatV01_death_anim_emission_8: -419561315380886709
+      boltbatV01_death_anim_emission_9: 4234769161271673082
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
