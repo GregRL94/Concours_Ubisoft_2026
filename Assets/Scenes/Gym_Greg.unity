@@ -1682,7 +1682,12 @@ MonoBehaviour:
   _aoeRadius: 1.5
   _aoeDamage: 25
   _aoeRepelForce: 20
-  _aoeCooldown: 10
+  _aoeCooldown: 5
+  _ultimateHoldDuration: 3
+  _ultimateMax: 100
+  _ultimateInputForgiveness: 0.12
+  abilityUI: {fileID: 0}
+  ultimateUI: {fileID: 0}
 --- !u!114 &998160260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2126,6 +2131,11 @@ MonoBehaviour:
   _aoeDamage: 5
   _aoeRepelForce: 2
   _aoeCooldown: 5
+  _ultimateHoldDuration: 3
+  _ultimateMax: 100
+  _ultimateInputForgiveness: 0.12
+  abilityUI: {fileID: 0}
+  ultimateUI: {fileID: 0}
 --- !u!114 &1476861598
 MonoBehaviour:
   m_ObjectHideFlags: 0
