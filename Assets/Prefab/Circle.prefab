@@ -106,13 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa5de6b71b0cb449bd90e852f528576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  moveSpeed: 3
-  maxHealth: 100
-  detectionRange: 3.71
-  attackRange: 2.55
-  bulletPrefab: {fileID: 4089008178729448314, guid: 91f8cde0d2bc7cb48bc396a2ea5f065d, type: 3}
+  data: {fileID: 11400000, guid: b8869c27fe2dfb746a03fa143d011773, type: 2}
   firePoint: {fileID: 4901014329125216784}
-  fireRate: 1
 --- !u!195 &6276922060709080670
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -127,7 +122,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

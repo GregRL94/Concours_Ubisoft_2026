@@ -32,7 +32,8 @@ public class EnemyAI : MonoBehaviour, IHit
         {
             Agent.speed = data.moveSpeed;
             Agent.stoppingDistance = data.stopDistance;
-            Agent.updatePosition = false;
+            Agent.updatePosition = true;
+            Agent.updateRotation = false;
             Agent.updateUpAxis = false;
         }
 
