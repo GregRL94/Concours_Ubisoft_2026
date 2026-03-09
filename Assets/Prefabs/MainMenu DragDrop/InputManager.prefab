@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b199419bcf1cc2841a9e15407a51a6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstRepeatDelay: 0.2
+  repeatRate: 0.15
   navigateCooldown: 0.07
 --- !u!114 &5012752554093675490
 MonoBehaviour:

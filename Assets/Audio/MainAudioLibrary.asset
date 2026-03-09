@@ -45,3 +45,11 @@ MonoBehaviour:
     loop: 0
     randomizePitch: 0
     pitchRange: 0
+  - id: SFX_Laser
+    clip: {fileID: 8300000, guid: 72ed74600bcbc4849a58be4e12980d38, type: 3}
+    type: 1
+    volume: 1
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.5
