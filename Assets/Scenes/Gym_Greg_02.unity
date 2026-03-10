@@ -16030,6 +16030,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3680219207735809868, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+      propertyPath: orthographic size
+      value: 5.625
+      objectReference: {fileID: 0}
     - target: {fileID: 5719690993555844137, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
       propertyPath: m_Name
       value: Mecha
