@@ -32,8 +32,16 @@ public class PlayerInputHandler : MonoBehaviour
         shootAction = actions.Player.Shoot;
         aoeAction = actions.Player.AOEAttack;
 
-        // NO SWAP CONTROLLER 
-        actions.devices = new InputDevice[] { gamepad };
+        if (gamepad != null)
+        {
+            // Bind ce gamepad
+            actions.devices = new InputDevice[] { gamepad };
+        }
+        else
+        {
+            // Bind le clavier
+            actions.devices = new InputDevice[] { Keyboard.current };
+        }
 
         actions.Enable();
     }
@@ -88,4 +96,20 @@ public class PlayerInputHandler : MonoBehaviour
         return Role == PlayerRole.Shoot &&
                aoeAction.WasPressedThisFrame();
     }
+
+    public bool UltimateComboPressed()
+    {
+        if (Role == PlayerRole.Movement)
+        {
+            return /*meleeAction.IsPressed() && */grappleAction.IsPressed();
+        }
+
+        if (Role == PlayerRole.Shoot)
+        {
+            return /*shootAction.IsPressed() && */aoeAction.IsPressed();
+        }
+
+        return false;
+    }
+
 }

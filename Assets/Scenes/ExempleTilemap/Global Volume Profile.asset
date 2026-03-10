@@ -15,16 +15,35 @@ MonoBehaviour:
   active: 1
   type:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 10
   intensity:
     m_OverrideState: 1
     m_Value: 0.3
   response:
-    m_OverrideState: 0
-    m_Value: 0.8
+    m_OverrideState: 1
+    m_Value: 0.796
   texture:
+    m_OverrideState: 1
+    m_Value: {fileID: 2800000, guid: bf2b0c6cb1175084ab9b5eef37d8c11e, type: 3}
+--- !u!114 &-5009333071444545000
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb60a22f311433c4c962b888d1393f88, type: 3}
+  m_Name: PaniniProjection
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.PaniniProjection
+  active: 1
+  distance:
+    m_OverrideState: 1
+    m_Value: 0.2
+  cropToFit:
     m_OverrideState: 0
-    m_Value: {fileID: 0}
+    m_Value: 1
 --- !u!114 &-2352271930814332433
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -40,7 +59,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.15
   xMultiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -70,6 +89,8 @@ MonoBehaviour:
   - {fileID: 673528756572555802}
   - {fileID: -2352271930814332433}
   - {fileID: 5114709200282553873}
+  - {fileID: -5009333071444545000}
+  - {fileID: 1539955489749875160}
 --- !u!114 &673528756572555802
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -91,13 +112,29 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.212
+    m_Value: 0.222
   smoothness:
     m_OverrideState: 1
     m_Value: 0.373
   rounded:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &1539955489749875160
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.ChromaticAberration
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.05
 --- !u!114 &5114709200282553873
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -119,7 +156,7 @@ MonoBehaviour:
     m_Value: 0.95
   intensity:
     m_OverrideState: 1
-    m_Value: 2.2
+    m_Value: 2
   scatter:
     m_OverrideState: 0
     m_Value: 0.7

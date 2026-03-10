@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: e74c49ce4087fa9429acfdc5b1a4d363
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7031280271763130053
+    second: minkai_attack_emission_0
+  - first:
+      213: -6032564301053474800
+    second: minkai_attack_emission_1
+  - first:
+      213: -3554473313998668166
+    second: minkai_attack_emission_2
+  - first:
+      213: -5925010311574353945
+    second: minkai_attack_emission_3
+  - first:
+      213: 3754667404332963528
+    second: minkai_attack_emission_4
+  - first:
+      213: -5102424137644561468
+    second: minkai_attack_emission_5
+  - first:
+      213: -2787747794739752570
+    second: minkai_attack_emission_6
+  - first:
+      213: 2498113482560071170
+    second: minkai_attack_emission_7
+  - first:
+      213: 7220447119722052435
+    second: minkai_attack_emission_8
+  - first:
+      213: -5144247961945249592
+    second: minkai_attack_emission_9
+  - first:
+      213: -570866989652102640
+    second: minkai_attack_emission_10
+  - first:
+      213: -6841312719590039393
+    second: minkai_attack_emission_11
+  - first:
+      213: 2035937766811600892
+    second: minkai_attack_emission_12
+  - first:
+      213: -3794600564791477573
+    second: minkai_attack_emission_13
+  - first:
+      213: 7815215445327876658
+    second: minkai_attack_emission_14
+  - first:
+      213: 5179498528115679351
+    second: minkai_attack_emission_15
+  - first:
+      213: -1714943967006088181
+    second: minkai_attack_emission_16
+  - first:
+      213: 269325467425285295
+    second: minkai_attack_emission_17
+  - first:
+      213: -6819611742234343009
+    second: minkai_attack_emission_18
+  - first:
+      213: 965264274057775888
+    second: minkai_attack_emission_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: minkai_attack_emission_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 327
+        width: 85
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c647a26720249160800000000000000
+      internalID: 7031280271763130053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_1
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 327
+        width: 69
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0184107eab6084ca0800000000000000
+      internalID: -6032564301053474800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_2
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 469
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7ef0837a59fbaec0800000000000000
+      internalID: -3554473313998668166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_3
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 475
+        width: 26
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e78510838226cda0800000000000000
+      internalID: -5925010311574353945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_4
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 475
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c611057c124b1430800000000000000
+      internalID: 3754667404332963528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_5
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 464
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb2156d74c8039b0800000000000000
+      internalID: -5102424137644561468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_6
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 327
+        width: 86
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 681982b962eef49d0800000000000000
+      internalID: -2787747794739752570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_7
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 327
+        width: 70
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2066b901af41ba220800000000000000
+      internalID: 2498113482560071170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_8
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 464
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b768a566e243460800000000000000
+      internalID: 7220447119722052435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_9
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 475
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c8e9b7ebb5fb98b0800000000000000
+      internalID: -5144247961945249592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_10
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 475
+        width: 26
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0123acb5f7fd318f0800000000000000
+      internalID: -570866989652102640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_11
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 469
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f90697f0456ce01a0800000000000000
+      internalID: -6841312719590039393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 331
+        width: 87
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf78b9fac9a114c10800000000000000
+      internalID: 2035937766811600892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_13
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 327
+        width: 74
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bba7b1714eed65bc0800000000000000
+      internalID: -3794600564791477573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_14
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 327
+        width: 76
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2321aed6a09357c60800000000000000
+      internalID: 7815215445327876658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_15
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 331
+        width: 84
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7706efa187641e740800000000000000
+      internalID: 5179498528115679351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_16
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 331
+        width: 87
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0427e45c8b4338e0800000000000000
+      internalID: -1714943967006088181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_17
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 327
+        width: 74
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa4a9dee516dcb300800000000000000
+      internalID: 269325467425285295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_18
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 139
+        width: 76
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f990a06904fdb51a0800000000000000
+      internalID: -6819611742234343009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_attack_emission_19
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 143
+        width: 84
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01bc6993ebe456d00800000000000000
+      internalID: 965264274057775888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      minkai_attack_emission_0: 7031280271763130053
+      minkai_attack_emission_1: -6032564301053474800
+      minkai_attack_emission_10: -570866989652102640
+      minkai_attack_emission_11: -6841312719590039393
+      minkai_attack_emission_12: 2035937766811600892
+      minkai_attack_emission_13: -3794600564791477573
+      minkai_attack_emission_14: 7815215445327876658
+      minkai_attack_emission_15: 5179498528115679351
+      minkai_attack_emission_16: -1714943967006088181
+      minkai_attack_emission_17: 269325467425285295
+      minkai_attack_emission_18: -6819611742234343009
+      minkai_attack_emission_19: 965264274057775888
+      minkai_attack_emission_2: -3554473313998668166
+      minkai_attack_emission_3: -5925010311574353945
+      minkai_attack_emission_4: 3754667404332963528
+      minkai_attack_emission_5: -5102424137644561468
+      minkai_attack_emission_6: -2787747794739752570
+      minkai_attack_emission_7: 2498113482560071170
+      minkai_attack_emission_8: 7220447119722052435
+      minkai_attack_emission_9: -5144247961945249592
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
