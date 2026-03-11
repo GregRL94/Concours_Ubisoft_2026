@@ -9,11 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c9983828aaf2464479eeb4ecd281e697
   - enabled: 1
-    path: Assets/Scenes/LevelTest.unity
-    guid: 1dd4072b97ec0f94e922e9a2290d2a9f
-  - enabled: 1
-    path: Assets/Scenes/LevelTest2.unity
-    guid: fdee66808d0801e44a0b306b6bdc3537
+    path: Assets/Scenes/Gym_Greg.unity
+    guid: 359fe8c8de82ef746bad170171fd3f29
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c4dbaf598c0749041b3e964b1e92c372, type: 3}
   m_UseUCBPForAssetBundles: 0
