@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: b2cb7542b242575468e4815153e08d07
+guid: 9298ab76a5fb543478dc9c64c841b55b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2871940889348119441
-    second: shoot_anim_0
-  - first:
-      213: -2593209794037834686
-    second: shoot_anim_1
-  - first:
-      213: 3637817717564412509
-    second: shoot_anim_2
-  - first:
-      213: -6313756452200138071
-    second: shoot_anim_3
+      213: -5357620647172769548
+    second: BorneFontaine_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,89 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shoot_anim_0
+      name: BorneFontaine_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.412}
+        x: 4
+        y: 8
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19b938dc50f2bd720800000000000000
-      internalID: 2871940889348119441
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shoot_anim_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.412}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 24c9f468e61130cd0800000000000000
-      internalID: -2593209794037834686
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shoot_anim_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.412}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d529c0da0ff1c7230800000000000000
-      internalID: 3637817717564412509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shoot_anim_3
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.412}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9aab74c55f70168a0800000000000000
-      internalID: -6313756452200138071
+      spriteID: 4f8f7f34868e5a5b0800000000000000
+      internalID: -5357620647172769548
       vertices: []
       indices: 
       edges: []
@@ -200,24 +125,17 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7d54298d2c916ed44b5ad1cd2ae4d7b4
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 7f046bdd59aa2f04095da8dc16ef1c81, type: 3}
-      name: _Emission
+    secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      shoot_anim_0: 2871940889348119441
-      shoot_anim_1: -2593209794037834686
-      shoot_anim_2: 3637817717564412509
-      shoot_anim_3: -6313756452200138071
+      BorneFontaine_0: -5357620647172769548
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
