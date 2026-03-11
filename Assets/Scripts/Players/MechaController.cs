@@ -99,8 +99,8 @@ public class MechaController : MonoBehaviour
             HandleUltimate();
 
         // si tentative d'ultimate -> on bloque les abilities
-        if (_isAttemptingUltimate)
-            return;
+        //if (_isAttemptingUltimate)
+        //    return;
 
         if (movementPlayer != null)
             HandleMovement();

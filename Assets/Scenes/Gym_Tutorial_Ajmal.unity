@@ -10925,7 +10925,7 @@ MonoBehaviour:
   healthBarRoot: {fileID: 618946708}
   healthyColor: {r: 0, g: 1, b: 0, a: 1}
   lowHealthColor: {r: 1, g: 0, b: 0, a: 1}
-  lerpDuration: 1
+  lerpDuration: 0
   pulseScale: 0.03
   pulseDuration: 0.05
   lowHealthThreshold: 15
