@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -29,11 +30,13 @@ public class MechaController : MonoBehaviour
 
     [Header("SHOOTING PLAYER PARAMETERS")]
     [Header("Shooting parameters")]
-    [SerializeField] private GameObject _aimingCursor;
-    [SerializeField] private Transform _shootingPoint;
+    [SerializeField] private GameObject _aimingReticle;
+    [SerializeField] private Transform[] _shootingPoints = new Transform[2];
     [SerializeField] private GameObject _laserShotPrefab;
     [SerializeField] private LayerMask _laserImpactsWhat;
-    [SerializeField] private float _aimingCursorSpeed = 3f;
+    [SerializeField] private float _aimingReticleSpeed = 3f;
+    [SerializeField] private float _aimingReticleMinDistance = 1f;
+    [SerializeField] private bool _synchFire = false;
     [SerializeField] private float _fireRate = 2f;
     [SerializeField] private float _laserShotSpeed;
     [SerializeField] private float _laserShotDamage = 5f;
@@ -45,8 +48,10 @@ public class MechaController : MonoBehaviour
     [SerializeField] private float _aoeDamage = 5f;
     [SerializeField] private float _aoeRepelForce = 2f;
     [SerializeField] private float _aoeCooldown = 5f;
+    [Space]
 
-    [Header("Ultimate Team Attack parameters")]
+    [Header("ULTIMATE TEAM ATTACK PARAMETERS")]
+    [SerializeField] private Transform[] _missilePoints = new Transform[2];
     [SerializeField] private float _ultimateHoldDuration = 3f;
     [SerializeField] private float _ultimateMax = 100f;
     [SerializeField] private float _ultimateInputForgiveness = 0.12f;
@@ -71,6 +76,7 @@ public class MechaController : MonoBehaviour
     private float _meleeTimer;
     private float _aoeTimer;
     private Vector2 _lastNonZeroDir;
+    private int _currentGunIndex = 0;
 
     // Injecte les inputs des joueurs selon leur role choisi 
     public void GameplayInitialize(PlayerInputHandler p1, PlayerInputHandler p2)
@@ -148,21 +154,21 @@ public class MechaController : MonoBehaviour
     {
         Vector2 aim = shootPlayer.GetAim();
 
-        _aimingCursor.transform.Translate(_aimingCursorSpeed * Time.deltaTime * aim);
+        _aimingReticle.transform.Translate(_aimingReticleSpeed * Time.deltaTime * aim);
         
-        Vector2 aimDirection = _aimingCursor.transform.position - transform.position;
+        Vector2 aimDirection = _aimingReticle.transform.position - transform.position;
         if (aimDirection != Vector2.zero)
-        {
-            _mechaTop.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(aimDirection.x, aimDirection.y, _offsetAngleDeg)); // Rotation du buste du mecha selon la direction de vis�e
+        {            
+            if (Vector2.Distance(_aimingReticle.transform.position, transform.position) < _aimingReticleMinDistance)
+            {
+                _aimingReticle.transform.position = (Vector2)transform.position + aimDirection.normalized * _aimingReticleMinDistance;
+            }
+            AimGuns(aimDirection);
         }
-        //if (aim != Vector2.zero)
-        //{
-        //    _mechaTop.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(aim.x, aim.y, _offsetAngleDeg)); // Rotation du buste du mecha selon la direction de vis�e
-        //}
 
         if (shootPlayer.ShootPressed() && _laserCoolDown >= 1 / _fireRate)
         {
-            ShootLaser(_laserShotPrefab, _shootingPoint.position, _shootingPoint.rotation);
+            ShootLaser(_laserShotPrefab, _synchFire);
         }
 
         if (shootPlayer.AOEPressed() && _aoeTimer >= _aoeCooldown)
@@ -257,12 +263,39 @@ public class MechaController : MonoBehaviour
         Debug.Log("MELEE");
     }
 
-    private void ShootLaser(GameObject _laserShotPrefab, Vector2 shootingPoint, Quaternion laserShotRotation)
+    private void AimGuns(Vector2 aimDirection)
     {
-        GameObject laserShotGO = Instantiate(_laserShotPrefab, shootingPoint, laserShotRotation);
-        if (laserShotGO.TryGetComponent(out LaserShot laserShotComponent))
+        Vector2 gun0AimDir, gun1AimDir;
+        _mechaTop.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(aimDirection.x, aimDirection.y, _offsetAngleDeg)); // Rotation du buste du mecha selon la direction de visee
+        gun0AimDir = _aimingReticle.transform.position - _shootingPoints[0].position;
+        gun1AimDir = _aimingReticle.transform.position - _shootingPoints[1].position;
+        _shootingPoints[0].transform.eulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(gun0AimDir.x, gun0AimDir.y, _offsetAngleDeg)); // Rotation du gun 0 selon la direction de visee
+        _shootingPoints[1].transform.eulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(gun1AimDir.x, gun1AimDir.y, _offsetAngleDeg)); // Rotation du gun 1 selon la direction de visee
+    }
+
+    private void ShootLaser(GameObject _laserShotPrefab, bool synchFire=false)
+    {
+        if (!synchFire)
         {
-            laserShotComponent.SetupLaserShoot(_laserShotSpeed, _laserShotDamage, _laserShotLifeTime, _laserImpactsWhat);
+            if (_currentGunIndex > _shootingPoints.Length - 1) { _currentGunIndex = 0; }
+
+            GameObject laserShotGO = Instantiate(_laserShotPrefab, _shootingPoints[_currentGunIndex].position, _shootingPoints[_currentGunIndex].rotation);
+            if (laserShotGO.TryGetComponent(out LaserShot laserShotComponent))
+            {
+                laserShotComponent.SetupLaserShoot(_laserShotSpeed, _laserShotDamage, _laserShotLifeTime, _laserImpactsWhat);
+            }
+            _currentGunIndex++;
+        }
+        else
+        {
+            for (int i = 0; i < _shootingPoints.Length; i++)
+            {
+                GameObject laserShotGO = Instantiate(_laserShotPrefab, _shootingPoints[i].position, _shootingPoints[i].rotation);
+                if (laserShotGO.TryGetComponent(out LaserShot laserShotComponent))
+                {
+                    laserShotComponent.SetupLaserShoot(_laserShotSpeed, _laserShotDamage, _laserShotLifeTime, _laserImpactsWhat);
+                }
+            }
         }
         _laserCoolDown = 0f;
 
@@ -304,7 +337,7 @@ public class MechaController : MonoBehaviour
         {
             if (collision.collider.TryGetComponent(out IHit hitComponent))
             {
-                hitComponent.OnHit(_dashDamage); // Inflige des d�g�ts de dash
+                hitComponent.OnHit(_dashDamage); // Inflige des degats de dash
                 Debug.Log("DASH HIT");
             }
         }
