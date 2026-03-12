@@ -5,16 +5,25 @@ using System.Collections;
 
 public class MechaHealthUI : MonoBehaviour
 {
-    [Header("UI")]
+    [Header("UI HP")]
     [SerializeField] private Image healthFill;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private RectTransform healthBarRoot;
-
-    [Header("Colors")]
     [SerializeField] private Color healthyColor = Color.green;
     [SerializeField] private Color lowHealthColor = Color.red;
 
-    [Header("Settings")]
+    [Header("Chunk HP")]
+    [SerializeField] private Image healthChunkFill;
+    [SerializeField] private Color blinkStartColor = Color.gray;
+    [SerializeField] private Color blinkColor = Color.white;
+
+    [Header("Chunk Settings")]
+    [SerializeField] private float chunkDelay = 0.25f;
+    [SerializeField] private float chunkLerpDuration = 0.4f;
+    [SerializeField] private int blinkCount = 4;
+    [SerializeField] private float blinkSpeed = 0.08f;
+
+    [Header("Pulse")]
     [SerializeField] private float lerpDuration = 0.5f;
     [SerializeField] private float pulseScale = 0.05f;
     [SerializeField] private float pulseDuration = 0.1f;
@@ -24,6 +33,7 @@ public class MechaHealthUI : MonoBehaviour
     private float maxHealth;
 
     private Coroutine healthRoutine;
+    private Coroutine chunkRoutine;
     private Coroutine pulseRoutine;
 
     public void Initialize(float maxHP)
@@ -33,6 +43,9 @@ public class MechaHealthUI : MonoBehaviour
 
         healthFill.fillAmount = 1f;
         healthFill.color = healthyColor;
+
+        healthChunkFill.fillAmount = 1f;
+        healthChunkFill.gameObject.SetActive(false);
 
         healthText.text = Mathf.RoundToInt(currentHealth) + "%";
         healthBarRoot.localScale = Vector3.one;
@@ -46,11 +59,20 @@ public class MechaHealthUI : MonoBehaviour
         if (healthRoutine != null)
             StopCoroutine(healthRoutine);
 
+        if (chunkRoutine != null)
+            StopCoroutine(chunkRoutine);
+
         healthRoutine = StartCoroutine(LerpHealth(previousHealth, currentHealth));
+
+        // Setup chunk bar
+        healthChunkFill.gameObject.SetActive(true);
+        healthChunkFill.fillAmount = previousHealth / maxHealth;
+        healthChunkFill.color = blinkStartColor;
+
+        chunkRoutine = StartCoroutine(AnimateChunk(previousHealth, currentHealth));
 
         if (pulseRoutine != null)
             StopCoroutine(pulseRoutine);
-
 
         pulseRoutine = StartCoroutine(PulseBar());
     }
@@ -64,55 +86,81 @@ public class MechaHealthUI : MonoBehaviour
             elapsed += Time.deltaTime;
             float t = elapsed / lerpDuration;
 
-            // Lerp fill
             float fillAmount = Mathf.Lerp(start / maxHealth, target / maxHealth, t);
             healthFill.fillAmount = fillAmount;
 
-            // Lerp text
             float displayedHP = Mathf.Lerp(start, target, t);
             healthText.text = Mathf.RoundToInt(displayedHP) + "%";
 
-            // Update color if low health
             healthFill.color = (target <= lowHealthThreshold) ? lowHealthColor : healthyColor;
 
             yield return null;
         }
 
-        // Ensure final values
         healthFill.fillAmount = target / maxHealth;
         healthText.text = Mathf.RoundToInt(target) + "%";
         healthFill.color = (target <= lowHealthThreshold) ? lowHealthColor : healthyColor;
     }
 
-private IEnumerator PulseBar()
-{
-    // Toujours partir de la scale actuelle
-    Vector3 currentScale = healthBarRoot.localScale;
-    Vector3 targetScale = currentScale * (1 + pulseScale);
-
-    float t = 0f;
-
-    // Pulse up
-    while (t < pulseDuration)
+    private IEnumerator AnimateChunk(float start, float target)
     {
-        t += Time.deltaTime;
-        healthBarRoot.localScale = Vector3.Lerp(currentScale, targetScale, t / pulseDuration);
-        yield return null;
+        yield return new WaitForSeconds(chunkDelay);
+
+        // Blink effect
+        for (int i = 0; i < blinkCount; i++)
+        {
+            healthChunkFill.color = blinkColor;
+            yield return new WaitForSeconds(blinkSpeed);
+
+            healthChunkFill.color = blinkStartColor;
+            yield return new WaitForSeconds(blinkSpeed);
+        }
+
+        float elapsed = 0f;
+
+        float startFill = start / maxHealth;
+        float targetFill = target / maxHealth;
+
+        while (elapsed < chunkLerpDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / chunkLerpDuration;
+
+            healthChunkFill.fillAmount = Mathf.Lerp(startFill, targetFill, t);
+
+            yield return null;
+        }
+
+        healthChunkFill.fillAmount = targetFill;
+
+        healthChunkFill.gameObject.SetActive(false);
     }
 
-    t = 0f;
-    currentScale = healthBarRoot.localScale; // prend la scale actuelle au moment du retour
-    Vector3 originalScale = Vector3.one;
-
-    // Pulse back vers scale normal (Vector3.one)
-    while (t < pulseDuration)
+    private IEnumerator PulseBar()
     {
-        t += Time.deltaTime;
-        healthBarRoot.localScale = Vector3.Lerp(currentScale, originalScale, t / pulseDuration);
-        yield return null;
-    }
+        Vector3 currentScale = healthBarRoot.localScale;
+        Vector3 targetScale = currentScale * (1 + pulseScale);
 
-    // Assure que la scale finale est exactement la bonne
-    healthBarRoot.localScale = Vector3.one;
-}
+        float t = 0f;
+
+        while (t < pulseDuration)
+        {
+            t += Time.deltaTime;
+            healthBarRoot.localScale = Vector3.Lerp(currentScale, targetScale, t / pulseDuration);
+            yield return null;
+        }
+
+        t = 0f;
+        currentScale = healthBarRoot.localScale;
+        Vector3 originalScale = Vector3.one;
+
+        while (t < pulseDuration)
+        {
+            t += Time.deltaTime;
+            healthBarRoot.localScale = Vector3.Lerp(currentScale, originalScale, t / pulseDuration);
+            yield return null;
+        }
+
+        healthBarRoot.localScale = Vector3.one;
+    }
 }
