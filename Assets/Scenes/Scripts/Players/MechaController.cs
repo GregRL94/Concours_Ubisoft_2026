@@ -1,3 +1,5 @@
+//hold sa active les cooldown dash  aoe, mais si je release vite sa nactive pas les cooldowns aoe dash ouff jen ai marre
+
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -131,11 +133,16 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _missileSpawnInterval = 0.2f;
     [SerializeField] private float _ultimateHoldDuration = 3f;
     [SerializeField] private float _ultimateMax = 100f;
-    [SerializeField] private float _ultimateInputForgiveness = 0.12f;
     private float _ultimateCharge = 0f;
     private bool _isAttemptingUltimate = false;
-    private bool _ultimateReady = true; // debug pour l'instant
-    private float _ultimateHoldTimer = 0f;
+    private bool _ultimateReady = false;
+    private bool _movementCharged = false;
+    private bool _shootCharged = false;
+    private float _movementHoldTimer = 0f;
+    private float _shootHoldTimer = 0f;
+    [SerializeField] private float _ultimateHoldThreshold = 0.25f;
+    private bool _movementHoldWasShort = true;
+    private bool _shootHoldWasShort = true;
 
     [Header("Mecha Ability Ref")]
     [SerializeField] private MechaAbilityUI abilityUI;
@@ -161,7 +168,7 @@ public class MechaController : MonoBehaviour, IHit
     private float _currentAngularDispersion;
     private float _currentLinearDispersion;
 
-    // Injecte les inputs des joueurs selon leur role choisi 
+    // Injecte les inputs des joueurs selon leur role choisi
     public void GameplayInitialize(PlayerInputHandler p1, PlayerInputHandler p2)
     {
         if (p1.Role == PlayerRole.Movement)
@@ -183,21 +190,21 @@ public class MechaController : MonoBehaviour, IHit
         _currentSpeed = _movementSpeed;
 
         ultimateUI?.Initialize(_ultimateMax);
-        if (_currentUltimateCoroutine != null) { StopCoroutine(_currentUltimateCoroutine); }
-        _currentUltimateCoroutine = StartCoroutine(MissileSwarm());
+
+        // NO COOLDOWN ABILITY ON START
+        _aoeTimer = _aoeCooldown;
+        _dashCooldownTimer = _dashCooldown;
+        _meleeTimer = _meleeAttackCooldown;
+
     }
 
-    // Mettre a jour la fonctionnalit� des joueurs
+    // Mettre a jour la fonctionnalit  des joueurs
     private void Update()
     {
         UpdateTimers();
 
         if (movementPlayer != null && shootPlayer != null)
             HandleUltimate();
-
-        // si tentative d'ultimate -> on bloque les abilities
-        //if (_isAttemptingUltimate)
-        //    return;
 
         if (movementPlayer != null)
             HandleMovement();
@@ -224,7 +231,10 @@ public class MechaController : MonoBehaviour, IHit
             MeleeAttack(move, _meleeAttackHitBox.x, _meleeAttackHitBox.y, _meleeAttackImpactsWhat);
         }
 
-        if (movementPlayer.GrapplePressed() && _dashCooldownTimer >= _dashCooldown)
+        if (movementPlayer.DashReleased()
+            && _movementHoldWasShort
+            && !_isAttemptingUltimate
+            && _dashCooldownTimer >= _dashCooldown)
         {
             if (_currentDashCoroutine != null)
             {
@@ -256,7 +266,10 @@ public class MechaController : MonoBehaviour, IHit
             ResetDispersions();
         }
 
-        if (shootPlayer.AOEPressed() && _aoeTimer >= _aoeCooldown)
+        if (shootPlayer.AOEReleased()
+            && _shootHoldWasShort
+            && !_isAttemptingUltimate
+            && _aoeTimer >= _aoeCooldown)
         {
             GroundSmash(_aoeRadius, _aoeDamage, _aoeRepelForce);
             if (_mechaTop.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
@@ -285,31 +298,52 @@ public class MechaController : MonoBehaviour, IHit
             _ultimateReady = true;
         }
 
+        bool movementHold = movementPlayer.DashHold();
+        bool shootHold = shootPlayer.AOEHold();
+
+        _isAttemptingUltimate = _ultimateReady && (movementHold || shootHold);
+
+        // -------- HOLD DETECTION (toujours actif) --------
+
+        if (movementHold)
+            _movementHoldTimer += Time.deltaTime;
+        else
+        {
+            _movementHoldWasShort = _movementHoldTimer < _ultimateHoldThreshold;
+            _movementHoldTimer = 0f;
+        }
+
+        if (shootHold)
+            _shootHoldTimer += Time.deltaTime;
+        else
+        {
+            _shootHoldWasShort = _shootHoldTimer < _ultimateHoldThreshold;
+            _shootHoldTimer = 0f;
+        }
+
+        // -------- SI ULTIMATE PAS READY STOP ICI --------
+
         if (!_ultimateReady)
             return;
 
-        bool movementCombo = movementPlayer.UltimateComboPressed();
-        bool shootCombo = shootPlayer.UltimateComboPressed();
+        // -------- CHARGE ULTIMATE --------
 
-        _isAttemptingUltimate = movementCombo || shootCombo;
+        if (_movementHoldTimer >= _ultimateHoldDuration)
+            _movementCharged = true;
 
-        // les deux joueurs doivent hold
-        if (movementCombo && shootCombo)
-        {
-            _ultimateHoldTimer += Time.deltaTime;
+        if (_shootHoldTimer >= _ultimateHoldDuration)
+            _shootCharged = true;
 
-            ultimateUI?.UpdateCoopHold(_ultimateHoldTimer / _ultimateHoldDuration);
+        float sync = 0f;
+        sync += Mathf.Clamp01(_movementHoldTimer / _ultimateHoldDuration) * 0.5f;
+        sync += Mathf.Clamp01(_shootHoldTimer / _ultimateHoldDuration) * 0.5f;
 
-            if (_ultimateHoldTimer >= _ultimateHoldDuration)
-            {
-                ActivateUltimate();
-            }
-        }
-        else
-        {
-            _ultimateHoldTimer = 0f;
-            ultimateUI?.UpdateCoopHold(_ultimateHoldTimer);
-        }
+        ultimateUI?.UpdateCoopHold(sync);
+
+        if (_movementCharged && _shootCharged && movementHold && shootHold)
+            ActivateUltimate();
+
+
     }
 
     private void ActivateUltimate()
@@ -318,14 +352,21 @@ public class MechaController : MonoBehaviour, IHit
 
         _ultimateReady = false;
         _ultimateCharge = 0;
-        _ultimateHoldTimer = 0f;
+
+        _movementCharged = false;
+        _shootCharged = false;
+
+        _movementHoldWasShort = true;
+        _shootHoldWasShort = true;
 
         _isAttemptingUltimate = false;
 
-        ultimateUI?.UpdateCoopHold(_ultimateHoldTimer);
+        _movementHoldTimer = 0f;
+        _shootHoldTimer = 0f;
+
+        ultimateUI?.UpdateCoopHold(0f);
         ultimateUI?.ResetUltimate();
     }
-
 
     IEnumerator Dash()
     {
@@ -410,7 +451,7 @@ public class MechaController : MonoBehaviour, IHit
         _shootingPoints[1].transform.eulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(gun1AimDir.x, gun1AimDir.y, _offsetAngleDeg)); // Rotation du gun 1 selon la direction de visee
     }
 
-    private void ShootLaser(GameObject _laserShotPrefab, bool synchFire=false)
+    private void ShootLaser(GameObject _laserShotPrefab, bool synchFire = false)
     {
         if (!synchFire)
         {
@@ -457,7 +498,7 @@ public class MechaController : MonoBehaviour, IHit
         _aoeTimer += Time.deltaTime;
 
         // utimate team attack cooldown
-        _ultimateCharge += Time.deltaTime * 10f;
+        _ultimateCharge += Time.deltaTime * 35f;
 
     }
 
