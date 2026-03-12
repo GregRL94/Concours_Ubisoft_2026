@@ -9,44 +9,38 @@ public class PlayerInputHandler : MonoBehaviour
 
     private InputAction moveAction;
     private InputAction meleeAction;
-    private InputAction grappleAction;
+    private InputAction dashAction;
 
     private InputAction aimAction;
     private InputAction shootAction;
     private InputAction aoeAction;
 
-    // Relie les actions a travers la manette de chaque joueur && no swap
     public void Initialize(PlayerRole role, Gamepad gamepad)
     {
         Role = role;
 
         actions = new PlayerMapActions();
 
-        // Movement map
         moveAction = actions.Player.Move;
         meleeAction = actions.Player.Melee;
-        grappleAction = actions.Player.GrapplingHook;
+        dashAction = actions.Player.GrapplingHook;
 
-        // Shoot map
         aimAction = actions.Player.AimCursor;
         shootAction = actions.Player.Shoot;
         aoeAction = actions.Player.AOEAttack;
 
         if (gamepad != null)
         {
-            // Bind ce gamepad
             actions.devices = new InputDevice[] { gamepad };
         }
         else
         {
-            // Bind le clavier
             actions.devices = new InputDevice[] { Keyboard.current };
         }
 
         actions.Enable();
     }
 
-    // Input system manquant - désactivé pour sécurité
     private void OnDisable()
     {
         actions?.Disable();
@@ -54,13 +48,11 @@ public class PlayerInputHandler : MonoBehaviour
 
     //////////////////// INPUT LISTENER ////////////////////////
 
-    // MOVEMENT ROLE
     public Vector2 GetMovement()
     {
         if (Role != PlayerRole.Movement)
             return Vector2.zero;
 
-        //Debug.Log($"Player {gameObject.name} Move Input: {moveAction.ReadValue<Vector2>()}");
         return moveAction.ReadValue<Vector2>();
     }
 
@@ -70,13 +62,40 @@ public class PlayerInputHandler : MonoBehaviour
                meleeAction.WasPressedThisFrame();
     }
 
-    public bool GrapplePressed()
+    public bool DashPressed()
     {
         return Role == PlayerRole.Movement &&
-               grappleAction.WasPressedThisFrame();
+               dashAction.WasPressedThisFrame();
     }
 
-    // SHOOT ROLE
+    // ----------- AJOUT HOLD / RELEASE -----------
+
+    public bool DashHold()
+    {
+        return Role == PlayerRole.Movement &&
+               dashAction.IsPressed();
+    }
+
+    public bool DashReleased()
+    {
+        return Role == PlayerRole.Movement &&
+               dashAction.WasReleasedThisFrame();
+    }
+
+    public bool AOEHold()
+    {
+        return Role == PlayerRole.Shoot &&
+               aoeAction.IsPressed();
+    }
+
+    public bool AOEReleased()
+    {
+        return Role == PlayerRole.Shoot &&
+               aoeAction.WasReleasedThisFrame();
+    }
+
+    // --------------------------------------------
+
     public Vector2 GetAim()
     {
         if (Role != PlayerRole.Shoot)
@@ -101,15 +120,14 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (Role == PlayerRole.Movement)
         {
-            return /*meleeAction.IsPressed() && */grappleAction.IsPressed();
+            return dashAction.IsPressed();
         }
 
         if (Role == PlayerRole.Shoot)
         {
-            return /*shootAction.IsPressed() && */aoeAction.IsPressed();
+            return aoeAction.IsPressed();
         }
 
         return false;
     }
-
 }
