@@ -89,7 +89,6 @@ public class Missile : MonoBehaviour
         float targetAngle = MathUtils.DirToAngleRad(dir.x, dir.y, -90f);
         Vector3 targetRotation = new Vector3(0f, 0f, targetAngle);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(targetRotation), _rotationSpeed * Time.deltaTime);
-        Debug.Log("Rotating towards target" + transform.rotation);
     }
 
     private void Move()

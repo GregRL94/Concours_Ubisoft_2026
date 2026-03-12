@@ -920,9 +920,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0efd34d6e9d89419f3a5deda2ecc03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MechaController
+  LaserShotParameters:
+    <LaserShotPrefab>k__BackingField: {fileID: 0}
+    <Speed>k__BackingField: 15
+    <Damage>k__BackingField: 10
+    <Lifetime>k__BackingField: 1
+    <LaserImpactLayerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 0
+  DispersionParameters:
+    <MaxAngluarDispersion>k__BackingField: 30
+    <AngularDispersionRate>k__BackingField: 0.5
+    <AngularDispersionResetSpeed>k__BackingField: 2
+    <MaxLinearDispersion>k__BackingField: 0.1
+    <LinearDispersionRate>k__BackingField: 0.025
+    <LinearDispersionResetSpeed>k__BackingField: 0.05
+  MissileParameters:
+    <MissilePrefab>k__BackingField: {fileID: 0}
+    <Speed>k__BackingField: 10
+    <RotationSpeed>k__BackingField: 90
+    <Damage>k__BackingField: 30
+    <HoldRotationTimer>k__BackingField: 0.5
+    <HoldMovementTimer>k__BackingField: 1.5
+    <Lifetime>k__BackingField: 5
+    <MissileImpactLayerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 0
   _mechaBase: {fileID: 4838196248118909920}
   _mechaTop: {fileID: 4235779837525528367}
   _offsetAngleDeg: -90
+  <MechaHealth>k__BackingField: 100
   _movementSpeed: 5
   _dashSpeedFactor: 6
   _dashDuration: 0.1
@@ -939,21 +966,16 @@ MonoBehaviour:
     m_Bits: 0
   _meleeDamage: 25
   _meleeAttackCooldown: 1
-  _aimingReticle: {fileID: 7688457587450742652}
   _shootingPoints:
   - {fileID: 1203288601306859973}
   - {fileID: 7123907203564862564}
-  _laserShotPrefab: {fileID: 7801827202018218392, guid: feff21240f8dc67438716ba915efda8f, type: 3}
-  _laserImpactsWhat:
-    serializedVersion: 2
-    m_Bits: 640
+  _aimingReticle: {fileID: 7688457587450742652}
   _aimingReticleSpeed: 3
   _aimingReticleMinDistance: 4
   _synchFire: 0
   _fireRate: 10
-  _laserShotSpeed: 15
-  _laserShotDamage: 10
-  _laserShotLifeTime: 1
+  _angularDispersion: 0
+  _linearDispersion: 0
   _aoeImpactsWhat:
     serializedVersion: 2
     m_Bits: 384
@@ -961,12 +983,20 @@ MonoBehaviour:
   _aoeDamage: 25
   _aoeRepelForce: 20
   _aoeCooldown: 10
+  _ultimateTargetsWhat:
+    serializedVersion: 2
+    m_Bits: 0
   _missilePoints:
   - {fileID: 0}
   - {fileID: 0}
+  _maxTargetingRange: 10
+  _maxNumberOfMissiles: 12
+  _minReleaseForce: 1
+  _maxReleaseForce: 5
+  _missileSpawnInterval: 0.2
   _ultimateHoldDuration: 3
   _ultimateMax: 100
-  _ultimateInputForgiveness: 0.12
+  _ultimateHoldThreshold: 0.25
   abilityUI: {fileID: 7588572628328435216}
   ultimateUI: {fileID: 7658851919928563416}
 --- !u!114 &9173763668728688620
@@ -1001,8 +1031,15 @@ MonoBehaviour:
   healthBarRoot: {fileID: 0}
   healthyColor: {r: 0, g: 1, b: 0, a: 1}
   lowHealthColor: {r: 1, g: 0, b: 0, a: 1}
-  lerpDuration: 1
-  pulseScale: 0.03
+  healthChunkFill: {fileID: 0}
+  blinkStartColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  blinkColor: {r: 1, g: 1, b: 1, a: 1}
+  chunkDelay: 0.3
+  chunkLerpDuration: 0.3
+  blinkCount: 3
+  blinkSpeed: 0.08
+  lerpDuration: 0.05
+  pulseScale: 0.05
   pulseDuration: 0.05
   lowHealthThreshold: 15
 --- !u!114 &7588572628328435216

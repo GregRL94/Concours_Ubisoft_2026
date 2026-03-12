@@ -259,7 +259,7 @@ public class MechaController : MonoBehaviour, IHit
 
         if (shootPlayer.ShootPressed() && _laserCoolDown >= 1 / _fireRate)
         {
-            ShootLaser(LaserShotParameters.LaserShotPrefab, _synchFire);            
+            ShootLaser(LaserShotParameters.LaserShotPrefab, _synchFire);
         }
         else
         {
@@ -348,7 +348,12 @@ public class MechaController : MonoBehaviour, IHit
 
     private void ActivateUltimate()
     {
-        Debug.Log("ULTIMATE TEAM ATTACK UNLEASHED !!!");
+        if (_ultimateReady)
+        {
+            if (_currentUltimateCoroutine != null) { StopCoroutine(_currentUltimateCoroutine); }
+            _currentUltimateCoroutine = StartCoroutine(MissileSwarm());
+            Debug.Log("ULTIMATE TEAM ATTACK UNLEASHED !!!");
+        }        
 
         _ultimateReady = false;
         _ultimateCharge = 0;
