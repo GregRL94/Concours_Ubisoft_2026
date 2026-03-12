@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e860fcffa4c7f0e4db8344c4a5c4fa20, type: 3}
+  m_Name: SniperData
+  m_EditorClassIdentifier: Assembly-CSharp::SniperData
+  enemyName: Sniper
+  moveSpeed: 3
+  maxHealth: 100
+  detectionRange: 7
+  attackRange: 4
+  stopDistance: 3
+  projectileSpeed: 20
+  fireRate: 2
+  projectilePrefab: {fileID: 4089008178729448314, guid: 91f8cde0d2bc7cb48bc396a2ea5f065d, type: 3}

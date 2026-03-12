@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Playable
+    uniqueID: 3259855321
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
