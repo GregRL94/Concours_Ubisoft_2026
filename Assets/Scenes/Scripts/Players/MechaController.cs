@@ -298,6 +298,11 @@ public class MechaController : MonoBehaviour, IHit
             _ultimateReady = true;
         }
 
+        // -------- SI ULTIMATE PAS READY STOP ICI --------
+
+        if (!_ultimateReady)
+            return;
+
         bool movementHold = movementPlayer.DashHold();
         bool shootHold = shootPlayer.AOEHold();
 
@@ -319,12 +324,7 @@ public class MechaController : MonoBehaviour, IHit
         {
             _shootHoldWasShort = _shootHoldTimer < _ultimateHoldThreshold;
             _shootHoldTimer = 0f;
-        }
-
-        // -------- SI ULTIMATE PAS READY STOP ICI --------
-
-        if (!_ultimateReady)
-            return;
+        }       
 
         // -------- CHARGE ULTIMATE --------
 
