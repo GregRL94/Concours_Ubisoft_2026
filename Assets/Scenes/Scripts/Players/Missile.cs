@@ -1,18 +1,12 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
-//public class MissileSetup
-//{
-//    public float Speed { get; private set; }
-//    public float RotationSpeed { get; private set; }
-//    public float Lifetime { get; private set; }
-//    public float Damage { get; private set; }
-//    public float HoldRotationTimer { get; private set; }
-//    public float HoldMovementTimer { get; private set; }
-//    private LayerMask _missileImpactLayerMask;
-//}
 
 public class Missile : MonoBehaviour
 {
+    private TrailRenderer _trailRenderer;
+    private ParticleSystem _particleSystem;
+    private Light2D _light2D;
     [SerializeField] private float _speed;
     [SerializeField] private float _rotationSpeed = 50f;
     [SerializeField] private float _lifetime;
@@ -22,9 +16,8 @@ public class Missile : MonoBehaviour
     [SerializeField] private LayerMask _impactLayerMask;
     [SerializeField] private GameObject _target;
 
+    
     private float _timer;
-    private TrailRenderer _trailRenderer;
-    private ParticleSystem _particleSystem;
     private bool _rotationActive = false;
     private bool _movementActive = false;
     private bool _effectsActive = false;
@@ -37,6 +30,8 @@ public class Missile : MonoBehaviour
         }
 
         _particleSystem = GetComponentInChildren<ParticleSystem>();
+
+        _light2D = GetComponentInChildren<Light2D>();
     }
 
     // Update is called once per frame
@@ -50,9 +45,7 @@ public class Missile : MonoBehaviour
 
         if (!_effectsActive && _rotationActive && _movementActive)
         {
-            _effectsActive = true;
-            if (_trailRenderer != null) { _trailRenderer.emitting = true; }
-            if (_particleSystem != null) { _particleSystem.Play(); }
+            ActivateMissileEffects();
         }
         if (_rotationActive)
         {
@@ -81,6 +74,13 @@ public class Missile : MonoBehaviour
         _target = target;
     }
 
+    private void ActivateMissileEffects()
+    {
+        _effectsActive = true;
+        if (_trailRenderer != null) { _trailRenderer.emitting = true; }
+        if (_particleSystem != null) { _particleSystem.Play(); }
+        if (_light2D != null) { _light2D.enabled = true; }
+    }
     private void RotateTowardsTarget()
     {
         if (_target == null) { return; }
