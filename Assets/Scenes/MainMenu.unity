@@ -414,6 +414,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1409942857320686523, guid: 4fa22e95a7cf651499e1f36a3c7caa98, type: 3}
+      propertyPath: sceneName
+      value: MainLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409942857320686523, guid: 4fa22e95a7cf651499e1f36a3c7caa98, type: 3}
       propertyPath: confirmTime
       value: 1
       objectReference: {fileID: 0}

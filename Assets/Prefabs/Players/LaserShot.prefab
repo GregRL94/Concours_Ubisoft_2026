@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3507862057726597587}
   - component: {fileID: 9087682446479883011}
   - component: {fileID: 1656899726386707784}
+  - component: {fileID: -6331466321129152172}
   - component: {fileID: 5930228685647784632}
   m_Layer: 0
   m_Name: LaserShot
@@ -190,6 +191,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efc0c712b042394b9a550fc9b6d7a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaserShot
+--- !u!50 &-6331466321129152172
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801827202018218392}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &5930228685647784632
 BoxCollider2D:
   m_ObjectHideFlags: 0
