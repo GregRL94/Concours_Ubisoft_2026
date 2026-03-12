@@ -37,6 +37,10 @@ public class MechaController : MonoBehaviour
     [SerializeField] private float _aimingReticleSpeed = 3f;
     [SerializeField] private float _aimingReticleMinDistance = 1f;
     [SerializeField] private bool _synchFire = false;
+    [SerializeField] private bool _dispersion = false;
+    [SerializeField] private float _dispersionRate = 0.05f;
+    [SerializeField] private float _dispersionMaxAngle = 5f;
+    [SerializeField] private float _dispersionResetSpeed = 5f;
     [SerializeField] private float _fireRate = 2f;
     [SerializeField] private float _laserShotSpeed;
     [SerializeField] private float _laserShotDamage = 5f;
@@ -52,6 +56,14 @@ public class MechaController : MonoBehaviour
 
     [Header("ULTIMATE TEAM ATTACK PARAMETERS")]
     [SerializeField] private Transform[] _missilePoints = new Transform[2];
+    [SerializeField] private GameObject _missilePrefab;
+    [SerializeField] private LayerMask _missileImpactsWhat;
+    [SerializeField] private float _missileSpeed = 5f;
+    [SerializeField] private float _missileRotationSpeed;
+    [SerializeField] private float _missileLifetime;
+    [SerializeField] private float _missileDamage;
+    [SerializeField] private float _missileHoldRotationTimer;
+    [SerializeField] private float _missileHoldMovementTimer;
     [SerializeField] private float _ultimateHoldDuration = 3f;
     [SerializeField] private float _ultimateMax = 100f;
     [SerializeField] private float _ultimateInputForgiveness = 0.12f;
@@ -77,6 +89,7 @@ public class MechaController : MonoBehaviour
     private float _aoeTimer;
     private Vector2 _lastNonZeroDir;
     private int _currentGunIndex = 0;
+    private float _currentDispersion;
 
     // Injecte les inputs des joueurs selon leur role choisi 
     public void GameplayInitialize(PlayerInputHandler p1, PlayerInputHandler p2)
@@ -169,6 +182,10 @@ public class MechaController : MonoBehaviour
         if (shootPlayer.ShootPressed() && _laserCoolDown >= 1 / _fireRate)
         {
             ShootLaser(_laserShotPrefab, _synchFire);
+        }
+        else if (_dispersion)
+        {
+            _currentDispersion = Mathf.Lerp(_currentDispersion, 0f, Time.deltaTime * _dispersionResetSpeed);
         }
 
         if (shootPlayer.AOEPressed() && _aoeTimer >= _aoeCooldown)
@@ -278,6 +295,11 @@ public class MechaController : MonoBehaviour
         if (!synchFire)
         {
             if (_currentGunIndex > _shootingPoints.Length - 1) { _currentGunIndex = 0; }
+            if (_dispersion && _currentDispersion > 0f)
+            {
+                float randomAngle = Random.Range(-_currentDispersion, _currentDispersion);
+                _shootingPoints[_currentGunIndex].transform.Rotate(0f, 0f, randomAngle);
+            }
 
             GameObject laserShotGO = Instantiate(_laserShotPrefab, _shootingPoints[_currentGunIndex].position, _shootingPoints[_currentGunIndex].rotation);
             if (laserShotGO.TryGetComponent(out LaserShot laserShotComponent))
@@ -298,6 +320,8 @@ public class MechaController : MonoBehaviour
             }
         }
         _laserCoolDown = 0f;
+        _currentDispersion += _dispersionRate;
+        _currentDispersion = Mathf.Clamp(_currentDispersion, -_dispersionMaxAngle, _dispersionMaxAngle);
 
         abilityUI?.TriggerAbility("Laser", 1f / _fireRate);
         //AudioManager.Instance.PlaySound("SFX_Laser");
@@ -318,6 +342,8 @@ public class MechaController : MonoBehaviour
         abilityUI?.TriggerAbility("AOE", _aoeCooldown);
         Debug.Log("AOE");
     }
+
+    private void MissileSwarm() { }
 
     private void UpdateTimers()
     {
