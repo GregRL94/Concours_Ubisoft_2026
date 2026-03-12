@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -73,7 +72,7 @@ public class MissileSetup
 }
 
 
-public class MechaController : MonoBehaviour
+public class MechaController : MonoBehaviour, IHit
 {
     public LaserShotSetup LaserShotParameters;
     public DispersionSetup DispersionParameters;
@@ -83,6 +82,7 @@ public class MechaController : MonoBehaviour
     [SerializeField] private GameObject _mechaBase;
     [SerializeField] private GameObject _mechaTop;
     [SerializeField] private float _offsetAngleDeg;
+    [field: SerializeField] public float MechaHealth { get; private set; } = 100f;
     [Space]
 
     [Header("MOVING PLAYER PARAMETERS")]
@@ -122,6 +122,7 @@ public class MechaController : MonoBehaviour
     [Space]
 
     [Header("ULTIMATE TEAM ATTACK PARAMETERS")]
+    [SerializeField] private LayerMask _ultimateTargetsWhat;
     [SerializeField] private Transform[] _missilePoints = new Transform[2];
     [SerializeField] private float _maxTargetingRange = 10f;
     [SerializeField] private int _maxNumberOfMissiles = 12;
@@ -143,11 +144,12 @@ public class MechaController : MonoBehaviour
     private PlayerInputHandler movementPlayer;
     private PlayerInputHandler shootPlayer;
     private Coroutine _currentDashCoroutine;
+    private Coroutine _currentUltimateCoroutine;
     private Rigidbody2D _rb2D;
     private Animator _animatorMechaBase;
     private Animator _animatorMechaTop;
 
-    private List<GameObject> targetableEnnemies = new List<GameObject>();
+    private float _currentHealth;
     private float _currentSpeed;
     private float _dashCooldownTimer;
     private bool _isDashing;
@@ -181,7 +183,8 @@ public class MechaController : MonoBehaviour
         _currentSpeed = _movementSpeed;
 
         ultimateUI?.Initialize(_ultimateMax);
-
+        if (_currentUltimateCoroutine != null) { StopCoroutine(_currentUltimateCoroutine); }
+        _currentUltimateCoroutine = StartCoroutine(MissileSwarm());
     }
 
     // Mettre a jour la fonctionnalit� des joueurs
@@ -234,7 +237,7 @@ public class MechaController : MonoBehaviour
             }
         }
 
-        _rb2D.linearVelocity = move * _currentSpeed; // D�placement du mecha selon les inputs du joueur de mouvement
+        _rb2D.linearVelocity = move * _currentSpeed; // Deplacement du mecha selon les inputs du joueur de mouvement
         _mechaBase.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(_lastNonZeroDir.x, _lastNonZeroDir.y, _offsetAngleDeg)); // Rotation de la base du mecha selon la direction de d�placement
     }
 
@@ -337,6 +340,35 @@ public class MechaController : MonoBehaviour
         _dashCooldownTimer = 0f;
         _isDashing = false;
         abilityUI?.TriggerAbility("Dash", _dashCooldown);
+        yield break;
+    }
+
+    IEnumerator MissileSwarm()
+    {
+        int currentLauncherIndex = 0;
+        int missilesSpawned = 0;
+        Collider2D[] targets = Physics2D.OverlapBoxAll(transform.position, new Vector2(_maxTargetingRange * 2, _maxTargetingRange * 2), 0f, _ultimateTargetsWhat);
+        
+        while (missilesSpawned < _maxNumberOfMissiles)
+        {
+            int randIndex = Random.Range(0, targets.Length);
+            GameObject target = targets[randIndex].gameObject;
+
+            if (currentLauncherIndex > _missilePoints.Length - 1) { currentLauncherIndex = 0; }
+            Vector2 ejectionForceDir = (_missilePoints[currentLauncherIndex].position - transform.position).normalized;
+
+            GameObject spawnedMissile = Instantiate(MissileParameters.MissilePrefab, _missilePoints[currentLauncherIndex].position, _missilePoints[currentLauncherIndex].rotation);
+            spawnedMissile.GetComponent<Rigidbody2D>().AddForce(ejectionForceDir * Random.Range(_minReleaseForce, _maxReleaseForce), ForceMode2D.Impulse);
+            Missile missileLogic = spawnedMissile.GetComponent<Missile>();
+            missileLogic.SetupMissile(MissileParameters.Speed, MissileParameters.RotationSpeed, MissileParameters.Lifetime, MissileParameters.Damage, MissileParameters.HoldRotationTimer,MissileParameters.HoldMovementTimer, MissileParameters.MissileImpactLayerMask);
+            missileLogic.SetTarget(target);
+
+            missilesSpawned++;
+            currentLauncherIndex++;
+
+            yield return new WaitForSeconds(_missileSpawnInterval);
+        }
+        yield break;
     }
 
     private void MeleeAttack(Vector2 attackDir, float attackWidth, float attackHeight, LayerMask layerMask)
@@ -416,8 +448,6 @@ public class MechaController : MonoBehaviour
         abilityUI?.TriggerAbility("AOE", _aoeCooldown);
         Debug.Log("AOE");
     }
-
-    private void MissileSwarm() { }
 
     private void UpdateTimers()
     {
@@ -499,6 +529,24 @@ public class MechaController : MonoBehaviour
                 hitComponent.OnHit(_dashDamage); // Inflige des degats de dash
                 Debug.Log("DASH HIT");
             }
+        }
+    }
+
+    public void OnHit(float damage)
+    {
+        _currentHealth -= damage;
+        if (_currentHealth <= 0)
+        {
+            // Die();
+        }
+    }
+
+    public void OnHit(float damage, float repelForce, Vector2 repelDirection)
+    {
+        _currentHealth -= damage;
+        if (_currentHealth <= 0)
+        {
+            // Die();
         }
     }
 }

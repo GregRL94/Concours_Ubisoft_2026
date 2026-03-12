@@ -5,18 +5,16 @@ using UnityEngine.Rendering.Universal;
 public class Missile : MonoBehaviour
 {
     private TrailRenderer _trailRenderer;
-    private ParticleSystem _particleSystem;
+    private ParticleSystem _particleSystem;    
     private Light2D _light2D;
-    [SerializeField] private float _speed;
-    [SerializeField] private float _rotationSpeed = 50f;
-    [SerializeField] private float _lifetime;
-    [SerializeField] private float _damage;
-    [SerializeField] private float _holdRotationTimer;
-    [SerializeField] private float _holdMovementTimer;
-    [SerializeField] private LayerMask _impactLayerMask;
-    [SerializeField] private GameObject _target;
-
-    
+    private LayerMask _impactLayerMask;
+    private GameObject _target;
+    private float _speed;
+    private float _rotationSpeed;
+    private float _lifetime;
+    private float _damage;
+    private float _holdRotationTimer;
+    private float _holdMovementTimer;
     private float _timer;
     private bool _rotationActive = false;
     private bool _movementActive = false;
@@ -61,12 +59,15 @@ public class Missile : MonoBehaviour
         }
     }
 
-    public void SetupMissile(float speed, float rotationSpeed, float lifetime, float damage)
+    public void SetupMissile(float speed, float rotationSpeed, float lifetime, float damage, float holdRotationTimer, float holdMovementTimer, LayerMask missileImpactsWhat)
     {
         _speed = speed;
         _rotationSpeed = rotationSpeed;
         _lifetime = lifetime;
         _damage = damage;
+        _holdRotationTimer = holdRotationTimer;
+        _holdMovementTimer = holdMovementTimer;
+        _impactLayerMask = missileImpactsWhat;
     }
 
     public void SetTarget(GameObject target)
