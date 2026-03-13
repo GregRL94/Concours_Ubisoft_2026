@@ -46,9 +46,9 @@ MonoBehaviour:
     randomizePitch: 0
     pitchRange: 0
   - id: SFX_Player_movement
-    clip: {fileID: 8300000, guid: f2cfe673ca472284992fdc9e444a2990, type: 3}
+    clip: {fileID: 8300000, guid: 3f07ff8572bc3004a834f525c4020b0a, type: 3}
     type: 1
-    volume: 0.733
+    volume: 0.293
     pitch: 1.08
     loop: 1
     randomizePitch: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   - id: SFX_Player_laser_tir
     clip: {fileID: 8300000, guid: f3c13c02109b00e4c829ea78a531f779, type: 3}
     type: 1
-    volume: 0.556
+    volume: 0.48
     pitch: 0.98
     loop: 0
     randomizePitch: 1
@@ -108,4 +108,20 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     randomizePitch: 1
+    pitchRange: 0.2
+  - id: SFX_Player_dash
+    clip: {fileID: 8300000, guid: 24fdc6b3f4dbd2e44841648ecc150115, type: 3}
+    type: 1
+    volume: 0.467
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: UI_ulti_playerready
+    clip: {fileID: 8300000, guid: 3f4381d9926ba3e48a8c4630c579d4b8, type: 3}
+    type: 1
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
     pitchRange: 0.2

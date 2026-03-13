@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using static Unity.VisualScripting.Member;
 
 //public class AudioManager : MonoBehaviour
 //{
@@ -285,36 +286,47 @@ public class AudioManager : MonoBehaviour
             Destroy(go, source.clip.length);
     }
 
-    public void StopSound(string soundId, Vector3? position = null)
+    public void StopSound(string soundId, bool hasFadeOut = false, float fadeOutDuration = 0.25f, Vector3? position = null)
     {
-        SoundData sound = library.Get(soundId);
-
-        if (sound == null || sound.clip == null)
+        GameObject go = GameObject.Find($"{soundId}");
+        if (go == null)
         {
-            Debug.LogWarning($"[AudioManager] Sound not found: {soundId}");
+            Debug.LogWarning($"[GameObject] Sound to stop not found: {soundId}");
             return;
         }
-
-        GameObject go = GameObject.Find($"{soundId}");
-        //DontDestroyOnLoad(go);
-
-        //if (position.HasValue)
-        //    go.transform.position = position.Value;
-
+        
         AudioSource source = go.GetComponent<AudioSource>();
-        //source.clip = sound.clip;
-        //source.volume = sound.volume;
-        //source.pitch = GetPitch(sound);
-        //source.loop = sound.loop;
-        //source.outputAudioMixerGroup = GetMixer(sound.type);
-        //source.spatialBlend = position.HasValue ? 1f : 0f;
+        if (source == null)
+            return;
+
+        if (hasFadeOut)
+        {
+            StartCoroutine(FadeOutRoutine(source, go, fadeOutDuration));
+        }
+        else
+        {
+            source.Stop();
+            Destroy(go);
+        }
+    }
+
+    private IEnumerator FadeOutRoutine(AudioSource source, GameObject soundGO, float fadeOutDuration)
+    {
+        float time = 0f;
+        while (time < fadeOutDuration)
+        {
+            time += Time.deltaTime;
+            float t = time / fadeOutDuration;
+            if (source != null)
+                source.volume = Mathf.Lerp(source.volume, 0f, t);
+
+            yield return null;
+        }
 
         source.Stop();
-        
-        //if (!sound.loop)
-        Destroy(go);
+        Destroy(soundGO);
     }
-    
+
     // GETTERS
     private float GetPitch(SoundData sound)
     {
