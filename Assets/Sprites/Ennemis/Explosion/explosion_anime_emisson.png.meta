@@ -1,0 +1,412 @@
+fileFormatVersion: 2
+guid: f995f13ed7fa1d54495f84f35ab4cd68
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 17879014938155207
+    second: pikmin_expostion_emisson_v001_0
+  - first:
+      213: 38326551659221738
+    second: pikmin_expostion_emisson_v001_1
+  - first:
+      213: -4635041342021980445
+    second: pikmin_expostion_emisson_v001_2
+  - first:
+      213: -5094216770651594796
+    second: pikmin_expostion_emisson_v001_3
+  - first:
+      213: -2823830599132411889
+    second: pikmin_expostion_emisson_v001_4
+  - first:
+      213: 7220217247992251379
+    second: pikmin_expostion_emisson_v001_5
+  - first:
+      213: -715974006454827973
+    second: pikmin_expostion_emisson_v001_6
+  - first:
+      213: -5438053494525600520
+    second: pikmin_expostion_emisson_v001_7
+  - first:
+      213: -8190522276599359138
+    second: pikmin_expostion_emisson_v001_8
+  - first:
+      213: 6760181185357803196
+    second: pikmin_expostion_emisson_v001_9
+  - first:
+      213: -4586748568784531051
+    second: pikmin_expostion_emisson_v001_10
+  - first:
+      213: -33545929059363354
+    second: pikmin_expostion_emisson_v001_11
+  - first:
+      213: 4657943544801311410
+    second: pikmin_expostion_emisson_v001_12
+  - first:
+      213: -8865991219893473927
+    second: pikmin_expostion_emisson_v001_13
+  - first:
+      213: -6342905924459872501
+    second: pikmin_expostion_emisson_v001_14
+  - first:
+      213: -2347557099832886764
+    second: pikmin_expostion_emisson_v001_15
+  - first:
+      213: -7374452448100577325
+    second: pikmin_expostion_emisson_v001_16
+  - first:
+      213: 3867914367600575022
+    second: pikmin_expostion_emisson_v001_17
+  - first:
+      213: 7128155977921798186
+    second: pikmin_expostion_emisson_v001_18
+  - first:
+      213: 8283501985578850300
+    second: pikmin_expostion_emisson_v001_19
+  - first:
+      213: -3702172146515113669
+    second: pikmin_expostion_emisson_v001_20
+  - first:
+      213: -6143470105945825868
+    second: pikmin_expostion_emisson_v001_21
+  - first:
+      213: 2053258189237053603
+    second: pikmin_expostion_emisson_v001_22
+  - first:
+      213: -2134803031040964525
+    second: pikmin_expostion_emisson_v001_23
+  - first:
+      213: 6361649341011358288
+    second: pikmin_expostion_emisson_v001_24
+  - first:
+      213: 725420804670148281
+    second: pikmin_expostion_emisson_v001_25
+  - first:
+      213: 3575965173074592037
+    second: pikmin_expostion_emisson_v001_26
+  - first:
+      213: -6710740030420005173
+    second: pikmin_expostion_emisson_v001_27
+  - first:
+      213: 7525609674691303624
+    second: pikmin_expostion_emisson_v001_28
+  - first:
+      213: -8666969222771433145
+    second: pikmin_expostion_emisson_v001_29
+  - first:
+      213: -3068072256850283714
+    second: pikmin_expostion_emisson_v001_30
+  - first:
+      213: 7087974861111997608
+    second: pikmin_expostion_emisson_v001_31
+  - first:
+      213: 3312684478222554292
+    second: pikmin_expostion_emisson_v001_32
+  - first:
+      213: -6987240407510888419
+    second: pikmin_expostion_emisson_v001_33
+  - first:
+      213: -258022855285472084
+    second: pikmin_expostion_emisson_v001_34
+  - first:
+      213: -5289334312336249990
+    second: pikmin_expostion_emisson_v001_35
+  - first:
+      213: 2830174949951349087
+    second: pikmin_expostion_emisson_v001_36
+  - first:
+      213: -449076384164516476
+    second: pikmin_expostion_emisson_v001_37
+  - first:
+      213: 310952034764646103
+    second: pikmin_expostion_emisson_v001_38
+  - first:
+      213: 2097666529439042486
+    second: pikmin_expostion_emisson_v001_39
+  - first:
+      213: 4855860150061929906
+    second: pikmin_expostion_emisson_v001_40
+  - first:
+      213: 8414859496568642090
+    second: pikmin_expostion_emisson_v001_41
+  - first:
+      213: -7073603845423570117
+    second: pikmin_expostion_emisson_v001_42
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: explosion_anime_emisson_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 567f0027e38e8194d9ac45003dda997c
+      internalID: 1284899173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_anime_emisson_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be79f8c59907f049b15de72cb321cb9
+      internalID: 216517449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_anime_emisson_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab0d63d862876c48865e7212a51e71c
+      internalID: 1923857239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_anime_emisson_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22eeb4e3fb10a6a4fa4878b6202867ab
+      internalID: 1649792660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_anime_emisson_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e0c1de01a4961347b9db478426e23a6
+      internalID: -1770576320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_anime_emisson_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f32437dd5d0ac3a4aa36d202a45c18df
+      internalID: -2080335874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 463390943f651c74cbc2bb461a6b6911
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      explosion_anime_emisson_0: 1284899173
+      explosion_anime_emisson_1: 216517449
+      explosion_anime_emisson_2: 1923857239
+      explosion_anime_emisson_3: 1649792660
+      explosion_anime_emisson_4: -1770576320
+      explosion_anime_emisson_5: -2080335874
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

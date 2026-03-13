@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: a82939588d4594b469ec39842dc3d330
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3724117847474342380
+    second: boltbatV01_fly_anim_emission_0
+  - first:
+      213: 1640809301718344817
+    second: boltbatV01_fly_anim_emission_1
+  - first:
+      213: 8594029400022291342
+    second: boltbatV01_fly_anim_emission_2
+  - first:
+      213: 3777600634888182120
+    second: boltbatV01_fly_anim_emission_3
+  - first:
+      213: 1660160067006758408
+    second: boltbatV01_fly_anim_emission_4
+  - first:
+      213: 7822692893913099547
+    second: boltbatV01_fly_anim_emission_5
+  - first:
+      213: 367655784275759110
+    second: boltbatV01_fly_anim_emission_6
+  - first:
+      213: 1185484406286435499
+    second: boltbatV01_fly_anim_emission_7
+  - first:
+      213: -3374891475452047990
+    second: boltbatV01_fly_anim_emission_8
+  - first:
+      213: -7501324190825040983
+    second: boltbatV01_fly_anim_emission_9
+  - first:
+      213: -2210471366762060243
+    second: boltbatV01_fly_anim_emission_10
+  - first:
+      213: 7319279860326349696
+    second: boltbatV01_fly_anim_emission_11
+  - first:
+      213: 4810633392423465032
+    second: boltbatV01_fly_anim_emission_12
+  - first:
+      213: -6142438095567746123
+    second: boltbatV01_fly_anim_emission_13
+  - first:
+      213: -3581455051661819028
+    second: boltbatV01_fly_anim_emission_14
+  - first:
+      213: -8543482157545571192
+    second: boltbatV01_fly_anim_emission_15
+  - first:
+      213: 904129943369152859
+    second: boltbatV01_fly_anim_emission_16
+  - first:
+      213: -2916662663301252600
+    second: boltbatV01_fly_anim_emission_17
+  - first:
+      213: -2973004331503697280
+    second: boltbatV01_fly_anim_emission_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 3
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41679978c86415cc0800000000000000
+      internalID: -3724117847474342380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 3
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1742415dd5355c610800000000000000
+      internalID: 1640809301718344817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_2
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 4
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e839799c430244770800000000000000
+      internalID: 8594029400022291342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 4
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 869dcc943cbbc6430800000000000000
+      internalID: 3777600634888182120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_4
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 4
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ef938f8c21a0710800000000000000
+      internalID: 1660160067006758408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_5
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 4
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1da9a89db9cf8c60800000000000000
+      internalID: 7822692893913099547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_6
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 4
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 600df55ecfc2a1500800000000000000
+      internalID: 367655784275759110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_7
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 4
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba4c77b59cfa37010800000000000000
+      internalID: 1185484406286435499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_8
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 3
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8dcf22851af921d0800000000000000
+      internalID: -3374891475452047990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_9
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 3
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a334d46461f5e790800000000000000
+      internalID: -7501324190825040983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_10
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 3
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d26a9f5e004d251e0800000000000000
+      internalID: -2210471366762060243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_11
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 3
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08b3c66f04e439560800000000000000
+      internalID: 7319279860326349696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_12
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 3
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8407804259dc2c240800000000000000
+      internalID: 4810633392423465032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_13
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 2
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb8bda981da1caa0800000000000000
+      internalID: -6142438095567746123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_14
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 2
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c634baa1b9d1c4ec0800000000000000
+      internalID: -3581455051661819028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_15
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 2
+        width: 26
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88cbb963e347f6980800000000000000
+      internalID: -8543482157545571192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_16
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 2
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b59ff49a46d1c8c00800000000000000
+      internalID: 904129943369152859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_17
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 2
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ab848c2cee587d0800000000000000
+      internalID: -2916662663301252600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boltbatV01_fly_anim_emission_18
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 3
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0824609ef44cdb6d0800000000000000
+      internalID: -2973004331503697280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      boltbatV01_fly_anim_emission_0: -3724117847474342380
+      boltbatV01_fly_anim_emission_1: 1640809301718344817
+      boltbatV01_fly_anim_emission_10: -2210471366762060243
+      boltbatV01_fly_anim_emission_11: 7319279860326349696
+      boltbatV01_fly_anim_emission_12: 4810633392423465032
+      boltbatV01_fly_anim_emission_13: -6142438095567746123
+      boltbatV01_fly_anim_emission_14: -3581455051661819028
+      boltbatV01_fly_anim_emission_15: -8543482157545571192
+      boltbatV01_fly_anim_emission_16: 904129943369152859
+      boltbatV01_fly_anim_emission_17: -2916662663301252600
+      boltbatV01_fly_anim_emission_18: -2973004331503697280
+      boltbatV01_fly_anim_emission_2: 8594029400022291342
+      boltbatV01_fly_anim_emission_3: 3777600634888182120
+      boltbatV01_fly_anim_emission_4: 1660160067006758408
+      boltbatV01_fly_anim_emission_5: 7822692893913099547
+      boltbatV01_fly_anim_emission_6: 367655784275759110
+      boltbatV01_fly_anim_emission_7: 1185484406286435499
+      boltbatV01_fly_anim_emission_8: -3374891475452047990
+      boltbatV01_fly_anim_emission_9: -7501324190825040983
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
