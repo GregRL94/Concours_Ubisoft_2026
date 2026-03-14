@@ -152,13 +152,11 @@ public class SettingsMenu : Menu
     private void OnEnable()
     {
         MenuInputListener.UINavigate += HandleResolutionNavigate;
-        MenuInputListener.UINavigate += HandlePrintNavigate;
     }
 
     private void OnDisable()
     {
         MenuInputListener.UINavigate -= HandleResolutionNavigate;
-        MenuInputListener.UINavigate -= HandlePrintNavigate;
     }
 
     private void HandleResolutionNavigate(Vector2 dir)
@@ -166,21 +164,16 @@ public class SettingsMenu : Menu
         if (EventSystem.current.currentSelectedGameObject != sideArrowSelectable.gameObject)
             return;
 
-        if (dir.x > 0.9f)
+        if (dir.x > 0.5f)
         {
             NextResolution();
             StartCoroutine(ArrowFeedback(rightArrowImage, _rightArrowOriginalColor));
         }
-        else if (dir.x < -0.9f)
+        else if (dir.x < -0.5f)
         {
             PreviousResolution();
             StartCoroutine(ArrowFeedback(leftArrowImage, _leftArrowOriginalColor));
         }
-    }
-
-    private void HandlePrintNavigate(Vector2 dir)
-    {
-        //Debug.Log("Woow two request on the same function");
     }
 
 
