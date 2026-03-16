@@ -3,7 +3,7 @@ using UnityEngine;
  * Diego Felipe Duran Lezama
  * 2026-02-20
  */
-public class AttackState : EnemyState,IHit
+public class AttackState : EnemyState
 {
     private float _nextFireTime;
 
@@ -93,16 +93,9 @@ public class AttackState : EnemyState,IHit
     }
     void Shoot(SniperData sData)
     {
-        Object.Instantiate(sData.projectilePrefab,enemy.firePoint.position, enemy.firePoint.rotation);
+        GameObject proj= Object.Instantiate(sData.projectilePrefab,enemy.firePoint.position, enemy.firePoint.rotation);
+        //if(proj.TryGetComponent(out ))
     }
 
-    public void OnHit(float damage)
-    {
-        throw new System.NotImplementedException();
-    }
 
-    public void OnHit(float damage, float repelForce, Vector2 repelDirection)
-    {
-       
-    }
 }
