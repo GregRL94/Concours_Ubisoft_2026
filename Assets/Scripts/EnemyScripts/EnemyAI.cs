@@ -99,13 +99,18 @@ public class EnemyAI : MonoBehaviour, IHit
     public void OnHit(float damage)
     {
         TakeDamage(damage);
-
     }
 
-    public void OnHit(float damage, float repelForce, Vector2 repelDirection)
+    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
     {
         if(rb!= null)
             rb.AddForce(repelDirection *repelForce, ForceMode2D.Impulse);
+        TakeDamage(damage);
+    }
+
+    public void OnHitStun(float damage, float stunDuration)
+    {
+        // Implémenter la logique de stun ici (par exemple, désactiver les mouvements et les attaques pendant stunDuration)
         TakeDamage(damage);
     }
 }

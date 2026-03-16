@@ -104,6 +104,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private Vector2 _meleeAttackHitBox;
     [SerializeField] private LayerMask _meleeAttackImpactsWhat;
     [SerializeField] private float _meleeDamage = 10f;
+    [SerializeField] private float _meleeAttackStunDuration = 1.5f;
     [SerializeField] private float _meleeAttackCooldown = 1f;
     [Space]
 
@@ -411,7 +412,7 @@ public class MechaController : MonoBehaviour, IHit
         {
             if (hitObject.TryGetComponent(out IHit hitComponent))
             {
-                hitComponent.OnHit(_meleeDamage);
+                hitComponent.OnHitStun(_meleeDamage, _meleeAttackStunDuration);
             }
         }
         _meleeTimer = 0f;
@@ -472,7 +473,7 @@ public class MechaController : MonoBehaviour, IHit
             if (hitObject.TryGetComponent(out IHit hitComponent))
             {
                 Vector2 repelDirection = (hitObject.transform.position - transform.position).normalized;
-                hitComponent.OnHit(damage, repelForce, repelDirection);
+                hitComponent.OnHitRepel(damage, repelForce, repelDirection);
             }
         }
         _aoeTimer = 0f;
@@ -651,9 +652,19 @@ public class MechaController : MonoBehaviour, IHit
         }
     }
 
-    public void OnHit(float damage, float repelForce, Vector2 repelDirection)
+    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
     {
         _currentHealth -= damage;
+        if (_currentHealth <= 0)
+        {
+            // Die();
+        }
+    }
+
+    public void OnHitStun(float damage, float stunDuration)
+    {
+        _currentHealth -= damage;
+        // TODO: Appliquer l'effet de stun (ex: désactiver les inputs, jouer une animation, etc.)
         if (_currentHealth <= 0)
         {
             // Die();
