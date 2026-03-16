@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using static Unity.VisualScripting.Member;
 
 //public class AudioManager : MonoBehaviour
 //{
@@ -283,6 +284,47 @@ public class AudioManager : MonoBehaviour
 
         if (!sound.loop)
             Destroy(go, source.clip.length);
+    }
+
+    public void StopSound(string soundId, bool hasFadeOut = false, float fadeOutDuration = 0.25f, Vector3? position = null)
+    {
+        GameObject go = GameObject.Find($"{soundId}");
+        if (go == null)
+        {
+            Debug.LogWarning($"[GameObject] Sound to stop not found: {soundId}");
+            return;
+        }
+        
+        AudioSource source = go.GetComponent<AudioSource>();
+        if (source == null)
+            return;
+
+        if (hasFadeOut)
+        {
+            StartCoroutine(FadeOutRoutine(source, go, fadeOutDuration));
+        }
+        else
+        {
+            source.Stop();
+            Destroy(go);
+        }
+    }
+
+    private IEnumerator FadeOutRoutine(AudioSource source, GameObject soundGO, float fadeOutDuration)
+    {
+        float time = 0f;
+        while (time < fadeOutDuration)
+        {
+            time += Time.deltaTime;
+            float t = time / fadeOutDuration;
+            if (source != null)
+                source.volume = Mathf.Lerp(source.volume, 0f, t);
+
+            yield return null;
+        }
+
+        source.Stop();
+        Destroy(soundGO);
     }
 
     // GETTERS
