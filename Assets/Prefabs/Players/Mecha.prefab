@@ -155,7 +155,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 5.3046875
+  orthographic size: 4.6171875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 6862103648974728150}
   - component: {fileID: 2783455676426640934}
   - component: {fileID: 6349594437577546973}
+  - component: {fileID: 2414680877708939484}
   m_Layer: 6
   m_Name: Mecha_Top
   m_TagString: Untagged
@@ -405,7 +406,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 0ba487b311a7fef45a180574f1837ab7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -513,6 +514,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2414680877708939484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4235779837525528367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce17cd625f00a54f8de64d4d2d33068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlashEffect
+  flashMaterial: {fileID: 2100000, guid: 5e1bbd03d91fe6548bddd276da54c513, type: 2}
+  duration: 0.1
 --- !u!1 &4503489397842482685
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +571,7 @@ GameObject:
   - component: {fileID: 3564504760368359844}
   - component: {fileID: 3103939661064427257}
   - component: {fileID: 6131522365255457207}
+  - component: {fileID: 660265220789954679}
   m_Layer: 6
   m_Name: Mecha_Base
   m_TagString: Untagged
@@ -607,7 +623,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 69ec725fe12a0cf4db7494f213a77ae3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -715,6 +731,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &660265220789954679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838196248118909920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce17cd625f00a54f8de64d4d2d33068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlashEffect
+  flashMaterial: {fileID: 2100000, guid: 5e1bbd03d91fe6548bddd276da54c513, type: 2}
+  duration: 0.1
 --- !u!1 &4857995384345234201
 GameObject:
   m_ObjectHideFlags: 0
