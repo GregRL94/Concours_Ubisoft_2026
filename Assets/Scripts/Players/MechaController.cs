@@ -167,6 +167,7 @@ public class MechaController : MonoBehaviour, IHit
     private int _currentGunIndex = 0;
     private float _currentAngularDispersion;
     private float _currentLinearDispersion;
+    private bool _isPlayingMvtSound = false;
 
     // Injecte les inputs des joueurs selon leur role choisi
     public void GameplayInitialize(PlayerInputHandler p1, PlayerInputHandler p2)
@@ -220,10 +221,23 @@ public class MechaController : MonoBehaviour, IHit
         {
             _lastNonZeroDir = move;
             _animatorMechaBase.SetBool("isMoving", true);
+
+            // Son de mouvement du mech
+            if (!_isPlayingMvtSound && GameObject.Find("SFX_Player_movement") == null)
+            {
+                AudioManager.Instance.PlaySound("SFX_Player_movement");
+                _isPlayingMvtSound = true;
+            }
         }
         else
         {
             _animatorMechaBase.SetBool("isMoving", false);
+
+            if (_isPlayingMvtSound)
+            {
+                AudioManager.Instance.StopSound("SFX_Player_movement", true);
+            }
+            _isPlayingMvtSound = false;
         }
 
         if (movementPlayer.MeleePressed() && _meleeTimer >= _meleeAttackCooldown)
@@ -240,6 +254,7 @@ public class MechaController : MonoBehaviour, IHit
             {
                 StopCoroutine(_currentDashCoroutine);
             }
+            AudioManager.Instance.PlaySound("SFX_Player_dash");
             _currentDashCoroutine = StartCoroutine(Dash());
             if (_mechaBase.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
             {
@@ -476,7 +491,7 @@ public class MechaController : MonoBehaviour, IHit
         _laserCoolDown = 0f;
         UpdateDispersions();
         abilityUI?.TriggerAbility("Laser", 1f / _fireRate);
-        //AudioManager.Instance.PlaySound("SFX_Laser");
+        AudioManager.Instance.PlaySound("SFX_Player_laser_tir");
         Debug.Log("SHOOT");
     }
 
@@ -492,6 +507,7 @@ public class MechaController : MonoBehaviour, IHit
         }
         _aoeTimer = 0f;
         abilityUI?.TriggerAbility("AOE", _aoeCooldown);
+        AudioManager.Instance.PlaySound("SFX_Player_aoe");
         Debug.Log("AOE");
     }
 
