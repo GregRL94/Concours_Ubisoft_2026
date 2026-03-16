@@ -3,7 +3,7 @@ using UnityEngine;
  * Diego Felipe Duran Lezama
  * 2026-02-20
  */
-public class AttackState : EnemyState
+public class AttackState : EnemyState,IHit
 {
     private float _nextFireTime;
 
@@ -71,19 +71,38 @@ public class AttackState : EnemyState
         Debug.Log("BOOOOM");
         if(kData.explosionEffect != null)
             Object.Instantiate(kData.explosionEffect, enemy.transform.position, Quaternion.identity);
-        
-        //Logique du degats
-        Collider2D hit = Physics2D.OverlapCircle(enemy.transform.position, kData.explosionRadius, LayerMask.GetMask("Player"));
-        if (hit != null)
+       
+        // Détection des entités dans le rayon d'explosion
+        Collider2D[] hits = Physics2D.OverlapCircleAll(enemy.transform.position, kData.explosionRadius);
+    
+        foreach (var hit in hits)
         {
-            // hit.GetComponent<PlayerHealth>().TakeDamage(kData.explosionDamage);
+            // Utilisation de IHit pour infliger des dégâts
+            if (hit.TryGetComponent(out IHit hitComponent))
+            {
+                // Calcul de la direction pour le recul (repel force)
+                Vector2 repelDir = (hit.transform.position - enemy.transform.position).normalized;
+            
+                // On applique les dégâts via l'interface
+                hitComponent.OnHit(enemy.data.damage, 10f, repelDir); 
+            }
         }
 
-        // 3. L'ennemi disparaît
+        // L'ennemi se détruit après l'explosion
         Object.Destroy(enemy.gameObject);
     }
     void Shoot(SniperData sData)
     {
         Object.Instantiate(sData.projectilePrefab,enemy.firePoint.position, enemy.firePoint.rotation);
+    }
+
+    public void OnHit(float damage)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnHit(float damage, float repelForce, Vector2 repelDirection)
+    {
+       
     }
 }

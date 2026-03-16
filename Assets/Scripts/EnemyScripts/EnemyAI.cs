@@ -63,7 +63,7 @@ public class EnemyAI : MonoBehaviour, IHit
         StateMachine.CurrentState.Update();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
@@ -98,13 +98,14 @@ public class EnemyAI : MonoBehaviour, IHit
 
     public void OnHit(float damage)
     {
-        currentHealth -= damage;
-        
+        TakeDamage(damage);
+
     }
 
     public void OnHit(float damage, float repelForce, Vector2 repelDirection)
     {
-        currentHealth -= damage;
-        rb.AddForce(repelDirection * repelForce, ForceMode2D.Impulse);
+        if(rb!= null)
+            rb.AddForce(repelDirection *repelForce, ForceMode2D.Impulse);
+        TakeDamage(damage);
     }
 }
