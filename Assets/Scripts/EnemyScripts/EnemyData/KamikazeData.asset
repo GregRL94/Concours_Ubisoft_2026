@@ -13,14 +13,13 @@ MonoBehaviour:
   m_Name: KamikazeData
   m_EditorClassIdentifier: Assembly-CSharp::KamikazeData
   enemyName: pikmin
+  patrolRadius: 22.5
   moveSpeed: 3
   maxHealth: 100
-  detectionRange: 7
+  detectionRange: 14.15
   attackRange: 1
   stopDistance: 0
-  fireRate: 2
-  patrolRadius: 2
-  projectilePrefab: {fileID: 0}
+  damage: 10
   explosionRadius: 3
   patrolRadius: 22.5
   explosionDamage: 50
