@@ -155,7 +155,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 4.6171875
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -304,7 +304,7 @@ Transform:
   m_GameObject: {fileID: 2809352314490104968}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3, y: -0.56, z: 0}
+  m_LocalPosition: {x: -0.45, y: -0.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -772,7 +772,7 @@ Transform:
   m_GameObject: {fileID: 4857995384345234201}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3, y: -0.56, z: 0}
+  m_LocalPosition: {x: 0.45, y: -0.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -915,7 +915,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.15}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -925,7 +925,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.19, y: 2.25}
   m_EdgeRadius: 0
 --- !u!114 &3332713893862157173
 MonoBehaviour:
@@ -953,13 +953,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MechaController
   LaserShotParameters:
-    <LaserShotPrefab>k__BackingField: {fileID: 0}
+    <LaserShotPrefab>k__BackingField: {fileID: 7801827202018218392, guid: feff21240f8dc67438716ba915efda8f, type: 3}
     <Speed>k__BackingField: 15
     <Damage>k__BackingField: 10
     <Lifetime>k__BackingField: 1
     <LaserImpactLayerMask>k__BackingField:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 2688
   DispersionParameters:
     <MaxAngluarDispersion>k__BackingField: 30
     <AngularDispersionRate>k__BackingField: 0.5
@@ -968,7 +968,7 @@ MonoBehaviour:
     <LinearDispersionRate>k__BackingField: 0.025
     <LinearDispersionResetSpeed>k__BackingField: 0.05
   MissileParameters:
-    <MissilePrefab>k__BackingField: {fileID: 0}
+    <MissilePrefab>k__BackingField: {fileID: 5773359375257919300, guid: 1b0d5d5f33e350944a07527e3f4c6679, type: 3}
     <Speed>k__BackingField: 10
     <RotationSpeed>k__BackingField: 90
     <Damage>k__BackingField: 30
@@ -977,7 +977,7 @@ MonoBehaviour:
     <Lifetime>k__BackingField: 5
     <MissileImpactLayerMask>k__BackingField:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 640
   _mechaBase: {fileID: 4838196248118909920}
   _mechaTop: {fileID: 4235779837525528367}
   _offsetAngleDeg: -90
@@ -989,13 +989,16 @@ MonoBehaviour:
   _dashDoesDamage: 1
   _dashImpactsWhat:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 2176
+  _dashIgnoresWhat:
+    serializedVersion: 2
+    m_Bits: 1024
   _dashDamage: 10
   _meleeAttackPoint: {fileID: 4551997135442846276}
   _meleeAttackHitBox: {x: 0.5, y: 1}
   _meleeAttackImpactsWhat:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2176
   _meleeDamage: 25
   _meleeAttackCooldown: 1
   _shootingPoints:
@@ -1006,18 +1009,18 @@ MonoBehaviour:
   _aimingReticleMinDistance: 4
   _synchFire: 0
   _fireRate: 10
-  _angularDispersion: 0
-  _linearDispersion: 0
+  _angularDispersion: 1
+  _linearDispersion: 1
   _aoeImpactsWhat:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 2176
   _aoeRadius: 1.5
   _aoeDamage: 25
   _aoeRepelForce: 20
   _aoeCooldown: 10
   _ultimateTargetsWhat:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   _missilePoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -1548,7 +1551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Lens.OrthographicSize
-      value: 5.15
+      value: 5.46
       objectReference: {fileID: 0}
     - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Target.TrackingTarget
