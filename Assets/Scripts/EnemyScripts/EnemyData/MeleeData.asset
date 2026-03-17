@@ -17,8 +17,8 @@ MonoBehaviour:
   moveSpeed: 3
   maxHealth: 100
   detectionRange: 7
-  attackRange: 1.2
-  stopDistance: 1.2
+  attackRange: 4
+  stopDistance: 4
   damage: 10
   attackSpeed: 1.5
   hitRadius: 1
