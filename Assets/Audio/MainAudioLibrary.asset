@@ -45,11 +45,83 @@ MonoBehaviour:
     loop: 0
     randomizePitch: 0
     pitchRange: 0
-  - id: SFX_Laser
-    clip: {fileID: 8300000, guid: 72ed74600bcbc4849a58be4e12980d38, type: 3}
+  - id: SFX_Player_movement
+    clip: {fileID: 8300000, guid: 3f07ff8572bc3004a834f525c4020b0a, type: 3}
     type: 1
-    volume: 1
+    volume: 0.293
+    pitch: 1.08
+    loop: 1
+    randomizePitch: 0
+    pitchRange: 0.5
+  - id: SFX_Player_laser_tir
+    clip: {fileID: 8300000, guid: f3c13c02109b00e4c829ea78a531f779, type: 3}
+    type: 1
+    volume: 0.48
+    pitch: 0.98
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.144
+  - id: SFX_Ennemi_attackhit_light
+    clip: {fileID: 8300000, guid: af33905c307818b4d8e629759abab9a4, type: 3}
+    type: 1
+    volume: 0.644
     pitch: 1
     loop: 0
     randomizePitch: 1
-    pitchRange: 0.5
+    pitchRange: 0.2
+  - id: SFX_Ennemi_attackhit_heavy
+    clip: {fileID: 8300000, guid: f3eea7ae60a10d54da1f914b8e6e3891, type: 3}
+    type: 1
+    volume: 0.644
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: SFX_Player_aoe
+    clip: {fileID: 8300000, guid: 939ec4c7d4174244399ac12648bb9d2c, type: 3}
+    type: 1
+    volume: 0.644
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.162
+  - id: SFX_Ennemi_mikpin_explosion
+    clip: {fileID: 8300000, guid: 9e745b1a53378564faf6677d2a72fce9, type: 3}
+    type: 1
+    volume: 0.644
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: SFX_Ennemi_boltbat_tir
+    clip: {fileID: 8300000, guid: 665f8caf96a4bff4d93e96e90122c9c7, type: 3}
+    type: 1
+    volume: 0.644
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: SFX_Ennemi_boltbat_mort
+    clip: {fileID: 8300000, guid: 460a12e67d56bd348be1ab73836c4272, type: 3}
+    type: 1
+    volume: 0.644
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: SFX_Player_dash
+    clip: {fileID: 8300000, guid: 24fdc6b3f4dbd2e44841648ecc150115, type: 3}
+    type: 1
+    volume: 0.467
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: UI_ulti_playerready
+    clip: {fileID: 8300000, guid: 3f4381d9926ba3e48a8c4630c579d4b8, type: 3}
+    type: 1
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
