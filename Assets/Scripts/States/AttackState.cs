@@ -91,7 +91,7 @@ public class AttackState : EnemyState
             if (hit.TryGetComponent(out IHit hitComponent))
             {
                 // Calcul de la direction pour le recul (repel force)
-                Vector2 repelDir = (hit.transform.position - enemy.transform.position).normalized;
+                //Vector2 repelDir = (hit.transform.position - enemy.transform.position).normalized;
             
                 // On applique les dégâts via l'interface
                 hitComponent.OnHit(enemy.data.damage); 

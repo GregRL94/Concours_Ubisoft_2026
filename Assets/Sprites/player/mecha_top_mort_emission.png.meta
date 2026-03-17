@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: bfed147804488844299e453d4fc49278
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9173350341540283896
+    second: mecha_top_mort_emission_0
+  - first:
+      213: 5564794374035204836
+    second: mecha_top_mort_emission_1
+  - first:
+      213: -7331767344783219201
+    second: mecha_top_mort_emission_2
+  - first:
+      213: 3584782582602067595
+    second: mecha_top_mort_emission_3
+  - first:
+      213: -6402974666708105625
+    second: mecha_top_mort_emission_4
+  - first:
+      213: 4559778073203923043
+    second: mecha_top_mort_emission_5
+  - first:
+      213: 940767809255256316
+    second: mecha_top_mort_emission_6
+  - first:
+      213: -484337341705992027
+    second: mecha_top_mort_emission_7
+  - first:
+      213: -2396726731190549062
+    second: mecha_top_mort_emission_8
+  - first:
+      213: -55716191797818647
+    second: mecha_top_mort_emission_9
+  - first:
+      213: 5503905201884798665
+    second: mecha_top_mort_emission_10
+  - first:
+      213: -5478364390040986606
+    second: mecha_top_mort_emission_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mecha_top_mort_emission_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 144
+        width: 82
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f587bb78894e4f70800000000000000
+      internalID: 9173350341540283896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mecha_top_mort_emission_1
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 144
+        width: 82
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eae578effe1a3d40800000000000000
+      internalID: 5564794374035204836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mecha_top_mort_emission_2
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 237
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff5236ef174504a90800000000000000
+      internalID: -7331767344783219201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mecha_top_mort_emission_3
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 145
+        width: 82
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ee00114c4bfb130800000000000000
+      internalID: 3584782582602067595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mecha_top_mort_emission_4
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 237
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 766c90d07701427a0800000000000000
+      internalID: -6402974666708105625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mecha_top_mort_emission_5
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 142
+        width: 82
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3685fe3bff5974f30800000000000000
+      internalID: 4559778073203923043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mecha_top_mort_emission_6
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 171
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf038ce86574e0d00800000000000000
+      internalID: 940767809255256316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mecha_top_mort_emission_7
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 142
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a8482cf0c94749f0800000000000000
+      internalID: -484337341705992027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mecha_top_mort_emission_8
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 142
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab544b38cbd1dbed0800000000000000
+      internalID: -2396726731190549062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mecha_top_mort_emission_9
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 14
+        width: 82
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea47a33b6e0a3ff0800000000000000
+      internalID: -55716191797818647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mecha_top_mort_emission_10
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 17
+        width: 82
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ce94c3ce9cc16c40800000000000000
+      internalID: 5503905201884798665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mecha_top_mort_emission_11
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 17
+        width: 82
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21c1575ec90f8f3b0800000000000000
+      internalID: -5478364390040986606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mecha_top_mort_emission_0: 9173350341540283896
+      mecha_top_mort_emission_1: 5564794374035204836
+      mecha_top_mort_emission_10: 5503905201884798665
+      mecha_top_mort_emission_11: -5478364390040986606
+      mecha_top_mort_emission_2: -7331767344783219201
+      mecha_top_mort_emission_3: 3584782582602067595
+      mecha_top_mort_emission_4: -6402974666708105625
+      mecha_top_mort_emission_5: 4559778073203923043
+      mecha_top_mort_emission_6: 940767809255256316
+      mecha_top_mort_emission_7: -484337341705992027
+      mecha_top_mort_emission_8: -2396726731190549062
+      mecha_top_mort_emission_9: -55716191797818647
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
