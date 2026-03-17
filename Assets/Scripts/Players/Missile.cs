@@ -4,6 +4,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Missile : MonoBehaviour
 {
+    [SerializeField] private GameObject _explosionEffect;
     private TrailRenderer _trailRenderer;
     private ParticleSystem _particleSystem;    
     private Light2D _light2D;
@@ -98,6 +99,7 @@ public class Missile : MonoBehaviour
 
     private void _Destroy()
     {
+        Instantiate(_explosionEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
@@ -109,7 +111,6 @@ public class Missile : MonoBehaviour
         {
             hitComponent.OnHit(_damage);
         }
-        Debug.Log("Missile collided with " + collider.gameObject.name);
         _Destroy();
     }
 }
