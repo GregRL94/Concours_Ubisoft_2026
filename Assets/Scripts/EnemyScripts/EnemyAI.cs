@@ -65,6 +65,7 @@ public class EnemyAI : MonoBehaviour, IHit
 
     public void TakeDamage(float damage)
     {
+        if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -85,7 +86,7 @@ public class EnemyAI : MonoBehaviour, IHit
         }
         
         Debug.Log("ENEMY DIEEED!!!");
-        Destroy(gameObject);
+        animator.SetTrigger("Die");
     }
     //Visualisation des portes dans l'editeur
     private void OnDrawGizmosSelected()
