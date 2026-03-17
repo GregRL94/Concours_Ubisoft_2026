@@ -98,4 +98,6 @@ InitTestScene*.unity*
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
-Assets/temp_env_art_folder/*
+Assets/temp_env_art_folder/
+Assets/DesignTempFolder
+Assets/DesignTempFolder.meta
