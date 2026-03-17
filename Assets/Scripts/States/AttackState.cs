@@ -22,21 +22,30 @@ public class AttackState : EnemyState
         Debug.Log(dist);
         if (dist <= enemy.data.attackRange)
         {
-            Debug.Log("IM IN");
+            //-- CAS KAMIKAZE --//
             if (enemy.data is KamikazeData kData)
             {
                 if (!_isExploding)
                 {
                     _isExploding = true;
-                    
+                    //enemy.Anim.SetTrigger("StartExplosion");// Declenche l'anim de charge/clignotement
                     _explosionRoutine = enemy.StartCoroutine(ExplosionSequence(kData));
                 }
                 
             }
+            //-- CAS SNIPER --//
             else if (enemy.data is SniperData sData)
             {
+                // enemy.Anim.SetTrigger("Shoot"); // Declenche l'animation de tir
                 Shoot(sData);
                 _nextFireTime = Time.time + 1f / sData.fireRate;
+            } 
+            //-- CAS CORPS A CORPS
+            else if (enemy.data is MeleeData mData)
+            { 
+                // enemy.Anim.SetTrigger("MeeleAttack")' Declenche l'animation d'attack
+                PerformMeleeAttack(mData);
+                
             }
         }
         else
@@ -47,6 +56,7 @@ public class AttackState : EnemyState
             }
             stateMachine.ChangeState(enemy.ChaseState);
         }
+        
     }
 
     private void CancelExplosion()
@@ -84,8 +94,7 @@ public class AttackState : EnemyState
                 //Vector2 repelDir = (hit.transform.position - enemy.transform.position).normalized;
             
                 // On applique les dégâts via l'interface
-                //hitComponent.OnHit(enemy.data.damage, 10f, repelDir);
-                hitComponent.OnHit(enemy.data.damage);
+                hitComponent.OnHit(enemy.data.damage); 
             }
         }
 
@@ -94,6 +103,40 @@ public class AttackState : EnemyState
     }
     void Shoot(SniperData sData)
     {
-        Object.Instantiate(sData.projectilePrefab,enemy.firePoint.position, enemy.firePoint.rotation);
+        if (sData.projectilePrefab != null && enemy.firePoint != null)
+        {
+            Debug.Log(enemy.data.enemyName + " tire une balle !");
+            GameObject proj = Object.Instantiate(sData.projectilePrefab, enemy.firePoint.position, enemy.firePoint.rotation);
+            //a changer
+            // Si ton projectile a besoin de connaître sa vitesse dès le départ :
+            if (proj.TryGetComponent(out Bullet bullet))
+            {
+                //On passe les degats et la vitesse du sniper
+                bullet.Initialize(sData.damage, sData.projectileSpeed);
+                //enemy.animator.SetTrigger("Shoot");
+            }
+        }
     }
+
+    void PerformMeleeAttack(MeleeData mData)
+    {
+        Debug.Log(enemy.data.enemyName + "donne un coup !");
+        // On detecte si le joueur est dans la zone de frappe (devant l'ennemi)
+        // On utilise le fire point comme centre de l'attaque s'il existe, sinon le centre de l'ennemi
+        Vector2 attackPoint = enemy.firePoint != null ? (Vector2)enemy.firePoint.position : (Vector2)enemy.transform.position;
+        
+        Collider2D hit = Physics2D.OverlapCircle(attackPoint, mData.hitRadius, LayerMask.GetMask("Player"));
+        if (hit != null)
+        {
+            if (hit.TryGetComponent<IHit>(out IHit target))
+            {
+                // On peut meme ajouter un recul 
+                Vector2 knockBackDir = (hit.transform.position - enemy.transform.position).normalized;
+                target.OnHit(mData.damage);
+                Debug.Log("Joueur touche par le corps a corps");
+            }
+        }
+        
+}
+
 }

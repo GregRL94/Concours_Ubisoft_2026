@@ -5,7 +5,7 @@ public class EnemyAI : MonoBehaviour, IHit
 {
     [Header("Donnees de l'ennemi")] 
     public EnemyData data; //Nouvellle fiche de stats ScriptableObj
-    
+    public Animator animator {get; private set;}
     [Header("Références de combat")]
     public Transform firePoint;
     public EnemyState.EnemyStateMachine StateMachine { get; set; }
@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour, IHit
         rb = GetComponent<Rigidbody2D>();
         Agent = GetComponent<NavMeshAgent>();
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-        
+        animator = GetComponent<Animator>();
         // Configuration automatique de NavMesh via la Data
         if (Agent != null && data != null)
         {
