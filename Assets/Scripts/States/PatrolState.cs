@@ -20,7 +20,7 @@ public class PatrolState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        // enemy.animator.SetBool("isWalking",true);
+        enemy.animator.SetBool("isWalking",true);
         _agent.speed =enemy.data.moveSpeed;
         SetNewRandomDestination();
     }

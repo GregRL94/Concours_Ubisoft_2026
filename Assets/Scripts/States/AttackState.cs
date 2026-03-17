@@ -6,13 +6,20 @@ using UnityEngine;
 public class AttackState : EnemyState
 {
     private float _nextFireTime;
-
+    private float _shootTimer;
     private bool _isExploding = false;
+    private int attackcounter;
 
     private Coroutine _explosionRoutine;//On stock la coroutine pour pouvoir l'arreter
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public AttackState(EnemyAI enemy, EnemyStateMachine stateMachine) : base(enemy, stateMachine)
     {
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        enemy.animator.SetBool("isWalking", false);
     }
 
     public override void Update()
@@ -37,8 +44,13 @@ public class AttackState : EnemyState
             else if (enemy.data is SniperData sData)
             {
                 // enemy.Anim.SetTrigger("Shoot"); // Declenche l'animation de tir
-                Shoot(sData);
-                _nextFireTime = Time.time + 1f / sData.fireRate;
+                //Shoot(sData);
+                if (_shootTimer >= 1 / sData.fireRate)
+                {
+                    Shoot(sData);
+                }
+                _shootTimer += Time.deltaTime;
+                //_nextFireTime = Time.time + 1f / sData.fireRate;
             } 
             //-- CAS CORPS A CORPS
             else if (enemy.data is MeleeData mData)
@@ -113,14 +125,19 @@ public class AttackState : EnemyState
             {
                 //On passe les degats et la vitesse du sniper
                 bullet.Initialize(sData.damage, sData.projectileSpeed);
-                //enemy.animator.SetTrigger("Shoot");
+                enemy.animator.SetTrigger("attack");
             }
+            _shootTimer = 0f; // Reset du timer de tir
         }
     }
 
     void PerformMeleeAttack(MeleeData mData)
     {
         Debug.Log(enemy.data.enemyName + "donne un coup !");
+        if (attackcounter == 0) { enemy.animator.SetTrigger("attack0"); }
+        else { enemy.animator.SetTrigger("attack1"); }
+        attackcounter++;
+        attackcounter = attackcounter > 1 ? 0 : attackcounter; // alterne entre les deux animations d'attaque
         // On detecte si le joueur est dans la zone de frappe (devant l'ennemi)
         // On utilise le fire point comme centre de l'attaque s'il existe, sinon le centre de l'ennemi
         Vector2 attackPoint = enemy.firePoint != null ? (Vector2)enemy.firePoint.position : (Vector2)enemy.transform.position;
