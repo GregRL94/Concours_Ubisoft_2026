@@ -28,7 +28,8 @@ public class ChaseState : EnemyState
         
         //On donne la cible au navMesh 
         _agent.SetDestination(enemy.Player.position);
-        
+        //MIkPIN trouve le joueur, on se deplace plus vite...
+        //Dash lorsque le joueur est a porte
         Vector2 direction = enemy.Player.position - enemy.transform.position;
         RotateTowards(direction);
         

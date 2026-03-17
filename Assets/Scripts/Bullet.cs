@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
             if (collision.TryGetComponent(out IHit playerhit))
             {
                 Vector2 direction = (collision.transform.position - transform.position).normalized;
-                playerhit.OnHit(_damage,5f,direction);
+                playerhit.OnHit(_damage);
             }
             Destroy(gameObject);
         }
