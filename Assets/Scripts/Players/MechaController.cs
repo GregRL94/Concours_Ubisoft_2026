@@ -87,6 +87,9 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private GameObject _mechaTop;
     [SerializeField] private float _offsetAngleDeg;
     [field: SerializeField] public float MechaHealth { get; private set; } = 100f;
+    [Header("Stun parameters")]
+    [SerializeField] private bool _stunStopsAbilities = true;
+    [SerializeField] private bool _stunStopsMovement = true;
     [Space]
 
     [Header("MOVING PLAYER PARAMETERS")]
@@ -104,6 +107,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private Vector2 _meleeAttackHitBox;
     [SerializeField] private LayerMask _meleeAttackImpactsWhat;
     [SerializeField] private float _meleeDamage = 10f;
+    [SerializeField] private float _meleeAttackStunDuration = 1.5f;
     [SerializeField] private float _meleeAttackCooldown = 1f;
     [Space]
 
@@ -153,6 +157,7 @@ public class MechaController : MonoBehaviour, IHit
 
     private PlayerInputHandler movementPlayer;
     private PlayerInputHandler shootPlayer;
+    private MechaHealth _mechaHealth;
     private Coroutine _currentDashCoroutine;
     private Coroutine _currentUltimateCoroutine;
     private Rigidbody2D _rb2D;
@@ -175,6 +180,8 @@ public class MechaController : MonoBehaviour, IHit
     private float _currentAngularDispersion;
     private float _currentLinearDispersion;
     private bool _isPlayingMvtSound = false;
+    private bool _isStun;
+    private float _stunTimer;
     #endregion Attributes & Properties
 
     #region MonoBehaviour Methods
@@ -184,6 +191,7 @@ public class MechaController : MonoBehaviour, IHit
         _bc2D = GetComponent<BoxCollider2D>();
         _animatorMechaBase = _mechaBase.GetComponent<Animator>();
         _animatorMechaTop = _mechaTop.GetComponent<Animator>();
+        _mechaHealth = GetComponent<MechaHealth>();
         _currentSpeed = _movementSpeed;
 
         ultimateUI?.Initialize(_ultimateMax);
@@ -232,6 +240,18 @@ public class MechaController : MonoBehaviour, IHit
 
     private void HandleMovement()
     {
+        // --------------- SI STUN STOP ICI ---------------
+        if (_isStun && _stunStopsMovement)
+        {
+            if (_isDashing)
+            {
+                _rb2D.linearVelocity = _lastNonZeroDir * _currentSpeed;
+                return;
+            }
+            _animatorMechaBase.SetBool("isMoving", false);
+            return;
+        }
+
         Vector2 move = movementPlayer.GetMovement();
         if (move != Vector2.zero)
         {
@@ -272,10 +292,6 @@ public class MechaController : MonoBehaviour, IHit
             }
             AudioManager.Instance.PlaySound("SFX_Player_dash");
             _currentDashCoroutine = StartCoroutine(Dash());
-            if (_mechaBase.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
-            {
-                impulseSource.GenerateImpulse();
-            }
         }
 
         _rb2D.linearVelocity = move * _currentSpeed; // Deplacement du mecha selon les inputs du joueur de mouvement
@@ -284,6 +300,14 @@ public class MechaController : MonoBehaviour, IHit
 
     private void HandleCombat()
     {
+        // --------------- SI STUN STOP ICI ---------------
+        if (_isStun && _stunStopsAbilities)
+        {
+            _animatorMechaTop.SetBool("isShooting", false);
+            ResetDispersions();
+            return;
+        }
+
         Vector2 aim = shootPlayer.GetAim();
 
         AimReticle(aim);
@@ -303,10 +327,6 @@ public class MechaController : MonoBehaviour, IHit
             && _aoeTimer >= _aoeCooldown)
         {
             GroundSmash(_aoeRadius, _aoeDamage, _aoeRepelForce);
-            if (_mechaTop.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
-            {
-                impulseSource.GenerateImpulse();
-            }
         }
 
         if (shootPlayer.ShootPressed())
@@ -323,6 +343,10 @@ public class MechaController : MonoBehaviour, IHit
     {
         ultimateUI?.UpdateCharge(_ultimateCharge);
 
+        // --------------- SI STUN STOP ICI ---------------
+        if (_isStun && _stunStopsAbilities)
+            return;
+
         if (_ultimateCharge >= _ultimateMax)
         {
             _ultimateCharge = _ultimateMax;
@@ -330,7 +354,6 @@ public class MechaController : MonoBehaviour, IHit
         }
 
         // -------- SI ULTIMATE PAS READY STOP ICI --------
-
         if (!_ultimateReady)
             return;
 
@@ -411,7 +434,7 @@ public class MechaController : MonoBehaviour, IHit
         {
             if (hitObject.TryGetComponent(out IHit hitComponent))
             {
-                hitComponent.OnHit(_meleeDamage);
+                hitComponent.OnHitStun(_meleeDamage, _meleeAttackStunDuration);
             }
         }
         _meleeTimer = 0f;
@@ -423,6 +446,12 @@ public class MechaController : MonoBehaviour, IHit
     {
         float startTime = Time.time;
         _isDashing = true;
+
+        // Génère une impulsion de caméra au début du dash si un CinemachineImpulseSource est attaché à la base du mecha
+        if (_mechaBase.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
+        {
+            impulseSource.GenerateImpulse();
+        }
 
         // Séparés de la logique propre du dash pour permettre de désactiver les collisions pendant une courte durée après la fin du dash
         _dashCollisionDisableTimer = _dashDuration + _dashCollisionDisableDuration;
@@ -467,12 +496,18 @@ public class MechaController : MonoBehaviour, IHit
 
     private void GroundSmash(float radius, float damage, float repelForce)
     {
+        // Génère une impulsion de caméra au début du Ground Smash si un CinemachineImpulseSource est attaché à la base du mecha
+        if (_mechaTop.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
+        {
+            impulseSource.GenerateImpulse();
+        }
+
         foreach (Collider2D hitObject in Physics2D.OverlapCircleAll(transform.position, radius, _aoeImpactsWhat))
         {
             if (hitObject.TryGetComponent(out IHit hitComponent))
             {
                 Vector2 repelDirection = (hitObject.transform.position - transform.position).normalized;
-                hitComponent.OnHit(damage, repelForce, repelDirection);
+                hitComponent.OnHitRepel(damage, repelForce, repelDirection);
             }
         }
         _aoeTimer = 0f;
@@ -522,8 +557,37 @@ public class MechaController : MonoBehaviour, IHit
         // Dash collision disable timer
         if (_dashCollisionDisableTimer > 0f) { _dashCollisionDisableTimer -= Time.deltaTime; }
         else if (_dashCollisionsDisabled) { _dashCollisionsDisabled = false; } // Reactive les collisions de dash apres la durée de désactivation
+
+        // Stun timer
+        if (_isStun)
+        {
+            _stunTimer -= Time.deltaTime;
+            if (_stunTimer <= 0f)
+            {
+                _isStun = false;
+                _stunTimer = 0f;
+            }
+        }
     }
     #endregion Abilities Logic
+
+    #region Damage & Health Logic
+    private void Stun(float stunDuration)
+    {
+        _isStun = true;
+        _stunTimer = stunDuration;
+    }
+
+    private void TakeDamage(float damage)
+    {
+        _currentHealth -= damage;
+        _mechaHealth.TakeDamage(damage);
+        if (_currentHealth <= 0)
+        {
+            // Die();
+        }
+    }
+    #endregion Damage & Health Logic
 
     #region Aiming & Shooting Logic
     private void AimReticle(Vector2 aim)
@@ -644,20 +708,18 @@ public class MechaController : MonoBehaviour, IHit
     #region IHit Implementation
     public void OnHit(float damage)
     {
-        _currentHealth -= damage;
-        if (_currentHealth <= 0)
-        {
-            // Die();
-        }
+        TakeDamage(damage);
     }
 
-    public void OnHit(float damage, float repelForce, Vector2 repelDirection)
+    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
     {
-        _currentHealth -= damage;
-        if (_currentHealth <= 0)
-        {
-            // Die();
-        }
+        TakeDamage(damage);
+    }
+
+    public void OnHitStun(float damage, float stunDuration)
+    {
+        TakeDamage(damage);
+        Stun(stunDuration);
     }
     #endregion IHit Implementation
 }
