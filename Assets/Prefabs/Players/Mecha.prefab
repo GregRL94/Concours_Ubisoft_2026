@@ -426,7 +426,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1060936779
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2455513822275430761, guid: 1ee33f10c1f6d464e9d755141770f9a2, type: 3}
@@ -643,7 +643,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1060936779
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3742592120836699101, guid: 8590f0f1c2bf70343b76460469f534ad, type: 3}
@@ -864,7 +864,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 30
   m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -980,6 +980,8 @@ MonoBehaviour:
   _mechaTop: {fileID: 4235779837525528367}
   _offsetAngleDeg: -90
   <MechaHealth>k__BackingField: 100
+  _stunStopsAbilities: 1
+  _stunStopsMovement: 1
   _movementSpeed: 5
   _dashSpeedFactor: 6
   _dashDuration: 0.1
@@ -998,6 +1000,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2176
   _meleeDamage: 25
+  _meleeAttackStunDuration: 1.5
   _meleeAttackCooldown: 1
   _shootingPoints:
   - {fileID: 1203288601306859973}
@@ -1200,7 +1203,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 2142730279
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 40
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: ffbce8e6067160c42acc3f55563ba75d, type: 3}
