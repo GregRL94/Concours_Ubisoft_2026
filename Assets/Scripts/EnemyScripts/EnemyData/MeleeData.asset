@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f9f6477fc02cc545af5a1e80d6060d2, type: 3}
   m_Name: MeleeData
   m_EditorClassIdentifier: Assembly-CSharp::MeleeData
-  enemyName: Melee
+  enemyName: Minkai
   patrolRadius: 20
   moveSpeed: 3
   maxHealth: 100
   detectionRange: 7
   attackRange: 1.2
   stopDistance: 1.2
-  damage: 10
   damage: 10
   attackSpeed: 1.5
   hitRadius: 1

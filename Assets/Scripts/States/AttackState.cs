@@ -94,7 +94,7 @@ public class AttackState : EnemyState
                 Vector2 repelDir = (hit.transform.position - enemy.transform.position).normalized;
             
                 // On applique les dégâts via l'interface
-                hitComponent.OnHit(enemy.data.damage, 10f, repelDir); 
+                hitComponent.OnHit(enemy.data.damage); 
             }
         }
 
@@ -107,7 +107,7 @@ public class AttackState : EnemyState
         {
             Debug.Log(enemy.data.enemyName + " tire une balle !");
             GameObject proj = Object.Instantiate(sData.projectilePrefab, enemy.firePoint.position, enemy.firePoint.rotation);
-            
+            //a changer
             // Si ton projectile a besoin de connaître sa vitesse dès le départ :
             if (proj.TryGetComponent(out Bullet bullet))
             {
@@ -132,7 +132,7 @@ public class AttackState : EnemyState
             {
                 // On peut meme ajouter un recul 
                 Vector2 knockBackDir = (hit.transform.position - enemy.transform.position).normalized;
-                target.OnHit(mData.damage, 5f, knockBackDir);
+                target.OnHit(mData.damage);
                 Debug.Log("Joueur touche par le corps a corps");
             }
         }

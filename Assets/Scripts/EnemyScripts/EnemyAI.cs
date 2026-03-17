@@ -99,7 +99,6 @@ public class EnemyAI : MonoBehaviour, IHit
     public void OnHit(float damage)
     {
         TakeDamage(damage);
-
     }
 
     public void OnHit(float damage, float repelForce, Vector2 repelDirection)
