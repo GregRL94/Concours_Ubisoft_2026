@@ -11,6 +11,7 @@ public class MechaHealth : MonoBehaviour
 
     private float currentHealth;
     private bool isInIFrame = false;
+    private bool isDead;
 
     void Start()
     {
@@ -29,6 +30,34 @@ public class MechaHealth : MonoBehaviour
 
         // Start i-frame
         StartCoroutine(StartIFrame());
+
+        // Death Condition
+        if (isDead) return;
+        if (currentHealth <= 0)
+        { 
+            isDead = true;
+            StartCoroutine(DeathRoutine());
+        }
+    }
+
+
+    IEnumerator DeathRoutine()
+    {
+        // Explosion Effect
+        //Instantiate(explosionFX, transform.position, Quaternion.identity);
+
+        // Camera shake
+
+        // Disable controls
+        InputManager.Instance.DisableAll();
+
+        // Hide mech mesh
+
+        // Delay before GameoverScreen
+        yield return new WaitForSeconds(2f);
+
+
+        GameManager.Instance.LoseGame();
     }
 
     private IEnumerator StartIFrame()
@@ -40,11 +69,12 @@ public class MechaHealth : MonoBehaviour
 
     private void Update()
     {
-        // DEBUG DAMAGE PLAYER
+        // todo: DEBUG DAMAGE PLAYER
         if (Keyboard.current != null && Keyboard.current.digit1Key.wasPressedThisFrame)
         {
-            float damage = Random.Range(0, 15f);
+            float damage = Random.Range(0, 100f);
             TakeDamage(damage);
+
         }
     }
 }

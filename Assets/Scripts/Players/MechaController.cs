@@ -290,6 +290,7 @@ public class MechaController : MonoBehaviour, IHit
 
     private void HandleUltimate()
     {
+        // UPDATE ULTIMATE
         ultimateUI?.UpdateCharge(_ultimateCharge);
 
         if (_ultimateCharge >= _ultimateMax)
@@ -298,7 +299,7 @@ public class MechaController : MonoBehaviour, IHit
             _ultimateReady = true;
         }
 
-        // -------- SI ULTIMATE PAS READY STOP ICI --------
+        // SI ULTIMATE PAS READY STOP ICI 
 
         if (!_ultimateReady)
             return;
@@ -308,7 +309,7 @@ public class MechaController : MonoBehaviour, IHit
 
         _isAttemptingUltimate = _ultimateReady && (movementHold || shootHold);
 
-        // -------- HOLD DETECTION (toujours actif) --------
+        // HOLD DETECTION 
 
         if (movementHold)
             _movementHoldTimer += Time.deltaTime;
@@ -326,7 +327,7 @@ public class MechaController : MonoBehaviour, IHit
             _shootHoldTimer = 0f;
         }       
 
-        // -------- CHARGE ULTIMATE --------
+        // CHARGED ULTIMATE 
 
         if (_movementHoldTimer >= _ultimateHoldDuration)
             _movementCharged = true;
@@ -580,19 +581,13 @@ public class MechaController : MonoBehaviour, IHit
 
     public void OnHit(float damage)
     {
-        _currentHealth -= damage;
-        if (_currentHealth <= 0)
-        {
-            // Die();
-        }
+        if(GetComponent<MechaHealth>() != null)
+            GetComponent<MechaHealth>().TakeDamage(damage);
     }
 
     public void OnHit(float damage, float repelForce, Vector2 repelDirection)
     {
-        _currentHealth -= damage;
-        if (_currentHealth <= 0)
-        {
-            // Die();
-        }
+        if(GetComponent<MechaHealth>() != null)
+            GetComponent<MechaHealth>().TakeDamage(damage);
     }
 }
