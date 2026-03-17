@@ -399,6 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac1fd555c78d9e4fa3c288556d0bd59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Missile
+  _explosionEffect: {fileID: 3392167224638232088, guid: 8054a51c83ceeb1479275bc73a07b5ea, type: 3}
 --- !u!1001 &2385403349259029469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -480,6 +481,10 @@ PrefabInstance:
       value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 4451995546996111984, guid: 62b6074675a5d9648b333398279ede8a, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451995546996111984, guid: 62b6074675a5d9648b333398279ede8a, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.15752001
       objectReference: {fileID: 0}
@@ -502,6 +507,10 @@ PrefabInstance:
     - target: {fileID: 4451995546996111984, guid: 62b6074675a5d9648b333398279ede8a, type: 3}
       propertyPath: InitialModule.startColor.minColor.r
       value: 0.90099996
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451995546996111984, guid: 62b6074675a5d9648b333398279ede8a, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9139153550084812668, guid: 62b6074675a5d9648b333398279ede8a, type: 3}
       propertyPath: m_Name
