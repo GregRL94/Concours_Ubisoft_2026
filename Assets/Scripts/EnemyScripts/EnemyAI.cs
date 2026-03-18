@@ -5,7 +5,7 @@ public class EnemyAI : MonoBehaviour, IHit
 {
     [Header("Donnees de l'ennemi")] 
     public EnemyData data; //Nouvellle fiche de stats ScriptableObj
-    
+    public Animator animator {get; private set;}
     [Header("Références de combat")]
     public Transform firePoint;
     public EnemyState.EnemyStateMachine StateMachine { get; set; }
@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour, IHit
         rb = GetComponent<Rigidbody2D>();
         Agent = GetComponent<NavMeshAgent>();
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-        
+        animator = GetComponent<Animator>();
         // Configuration automatique de NavMesh via la Data
         if (Agent != null && data != null)
         {
@@ -65,6 +65,7 @@ public class EnemyAI : MonoBehaviour, IHit
 
     public void TakeDamage(float damage)
     {
+        if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -85,7 +86,7 @@ public class EnemyAI : MonoBehaviour, IHit
         }
         
         Debug.Log("ENEMY DIEEED!!!");
-        Destroy(gameObject);
+        animator.SetTrigger("Die");
     }
     //Visualisation des portes dans l'editeur
     private void OnDrawGizmosSelected()
