@@ -21,4 +21,4 @@ MonoBehaviour:
   stopDistance: 4
   damage: 10
   attackSpeed: 1.5
-  hitRadius: 1
+  hitRadius: 3
