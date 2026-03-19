@@ -102,6 +102,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private LayerMask _dashImpactsWhat;
     [SerializeField] private LayerMask _dashIgnoresWhat;
     [SerializeField] private float _dashDamage = 10f;
+    //[SerializeField] private Animator animIsPressedDash;
     [Header("Melee attack parameters")]
     [SerializeField] private Transform _meleeAttackPoint;
     [SerializeField] private Vector2 _meleeAttackHitBox;
@@ -109,6 +110,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _meleeDamage = 10f;
     [SerializeField] private float _meleeAttackStunDuration = 1.5f;
     [SerializeField] private float _meleeAttackCooldown = 1f;
+    //[SerializeField] private Animator animIsPressedMelee;
     [Space]
 
     [Header("SHOOTING PLAYER PARAMETERS")]
@@ -121,6 +123,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _fireRate = 2f;
     [SerializeField] private bool _angularDispersion = false;
     [SerializeField] private bool _linearDispersion = false;
+    //[SerializeField] private Animator animIsPressedMeleeShoot;
 
     [Header("AOE parameters")]
     [SerializeField] private LayerMask _aoeImpactsWhat;
@@ -128,6 +131,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _aoeDamage = 5f;
     [SerializeField] private float _aoeRepelForce = 2f;
     [SerializeField] private float _aoeCooldown = 5f;
+    //[SerializeField] private Animator animIsPressedAOE;
     [Space]
 
     [Header("ULTIMATE TEAM ATTACK PARAMETERS")]
@@ -138,6 +142,8 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _minReleaseForce = 1f;
     [SerializeField] private float _maxReleaseForce = 5f;
     [SerializeField] private float _missileSpawnInterval = 0.2f;
+    [SerializeField] private Animator animIsPressedMovement;
+    [SerializeField] private Animator animIsPressedShot;
     [SerializeField] private float _ultimateHoldDuration = 3f;
     [SerializeField] private float _ultimateMax = 100f;
     private float _ultimateCharge = 0f;
@@ -292,6 +298,8 @@ public class MechaController : MonoBehaviour, IHit
             }
             AudioManager.Instance.PlaySound("SFX_Player_dash");
             _currentDashCoroutine = StartCoroutine(Dash());
+
+
         }
 
         _rb2D.linearVelocity = move * _currentSpeed; // Deplacement du mecha selon les inputs du joueur de mouvement
@@ -341,6 +349,7 @@ public class MechaController : MonoBehaviour, IHit
 
     private void HandleUltimate()
     {
+        // UPDATE ULTIMATE
         ultimateUI?.UpdateCharge(_ultimateCharge);
 
         // --------------- SI STUN STOP ICI ---------------
@@ -362,25 +371,35 @@ public class MechaController : MonoBehaviour, IHit
 
         _isAttemptingUltimate = _ultimateReady && (movementHold || shootHold);
 
-        // -------- HOLD DETECTION (toujours actif) --------
+        // HOLD DETECTION 
 
         if (movementHold)
+        {
             _movementHoldTimer += Time.deltaTime;
+            // anim ispressed
+            animIsPressedMovement.SetBool("isPressed", true);
+        }
         else
         {
             _movementHoldWasShort = _movementHoldTimer < _ultimateHoldThreshold;
             _movementHoldTimer = 0f;
+            animIsPressedMovement.SetBool("isPressed", false);
         }
 
         if (shootHold)
+        {
             _shootHoldTimer += Time.deltaTime;
+            animIsPressedShot.SetBool("isPressed", true);
+
+        }
         else
         {
             _shootHoldWasShort = _shootHoldTimer < _ultimateHoldThreshold;
             _shootHoldTimer = 0f;
+            animIsPressedShot.SetBool("isPressed", false);
         }       
 
-        // -------- CHARGE ULTIMATE --------
+        // CHARGED ULTIMATE 
 
         if (_movementHoldTimer >= _ultimateHoldDuration)
             _movementCharged = true;

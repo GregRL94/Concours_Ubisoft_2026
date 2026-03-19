@@ -40,4 +40,19 @@ public class UIManager : MonoBehaviour
     }
 
     #endregion
+
+    #region WIN/LOSE
+
+    public void ShowWin()
+    {
+
+    }
+    public void ShowLose()
+    {
+
+    }
+
+    #endregion
+
+
 }

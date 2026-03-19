@@ -34,7 +34,7 @@ public class PlayerChoiceMenu : Menu
 
     [Header("Confirm Config")]
     [SerializeField] private float confirmTime = 1.2f;
-    [SerializeField] private string sceneName = "Gym_Greg";
+    [SerializeField] private string sceneName = "Gym_Ajmal_03";
 
     private PlayerSlot p1Slot = PlayerSlot.Center;
     private PlayerSlot p2Slot = PlayerSlot.Center;
