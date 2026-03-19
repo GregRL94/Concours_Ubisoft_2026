@@ -4,34 +4,61 @@ using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public static EnemySpawner  instance { get; private set; }
+    public WaveData waveSettings;
 
-    [System.Serializable]
-    public class EnemyContent
-    {
-        public string name;
-        public GameObject[] enemies;
-        public float spawnInterval = 1.5f;
-    }
+    public float health = 100f;
 
-    [Header("Configuration")] 
-    public List<EnemyContent> waves;
-    public Transform[] spawnPoints;
-    public float timeBetweenWaves = 5f;
-
-    [Header("Etat actuel")] 
-    public int currentWaveIndex = 0;
-    private int _enemiesAlive = 0;
-    private bool _isSpawning = false;
+    public float spreadRadius = 2f; //Rayon de repartition
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        StartCoroutine(SpawnRoutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator SpawnRoutine()
     {
+        //Batch initiale
+        yield return StartCoroutine(SpawnBatch(waveSettings.initialBatchSize));
+        
+        //Batches regulieres
+        while (health > 0)
+        {
+            yield return new WaitForSeconds(waveSettings.timeBetweenWaves);
+            yield return StartCoroutine(SpawnBatch(waveSettings.regularBatchSize));
+            
+        }
+    }
+
+
+    IEnumerator SpawnBatch(int batchSize)
+    {
+        for (int i = 0; i < batchSize; i++)
+        {
+            SpawnEnemy();
+            yield return new WaitForSeconds(waveSettings.spawnIntervalWithinBatch);
+        }
+    }
+
+    void SpawnEnemy()
+    {
+        //Spawn a la position du spawner
+        GameObject enemy = Instantiate(waveSettings.enemyPrefab, transform.position, Quaternion.identity);
+        
+        //Repartition pour ne pas clump
+        Vector2 randomOffset = Random.insideUnitCircle * spreadRadius;
+        Vector3 targetPosition = transform.position + new Vector3(randomOffset.x, randomOffset.y,0);
+        
+        //on deplace l'ennemi vers sa position repartie 
+        enemy.transform.position = targetPosition;
+
+        EnemyAI ai = enemy.GetComponent<EnemyAI>();
+
+        if (ai != null)
+        {
+            ai.StateMachine.Initialize(ai.PatrolState);
+        }
+        
         
     }
 }
