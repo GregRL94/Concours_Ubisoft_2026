@@ -48,5 +48,5 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   gameOverMenu: {fileID: 0}
   endMenu: {fileID: 0}
-  menuParent: {fileID: 4857315814849744355, guid: 4fa22e95a7cf651499e1f36a3c7caa98,
-    type: 3}
+  playerChoiceMenu: {fileID: 0}
+  menuParent: {fileID: 4857315814849744355, guid: 4fa22e95a7cf651499e1f36a3c7caa98, type: 3}
