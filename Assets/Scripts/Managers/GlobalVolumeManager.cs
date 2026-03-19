@@ -29,7 +29,7 @@ public class GlobalVolumeManager : MonoBehaviour
 
     void Initialize()
     {
-        volume = GetComponent<Volume>();
+        volume = GetComponentInChildren<Volume>();
 
         var profile = volume.profile;
 

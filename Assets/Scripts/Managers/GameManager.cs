@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [SerializeField] private FadeTransition gameOverTransition;
+    [SerializeField] private FadeTransition winTransition;
+
+    private bool hasWon;
     public enum GameState
     {
         Playing,
@@ -29,6 +33,21 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartObjective();
+    }
+
+    private void Update()
+    {
+        // todo: DEBUG DAMAGE PLAYER
+        if (Keyboard.current != null && Keyboard.current.digit0Key.wasPressedThisFrame && !hasWon)
+        {
+            hasWon = true;
+            PlayerInputHandler[] activeObjects = FindObjectsByType<PlayerInputHandler>(FindObjectsSortMode.None);
+            foreach (var item in activeObjects)
+            {
+                item.enabled = false;
+            }
+            WinGame();
+        }
     }
 
     void StartObjective()
@@ -71,6 +90,14 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Victory");
 
+        // Launch transition
+        TransitionManager.Instance.FadeInCurrentScene(
+            winTransition,
+            MenuManager.Instance.GetEndMenu(),
+            0f
+        );
+
+        
         UIManager.Instance.ShowWin();
     }
 }
