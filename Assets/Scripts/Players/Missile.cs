@@ -21,6 +21,8 @@ public class Missile : MonoBehaviour
     private bool _movementActive = false;
     private bool _effectsActive = false;
 
+    private bool _hasPlayedMissileSound = false;
+
     private void Start()
     {
         if (TryGetComponent(out TrailRenderer trailRenderer))
@@ -95,11 +97,17 @@ public class Missile : MonoBehaviour
     private void Move()
     {
         transform.Translate(Vector2.up * _speed * Time.deltaTime);
+        if(!_hasPlayedMissileSound)
+        {
+            AudioManager.Instance.PlaySound("SFX_ulti_missile_fusee");
+            _hasPlayedMissileSound = true;
+        }
     }
 
     private void _Destroy()
     {
         Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlaySound("SFX_ulti_missile_explosion");
         Destroy(gameObject);
     }
 
