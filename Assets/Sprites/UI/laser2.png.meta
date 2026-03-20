@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: ebdab88ff971d14499a8411876d92571
+guid: b68199b1fef15ae4db41e4da06329541
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4731014570773979546
-    second: UI_shoot_0
+      213: -4019954765290455757
+    second: laser2_0
+  - first:
+      213: -2098891317436801773
+    second: laser2_1
+  - first:
+      213: 353578845740348621
+    second: laser2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,23 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_shoot_0
+      name: laser2_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 16
-        width: 31
-        height: 31
+        x: 0
+        y: 3
+        width: 6
+        height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a912e26afa0f7a140800000000000000
-      internalID: 4731014570773979546
+      spriteID: 33d39b980704638c0800000000000000
+      internalID: -4019954765290455757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser2_1
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31d170a977d3fd2e0800000000000000
+      internalID: -2098891317436801773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser2_2
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 5
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4327c361a28e400800000000000000
+      internalID: 353578845740348621
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: fa274736057e51947ad2f527f25c2434
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -133,11 +183,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      UI_shoot_0: 4731014570773979546
+      laser2_0: -4019954765290455757
+      laser2_1: -2098891317436801773
+      laser2_2: 353578845740348621
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
