@@ -1,3 +1,4 @@
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,19 @@ public class GameManager : MonoBehaviour
 
     int currentObjectiveIndex = 0;
 
+    string[] musicPlaylist =
+    {
+        "MUS_8-bit-takeover",
+        "MUS_arcade-party",
+        "MUS_battle-time",
+        "MUS_bitwise",
+        "MUS_epic-battle",
+        "MUS_i-dream-in-keygen",
+        "MUS_pixel-perfect",
+        "MUS_pixify"
+    };
+    int lastMusicIndex;
+
     void Awake()
     {
         if (Instance == null)
@@ -33,10 +47,18 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartObjective();
+
+        lastMusicIndex = Random.Range(0, musicPlaylist.Length);
+        Debug.Log("Number of music tracks in playlist: " + musicPlaylist.Length);
     }
 
     private void Update()
     {
+        // Commencer la playlist de musique
+        // (appeler la fonction qu'Ajmal ajoutera dans AudioManager qui prend un string[] en paramètre)
+        AudioManager.Instance.PlayMusic(musicPlaylist[lastMusicIndex]);
+
+
         // todo: DEBUG DAMAGE PLAYER
         if (Keyboard.current != null && Keyboard.current.digit0Key.wasPressedThisFrame && !hasWon)
         {
@@ -75,6 +97,8 @@ public class GameManager : MonoBehaviour
         CurrentState = GameState.Lose;
 
         Debug.Log("Game Over");
+        AudioManager.Instance.StopMusic();
+        //AudioManager.Instance.PlayMusic("lose");
 
         // Launch transition
         TransitionManager.Instance.FadeInCurrentScene(
@@ -89,6 +113,8 @@ public class GameManager : MonoBehaviour
         CurrentState = GameState.Win;
 
         Debug.Log("Victory");
+        AudioManager.Instance.StopMusic();
+        //AudioManager.Instance.PlayMusic("win");
 
         // Launch transition
         TransitionManager.Instance.FadeInCurrentScene(

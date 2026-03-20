@@ -186,6 +186,8 @@ public class MechaController : MonoBehaviour, IHit
     private float _currentAngularDispersion;
     private float _currentLinearDispersion;
     private bool _isPlayingMvtSound = false;
+    private bool _hasPlayedUltiSound1 = false;
+    private bool _hasPlayedUltiSound2 = false;
     private bool _isStun;
     private float _stunTimer;
     #endregion Attributes & Properties
@@ -397,15 +399,39 @@ public class MechaController : MonoBehaviour, IHit
             _shootHoldWasShort = _shootHoldTimer < _ultimateHoldThreshold;
             _shootHoldTimer = 0f;
             animIsPressedShot.SetBool("isPressed", false);
-        }       
+        }
 
         // CHARGED ULTIMATE 
 
         if (_movementHoldTimer >= _ultimateHoldDuration)
+        {
             _movementCharged = true;
+            if (!_hasPlayedUltiSound1)
+            {
+                AudioManager.Instance.PlaySound("UI_ulti_playerready");
+                _hasPlayedUltiSound1 = true;
+            }
+        }
+        else
+        {
+            _hasPlayedUltiSound1 = false;
+        }
 
         if (_shootHoldTimer >= _ultimateHoldDuration)
+        {
             _shootCharged = true;
+            if (!_hasPlayedUltiSound2)
+            {
+                AudioManager.Instance.PlaySound("UI_ulti_playerready");
+                _hasPlayedUltiSound2 = true;
+            }
+        }
+        else
+        {
+            _hasPlayedUltiSound2 = false;
+        }
+
+
 
         float sync = 0f;
         sync += Mathf.Clamp01(_movementHoldTimer / _ultimateHoldDuration) * 0.5f;
@@ -423,6 +449,7 @@ public class MechaController : MonoBehaviour, IHit
         {
             if (_currentUltimateCoroutine != null) { StopCoroutine(_currentUltimateCoroutine); }
             _currentUltimateCoroutine = StartCoroutine(MissileSwarm());
+            AudioManager.Instance.PlaySound("UI_ulti_declenche");
             Debug.Log("ULTIMATE TEAM ATTACK UNLEASHED !!!");
         }        
 
@@ -457,6 +484,7 @@ public class MechaController : MonoBehaviour, IHit
             }
         }
         _meleeTimer = 0f;
+        AudioManager.Instance.PlaySound("SFX_Player_melee");
         abilityUI?.TriggerAbility("Melee", _meleeAttackCooldown);
         Debug.Log("MELEE");
     }
@@ -554,6 +582,8 @@ public class MechaController : MonoBehaviour, IHit
             Missile missileLogic = spawnedMissile.GetComponent<Missile>();
             missileLogic.SetupMissile(MissileParameters.Speed, MissileParameters.RotationSpeed, MissileParameters.Lifetime, MissileParameters.Damage, MissileParameters.HoldRotationTimer,MissileParameters.HoldMovementTimer, MissileParameters.MissileImpactLayerMask);
             missileLogic.SetTarget(target);
+
+            AudioManager.Instance.PlaySound("SFX_ulti_missile_popout");
 
             missilesSpawned++;
             currentLauncherIndex++;
