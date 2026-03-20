@@ -1,3 +1,4 @@
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,19 @@ public class GameManager : MonoBehaviour
 
     int currentObjectiveIndex = 0;
 
+    string[] musicPlaylist =
+    {
+        "MUS_8-bit-takeover",
+        "MUS_arcade-party",
+        "MUS_battle-time",
+        "MUS_bitwise",
+        "MUS_epic-battle",
+        "MUS_i-dream-in-keygen",
+        "MUS_pixel-perfect",
+        "MUS_pixify"
+    };
+    int lastMusicIndex;
+
     void Awake()
     {
         if (Instance == null)
@@ -33,10 +47,20 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartObjective();
+
+        
+        lastMusicIndex = Random.Range(0, musicPlaylist.Length);
+        Debug.Log("Number of music tracks in playlist: " + musicPlaylist.Length);
     }
 
     private void Update()
     {
+        // Commencer la playlist de musique
+        AudioManager.Instance.PlayMusic(musicPlaylist[lastMusicIndex]);
+
+        // Somehow faire jouer la prochaine musique quand la présente est à 1-2 secondes de terminer
+        // utiliser .clip.length ?
+
         // todo: DEBUG DAMAGE PLAYER
         if (Keyboard.current != null && Keyboard.current.digit0Key.wasPressedThisFrame && !hasWon)
         {

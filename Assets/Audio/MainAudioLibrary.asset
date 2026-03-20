@@ -48,7 +48,7 @@ MonoBehaviour:
   - id: SFX_Player_movement
     clip: {fileID: 8300000, guid: 3f07ff8572bc3004a834f525c4020b0a, type: 3}
     type: 1
-    volume: 0.293
+    volume: 0.305
     pitch: 1.08
     loop: 1
     randomizePitch: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   - id: SFX_Player_laser_tir
     clip: {fileID: 8300000, guid: f3c13c02109b00e4c829ea78a531f779, type: 3}
     type: 1
-    volume: 0.48
+    volume: 0.407
     pitch: 0.98
     loop: 0
     randomizePitch: 1
@@ -110,7 +110,7 @@ MonoBehaviour:
     randomizePitch: 1
     pitchRange: 0.2
   - id: SFX_Player_dash
-    clip: {fileID: 8300000, guid: 24fdc6b3f4dbd2e44841648ecc150115, type: 3}
+    clip: {fileID: 8300000, guid: 44fe9909037edb2488714bef5f2eede2, type: 3}
     type: 1
     volume: 0.467
     pitch: 1
@@ -119,7 +119,111 @@ MonoBehaviour:
     pitchRange: 0.2
   - id: UI_ulti_playerready
     clip: {fileID: 8300000, guid: 3f4381d9926ba3e48a8c4630c579d4b8, type: 3}
+    type: 2
+    volume: 0.356
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: UI_ulti_declenche
+    clip: {fileID: 8300000, guid: 7573a522f6ccf0c4dba5d88ab438556e, type: 3}
+    type: 2
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: SFX_Player_melee
+    clip: {fileID: 8300000, guid: 1086629e9e857f942b03d073daabe953, type: 3}
     type: 1
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: SFX_ulti_missile_explosion
+    clip: {fileID: 8300000, guid: 60ce215b8e781704ab692c45de3ee5e2, type: 3}
+    type: 1
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: SFX_ulti_missile_fusee
+    clip: {fileID: 8300000, guid: 5a0494b7591fd62439256309e13a1b36, type: 3}
+    type: 1
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: SFX_ulti_missile_popout
+    clip: {fileID: 8300000, guid: 345eb5f829c288b4681bf33bf5c21195, type: 3}
+    type: 1
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: MUS_8-bit-takeover
+    clip: {fileID: 8300000, guid: 503acbb0708ac6f4590d4a422f99768c, type: 3}
+    type: 0
+    volume: 0.356
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_arcade-party
+    clip: {fileID: 8300000, guid: 37e5c4a3700077d498144c3c40c7563b, type: 3}
+    type: 0
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_battle-time
+    clip: {fileID: 8300000, guid: 6912cc4caa0dbf8459f449f6503cc76c, type: 3}
+    type: 0
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_bitwise
+    clip: {fileID: 8300000, guid: 7be98c9c23754924d91f1837192db20a, type: 3}
+    type: 0
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_epic-battle
+    clip: {fileID: 8300000, guid: 4d132d1aa0b81314ba42b6437842404c, type: 3}
+    type: 0
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_i-dream-in-keygen
+    clip: {fileID: 8300000, guid: 86f3a86e9b51e574893a2f468278cead, type: 3}
+    type: 0
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_pixel-perfect
+    clip: {fileID: 8300000, guid: f02e1701262daa242b71b9434190440a, type: 3}
+    type: 0
+    volume: 0.427
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_pixify
+    clip: {fileID: 8300000, guid: 446e0f59e4b56c746bed25fab1696287, type: 3}
+    type: 0
     volume: 0.427
     pitch: 1
     loop: 0
