@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour
     {
         StartObjective();
 
-        
         lastMusicIndex = Random.Range(0, musicPlaylist.Length);
         Debug.Log("Number of music tracks in playlist: " + musicPlaylist.Length);
     }
@@ -56,10 +55,9 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // Commencer la playlist de musique
+        // (appeler la fonction qu'Ajmal ajoutera dans AudioManager qui prend un string[] en paramètre)
         AudioManager.Instance.PlayMusic(musicPlaylist[lastMusicIndex]);
 
-        // Somehow faire jouer la prochaine musique quand la présente est à 1-2 secondes de terminer
-        // utiliser .clip.length ?
 
         // todo: DEBUG DAMAGE PLAYER
         if (Keyboard.current != null && Keyboard.current.digit0Key.wasPressedThisFrame && !hasWon)
@@ -99,6 +97,8 @@ public class GameManager : MonoBehaviour
         CurrentState = GameState.Lose;
 
         Debug.Log("Game Over");
+        AudioManager.Instance.StopMusic();
+        //AudioManager.Instance.PlayMusic("lose");
 
         // Launch transition
         TransitionManager.Instance.FadeInCurrentScene(
@@ -113,6 +113,8 @@ public class GameManager : MonoBehaviour
         CurrentState = GameState.Win;
 
         Debug.Log("Victory");
+        AudioManager.Instance.StopMusic();
+        //AudioManager.Instance.PlayMusic("win");
 
         // Launch transition
         TransitionManager.Instance.FadeInCurrentScene(
