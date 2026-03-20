@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 34ab82d285e542b48ad5fbe7d54b5158
+guid: 9c58775b8fa2554439190fb7a8e6d14a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2797366269699564976
-    second: UI_textBox_0
+      213: 368549310510417507
+    second: BG_mainMenu_v01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -101,7 +101,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,7 +114,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_textBox_0
+      name: BG_mainMenu_v01_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
-        width: 96
-        height: 48
+        y: 0
+        width: 320
+        height: 180
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 29, y: 13, z: 31, w: 13}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b52a1c1dcd32d620800000000000000
-      internalID: 2797366269699564976
+      spriteID: 366403f25a95d1500800000000000000
+      internalID: 368549310510417507
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 70e857b3080bfff439063428586c0865
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      UI_textBox_0: 2797366269699564976
+      BG_mainMenu_v01_0: 368549310510417507
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
