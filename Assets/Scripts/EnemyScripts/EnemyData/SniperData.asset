@@ -21,5 +21,5 @@ MonoBehaviour:
   stopDistance: 6
   damage: 10
   projectileSpeed: 20
-  fireRate: 4
+  fireRate: 0.5
   projectilePrefab: {fileID: 7801827202018218392, guid: 15a8ad04223affe498d98408576ff993, type: 3}

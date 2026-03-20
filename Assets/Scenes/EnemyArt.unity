@@ -1440,6 +1440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mikpin1
       objectReference: {fileID: 0}
+    - target: {fileID: 1392904071871295899, guid: 159017082eff5b7418adf0764b0970fe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3796513829257894292, guid: 159017082eff5b7418adf0764b0970fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.61
@@ -1550,6 +1554,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 161333430343154777, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 560157876335983451, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 981076627514167658, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1589,6 +1601,18 @@ PrefabInstance:
     - target: {fileID: 981076627514167658, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111033094556528008, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366369253569095122, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680219207735809868, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+      propertyPath: orthographic size
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 5719690993555844137, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
       propertyPath: m_Name
@@ -1657,7 +1681,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 560157876335983451, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1409622958}
+    - targetCorrespondingSourceObject: {fileID: 161333430343154777, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1593678324}
   m_SourcePrefab: {fileID: 100100000, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
 --- !u!1 &474265427 stripped
 GameObject:
@@ -2417,6 +2447,10 @@ PrefabInstance:
     - target: {fileID: 1392904071871295899, guid: dd8d03e1180c1974d925d46bf9cc41cd, type: 3}
       propertyPath: m_Name
       value: MinKai
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392904071871295899, guid: dd8d03e1180c1974d925d46bf9cc41cd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3796513829257894292, guid: dd8d03e1180c1974d925d46bf9cc41cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9083,6 +9117,33 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8ec535f245c9c540a66b63e73c90413, type: 3}
+--- !u!1 &1409622955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 560157876335983451, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+  m_PrefabInstance: {fileID: 387188029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1409622958
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409622955}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14882986cb1af39449533dd96b8cf3af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1424379285
 GameObject:
   m_ObjectHideFlags: 0
@@ -25698,6 +25759,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4705963707876229710, guid: 0f15213fcb82d5748b2abfc63b65ed2c, type: 3}
   m_PrefabInstance: {fileID: 5560847401660357939}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1593678321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 161333430343154777, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+  m_PrefabInstance: {fileID: 387188029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1593678324
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593678321}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14882986cb1af39449533dd96b8cf3af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1603310677
 GameObject:
   m_ObjectHideFlags: 0
@@ -124291,6 +124379,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoltBat
       objectReference: {fileID: 0}
+    - target: {fileID: 1392904071871295899, guid: 3a8796c5371e24441864f55ec0c347aa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3796513829257894292, guid: 3a8796c5371e24441864f55ec0c347aa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.75
@@ -124759,6 +124851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mikpin2
       objectReference: {fileID: 0}
+    - target: {fileID: 1392904071871295899, guid: 393bba4de0c85704c94df54e19b0fba9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3796513829257894292, guid: 393bba4de0c85704c94df54e19b0fba9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.87705
@@ -124815,6 +124911,10 @@ PrefabInstance:
     - target: {fileID: 1392904071871295899, guid: ce0fd2b8632f6dd4c94d60909985d741, type: 3}
       propertyPath: m_Name
       value: Mikpin4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392904071871295899, guid: ce0fd2b8632f6dd4c94d60909985d741, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3796513829257894292, guid: ce0fd2b8632f6dd4c94d60909985d741, type: 3}
       propertyPath: m_LocalPosition.x
@@ -125167,6 +125267,10 @@ PrefabInstance:
     - target: {fileID: 1392904071871295899, guid: 07fd88637fa19a642813f1a408becfd7, type: 3}
       propertyPath: m_Name
       value: Mikpin3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392904071871295899, guid: 07fd88637fa19a642813f1a408becfd7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3796513829257894292, guid: 07fd88637fa19a642813f1a408becfd7, type: 3}
       propertyPath: m_LocalPosition.x
