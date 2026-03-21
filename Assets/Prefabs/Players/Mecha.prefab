@@ -1212,6 +1212,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _dashDamage: 10
+  animIsPressedDash: {fileID: 0}
   _meleeAttackPoint: {fileID: 4551997135442846276}
   _meleeAttackHitBox: {x: 2, y: 1}
   _meleeAttackImpactsWhat:
@@ -1220,16 +1221,18 @@ MonoBehaviour:
   _meleeDamage: 25
   _meleeAttackStunDuration: 1.5
   _meleeAttackCooldown: 1
+  animIsPressedMelee: {fileID: 0}
   _shootingPoints:
   - {fileID: 1203288601306859973}
   - {fileID: 7123907203564862564}
   _aimingReticle: {fileID: 7688457587450742652}
-  _aimingReticleSpeed: 3
+  _aimingReticleSpeed: 6
   _aimingReticleMinDistance: 4
   _synchFire: 0
   _fireRate: 10
   _angularDispersion: 1
   _linearDispersion: 1
+  animIsPressedGun: {fileID: 0}
   _aoeEffectPrefab: {fileID: 5012763272240465815, guid: bb1e9d3c20d4d1440a56a587ccde68a4, type: 3}
   _aoeImpactsWhat:
     serializedVersion: 2
@@ -1238,6 +1241,7 @@ MonoBehaviour:
   _aoeDamage: 25
   _aoeRepelForce: 20
   _aoeCooldown: 10
+  animIsPressedAOE: {fileID: 0}
   _ultimateTargetsWhat:
     serializedVersion: 2
     m_Bits: 128
