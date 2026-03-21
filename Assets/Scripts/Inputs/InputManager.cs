@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 
+[DefaultExecutionOrder(-1000)] // garantit qu'il se fasse appele en premier
 public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;

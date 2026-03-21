@@ -2,120 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
-using static Unity.VisualScripting.Member;
-
-//public class AudioManager : MonoBehaviour
-//{
-//    public static AudioManager Instance;
-
-//    [Header("Library")]
-//    [SerializeField] private AudioLibrarySO library;
-
-//    [Header("Mixers")]
-//    [SerializeField] private AudioMixerGroup musicMixer;
-//    [SerializeField] private AudioMixerGroup sfxMixer;
-//    [SerializeField] private AudioMixerGroup uiMixer;
-
-//    private AudioSource currentMusic;
-
-//    private void Awake()
-//    {
-//        if (Instance == null)
-//        {
-//            Instance = this;
-//            DontDestroyOnLoad(gameObject);
-//        }
-//        else
-//        {
-//            Destroy(gameObject);
-//        }
-//    }
-
-//    public void PlaySound(string soundId, Vector3? position = null)
-//    {
-//        SoundData sound = library.Get(soundId);
-
-//        if (sound == null || sound.clip == null)
-//        {
-//            Debug.LogWarning($"[AudioManager] Sound not found: {soundId}");
-//            return;
-//        }
-
-//        GameObject go = new($"Audio_{soundId}");
-
-//        if (position.HasValue) go.transform.position = position.Value;
-//        AudioSource source = go.AddComponent<AudioSource>();
-
-//        source.clip = sound.clip;
-//        source.volume = sound.volume;
-//        source.pitch = GetPitch(sound);
-//        source.loop = sound.loop;
-//        source.outputAudioMixerGroup = GetMixer(sound.type);
-
-//        //// Spatial logic for 3d or 2d games
-//        source.spatialBlend = position.HasValue ? 1f : 0f;
-
-//        source.Play();
-
-//        // Behaviors of different types of Audio played
-//        switch (sound.type)
-//        {
-//            case AudioType.Music:
-//                if (currentMusic != null)
-//                    currentMusic.Stop();
-//                currentMusic = source;
-//                break;
-
-//            case AudioType.SFX:
-//            case AudioType.UI:
-//                if (!sound.loop)
-//                    Destroy(go, source.clip.length);
-//                break;
-//        }
-//    }
-
-
-
-//    private float GetPitch(SoundData sound)
-//    {
-//        if (!sound.randomizePitch) return sound.pitch;
-//        float randomPitchRange = Random.Range(-sound.pitchRange, sound.pitchRange);
-//        return sound.pitch + randomPitchRange;
-//    }
-
-
-//    private AudioMixerGroup GetMixer(AudioType type)
-//    {
-//        //return type switch
-//        //{
-//        //    AudioType.Music => musicMixer,
-//        //    AudioType.SFX => sfxMixer,
-//        //    AudioType.UI => uiMixer,
-//        //};
-
-//        AudioMixerGroup mixerGroup = null;
-//        switch (type) 
-//        {
-//            case AudioType.Music:
-//                mixerGroup = musicMixer;
-//                break;
-//            case AudioType.SFX:
-//                mixerGroup = sfxMixer;
-//                break;
-
-//            case AudioType.UI:
-//                mixerGroup = uiMixer;
-//                break;
-//            default:
-//                break;
-//        }
-//        return mixerGroup;
-//    }
-
-
-
-
-//}
 
 
 public class AudioManager : MonoBehaviour
@@ -136,6 +22,10 @@ public class AudioManager : MonoBehaviour
     private AudioSource currentMusic;
     private string currentMusicId;
 
+    [Header("Random Music Playlist")]
+    private string[] currentPlaylist;
+    private Coroutine playlistRoutine;
+
     private void Awake()
     {
         if (Instance == null)
@@ -150,7 +40,7 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    // MUSIC - PERSISTENT
+    // MUSIC 
     public void PlayMusic(string musicId)
     {
         if (currentMusicId == musicId)
@@ -185,7 +75,9 @@ public class AudioManager : MonoBehaviour
         currentMusic = source;
         currentMusicId = musicId;
     }
-    public void CrossFadeMusic(string newMusicId)
+
+    // CROSSFADE MUSIC
+    public void CrossFadeMusic(string newMusicId, bool forceNoLoop = false)
     {
         if (currentMusicId == newMusicId)
             return;
@@ -197,9 +89,9 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        StartCoroutine(CrossFadeRoutine(sound, newMusicId));
+        StartCoroutine(CrossFadeRoutine(sound, newMusicId, forceNoLoop));
     }
-    private IEnumerator CrossFadeRoutine(SoundData newSound, string newMusicId)
+    private IEnumerator CrossFadeRoutine(SoundData newSound, string newMusicId, bool forceNoLoop)
     {
         AudioSource oldMusic = currentMusic;
 
@@ -209,10 +101,9 @@ public class AudioManager : MonoBehaviour
         AudioSource newMusic = go.AddComponent<AudioSource>();
         newMusic.clip = newSound.clip;
         newMusic.volume = newSound.volume;
-        newMusic.loop = newSound.loop;
+        newMusic.loop = forceNoLoop ? false : newSound.loop; // si sa vient dune playlist loop false sinon true
         newMusic.outputAudioMixerGroup = musicMixer;
         newMusic.spatialBlend = 0f;
-        newMusic.outputAudioMixerGroup = GetMixer(newSound.type);
         
         newMusic.Play();
 
@@ -239,6 +130,81 @@ public class AudioManager : MonoBehaviour
         currentMusicId = newMusicId;
     }
 
+    // MUSIC PLAYLIST
+    public void StopPlaylist()
+    {
+        if (playlistRoutine != null)
+            StopCoroutine(playlistRoutine);
+    }
+    public void PlayRandomPlaylist(string[] musicIds)
+    {
+        if (musicIds == null || musicIds.Length == 0)
+        {
+            Debug.LogWarning("[AudioManager] Playlist vide !");
+            return;
+        }
+
+        currentPlaylist = musicIds;
+
+        if (playlistRoutine != null)
+            StopCoroutine(playlistRoutine);
+
+        playlistRoutine = StartCoroutine(RandomPlaylistRoutine());
+    }
+
+    private IEnumerator RandomPlaylistRoutine()
+    {
+        string lastPlayed = null;
+
+        while (true)
+        {
+            // Choisir une musique random != précédente
+            string next = GetRandomMusic(lastPlayed);
+
+            if (string.IsNullOrEmpty(next))
+            {
+                Debug.LogWarning("[AudioManager] Aucune musique valide dans la playlist.");
+                yield break;
+            }
+
+            SoundData sound = library.Get(next);
+
+            if (sound == null || sound.clip == null)
+            {
+                Debug.LogWarning($"[AudioManager] Music invalide: {next}");
+                yield return null;
+                continue;
+            }
+
+            sound.loop = false;
+
+            // Crossfade vers nouvelle musique
+            CrossFadeMusic(next, true);
+
+            currentMusicId = next;
+            lastPlayed = next;
+
+            // attendre la fin du clip
+            yield return new WaitForSeconds(sound.clip.length);
+        }
+    }
+
+    private string GetRandomMusic(string last)
+    {
+        if (currentPlaylist.Length <= 1)
+            return currentPlaylist[0];
+
+        string chosen = currentPlaylist[Random.Range(0, currentPlaylist.Length)];
+
+        while (chosen == last)
+        {
+            chosen = currentPlaylist[Random.Range(0, currentPlaylist.Length)];
+        }
+
+        return chosen;
+    }
+
+    // STOP MUSIC
     public void StopMusic()
     {
         StopAllCoroutines();
@@ -286,6 +252,7 @@ public class AudioManager : MonoBehaviour
             Destroy(go, source.clip.length);
     }
 
+    // STOP SOUND
     public void StopSound(string soundId, bool hasFadeOut = false, float fadeOutDuration = 0.25f, Vector3? position = null)
     {
         GameObject go = GameObject.Find($"{soundId}");
@@ -344,11 +311,6 @@ public class AudioManager : MonoBehaviour
             default: return null;
         }
     }
-
-
-    //    // Other potential methods
-    //    RandomSound();
-    //    ???
 
 }
 

@@ -44,6 +44,7 @@ public class LevelLoader : MonoBehaviour
         LoadLevel(nextSceneIndex);
     }
 
+
     public static void LoadMainMenuLevel()
     {
         LoadLevel(mainMenuIndex);

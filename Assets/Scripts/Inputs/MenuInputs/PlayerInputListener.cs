@@ -18,9 +18,6 @@ public class PlayerInputListener : MonoBehaviour
     private float nextRepeatTime;
     private bool isHolding;
 
-    // --------------------------------------------------
-    // INIT
-    // --------------------------------------------------
 
     private void Awake()
     {
@@ -51,9 +48,6 @@ public class PlayerInputListener : MonoBehaviour
         inputs.UI.Cancel.performed -= OnCancel;
     }
 
-    // --------------------------------------------------
-    // Submit Hold Fix
-    // --------------------------------------------------
 
     private void Update()
     {
@@ -76,9 +70,7 @@ public class PlayerInputListener : MonoBehaviour
         }
     }
 
-    // --------------------------------------------------
     // NAVIGATION 
-    // --------------------------------------------------
 
     private void OnNavigate(InputAction.CallbackContext context)
     {
@@ -114,9 +106,7 @@ public class PlayerInputListener : MonoBehaviour
         }
     }
 
-    // --------------------------------------------------
     // CANCEL
-    // --------------------------------------------------
 
     private void OnCancel(InputAction.CallbackContext context)
     {
@@ -130,6 +120,7 @@ public class PlayerInputListener : MonoBehaviour
             AudioManager.Instance.PlaySound("UI_Back");
             PlayerChoiceMenu.Instance.CancelSelection(playerId);
         }
+
     }
 
     // --------------------------------------------------
