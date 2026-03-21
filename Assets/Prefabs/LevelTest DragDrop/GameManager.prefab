@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47114433d71b56e43bf2fc97922e5c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverTransitionPrefab: {fileID: 4458164496608461039, guid: 763b1dd739a946e45be5de11f137c344, type: 3}
-  endGameTransitionPrefab: {fileID: 6900355812699795769, guid: d448d7e6c8bd73c428c47c99862017f8, type: 3}
+  gameOverTransition: {fileID: 4458164496608461039, guid: 763b1dd739a946e45be5de11f137c344, type: 3}
+  winTransition: {fileID: 6900355812699795769, guid: d448d7e6c8bd73c428c47c99862017f8, type: 3}
+  objectives:
+  - {fileID: 0}

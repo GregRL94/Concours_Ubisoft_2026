@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10f;
+    public float _speed = 10f;
+    public float _damage;
     public float lifetime = 3f;
+
+    public void Initialize(float dmg, float speed)
+    {
+        _damage = dmg;
+        _speed = speed;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,14 +22,19 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         //La balle avance toujours vers son "haut" (l'axe Y local du triangle)
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        transform.Translate(Vector2.up * _speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
-            //Applique les degats au joueur ici
+            //on cherche l'interface IHit sur la joueur pour lui mettre les degats
+            if (collision.TryGetComponent(out IHit playerhit))
+            {
+                Vector2 direction = (collision.transform.position - transform.position).normalized;
+                playerhit.OnHit(_damage);
+            }
             Destroy(gameObject);
         }
     }

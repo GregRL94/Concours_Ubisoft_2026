@@ -4,6 +4,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Missile : MonoBehaviour
 {
+    [SerializeField] private GameObject _explosionEffect;
     private TrailRenderer _trailRenderer;
     private ParticleSystem _particleSystem;    
     private Light2D _light2D;
@@ -19,6 +20,8 @@ public class Missile : MonoBehaviour
     private bool _rotationActive = false;
     private bool _movementActive = false;
     private bool _effectsActive = false;
+
+    private bool _hasPlayedMissileSound = false;
 
     private void Start()
     {
@@ -94,10 +97,17 @@ public class Missile : MonoBehaviour
     private void Move()
     {
         transform.Translate(Vector2.up * _speed * Time.deltaTime);
+        if(!_hasPlayedMissileSound)
+        {
+            AudioManager.Instance.PlaySound("SFX_ulti_missile_fusee");
+            _hasPlayedMissileSound = true;
+        }
     }
 
     private void _Destroy()
     {
+        Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlaySound("SFX_ulti_missile_explosion");
         Destroy(gameObject);
     }
 
@@ -109,7 +119,6 @@ public class Missile : MonoBehaviour
         {
             hitComponent.OnHit(_damage);
         }
-        Debug.Log("Missile collided with " + collider.gameObject.name);
         _Destroy();
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3774017572599913019}
   - component: {fileID: 6929794219528226804}
   - component: {fileID: 3592342365064999899}
+  - component: {fileID: 7264027846066224335}
   m_Layer: 0
   m_Name: fireball_impact
   m_TagString: Untagged
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1060936779
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 21
   m_MaskInteraction: 0
   m_Sprite: {fileID: -340695366207538628, guid: a9913f00c95cca742aeca27a0017214e, type: 3}
@@ -115,6 +116,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7264027846066224335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376449415813508878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01a5f9cd97abe44879d74fbf6ff9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyEffect
 --- !u!1001 &5971442784924415443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -157,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3879113984400463803, guid: 3fe0a989c9ff23c45bf2fd04e455b8a2, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3879113984400463803, guid: 3fe0a989c9ff23c45bf2fd04e455b8a2, type: 3}
       propertyPath: m_SortingOrder
@@ -167,6 +180,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1060936779
       objectReference: {fileID: 0}
+    - target: {fileID: 3879113984400463803, guid: 3fe0a989c9ff23c45bf2fd04e455b8a2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a7a831d51385774fb1b5b9b3d37ba0d, type: 2}
     - target: {fileID: 8164805592232001633, guid: 3fe0a989c9ff23c45bf2fd04e455b8a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

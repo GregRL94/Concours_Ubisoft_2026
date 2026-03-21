@@ -20,14 +20,8 @@ public class DestructibleEnv : MonoBehaviour, IHit
         }
     }
 
-    public void OnHit(float damage, float repelForce, Vector2 repelDirection)
-    {
-        _currentHealth -= damage;
-        if (_currentHealth <= 0)
-        {
-            _Destroy();
-        }
-    }
+    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection) {}
+    public void OnHitStun(float damage, float stunDuration) {}
     #endregion IHit Implementation
 
     private void _Destroy()

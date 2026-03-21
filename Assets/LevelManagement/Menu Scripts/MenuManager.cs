@@ -19,8 +19,8 @@ public class MenuManager : MonoBehaviour
     [Header("Canvas Menus")]
     [SerializeField] private Menu mainMenu;
     [SerializeField] private Menu pauseMenu;
-    //[SerializeField] private Menu gameOverMenu;
-    //[SerializeField] private Menu endMenu;
+    [SerializeField] private Menu gameOverMenu;
+    [SerializeField] private Menu endMenu;
     [SerializeField] private Menu playerChoiceMenu;
 
 
@@ -43,9 +43,11 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        HideMenusDebug();
         if (mainMenu != null && SceneManager.GetActiveScene().name == SCENE_MAIN_MENU)
+        {
+            HideMenusDebug();
             OpenMenu(mainMenu);
+        }
     }
     void OnEnable()
     {
@@ -73,13 +75,13 @@ public class MenuManager : MonoBehaviour
             //endMenu = FindObjectOfType<EndMenu>(true);
             playerChoiceMenu = FindAnyObjectByType<PlayerChoiceMenu>(FindObjectsInactive.Include);
 
-        //if (gameOverMenu == null)
-        //    //gameOverMenu = FindObjectOfType<GameOverMenu>(true);
-        //    gameOverMenu = FindAnyObjectByType<GameOverMenu>(FindObjectsInactive.Include);
+        if (gameOverMenu == null)
+            //gameOverMenu = FindObjectOfType<GameOverMenu>(true);
+            gameOverMenu = FindAnyObjectByType<GameOverMenu>(FindObjectsInactive.Include);
 
-        //if (endMenu == null)
-        //    //endMenu = FindObjectOfType<EndMenu>(true);
-        //    endMenu = FindAnyObjectByType<EndMenu>(FindObjectsInactive.Include);
+        if (endMenu == null)
+            //endMenu = FindObjectOfType<EndMenu>(true);
+            endMenu = FindAnyObjectByType<EndMenu>(FindObjectsInactive.Include);
 
 
         HideMenusDebug();
@@ -174,19 +176,19 @@ public class MenuManager : MonoBehaviour
 
         return playerChoiceMenu as PlayerChoiceMenu;
     }
-    //public GameOverMenu GetGameOverMenu()
-    //{
-    //    if (gameOverMenu == null)
-    //        gameOverMenu = FindAnyObjectByType<GameOverMenu>(FindObjectsInactive.Include);
+    public GameOverMenu GetGameOverMenu()
+    {
+        if (gameOverMenu == null)
+            gameOverMenu = FindAnyObjectByType<GameOverMenu>(FindObjectsInactive.Include);
 
-    //    return gameOverMenu as GameOverMenu;
-    //}
-    //public EndMenu GetEndMenu()
-    //{
-    //    if (endMenu == null)
-    //        endMenu = FindAnyObjectByType<EndMenu>(FindObjectsInactive.Include);
+        return gameOverMenu as GameOverMenu;
+    }
+    public EndMenu GetEndMenu()
+    {
+        if (endMenu == null)
+            endMenu = FindAnyObjectByType<EndMenu>(FindObjectsInactive.Include);
 
-    //    return endMenu as EndMenu;
-    //}
+        return endMenu as EndMenu;
+    }
 }
 

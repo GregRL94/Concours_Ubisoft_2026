@@ -134,8 +134,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 20
+        height: 15
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,10 +154,10 @@ TextureImporter:
       name: muzzle_flash_anim_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 38
         y: 0
-        width: 32
-        height: 32
+        width: 13
+        height: 15
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,6 +168,28 @@ TextureImporter:
       bones: []
       spriteID: 8cc26cdb1abdfd44893d321a2e991617
       internalID: 2039085163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muzzle_flash_anim_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 12
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc79cb6d506dd847b2e2b474b97bf70
+      internalID: -591183278
       vertices: []
       indices: 
       edges: []
@@ -192,6 +214,7 @@ TextureImporter:
     nameFileIdTable:
       muzzle_flash_anim_0: -438027630
       muzzle_flash_anim_1: 2039085163
+      muzzle_flash_anim_2: -591183278
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

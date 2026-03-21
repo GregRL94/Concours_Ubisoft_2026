@@ -24,8 +24,6 @@ public class TutorialManager : MonoBehaviour
     }
 
     #region Tutorial
-
-
     public void ShowTutorial(string message, float duration = 3f)
     {
         StartCoroutine(TutorialRoutine(message, duration));

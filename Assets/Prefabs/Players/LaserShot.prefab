@@ -146,7 +146,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: f6a2c99f4f83a2b41b2d3ba1ea9f9996, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efc0c712b042394b9a550fc9b6d7a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaserShot
+  _explosionEffect: {fileID: 7318726185150396979, guid: 4f927d274f524ff45b702639ef5f9907, type: 3}
 --- !u!50 &-6331466321129152172
 Rigidbody2D:
   serializedVersion: 5
