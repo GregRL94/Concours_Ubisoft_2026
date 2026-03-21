@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: ace3bf33a7f13124d9da438762d20485
+guid: d2ca79b3f74e838428097598424948d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5904915705746330216
-    second: bot_logo_0
-  - first:
-      213: 3993550579038834128
-    second: bot_logo_1
+      213: 1301547184297104524
+    second: 9-slice_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bot_logo_0
+      name: 9-slice_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 1, y: 1, z: 1, w: 1}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86292ad7c8972f150800000000000000
-      internalID: 5904915705746330216
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bot_logo_1
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 0
-        width: 16
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0dd4a28c711fb6730800000000000000
-      internalID: 3993550579038834128
+      spriteID: c84507aa446001210800000000000000
+      internalID: 1301547184297104524
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8b5f54cdd8f339b4c8fbb8ce116f4731
+    spriteID: f7df28dcafc20e544a9e7221fd8ab94c
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bot_logo_0: 5904915705746330216
-      bot_logo_1: 3993550579038834128
+      9-slice_0: 1301547184297104524
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
