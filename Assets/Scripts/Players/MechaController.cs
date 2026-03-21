@@ -102,6 +102,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private LayerMask _dashImpactsWhat;
     [SerializeField] private LayerMask _dashIgnoresWhat;
     [SerializeField] private float _dashDamage = 10f;
+    //[SerializeField] private Animator animIsPressedDash;
     [Header("Melee attack parameters")]
     [SerializeField] private Transform _meleeAttackPoint;
     [SerializeField] private Vector2 _meleeAttackHitBox;
@@ -109,6 +110,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _meleeDamage = 10f;
     [SerializeField] private float _meleeAttackStunDuration = 1.5f;
     [SerializeField] private float _meleeAttackCooldown = 1f;
+    //[SerializeField] private Animator animIsPressedMelee;
     [Space]
 
     [Header("SHOOTING PLAYER PARAMETERS")]
@@ -121,6 +123,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _fireRate = 2f;
     [SerializeField] private bool _angularDispersion = false;
     [SerializeField] private bool _linearDispersion = false;
+    //[SerializeField] private Animator animIsPressedMeleeShoot;
 
     [Header("AOE parameters")]
     [SerializeField] private LayerMask _aoeImpactsWhat;
@@ -128,6 +131,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _aoeDamage = 5f;
     [SerializeField] private float _aoeRepelForce = 2f;
     [SerializeField] private float _aoeCooldown = 5f;
+    //[SerializeField] private Animator animIsPressedAOE;
     [Space]
 
     [Header("ULTIMATE TEAM ATTACK PARAMETERS")]
@@ -138,6 +142,8 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _minReleaseForce = 1f;
     [SerializeField] private float _maxReleaseForce = 5f;
     [SerializeField] private float _missileSpawnInterval = 0.2f;
+    [SerializeField] private Animator animIsPressedMovement;
+    [SerializeField] private Animator animIsPressedShot;
     [SerializeField] private float _ultimateHoldDuration = 3f;
     [SerializeField] private float _ultimateMax = 100f;
     private float _ultimateCharge = 0f;
@@ -180,6 +186,8 @@ public class MechaController : MonoBehaviour, IHit
     private float _currentAngularDispersion;
     private float _currentLinearDispersion;
     private bool _isPlayingMvtSound = false;
+    private bool _hasPlayedUltiSound1 = false;
+    private bool _hasPlayedUltiSound2 = false;
     private bool _isStun;
     private float _stunTimer;
     #endregion Attributes & Properties
@@ -292,6 +300,8 @@ public class MechaController : MonoBehaviour, IHit
             }
             AudioManager.Instance.PlaySound("SFX_Player_dash");
             _currentDashCoroutine = StartCoroutine(Dash());
+
+
         }
 
         _rb2D.linearVelocity = move * _currentSpeed; // Deplacement du mecha selon les inputs du joueur de mouvement
@@ -341,6 +351,7 @@ public class MechaController : MonoBehaviour, IHit
 
     private void HandleUltimate()
     {
+        // UPDATE ULTIMATE
         ultimateUI?.UpdateCharge(_ultimateCharge);
 
         // --------------- SI STUN STOP ICI ---------------
@@ -362,31 +373,65 @@ public class MechaController : MonoBehaviour, IHit
 
         _isAttemptingUltimate = _ultimateReady && (movementHold || shootHold);
 
-        // -------- HOLD DETECTION (toujours actif) --------
+        // HOLD DETECTION 
 
         if (movementHold)
+        {
             _movementHoldTimer += Time.deltaTime;
+            // anim ispressed
+            animIsPressedMovement.SetBool("isPressed", true);
+        }
         else
         {
             _movementHoldWasShort = _movementHoldTimer < _ultimateHoldThreshold;
             _movementHoldTimer = 0f;
+            animIsPressedMovement.SetBool("isPressed", false);
         }
 
         if (shootHold)
+        {
             _shootHoldTimer += Time.deltaTime;
+            animIsPressedShot.SetBool("isPressed", true);
+
+        }
         else
         {
             _shootHoldWasShort = _shootHoldTimer < _ultimateHoldThreshold;
             _shootHoldTimer = 0f;
-        }       
+            animIsPressedShot.SetBool("isPressed", false);
+        }
 
-        // -------- CHARGE ULTIMATE --------
+        // CHARGED ULTIMATE 
 
         if (_movementHoldTimer >= _ultimateHoldDuration)
+        {
             _movementCharged = true;
+            if (!_hasPlayedUltiSound1)
+            {
+                AudioManager.Instance.PlaySound("UI_ulti_playerready");
+                _hasPlayedUltiSound1 = true;
+            }
+        }
+        else
+        {
+            _hasPlayedUltiSound1 = false;
+        }
 
         if (_shootHoldTimer >= _ultimateHoldDuration)
+        {
             _shootCharged = true;
+            if (!_hasPlayedUltiSound2)
+            {
+                AudioManager.Instance.PlaySound("UI_ulti_playerready");
+                _hasPlayedUltiSound2 = true;
+            }
+        }
+        else
+        {
+            _hasPlayedUltiSound2 = false;
+        }
+
+
 
         float sync = 0f;
         sync += Mathf.Clamp01(_movementHoldTimer / _ultimateHoldDuration) * 0.5f;
@@ -404,6 +449,7 @@ public class MechaController : MonoBehaviour, IHit
         {
             if (_currentUltimateCoroutine != null) { StopCoroutine(_currentUltimateCoroutine); }
             _currentUltimateCoroutine = StartCoroutine(MissileSwarm());
+            AudioManager.Instance.PlaySound("UI_ulti_declenche");
             Debug.Log("ULTIMATE TEAM ATTACK UNLEASHED !!!");
         }        
 
@@ -438,6 +484,7 @@ public class MechaController : MonoBehaviour, IHit
             }
         }
         _meleeTimer = 0f;
+        AudioManager.Instance.PlaySound("SFX_Player_melee");
         abilityUI?.TriggerAbility("Melee", _meleeAttackCooldown);
         Debug.Log("MELEE");
     }
@@ -535,6 +582,8 @@ public class MechaController : MonoBehaviour, IHit
             Missile missileLogic = spawnedMissile.GetComponent<Missile>();
             missileLogic.SetupMissile(MissileParameters.Speed, MissileParameters.RotationSpeed, MissileParameters.Lifetime, MissileParameters.Damage, MissileParameters.HoldRotationTimer,MissileParameters.HoldMovementTimer, MissileParameters.MissileImpactLayerMask);
             missileLogic.SetTarget(target);
+
+            AudioManager.Instance.PlaySound("SFX_ulti_missile_popout");
 
             missilesSpawned++;
             currentLauncherIndex++;

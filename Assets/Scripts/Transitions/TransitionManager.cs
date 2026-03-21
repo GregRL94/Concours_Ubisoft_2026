@@ -32,8 +32,7 @@ public class TransitionManager : MonoBehaviour
         InputManager.Instance.DisableAll();
 
         // 2. Spawn transition
-        FadeTransition transition =
-            Instantiate(transitionPrefab);
+        FadeTransition transition = Instantiate(transitionPrefab);
 
         // 3. Fade in
         yield return transition.PlayIn().WaitForCompletion();
