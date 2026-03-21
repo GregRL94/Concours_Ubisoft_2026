@@ -122,7 +122,7 @@ public class AttackState : EnemyState
             Debug.Log(enemy.data.enemyName + " tire une balle !");
             GameObject proj = Object.Instantiate(sData._projectilePrefab, enemy.firePoint.position, enemy.firePoint.rotation);
             LaserShot projSetup = proj.GetComponent<LaserShot>();
-            projSetup.SetupLaserShoot(sData._speed, sData.damage, sData._lifetime, sData._impactLayerMask);
+            projSetup.SetupLaserShoot(sData._speed, sData._damage, sData._lifetime, sData._impactLayerMask);
             enemy.animator.SetTrigger("attack");
             _shootTimer = 0f; // Reset du timer de tir
             //a changer

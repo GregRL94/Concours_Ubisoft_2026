@@ -156,7 +156,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 3.015625
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1271,7 +1271,7 @@ MonoBehaviour:
   healthUI: {fileID: 6231149221342676641}
   maxHealth: 100
   _onHitEffect: {fileID: 3794378016294545788}
-  iFrameDuration: 0.5
+  iFrameDuration: 0.1
   timeBeforeDisapear: 1
   timeAnimDeath: 1
   delayBeforeGameOverScreen: 1
@@ -1624,6 +1624,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 981076627514167658}
     m_Modifications:
+    - target: {fileID: 1397912864811631792, guid: 294ffabfeb2170246927e62dd6020411, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3015472318778711838, guid: 294ffabfeb2170246927e62dd6020411, type: 3}
       propertyPath: m_Name
       value: damage_sparks
