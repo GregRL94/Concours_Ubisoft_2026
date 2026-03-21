@@ -6,7 +6,7 @@ public class PatrolState : EnemyState
     private NavMeshAgent _agent;
     private float _waitTime = 2f;
     private float _timer;
-   
+    private Vector3 _startPos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public PatrolState(EnemyAI enemy, EnemyStateMachine stateMachine) : base(enemy, stateMachine)
     {
@@ -29,7 +29,7 @@ public class PatrolState : EnemyState
     {
         Vector2 randomDir = Random.insideUnitCircle * enemy.data.patrolRadius;
         
-        Vector3 targetPos = enemy.transform.position + new Vector3(randomDir.x, randomDir.y,0);
+        Vector3 targetPos = _startPos + new Vector3(randomDir.x, randomDir.y,0);
         
         NavMeshHit hit;
         if (NavMesh.SamplePosition(targetPos, out hit, enemy.data.patrolRadius, 1))
