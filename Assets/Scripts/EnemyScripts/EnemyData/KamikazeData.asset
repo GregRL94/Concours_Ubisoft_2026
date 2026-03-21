@@ -16,10 +16,10 @@ MonoBehaviour:
   patrolRadius: 20
   moveSpeed: 3
   maxHealth: 50
-  detectionRange: 5
-  attackRange: 2
+  detectionRange: 80
+  attackRange: 1
   stopDistance: 0
   damage: 10
   explosionRadius: 3
-  explosionEffect: {fileID: 3392167224638232088, guid: d7c9b16988421954daf726aac8371e7f, type: 3}
+  explosionEffect: {fileID: 0}
   explosionDelay: 0.5

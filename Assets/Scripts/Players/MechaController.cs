@@ -85,6 +85,9 @@ public class MechaController : MonoBehaviour, IHit
     [Header("GENERAL SETTINGS")]
     [SerializeField] private GameObject _mechaBase;
     [SerializeField] private GameObject _mechaTop;
+    [SerializeField] private GameObject _slash;
+    [SerializeField] private GameObject _boost0;
+    [SerializeField] private GameObject _boost1;
     [SerializeField] private float _offsetAngleDeg;
     [field: SerializeField] public float MechaHealth { get; private set; } = 100f;
     [Header("Stun parameters")]
@@ -126,6 +129,7 @@ public class MechaController : MonoBehaviour, IHit
     //[SerializeField] private Animator animIsPressedMeleeShoot;
 
     [Header("AOE parameters")]
+    [SerializeField] private GameObject _aoeEffectPrefab;
     [SerializeField] private LayerMask _aoeImpactsWhat;
     [SerializeField] private float _aoeRadius = 3f;
     [SerializeField] private float _aoeDamage = 5f;
@@ -475,6 +479,7 @@ public class MechaController : MonoBehaviour, IHit
     #region Abilities Logic
     private void MeleeAttack(Vector2 attackDir, float attackWidth, float attackHeight, LayerMask layerMask)
     {
+        _slash.GetComponent<Animator>().SetTrigger("Slash");
         float angleRad = MathUtils.DirToAngleRad(attackWidth, attackHeight, _offsetAngleDeg);
         foreach (Collider2D hitObject in Physics2D.OverlapBoxAll(_meleeAttackPoint.position, new Vector2(attackWidth, attackHeight), angleRad, layerMask))
         {
@@ -493,6 +498,8 @@ public class MechaController : MonoBehaviour, IHit
     {
         float startTime = Time.time;
         _isDashing = true;
+        _boost0.SetActive(true);
+        _boost1.SetActive(true);
 
         // Génère une impulsion de caméra au début du dash si un CinemachineImpulseSource est attaché à la base du mecha
         if (_mechaBase.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
@@ -512,6 +519,8 @@ public class MechaController : MonoBehaviour, IHit
         }
         _currentSpeed = _movementSpeed;
         _dashCooldownTimer = 0f;
+        _boost0.SetActive(false);
+        _boost1.SetActive(false);
         _isDashing = false;
         abilityUI?.TriggerAbility("Dash", _dashCooldown);
         yield break;
@@ -543,6 +552,8 @@ public class MechaController : MonoBehaviour, IHit
 
     private void GroundSmash(float radius, float damage, float repelForce)
     {
+        // Instancie l'effet visuel de l'attaque AOE
+        Instantiate(_aoeEffectPrefab, transform.position, Quaternion.identity);
         // Génère une impulsion de caméra au début du Ground Smash si un CinemachineImpulseSource est attaché à la base du mecha
         if (_mechaTop.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
         {
@@ -629,12 +640,7 @@ public class MechaController : MonoBehaviour, IHit
 
     private void TakeDamage(float damage)
     {
-        _currentHealth -= damage;
         _mechaHealth.TakeDamage(damage);
-        if (_currentHealth <= 0)
-        {
-            // Die();
-        }
     }
     #endregion Damage & Health Logic
 

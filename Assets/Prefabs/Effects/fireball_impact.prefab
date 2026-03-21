@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3774017572599913019}
   - component: {fileID: 6929794219528226804}
   - component: {fileID: 3592342365064999899}
+  - component: {fileID: 7264027846066224335}
   m_Layer: 0
   m_Name: fireball_impact
   m_TagString: Untagged
@@ -115,6 +116,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7264027846066224335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376449415813508878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01a5f9cd97abe44879d74fbf6ff9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyEffect
 --- !u!1001 &5971442784924415443
 PrefabInstance:
   m_ObjectHideFlags: 0

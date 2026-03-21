@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7856370410607657518}
   - component: {fileID: 4519329211516903815}
   - component: {fileID: 7289618897394367226}
-  - component: {fileID: 3889531369159002538}
+  - component: {fileID: 7381776402113652352}
   m_Layer: 0
   m_Name: shockwave
   m_TagString: Untagged
@@ -115,7 +115,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3889531369159002538
+--- !u!114 &7381776402113652352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
