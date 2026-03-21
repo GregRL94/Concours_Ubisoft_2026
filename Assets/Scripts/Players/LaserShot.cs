@@ -42,10 +42,10 @@ public class LaserShot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Player")) { return; }
         if (!(((1 << collider.gameObject.layer) & _impactLayerMask) != 0)) { return; }
         if (collider.TryGetComponent(out IHit hitComponent))
         {
+            Debug.Log($"Laser hit {collider.gameObject.name} for {_damage} damage.");
             hitComponent.OnHit(_damage);
         }
         _Destroy();

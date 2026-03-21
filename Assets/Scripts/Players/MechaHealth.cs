@@ -9,6 +9,7 @@ public class MechaHealth : MonoBehaviour
     [Header("Mecha HP Parameters")]
     [SerializeField] private MechaHealthUI healthUI;
     [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private GameObject _onHitEffect;
     [SerializeField] private float iFrameDuration = 0.5f; // durée de l’invincibilité après un hit
     
     [Header("Mecha Destroyed Parameters")]
@@ -37,7 +38,9 @@ public class MechaHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         ScreenFX.Instance.TakeDamage();
-
+        _onHitEffect.GetComponent<ParticleSystem>().Play();
+        mecha_Base.GetComponent<FlashEffect>().Flash();
+        mecha_Top.GetComponent<FlashEffect>().Flash();
         healthUI.UpdateHealth(currentHealth);
 
         // Start i-frame
