@@ -105,7 +105,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private LayerMask _dashImpactsWhat;
     [SerializeField] private LayerMask _dashIgnoresWhat;
     [SerializeField] private float _dashDamage = 10f;
-    //[SerializeField] private Animator animIsPressedDash;
+    [SerializeField] private Animator animIsPressedDash;
     [Header("Melee attack parameters")]
     [SerializeField] private Transform _meleeAttackPoint;
     [SerializeField] private Vector2 _meleeAttackHitBox;
@@ -113,7 +113,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _meleeDamage = 10f;
     [SerializeField] private float _meleeAttackStunDuration = 1.5f;
     [SerializeField] private float _meleeAttackCooldown = 1f;
-    //[SerializeField] private Animator animIsPressedMelee;
+    [SerializeField] private Animator animIsPressedMelee;
     [Space]
 
     [Header("SHOOTING PLAYER PARAMETERS")]
@@ -126,7 +126,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _fireRate = 2f;
     [SerializeField] private bool _angularDispersion = false;
     [SerializeField] private bool _linearDispersion = false;
-    //[SerializeField] private Animator animIsPressedMeleeShoot;
+    [SerializeField] private Animator animIsPressedGun;
 
     [Header("AOE parameters")]
     [SerializeField] private GameObject _aoeEffectPrefab;
@@ -135,7 +135,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _aoeDamage = 5f;
     [SerializeField] private float _aoeRepelForce = 2f;
     [SerializeField] private float _aoeCooldown = 5f;
-    //[SerializeField] private Animator animIsPressedAOE;
+    [SerializeField] private Animator animIsPressedAOE;
     [Space]
 
     [Header("ULTIMATE TEAM ATTACK PARAMETERS")]
@@ -264,6 +264,7 @@ public class MechaController : MonoBehaviour, IHit
             return;
         }
 
+
         Vector2 move = movementPlayer.GetMovement();
         if (move != Vector2.zero)
         {
@@ -374,11 +375,38 @@ public class MechaController : MonoBehaviour, IHit
 
         bool movementHold = movementPlayer.DashHold();
         bool shootHold = shootPlayer.AOEHold();
+        bool meleeHold = movementPlayer.MeleeHold();
+        bool laserHold = shootPlayer.ShootHold();
 
         _isAttemptingUltimate = _ultimateReady && (movementHold || shootHold);
 
-        // HOLD DETECTION 
+        /////////////////////////////////////////////////////
+        // ABILITIES UI SYNC
+        // Si on est en train de tenter un ultimate → on coupe l'anim ability
+        // Sinon comportement normal (hold dash)
+        if (movementHold)
+            animIsPressedDash.SetBool("isPressed", true);
+        else
+            animIsPressedDash.SetBool("isPressed", false);
+        
+        if (shootHold)
+            animIsPressedAOE.SetBool("isPressed", true);
+        else
+            animIsPressedAOE.SetBool("isPressed", false);
 
+        if (laserHold)
+            animIsPressedGun.SetBool("isPressed", true);
+        else
+            animIsPressedGun.SetBool("isPressed", false);
+
+        if (meleeHold)
+            animIsPressedMelee.SetBool("isPressed", true);
+        else
+            animIsPressedMelee.SetBool("isPressed", false);
+        /////////////////////////////////////////////////////////
+
+
+        // HOLD DETECTION 
         if (movementHold)
         {
             _movementHoldTimer += Time.deltaTime;

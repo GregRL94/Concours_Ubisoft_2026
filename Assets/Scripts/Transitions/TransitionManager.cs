@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -79,6 +80,47 @@ public class TransitionManager : MonoBehaviour
         Destroy(transition.gameObject);
 
         // 7. Re-enable UI inputs
+        InputManager.Instance.EnableAll();
+    }
+
+    // fade in into another menu so the current menu goes fade out 1 to 0 and the new menu goes to 1 smooth  avec param ds la methode
+    public void TransitionBetweenMenus(Menu currentMenu, Menu nextMenu, float fadeOutDuration, float fadeInDuration)
+    {
+        StartCoroutine(TransitionBetweenMenusRoutine(currentMenu, nextMenu, fadeOutDuration, fadeInDuration));
+    }
+
+    private IEnumerator TransitionBetweenMenusRoutine(Menu currentMenu, Menu nextMenu, float fadeOutDuration, float fadeInDuration)
+    {
+        InputManager.Instance.DisableAll();
+
+        CanvasGroup currentCanvas = currentMenu.GetComponent<CanvasGroup>();
+        if (currentCanvas == null)
+            currentCanvas = currentMenu.gameObject.AddComponent<CanvasGroup>();
+
+        // Fade OUT current menu
+        yield return currentCanvas
+            .DOFade(0f, fadeOutDuration)
+            .SetEase(Ease.InOutQuad)
+            .WaitForCompletion();
+        currentMenu.gameObject.SetActive(false);
+        currentCanvas.alpha = 1;
+
+        // Open next menu
+        MenuManager.Instance.OpenMenu(nextMenu);
+
+        CanvasGroup nextCanvas = nextMenu.GetComponent<CanvasGroup>();
+        if (nextCanvas == null)
+            nextCanvas = nextMenu.gameObject.AddComponent<CanvasGroup>();
+
+        nextCanvas.alpha = 0f;
+
+        // Fade IN next menu
+        yield return nextCanvas
+            .DOFade(1f, fadeInDuration)
+            .SetEase(Ease.OutQuad)
+            .WaitForCompletion();
+
+
         InputManager.Instance.EnableAll();
     }
 }

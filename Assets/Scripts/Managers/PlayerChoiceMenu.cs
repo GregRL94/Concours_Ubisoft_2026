@@ -32,6 +32,11 @@ public class PlayerChoiceMenu : Menu
     [SerializeField] private PlayerUI player1;
     [SerializeField] private PlayerUI player2;
 
+    [Header("Role Colors")]
+    [SerializeField] private Color movementColor = Color.yellow;
+    [SerializeField] private Color shootColor = Color.green;
+    [SerializeField] private Color noneColor = Color.white;
+
     [Header("Confirm Config")]
     [SerializeField] private float confirmTime = 1.2f;
     [SerializeField] private string sceneName = "Gym_Ajmal_03";
@@ -183,6 +188,11 @@ public class PlayerChoiceMenu : Menu
 
         if (holding)
         {
+            // Applique la couleur selon le rôle choisi
+            ui.confirmFill.color = GetColorFromSlot(
+                ui == player1 ? p1Slot : p2Slot
+            );
+
             fill += Time.unscaledDeltaTime / confirmTime;
             fill = Mathf.Clamp01(fill);
 
@@ -280,6 +290,9 @@ public class PlayerChoiceMenu : Menu
     {
         player1.roleText.text = $"P1 : {GetRole(p1Slot)}";
         player2.roleText.text = $"P2 : {GetRole(p2Slot)}";
+
+        player1.confirmFill.color = GetColorFromSlot(p1Slot);
+        player2.confirmFill.color = GetColorFromSlot(p2Slot);
     }
 
     private string GetRole(PlayerSlot slot)
@@ -314,6 +327,15 @@ public class PlayerChoiceMenu : Menu
             PlayerSlot.Left => PlayerRole.Movement,
             PlayerSlot.Right => PlayerRole.Shoot,
             _ => PlayerRole.None
+        };
+    }
+    private Color GetColorFromSlot(PlayerSlot slot)
+    {
+        return slot switch
+        {
+            PlayerSlot.Left => movementColor,
+            PlayerSlot.Right => shootColor,
+            _ => noneColor
         };
     }
 }

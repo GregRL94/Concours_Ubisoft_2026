@@ -130,7 +130,7 @@ public class MenuInputListener : MonoBehaviour
     {
         if (!context.performed) return;
 
-        if(PlayerChoiceMenu.Instance != null && PlayerChoiceMenu.Instance.HasLockedSelection()) return;
+        if (PlayerChoiceMenu.Instance != null && PlayerChoiceMenu.Instance.HasLockedSelection()) return;
 
         if (IsMainMenuScene() && menuManager.HasOpenMenu && !menuManager.IsMainMenuActive())
         {
