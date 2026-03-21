@@ -4846,7 +4846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7061339615885568303}
   - component: {fileID: 1326077216361944152}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Spot Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4934,7 +4934,7 @@ GameObject:
   - component: {fileID: -6331466321129152172}
   - component: {fileID: 5930228685647784632}
   - component: {fileID: -616576284027476987}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5024,12 +5024,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7801827202018218392}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6efc0c712b042394b9a550fc9b6d7a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaserShot
-  _explosionEffect: {fileID: 7318726185150396979, guid: 4f927d274f524ff45b702639ef5f9907, type: 3}
+  _explosionEffect: {fileID: 2376449415813508878, guid: 025f706346e042440ad89d0a34768ce6, type: 3}
 --- !u!50 &-6331466321129152172
 Rigidbody2D:
   serializedVersion: 5
@@ -5110,7 +5110,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7801827202018218392}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76eb43e50049e2f4abd261e0b4d53632, type: 3}
   m_Name: 
