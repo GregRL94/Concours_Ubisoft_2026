@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!28 &-7430295091907773914
+--- !u!28 &-2323852769417770110
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: upheavtt Atlas
+  m_Name: PixelArmy Atlas
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
@@ -56,36 +56,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: upheavtt SDF
+  m_Name: PixelArmy SDF
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_FontAsset
   m_Version: 1.1.0
   m_FaceInfo:
     m_FaceIndex: 0
-    m_FamilyName: Upheaval TT (BRK)
-    m_StyleName: Regular
+    m_FamilyName: PixelArmy
+    m_StyleName: Medium
     m_PointSize: 90
     m_Scale: 1
-    m_UnitsPerEM: 1000
-    m_LineHeight: 83.07
-    m_AscentLine: 67.5
-    m_CapLine: 45
-    m_MeanLine: 45
+    m_UnitsPerEM: 1024
+    m_LineHeight: 92.46094
+    m_AscentLine: 61.875
+    m_CapLine: 62
+    m_MeanLine: 62
     m_Baseline: 0
-    m_DescentLine: -13.500001
-    m_SuperscriptOffset: 67.5
+    m_DescentLine: -22.5
+    m_SuperscriptOffset: 61.875
     m_SuperscriptSize: 0.5
-    m_SubscriptOffset: -13.500001
+    m_SubscriptOffset: -22.5
     m_SubscriptSize: 0.5
-    m_UnderlineOffset: -11.25
-    m_UnderlineThickness: 4.5
-    m_StrikethroughOffset: 18
-    m_StrikethroughThickness: 4.5
-    m_TabWidth: 32
-  m_Material: {fileID: 5421606547515802104}
-  m_SourceFontFileGUID: 5e972dd7f4b147a408cd5aa92f318cff
+    m_UnderlineOffset: -13.271484
+    m_UnderlineThickness: 4.482422
+    m_StrikethroughOffset: 24.8
+    m_StrikethroughThickness: 4.482422
+    m_TabWidth: 28
+  m_Material: {fileID: 6652117436030486236}
+  m_SourceFontFileGUID: 82fc92f56b5185442b6fe9140ea27377
   m_CreationSettings:
     sourceFontFileName: 
-    sourceFontFileGUID: 5e972dd7f4b147a408cd5aa92f318cff
+    sourceFontFileGUID: 82fc92f56b5185442b6fe9140ea27377
     faceIndex: 0
     pointSizeSamplingMode: 0
     pointSize: 90
@@ -102,14 +102,14 @@ MonoBehaviour:
     fontStyleModifier: 0
     renderMode: 4165
     includeFontFeatures: 0
-  m_SourceFontFile: {fileID: 12800000, guid: 5e972dd7f4b147a408cd5aa92f318cff, type: 3}
+  m_SourceFontFile: {fileID: 12800000, guid: 82fc92f56b5185442b6fe9140ea27377, type: 3}
   m_SourceFontFilePath: 
   m_AtlasPopulationMode: 1
   InternalDynamicOS: 0
   m_GlyphTable: []
   m_CharacterTable: []
   m_AtlasTextures:
-  - {fileID: -7430295091907773914}
+  - {fileID: -2323852769417770110}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_GetFontFeatures: 1
@@ -187,18 +187,20 @@ MonoBehaviour:
     kerningPairs: []
   fallbackFontAssets: []
   atlas: {fileID: 0}
---- !u!21 &5421606547515802104
+--- !u!21 &6652117436030486236
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: upheavtt Atlas Material
+  m_Name: PixelArmy Atlas Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - GLOW_ON
+  - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -223,7 +225,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: -7430295091907773914}
+        m_Texture: {fileID: -2323852769417770110}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -246,10 +248,10 @@ Material:
     - _FaceDilate: 0
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
-    - _GlowInner: 0.05
-    - _GlowOffset: 0
-    - _GlowOuter: 0.05
-    - _GlowPower: 0.75
+    - _GlowInner: 0.116
+    - _GlowOffset: 0.37
+    - _GlowOuter: 0.014
+    - _GlowPower: 0.89
     - _GradientScale: 10
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
@@ -262,7 +264,7 @@ Material:
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
     - _ScaleRatioB: 0.73125
-    - _ScaleRatioC: 0.73125
+    - _ScaleRatioC: 0.62446624
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -275,10 +277,10 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 1024
     - _TextureWidth: 1024
-    - _UnderlayDilate: 0
+    - _UnderlayDilate: 1
     - _UnderlayOffsetX: 0
     - _UnderlayOffsetY: 0
-    - _UnderlaySoftness: 0
+    - _UnderlaySoftness: 0.171
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
     - _WeightBold: 0.75
@@ -287,12 +289,12 @@ Material:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
+    - _GlowColor: {r: 0.36427027, g: 0, b: 18.37917, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 1, g: 0, b: 0.49411774, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.972549}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: ace3bf33a7f13124d9da438762d20485
+guid: 8cc420e3287b17440880a919cb224281
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5904915705746330216
-    second: bot_logo_0
+      213: -9029394521992261753
+    second: UI_checkbox_0
   - first:
-      213: 3993550579038834128
-    second: bot_logo_1
+      213: 2070469032850894749
+    second: UI_checkbox_1
+  - first:
+      213: -186609391942814358
+    second: UI_checkbox_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,17 +102,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bot_logo_0
+      name: UI_checkbox_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 17
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86292ad7c8972f150800000000000000
-      internalID: 5904915705746330216
+      spriteID: 78f0bc3a58521b280800000000000000
+      internalID: -9029394521992261753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_logo_1
+      name: UI_checkbox_1
       rect:
         serializedVersion: 2
-        x: 19
+        x: 32
         y: 0
-        width: 16
-        height: 17
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +169,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0dd4a28c711fb6730800000000000000
-      internalID: 3993550579038834128
+      spriteID: d9f26859d98cbbc10800000000000000
+      internalID: 2070469032850894749
       vertices: []
       indices: 
       edges: []
@@ -150,7 +179,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8b5f54cdd8f339b4c8fbb8ce116f4731
+    spriteID: 1eed35f7db3854f45814a7ebdc85bb22
     internalID: 0
     vertices: []
     indices: 
@@ -158,10 +187,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      bot_logo_0: 5904915705746330216
-      bot_logo_1: 3993550579038834128
+      UI_checkbox_0: -9029394521992261753
+      UI_checkbox_1: 2070469032850894749
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
