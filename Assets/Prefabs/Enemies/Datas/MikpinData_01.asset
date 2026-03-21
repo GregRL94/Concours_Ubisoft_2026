@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b24dc40b1e764584f963b1304e21a54a, type: 3}
-  m_Name: KamikazeData
+  m_Name: MikpinData_01
   m_EditorClassIdentifier: Assembly-CSharp::KamikazeData
   enemyName: Mikpin
-  patrolRadius: 20
+  patrolRadius: 30
   moveSpeed: 3
   maxHealth: 50
   detectionRange: 80

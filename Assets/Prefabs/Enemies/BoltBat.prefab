@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa5de6b71b0cb449bd90e852f528576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  data: {fileID: 11400000, guid: d0d5221d9c9cc254795dd779cc3d57b1, type: 2}
+  data: {fileID: 11400000, guid: a7e9b8e66eb290645bedc65656fbc5fe, type: 2}
   firePoint: {fileID: 4901014329125216784}
 --- !u!195 &6276922060709080670
 NavMeshAgent:
