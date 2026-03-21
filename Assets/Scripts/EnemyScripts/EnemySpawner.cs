@@ -42,8 +42,12 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
+        //Choisir un prefab aleatoire dans la liste
+        int index = Random.Range(0, waveSettings.enemyPrefabs.Count);
+        GameObject enemyPrefab = waveSettings.enemyPrefabs[index];
+
         //Spawn a la position du spawner
-        GameObject enemy = Instantiate(waveSettings.enemyPrefab, transform.position, Quaternion.identity);
+        GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
         
         //Repartition pour ne pas clump
         Vector2 randomOffset = Random.insideUnitCircle * spreadRadius;
