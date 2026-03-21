@@ -14,6 +14,7 @@ public class ChaseState : EnemyState
     public override void Enter()
     {
         base.Enter();
+        enemy.animator.SetBool("isWalking", true);
         // enemy.animator.SetBool("isRunning",true);
         _agent.speed = enemy.data.moveSpeed * 1.5f;
     }
@@ -32,10 +33,6 @@ public class ChaseState : EnemyState
         //Dash lorsque le joueur est a porte
         Vector2 direction = enemy.Player.position - enemy.transform.position;
         RotateTowards(direction);
-        
-       
-
-
     }
 
     private void RotateTowards(Vector2 direction)

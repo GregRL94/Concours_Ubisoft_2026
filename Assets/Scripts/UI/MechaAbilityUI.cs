@@ -23,7 +23,7 @@ public class MechaAbilityUI : MonoBehaviour
         // Initialisation visuelle
         foreach (var ability in abilities)
         {
-            if (ability.abilityImage != null) ability.abilityImage.fillAmount = 1f;
+            if (ability.abilityImage != null) ability.abilityImage.fillAmount = 0f;
             if (ability.abilityLabel != null) ability.abilityLabel.text = $"{ability.abilityName}";
         }
     }
@@ -52,7 +52,7 @@ public class MechaAbilityUI : MonoBehaviour
         float timer = 0f;
 
         // Commence avec fillAmount à 0 pour signaler que l'ability vient d'être utilisée
-        if (ability.abilityImage != null) ability.abilityImage.fillAmount = 0f;
+        if (ability.abilityImage != null) ability.abilityImage.fillAmount = 1f;
 
         while (timer < cooldownDuration)
         {
@@ -73,7 +73,7 @@ public class MechaAbilityUI : MonoBehaviour
         }
 
         // Cooldown terminé
-        if (ability.abilityImage != null) ability.abilityImage.fillAmount = 1f;
+        if (ability.abilityImage != null) ability.abilityImage.fillAmount = 0f;
         if (ability.abilityLabel != null) ability.abilityLabel.text = $"{ability.abilityName}";
 
         ability.currentCoroutine = null;
