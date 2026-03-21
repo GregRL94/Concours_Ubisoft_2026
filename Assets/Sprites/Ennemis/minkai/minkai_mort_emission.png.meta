@@ -1,0 +1,1547 @@
+fileFormatVersion: 2
+guid: d5a0826c33b1b8746bead5ca8f1d2a24
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6636297547771335254
+    second: minkai_mort_emission_0
+  - first:
+      213: -4765178717058959546
+    second: minkai_mort_emission_1
+  - first:
+      213: -3362953596137220238
+    second: minkai_mort_emission_2
+  - first:
+      213: -3192760762800685294
+    second: minkai_mort_emission_3
+  - first:
+      213: -6639865469034708043
+    second: minkai_mort_emission_4
+  - first:
+      213: -3806256432614939967
+    second: minkai_mort_emission_5
+  - first:
+      213: 8095193855944330956
+    second: minkai_mort_emission_6
+  - first:
+      213: -1272725849904824359
+    second: minkai_mort_emission_7
+  - first:
+      213: 2682307592898927813
+    second: minkai_mort_emission_8
+  - first:
+      213: 2764481501104335125
+    second: minkai_mort_emission_9
+  - first:
+      213: -8142080050204497123
+    second: minkai_mort_emission_10
+  - first:
+      213: -7635461216803530004
+    second: minkai_mort_emission_11
+  - first:
+      213: 4505151906406412482
+    second: minkai_mort_emission_12
+  - first:
+      213: 947340378849462508
+    second: minkai_mort_emission_13
+  - first:
+      213: 1305553579866410019
+    second: minkai_mort_emission_14
+  - first:
+      213: 3089445010433881351
+    second: minkai_mort_emission_15
+  - first:
+      213: 1124602944820896714
+    second: minkai_mort_emission_16
+  - first:
+      213: -4392713518713319856
+    second: minkai_mort_emission_17
+  - first:
+      213: 4624519270880172369
+    second: minkai_mort_emission_18
+  - first:
+      213: -815405168285476994
+    second: minkai_mort_emission_19
+  - first:
+      213: 8721615443036103616
+    second: minkai_mort_emission_20
+  - first:
+      213: 7803228042848330286
+    second: minkai_mort_emission_21
+  - first:
+      213: 1666058897494166933
+    second: minkai_mort_emission_22
+  - first:
+      213: -2513866506720060683
+    second: minkai_mort_emission_23
+  - first:
+      213: 8146500884580798650
+    second: minkai_mort_emission_24
+  - first:
+      213: -5094699116433425386
+    second: minkai_mort_emission_25
+  - first:
+      213: 6509219905268705150
+    second: minkai_mort_emission_26
+  - first:
+      213: 1304169416686984704
+    second: minkai_mort_emission_27
+  - first:
+      213: 2689249286483027329
+    second: minkai_mort_emission_28
+  - first:
+      213: -4869909210011998952
+    second: minkai_mort_emission_29
+  - first:
+      213: -6658168015938459005
+    second: minkai_mort_emission_30
+  - first:
+      213: 791082049693034905
+    second: minkai_mort_emission_31
+  - first:
+      213: 354073899677523557
+    second: minkai_mort_emission_32
+  - first:
+      213: -1873941051094574167
+    second: minkai_mort_emission_33
+  - first:
+      213: 2236213633848098353
+    second: minkai_mort_emission_34
+  - first:
+      213: 4313536115874419217
+    second: minkai_mort_emission_35
+  - first:
+      213: -6970298392931523419
+    second: minkai_mort_emission_36
+  - first:
+      213: 3794463324669240569
+    second: minkai_mort_emission_37
+  - first:
+      213: -4986384163965637684
+    second: minkai_mort_emission_38
+  - first:
+      213: -8656472990657183912
+    second: minkai_mort_emission_39
+  - first:
+      213: 6155608605613507781
+    second: minkai_mort_emission_40
+  - first:
+      213: 4547776028796147996
+    second: minkai_mort_emission_41
+  - first:
+      213: 5918714526852021542
+    second: minkai_mort_emission_42
+  - first:
+      213: 2111654559519948951
+    second: minkai_mort_emission_43
+  - first:
+      213: 593203854442551511
+    second: minkai_mort_emission_44
+  - first:
+      213: -5279562873043325840
+    second: minkai_mort_emission_45
+  - first:
+      213: -4028791218279749212
+    second: minkai_mort_emission_46
+  - first:
+      213: -1505335448227609572
+    second: minkai_mort_emission_47
+  - first:
+      213: 8584589949942307168
+    second: minkai_mort_emission_48
+  - first:
+      213: 2170045782965189243
+    second: minkai_mort_emission_49
+  - first:
+      213: -408452044720258067
+    second: minkai_mort_emission_50
+  - first:
+      213: -8900105249218744720
+    second: minkai_mort_emission_51
+  - first:
+      213: 7054595215401871058
+    second: minkai_mort_emission_52
+  - first:
+      213: 814831597003685063
+    second: minkai_mort_emission_53
+  - first:
+      213: -2716031668787526812
+    second: minkai_mort_emission_54
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: minkai_mort_emission_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 359
+        width: 84
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aad2b497a8227e3a0800000000000000
+      internalID: -6636297547771335254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 358
+        width: 82
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 647f27e243faeddb0800000000000000
+      internalID: -4765178717058959546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_2
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 173
+        width: 82
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2775e12a5836451d0800000000000000
+      internalID: -3362953596137220238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_3
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 359
+        width: 80
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21fb570900901b3d0800000000000000
+      internalID: -3192760762800685294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_4
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 359
+        width: 80
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b3cdc119857ad3a0800000000000000
+      internalID: -6639865469034708043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_5
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 231
+        width: 77
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c2e0f1e0f57d2bc0800000000000000
+      internalID: -3806256432614939967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_6
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 296
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cce8c7bfbe7e75070800000000000000
+      internalID: 8095193855944330956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_7
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 303
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9df37fb259e565ee0800000000000000
+      internalID: -1272725849904824359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_8
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 311
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ccd2155b88793520800000000000000
+      internalID: 2682307592898927813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_9
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 288
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 519667547496d5620800000000000000
+      internalID: 2764481501104335125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_10
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 288
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1b24ca3555810f80800000000000000
+      internalID: -8142080050204497123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_11
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 287
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea572c4a74690690800000000000000
+      internalID: -7635461216803530004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_12
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 285
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c037802ac3858e30800000000000000
+      internalID: 4505151906406412482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_13
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 298
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce8c4ba2e01a52d00800000000000000
+      internalID: 947340378849462508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_14
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 297
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32c4d2350124e1210800000000000000
+      internalID: 1305553579866410019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_15
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 280
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 705b3005ed9efda20800000000000000
+      internalID: 3089445010433881351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_16
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 289
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac3686f7b646b9f00800000000000000
+      internalID: 1124602944820896714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_17
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 280
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e490d0452f903c0800000000000000
+      internalID: -4392713518713319856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_18
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 251
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 159d2cd66c79d2040800000000000000
+      internalID: 4624519270880172369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_19
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 280
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e779354d1591fa4f0800000000000000
+      internalID: -815405168285476994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_20
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 276
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c36abd4907690970800000000000000
+      internalID: 8721615443036103616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_21
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 280
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22675bcf82aa4c60800000000000000
+      internalID: 7803228042848330286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_22
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 272
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59dc4087db70f1710800000000000000
+      internalID: 1666058897494166933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_23
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 274
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fad23e2bb3fc1dd0800000000000000
+      internalID: -2513866506720060683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_24
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 262
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab018db746f2e0170800000000000000
+      internalID: 8146500884580798650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_25
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 280
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61c3d7f752efb49b0800000000000000
+      internalID: -5094699116433425386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_26
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 260
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e77617a3405655a50800000000000000
+      internalID: 6509219905268705150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_27
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 264
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e5e88bc27591210800000000000000
+      internalID: 1304169416686984704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_28
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 258
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1852b415af1225520800000000000000
+      internalID: 2689249286483027329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_29
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 261
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 815e4d8106b9a6cb0800000000000000
+      internalID: -4869909210011998952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_30
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 229
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38aee1b477f6993a0800000000000000
+      internalID: -6658168015938459005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_31
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 243
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9992420deec7afa00800000000000000
+      internalID: 791082049693034905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_32
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 252
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56e1486f55ce9e400800000000000000
+      internalID: 354073899677523557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_33
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 239
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ab5c77ea8c6ef5e0800000000000000
+      internalID: -1873941051094574167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_34
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 243
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13eb667b370a80f10800000000000000
+      internalID: 2236213633848098353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_35
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 228
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11253884e32ccdb30800000000000000
+      internalID: 4313536115874419217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_36
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 248
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a427d6ba86844f90800000000000000
+      internalID: -6970298392931523419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_37
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 235
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f468243a44a8a430800000000000000
+      internalID: 3794463324669240569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_38
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 248
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccbe139950ecccab0800000000000000
+      internalID: -4986384163965637684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_39
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 221
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85f7d10dda70ed780800000000000000
+      internalID: -8656472990657183912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_40
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 231
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c44ee9b96d1d6550800000000000000
+      internalID: 6155608605613507781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_41
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 223
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c195e6af332fc1f30800000000000000
+      internalID: 4547776028796147996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_42
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 199
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62d75f3e08f732250800000000000000
+      internalID: 5918714526852021542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_43
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 188
+        width: 14
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 790458442aa1e4d10800000000000000
+      internalID: 2111654559519948951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_44
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 211
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d8d07f33cb7b3800800000000000000
+      internalID: 593203854442551511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_45
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 186
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c69ee0a893bb6b0800000000000000
+      internalID: -5279562873043325840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_46
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 212
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a9e8308bbbd618c0800000000000000
+      internalID: -4028791218279749212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_47
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 196
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c14079ca269fb1be0800000000000000
+      internalID: -1505335448227609572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_48
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 189
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06913bc8317922770800000000000000
+      internalID: 8584589949942307168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_49
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 184
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7a79f7642d8d1e10800000000000000
+      internalID: 2170045782965189243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_50
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 171
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de3caa68703e45af0800000000000000
+      internalID: -408452044720258067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_51
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 182
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07e2abc3e697c7480800000000000000
+      internalID: -8900105249218744720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_52
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 179
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6e238b8f4f6e160800000000000000
+      internalID: 7054595215401871058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_53
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 175
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cc3b23350dde4b00800000000000000
+      internalID: 814831597003685063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minkai_mort_emission_54
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 173
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 463453f5697be4ad0800000000000000
+      internalID: -2716031668787526812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      minkai_mort_emission_0: -6636297547771335254
+      minkai_mort_emission_1: -4765178717058959546
+      minkai_mort_emission_10: -8142080050204497123
+      minkai_mort_emission_11: -7635461216803530004
+      minkai_mort_emission_12: 4505151906406412482
+      minkai_mort_emission_13: 947340378849462508
+      minkai_mort_emission_14: 1305553579866410019
+      minkai_mort_emission_15: 3089445010433881351
+      minkai_mort_emission_16: 1124602944820896714
+      minkai_mort_emission_17: -4392713518713319856
+      minkai_mort_emission_18: 4624519270880172369
+      minkai_mort_emission_19: -815405168285476994
+      minkai_mort_emission_2: -3362953596137220238
+      minkai_mort_emission_20: 8721615443036103616
+      minkai_mort_emission_21: 7803228042848330286
+      minkai_mort_emission_22: 1666058897494166933
+      minkai_mort_emission_23: -2513866506720060683
+      minkai_mort_emission_24: 8146500884580798650
+      minkai_mort_emission_25: -5094699116433425386
+      minkai_mort_emission_26: 6509219905268705150
+      minkai_mort_emission_27: 1304169416686984704
+      minkai_mort_emission_28: 2689249286483027329
+      minkai_mort_emission_29: -4869909210011998952
+      minkai_mort_emission_3: -3192760762800685294
+      minkai_mort_emission_30: -6658168015938459005
+      minkai_mort_emission_31: 791082049693034905
+      minkai_mort_emission_32: 354073899677523557
+      minkai_mort_emission_33: -1873941051094574167
+      minkai_mort_emission_34: 2236213633848098353
+      minkai_mort_emission_35: 4313536115874419217
+      minkai_mort_emission_36: -6970298392931523419
+      minkai_mort_emission_37: 3794463324669240569
+      minkai_mort_emission_38: -4986384163965637684
+      minkai_mort_emission_39: -8656472990657183912
+      minkai_mort_emission_4: -6639865469034708043
+      minkai_mort_emission_40: 6155608605613507781
+      minkai_mort_emission_41: 4547776028796147996
+      minkai_mort_emission_42: 5918714526852021542
+      minkai_mort_emission_43: 2111654559519948951
+      minkai_mort_emission_44: 593203854442551511
+      minkai_mort_emission_45: -5279562873043325840
+      minkai_mort_emission_46: -4028791218279749212
+      minkai_mort_emission_47: -1505335448227609572
+      minkai_mort_emission_48: 8584589949942307168
+      minkai_mort_emission_49: 2170045782965189243
+      minkai_mort_emission_5: -3806256432614939967
+      minkai_mort_emission_50: -408452044720258067
+      minkai_mort_emission_51: -8900105249218744720
+      minkai_mort_emission_52: 7054595215401871058
+      minkai_mort_emission_53: 814831597003685063
+      minkai_mort_emission_54: -2716031668787526812
+      minkai_mort_emission_6: 8095193855944330956
+      minkai_mort_emission_7: -1272725849904824359
+      minkai_mort_emission_8: 2682307592898927813
+      minkai_mort_emission_9: 2764481501104335125
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -6,13 +6,20 @@ using UnityEngine;
 public class AttackState : EnemyState
 {
     private float _nextFireTime;
-
+    private float _shootTimer;
     private bool _isExploding = false;
+    private int attackcounter;
 
     private Coroutine _explosionRoutine;//On stock la coroutine pour pouvoir l'arreter
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public AttackState(EnemyAI enemy, EnemyStateMachine stateMachine) : base(enemy, stateMachine)
     {
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        enemy.animator.SetBool("isWalking", false);
     }
 
     public override void Update()
@@ -22,21 +29,35 @@ public class AttackState : EnemyState
         Debug.Log(dist);
         if (dist <= enemy.data.attackRange)
         {
-            Debug.Log("IM IN");
+            //-- CAS KAMIKAZE --//
             if (enemy.data is KamikazeData kData)
             {
                 if (!_isExploding)
                 {
                     _isExploding = true;
-                    
+                    //enemy.Anim.SetTrigger("StartExplosion");// Declenche l'anim de charge/clignotement
                     _explosionRoutine = enemy.StartCoroutine(ExplosionSequence(kData));
                 }
                 
             }
+            //-- CAS SNIPER --//
             else if (enemy.data is SniperData sData)
             {
-                Shoot(sData);
-                _nextFireTime = Time.time + 1f / sData.fireRate;
+                // enemy.Anim.SetTrigger("Shoot"); // Declenche l'animation de tir
+                //Shoot(sData);
+                if (_shootTimer >= 1 / sData.fireRate)
+                {
+                    Shoot(sData);
+                }
+                _shootTimer += Time.deltaTime;
+                //_nextFireTime = Time.time + 1f / sData.fireRate;
+            } 
+            //-- CAS CORPS A CORPS
+            else if (enemy.data is MeleeData mData)
+            { 
+                // enemy.Anim.SetTrigger("MeeleAttack")' Declenche l'animation d'attack
+                PerformMeleeAttack(mData);
+                
             }
         }
         else
@@ -47,6 +68,7 @@ public class AttackState : EnemyState
             }
             stateMachine.ChangeState(enemy.ChaseState);
         }
+        
     }
 
     private void CancelExplosion()
@@ -71,19 +93,67 @@ public class AttackState : EnemyState
         Debug.Log("BOOOOM");
         if(kData.explosionEffect != null)
             Object.Instantiate(kData.explosionEffect, enemy.transform.position, Quaternion.identity);
-        
-        //Logique du degats
-        Collider2D hit = Physics2D.OverlapCircle(enemy.transform.position, kData.explosionRadius, LayerMask.GetMask("Player"));
-        if (hit != null)
+       
+        // Détection des entités dans le rayon d'explosion
+        Collider2D[] hits = Physics2D.OverlapCircleAll(enemy.transform.position, kData.explosionRadius);
+    
+        foreach (var hit in hits)
         {
-            // hit.GetComponent<PlayerHealth>().TakeDamage(kData.explosionDamage);
+            // Utilisation de IHit pour infliger des dégâts
+            if (hit.TryGetComponent(out IHit hitComponent))
+            {
+                // Calcul de la direction pour le recul (repel force)
+                //Vector2 repelDir = (hit.transform.position - enemy.transform.position).normalized;
+            
+                // On applique les dégâts via l'interface
+                hitComponent.OnHit(enemy.data.damage); 
+            }
         }
 
-        // 3. L'ennemi disparaît
+        // L'ennemi se détruit après l'explosion
         Object.Destroy(enemy.gameObject);
     }
     void Shoot(SniperData sData)
     {
-        Object.Instantiate(sData.projectilePrefab,enemy.firePoint.position, enemy.firePoint.rotation);
+        if (sData.projectilePrefab != null && enemy.firePoint != null)
+        {
+            Debug.Log(enemy.data.enemyName + " tire une balle !");
+            GameObject proj = Object.Instantiate(sData.projectilePrefab, enemy.firePoint.position, enemy.firePoint.rotation);
+            //a changer
+            // Si ton projectile a besoin de connaître sa vitesse dès le départ :
+            if (proj.TryGetComponent(out Bullet bullet))
+            {
+                //On passe les degats et la vitesse du sniper
+                bullet.Initialize(sData.damage, sData.projectileSpeed);
+                enemy.animator.SetTrigger("attack");
+            }
+            _shootTimer = 0f; // Reset du timer de tir
+        }
     }
+
+    void PerformMeleeAttack(MeleeData mData)
+    {
+        Debug.Log(enemy.data.enemyName + "donne un coup !");
+        if (attackcounter == 0) { enemy.animator.SetTrigger("attack0"); }
+        else { enemy.animator.SetTrigger("attack1"); }
+        attackcounter++;
+        attackcounter = attackcounter > 1 ? 0 : attackcounter; // alterne entre les deux animations d'attaque
+        // On detecte si le joueur est dans la zone de frappe (devant l'ennemi)
+        // On utilise le fire point comme centre de l'attaque s'il existe, sinon le centre de l'ennemi
+        Vector2 attackPoint = enemy.firePoint != null ? (Vector2)enemy.firePoint.position : (Vector2)enemy.transform.position;
+        
+        Collider2D hit = Physics2D.OverlapCircle(attackPoint, mData.hitRadius, LayerMask.GetMask("Player"));
+        if (hit != null)
+        {
+            if (hit.TryGetComponent<IHit>(out IHit target))
+            {
+                // On peut meme ajouter un recul 
+                Vector2 knockBackDir = (hit.transform.position - enemy.transform.position).normalized;
+                target.OnHit(mData.damage);
+                Debug.Log("Joueur touche par le corps a corps");
+            }
+        }
+        
+}
+
 }

@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e860fcffa4c7f0e4db8344c4a5c4fa20, type: 3}
   m_Name: SniperData
   m_EditorClassIdentifier: Assembly-CSharp::SniperData
-  enemyName: Sniper
+  enemyName: BoltBat
+  patrolRadius: 20
   moveSpeed: 3
-  maxHealth: 100
-  detectionRange: 7
-  attackRange: 4
-  stopDistance: 3
+  maxHealth: 20
+  detectionRange: 9
+  attackRange: 6
+  stopDistance: 6
+  damage: 10
   projectileSpeed: 20
-  fireRate: 2
-  projectilePrefab: {fileID: 4089008178729448314, guid: 91f8cde0d2bc7cb48bc396a2ea5f065d, type: 3}
+  fireRate: 0.5
+  projectilePrefab: {fileID: 7801827202018218392, guid: 15a8ad04223affe498d98408576ff993, type: 3}

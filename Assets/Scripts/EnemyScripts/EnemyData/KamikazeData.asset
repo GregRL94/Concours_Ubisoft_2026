@@ -12,17 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24dc40b1e764584f963b1304e21a54a, type: 3}
   m_Name: KamikazeData
   m_EditorClassIdentifier: Assembly-CSharp::KamikazeData
-  enemyName: pikmin
+  enemyName: Mikpin
+  patrolRadius: 20
   moveSpeed: 3
-  maxHealth: 100
-  detectionRange: 7
-  attackRange: 1
+  maxHealth: 50
+  detectionRange: 5
+  attackRange: 2
   stopDistance: 0
-  fireRate: 2
-  patrolRadius: 2
-  projectilePrefab: {fileID: 0}
+  damage: 10
   explosionRadius: 3
-  patrolRadius: 22.5
-  explosionDamage: 50
-  explosionEffect: {fileID: 0}
+  explosionEffect: {fileID: 3392167224638232088, guid: d7c9b16988421954daf726aac8371e7f, type: 3}
   explosionDelay: 0.5

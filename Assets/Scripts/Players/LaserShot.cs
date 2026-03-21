@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class LaserShot : MonoBehaviour
 {
+    [SerializeField] private GameObject _explosionEffect;
     private float _speed;
     private float _damage;
     private float _lifetime;
@@ -35,6 +36,7 @@ public class LaserShot : MonoBehaviour
 
     private void _Destroy()
     {
+        Instantiate(_explosionEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
@@ -46,7 +48,6 @@ public class LaserShot : MonoBehaviour
         {
             hitComponent.OnHit(_damage);
         }
-        Debug.Log("Laser collided with " + collider.gameObject.name);
         _Destroy();
     }
 }
