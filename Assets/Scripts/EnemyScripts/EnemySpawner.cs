@@ -61,4 +61,7 @@ public class EnemySpawner : MonoBehaviour
         
         
     }
+    
+    //BoltBat ne change pas de direction lorsqu'il commence a shoot l'ennemi. Le boltbat continue de shoot vers la derniere direction du joueur
+    //Si le mikpin se fait shoot/attack de melee, il doit exploser et il fait ses degats
 }

@@ -16,4 +16,4 @@ MonoBehaviour:
   initialBatchSize: 1
   regularBatchSize: 1
   timeBetweenWaves: 1
-  spawnIntervalWithinBatch: 10
+  spawnIntervalWithinBatch: 1
