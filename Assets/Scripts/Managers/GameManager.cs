@@ -1,4 +1,3 @@
-using System.Globalization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
@@ -9,8 +8,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Transition Prefabs")]
     [SerializeField] private FadeTransition gameOverTransition;
-    [SerializeField] private FadeTransition winTransition;
     [SerializeField] private FadeTransition nextLevelTransition;
+    [SerializeField] private FadeTransition winTransition;
 
     [Header("Scenes")]
     [SerializeField] private string[] levelScenes;
@@ -34,6 +33,8 @@ public class GameManager : MonoBehaviour
     private int currentObjectiveIndex = 0;
     private bool hasWon = false;
 
+    // ---------------- INIT ----------------
+
     void Awake()
     {
         if (Instance != null)
@@ -49,20 +50,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         AudioManager.Instance.PlayRandomPlaylist(playlistMusic);
-        StartObjective();
 
-        //lastMusicIndex = Random.Range(0, musicPlaylist.Length);
-        //Debug.Log("Number of music tracks in playlist: " + musicPlaylist.Length);
+        StartObjective();
     }
 
-    //  OBJECTIVES 
+    // ---------------- OBJECTIVES ----------------
+
     void StartObjective()
     {
-        if (currentObjectiveIndex >= objectives.Length)
-        {
-            WinGame();
-            return;
-        }
+        hasWon = false;
 
         CurrentState = GameState.Playing;
 
@@ -75,10 +71,18 @@ public class GameManager : MonoBehaviour
 
         CurrentState = GameState.Transition;
 
+        currentObjectiveIndex++;
+
+        if (currentObjectiveIndex >= levelScenes.Length)
+        {
+            WinGame();
+            return;
+        }
+
         MissionAccomplished();
     }
 
-    //  TRANSITIONS 
+    // ---------------- TRANSITIONS ----------------
 
     public void MissionAccomplished()
     {
@@ -113,21 +117,14 @@ public class GameManager : MonoBehaviour
         );
     }
 
-    //  NEXT LEVEL 
+    // ---------------- NEXT LEVEL ----------------
+
     public void LoadNextLevel()
     {
-        print("next lvl");
-        currentObjectiveIndex++;
 
-        if (currentObjectiveIndex >= levelScenes.Length)
-        {
-            WinGame();
-            return;
-        }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(levelScenes[currentObjectiveIndex]);
-        print(levelScenes[currentObjectiveIndex]);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -137,7 +134,8 @@ public class GameManager : MonoBehaviour
         StartObjective();
     }
 
-    // DEBUG 
+    // ---------------- DEBUG ----------------
+
     void Update()
     {
         if (Keyboard.current != null && Keyboard.current.digit0Key.wasPressedThisFrame && !hasWon)
