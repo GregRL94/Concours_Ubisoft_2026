@@ -15,8 +15,8 @@ TagManager:
   - Enemy
   - Env_Half_Cover
   - Env_Full_Cover
-  - 
-  - 
+  - Env_Soft_Wall
+  - Env_Rubbles
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemies
+    uniqueID: 3761540205
     locked: 0
   - name: Player
     uniqueID: 3234030517
