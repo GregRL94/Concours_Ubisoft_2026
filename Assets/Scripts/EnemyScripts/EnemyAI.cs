@@ -91,6 +91,7 @@ public class EnemyAI : MonoBehaviour, IHit
         Debug.Log("ENEMY DIEEED!!!");
         animator.SetTrigger("Die");
         _isDead = true;
+        Destroy(gameObject);
     }
 
     //Visualisation des portes dans l'editeur

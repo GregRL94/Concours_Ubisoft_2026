@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Mikpin
   patrolRadius: 30
   moveSpeed: 3
-  maxHealth: 15
+  maxHealth: 20
   detectionRange: 5
   attackRange: 2
   stopDistance: 0
