@@ -156,7 +156,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 3.09375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1193,6 +1193,9 @@ MonoBehaviour:
       m_Bits: 640
   _mechaBase: {fileID: 4838196248118909920}
   _mechaTop: {fileID: 4235779837525528367}
+  _slash: {fileID: 5020804249824242362}
+  _boost0: {fileID: 1111033094556528008}
+  _boost1: {fileID: 3366369253569095122}
   _offsetAngleDeg: -90
   <MechaHealth>k__BackingField: 100
   _stunStopsAbilities: 1
@@ -1209,24 +1212,28 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _dashDamage: 10
+  animIsPressedDash: {fileID: 0}
   _meleeAttackPoint: {fileID: 4551997135442846276}
-  _meleeAttackHitBox: {x: 0.5, y: 1}
+  _meleeAttackHitBox: {x: 2, y: 1}
   _meleeAttackImpactsWhat:
     serializedVersion: 2
     m_Bits: 384
   _meleeDamage: 25
   _meleeAttackStunDuration: 1.5
   _meleeAttackCooldown: 1
+  animIsPressedMelee: {fileID: 0}
   _shootingPoints:
   - {fileID: 1203288601306859973}
   - {fileID: 7123907203564862564}
   _aimingReticle: {fileID: 7688457587450742652}
-  _aimingReticleSpeed: 3
+  _aimingReticleSpeed: 6
   _aimingReticleMinDistance: 4
   _synchFire: 0
   _fireRate: 10
   _angularDispersion: 1
   _linearDispersion: 1
+  animIsPressedGun: {fileID: 0}
+  _aoeEffectPrefab: {fileID: 5012763272240465815, guid: bb1e9d3c20d4d1440a56a587ccde68a4, type: 3}
   _aoeImpactsWhat:
     serializedVersion: 2
     m_Bits: 2176
@@ -1234,6 +1241,7 @@ MonoBehaviour:
   _aoeDamage: 25
   _aoeRepelForce: 20
   _aoeCooldown: 10
+  animIsPressedAOE: {fileID: 0}
   _ultimateTargetsWhat:
     serializedVersion: 2
     m_Bits: 128
@@ -1266,7 +1274,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MechaHealth
   healthUI: {fileID: 6231149221342676641}
   maxHealth: 100
-  iFrameDuration: 0.5
+  _onHitEffect: {fileID: 3794378016294545788}
+  iFrameDuration: 0.1
   timeBeforeDisapear: 1
   timeAnimDeath: 1
   delayBeforeGameOverScreen: 1
@@ -1451,6 +1460,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: muzzle_flash1
       objectReference: {fileID: 0}
+    - target: {fileID: 748919124320711389, guid: 23d2eca8f50818342a1b0208c7839bdb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 748919124320711389, guid: 23d2eca8f50818342a1b0208c7839bdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716358613634926773, guid: 23d2eca8f50818342a1b0208c7839bdb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3678222456473444890, guid: 23d2eca8f50818342a1b0208c7839bdb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.734
@@ -1606,6 +1627,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1636112361058107641, guid: a492659230c5c124c836c048b249c04c, type: 3}
   m_PrefabInstance: {fileID: 1668995120400907216}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3366369253569095122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4151977149753155074, guid: a492659230c5c124c836c048b249c04c, type: 3}
+  m_PrefabInstance: {fileID: 1668995120400907216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2121558998474667618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1614,6 +1640,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 981076627514167658}
     m_Modifications:
+    - target: {fileID: 1397912864811631792, guid: 294ffabfeb2170246927e62dd6020411, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3015472318778711838, guid: 294ffabfeb2170246927e62dd6020411, type: 3}
       propertyPath: m_Name
       value: damage_sparks
@@ -1663,6 +1693,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 294ffabfeb2170246927e62dd6020411, type: 3}
+--- !u!1 &3794378016294545788 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3015472318778711838, guid: 294ffabfeb2170246927e62dd6020411, type: 3}
+  m_PrefabInstance: {fileID: 2121558998474667618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7799809895938733571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8164805592232001633, guid: 294ffabfeb2170246927e62dd6020411, type: 3}
@@ -1791,6 +1826,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a492659230c5c124c836c048b249c04c, type: 3}
+--- !u!1 &1111033094556528008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4151977149753155074, guid: a492659230c5c124c836c048b249c04c, type: 3}
+  m_PrefabInstance: {fileID: 3960326047369393034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2324213686758241139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1636112361058107641, guid: a492659230c5c124c836c048b249c04c, type: 3}
@@ -1844,9 +1884,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4079688289031472860, guid: 02f40c8ec569ba1469b099cb34f5c4eb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4255423781908381323, guid: 02f40c8ec569ba1469b099cb34f5c4eb, type: 3}
       propertyPath: m_Name
       value: muzzle_flash2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255423781908381323, guid: 02f40c8ec569ba1469b099cb34f5c4eb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255423781908381323, guid: 02f40c8ec569ba1469b099cb34f5c4eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3817169414851159991, guid: 02f40c8ec569ba1469b099cb34f5c4eb, type: 3}

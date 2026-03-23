@@ -68,7 +68,7 @@ public class PlayerInputHandler : MonoBehaviour
                dashAction.WasPressedThisFrame();
     }
 
-    // ----------- AJOUT HOLD / RELEASE -----------
+    // HOLD / RELEASE 
 
     public bool DashHold()
     {
@@ -94,7 +94,21 @@ public class PlayerInputHandler : MonoBehaviour
                aoeAction.WasReleasedThisFrame();
     }
 
-    // --------------------------------------------
+
+    //
+    public bool MeleeHold()
+    {
+        return Role == PlayerRole.Movement &&
+               meleeAction.IsPressed();
+    }
+
+    public bool ShootHold()
+    {
+        return Role == PlayerRole.Shoot &&
+               shootAction.IsPressed();
+    }
+    //
+
 
     public Vector2 GetAim()
     {

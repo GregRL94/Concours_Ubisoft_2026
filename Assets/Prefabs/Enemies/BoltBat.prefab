@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa5de6b71b0cb449bd90e852f528576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  data: {fileID: 11400000, guid: d0d5221d9c9cc254795dd779cc3d57b1, type: 2}
+  data: {fileID: 11400000, guid: a7e9b8e66eb290645bedc65656fbc5fe, type: 2}
   firePoint: {fileID: 4901014329125216784}
 --- !u!195 &6276922060709080670
 NavMeshAgent:
@@ -272,7 +272,7 @@ Transform:
   m_GameObject: {fileID: 8100473951164235110}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.509, z: 0}
+  m_LocalPosition: {x: 0, y: 0.439, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

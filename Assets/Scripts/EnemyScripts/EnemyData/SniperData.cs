@@ -3,7 +3,10 @@ using UnityEngine;
 public class SniperData: EnemyData
 {
     [Header("Reglages de tir")] 
-    public float projectileSpeed = 20f;
-    public float fireRate = 2f;
-    public GameObject projectilePrefab;
+    public float _fireRate = 2f;
+    public GameObject _projectilePrefab;
+    public GameObject _explosionEffect;
+    public float _speed;
+    public float _lifetime;
+    public LayerMask _impactLayerMask;
 }

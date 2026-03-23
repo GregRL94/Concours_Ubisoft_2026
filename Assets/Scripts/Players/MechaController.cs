@@ -85,6 +85,9 @@ public class MechaController : MonoBehaviour, IHit
     [Header("GENERAL SETTINGS")]
     [SerializeField] private GameObject _mechaBase;
     [SerializeField] private GameObject _mechaTop;
+    [SerializeField] private GameObject _slash;
+    [SerializeField] private GameObject _boost0;
+    [SerializeField] private GameObject _boost1;
     [SerializeField] private float _offsetAngleDeg;
     [field: SerializeField] public float MechaHealth { get; private set; } = 100f;
     [Header("Stun parameters")]
@@ -102,7 +105,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private LayerMask _dashImpactsWhat;
     [SerializeField] private LayerMask _dashIgnoresWhat;
     [SerializeField] private float _dashDamage = 10f;
-    //[SerializeField] private Animator animIsPressedDash;
+    [SerializeField] private Animator animIsPressedDash;
     [Header("Melee attack parameters")]
     [SerializeField] private Transform _meleeAttackPoint;
     [SerializeField] private Vector2 _meleeAttackHitBox;
@@ -110,7 +113,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _meleeDamage = 10f;
     [SerializeField] private float _meleeAttackStunDuration = 1.5f;
     [SerializeField] private float _meleeAttackCooldown = 1f;
-    //[SerializeField] private Animator animIsPressedMelee;
+    [SerializeField] private Animator animIsPressedMelee;
     [Space]
 
     [Header("SHOOTING PLAYER PARAMETERS")]
@@ -123,15 +126,16 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _fireRate = 2f;
     [SerializeField] private bool _angularDispersion = false;
     [SerializeField] private bool _linearDispersion = false;
-    //[SerializeField] private Animator animIsPressedMeleeShoot;
+    [SerializeField] private Animator animIsPressedGun;
 
     [Header("AOE parameters")]
+    [SerializeField] private GameObject _aoeEffectPrefab;
     [SerializeField] private LayerMask _aoeImpactsWhat;
     [SerializeField] private float _aoeRadius = 3f;
     [SerializeField] private float _aoeDamage = 5f;
     [SerializeField] private float _aoeRepelForce = 2f;
     [SerializeField] private float _aoeCooldown = 5f;
-    //[SerializeField] private Animator animIsPressedAOE;
+    [SerializeField] private Animator animIsPressedAOE;
     [Space]
 
     [Header("ULTIMATE TEAM ATTACK PARAMETERS")]
@@ -260,6 +264,7 @@ public class MechaController : MonoBehaviour, IHit
             return;
         }
 
+
         Vector2 move = movementPlayer.GetMovement();
         if (move != Vector2.zero)
         {
@@ -370,11 +375,38 @@ public class MechaController : MonoBehaviour, IHit
 
         bool movementHold = movementPlayer.DashHold();
         bool shootHold = shootPlayer.AOEHold();
+        bool meleeHold = movementPlayer.MeleeHold();
+        bool laserHold = shootPlayer.ShootHold();
 
         _isAttemptingUltimate = _ultimateReady && (movementHold || shootHold);
 
-        // HOLD DETECTION 
+        /////////////////////////////////////////////////////
+        // ABILITIES UI SYNC
+        // Si on est en train de tenter un ultimate → on coupe l'anim ability
+        // Sinon comportement normal (hold dash)
+        if (movementHold)
+            animIsPressedDash.SetBool("isPressed", true);
+        else
+            animIsPressedDash.SetBool("isPressed", false);
+        
+        if (shootHold)
+            animIsPressedAOE.SetBool("isPressed", true);
+        else
+            animIsPressedAOE.SetBool("isPressed", false);
 
+        if (laserHold)
+            animIsPressedGun.SetBool("isPressed", true);
+        else
+            animIsPressedGun.SetBool("isPressed", false);
+
+        if (meleeHold)
+            animIsPressedMelee.SetBool("isPressed", true);
+        else
+            animIsPressedMelee.SetBool("isPressed", false);
+        /////////////////////////////////////////////////////////
+
+
+        // HOLD DETECTION 
         if (movementHold)
         {
             _movementHoldTimer += Time.deltaTime;
@@ -475,6 +507,7 @@ public class MechaController : MonoBehaviour, IHit
     #region Abilities Logic
     private void MeleeAttack(Vector2 attackDir, float attackWidth, float attackHeight, LayerMask layerMask)
     {
+        _slash.GetComponent<Animator>().SetTrigger("Slash");
         float angleRad = MathUtils.DirToAngleRad(attackWidth, attackHeight, _offsetAngleDeg);
         foreach (Collider2D hitObject in Physics2D.OverlapBoxAll(_meleeAttackPoint.position, new Vector2(attackWidth, attackHeight), angleRad, layerMask))
         {
@@ -486,13 +519,14 @@ public class MechaController : MonoBehaviour, IHit
         _meleeTimer = 0f;
         AudioManager.Instance.PlaySound("SFX_Player_melee");
         abilityUI?.TriggerAbility("Melee", _meleeAttackCooldown);
-        Debug.Log("MELEE");
     }
 
     IEnumerator Dash()
     {
         float startTime = Time.time;
         _isDashing = true;
+        _boost0.SetActive(true);
+        _boost1.SetActive(true);
 
         // Génère une impulsion de caméra au début du dash si un CinemachineImpulseSource est attaché à la base du mecha
         if (_mechaBase.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
@@ -512,6 +546,8 @@ public class MechaController : MonoBehaviour, IHit
         }
         _currentSpeed = _movementSpeed;
         _dashCooldownTimer = 0f;
+        _boost0.SetActive(false);
+        _boost1.SetActive(false);
         _isDashing = false;
         abilityUI?.TriggerAbility("Dash", _dashCooldown);
         yield break;
@@ -538,11 +574,12 @@ public class MechaController : MonoBehaviour, IHit
         UpdateDispersions();
         abilityUI?.TriggerAbility("Laser", 1f / _fireRate);
         AudioManager.Instance.PlaySound("SFX_Player_laser_tir");
-        Debug.Log("SHOOT");
     }
 
     private void GroundSmash(float radius, float damage, float repelForce)
     {
+        // Instancie l'effet visuel de l'attaque AOE
+        Instantiate(_aoeEffectPrefab, transform.position, Quaternion.identity);
         // Génère une impulsion de caméra au début du Ground Smash si un CinemachineImpulseSource est attaché à la base du mecha
         if (_mechaTop.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
         {
@@ -560,7 +597,6 @@ public class MechaController : MonoBehaviour, IHit
         _aoeTimer = 0f;
         abilityUI?.TriggerAbility("AOE", _aoeCooldown);
         AudioManager.Instance.PlaySound("SFX_Player_aoe");
-        Debug.Log("AOE");
     }
 
     IEnumerator MissileSwarm()
@@ -629,12 +665,7 @@ public class MechaController : MonoBehaviour, IHit
 
     private void TakeDamage(float damage)
     {
-        _currentHealth -= damage;
         _mechaHealth.TakeDamage(damage);
-        if (_currentHealth <= 0)
-        {
-            // Die();
-        }
     }
     #endregion Damage & Health Logic
 
@@ -763,6 +794,7 @@ public class MechaController : MonoBehaviour, IHit
     public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
     {
         TakeDamage(damage);
+        _rb2D.AddForce(repelDirection * repelForce, ForceMode2D.Impulse);
     }
 
     public void OnHitStun(float damage, float stunDuration)

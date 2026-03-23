@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e860fcffa4c7f0e4db8344c4a5c4fa20, type: 3}
+  m_Name: BoltBatData_01
+  m_EditorClassIdentifier: Assembly-CSharp::SniperData
+  enemyName: BoltBat
+  patrolRadius: 20
+  moveSpeed: 3
+  maxHealth: 20
+  detectionRange: 3
+  attackRange: 6
+  stopDistance: 6
+  damage: 5
+  _fireRate: 0.5
+  _projectilePrefab: {fileID: 7801827202018218392, guid: 15a8ad04223affe498d98408576ff993, type: 3}
+  _explosionEffect: {fileID: 2376449415813508878, guid: 025f706346e042440ad89d0a34768ce6, type: 3}
+  _speed: 5
+  _lifetime: 3
+  _impactLayerMask:
+    serializedVersion: 2
+    m_Bits: 576

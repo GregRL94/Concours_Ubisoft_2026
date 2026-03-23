@@ -1,106 +1,104 @@
-using System.Globalization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [Header("Transition Prefabs")]
     [SerializeField] private FadeTransition gameOverTransition;
+    [SerializeField] private FadeTransition nextLevelTransition;
     [SerializeField] private FadeTransition winTransition;
 
-    private bool hasWon;
+    [Header("Scenes")]
+    [SerializeField] private string[] levelScenes;
+
+    [Header("Objectives")]
+    public Objective[] objectives;
+
+    [Header("Music Playlist")]
+    public string[] playlistMusic;
+
     public enum GameState
     {
         Playing,
+        Transition,
         Win,
         Lose
     }
 
     public GameState CurrentState { get; private set; }
 
-    [Header("Objectives")]
-    public Objective[] objectives;
+    private int currentObjectiveIndex = 0;
+    private bool hasWon = false;
 
-    int currentObjectiveIndex = 0;
-
-    string[] musicPlaylist =
-    {
-        "MUS_8-bit-takeover",
-        "MUS_arcade-party",
-        "MUS_battle-time",
-        "MUS_bitwise",
-        "MUS_epic-battle",
-        "MUS_i-dream-in-keygen",
-        "MUS_pixel-perfect",
-        "MUS_pixify"
-    };
-    int lastMusicIndex;
+    // ---------------- INIT ----------------
 
     void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
+        if (Instance != null)
+        {
             Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
+        AudioManager.Instance.PlayRandomPlaylist(playlistMusic);
+
         StartObjective();
-
-        lastMusicIndex = Random.Range(0, musicPlaylist.Length);
-        Debug.Log("Number of music tracks in playlist: " + musicPlaylist.Length);
     }
 
-    private void Update()
-    {
-        // Commencer la playlist de musique
-        // (appeler la fonction qu'Ajmal ajoutera dans AudioManager qui prend un string[] en paramètre)
-        AudioManager.Instance.PlayMusic(musicPlaylist[lastMusicIndex]);
-
-
-        // todo: DEBUG DAMAGE PLAYER
-        if (Keyboard.current != null && Keyboard.current.digit0Key.wasPressedThisFrame && !hasWon)
-        {
-            hasWon = true;
-            PlayerInputHandler[] activeObjects = FindObjectsByType<PlayerInputHandler>(FindObjectsSortMode.None);
-            foreach (var item in activeObjects)
-            {
-                item.enabled = false;
-            }
-            WinGame();
-        }
-    }
+    // ---------------- OBJECTIVES ----------------
 
     void StartObjective()
     {
-        if (objectives.Length == 0) return;
+        hasWon = false;
 
-        if (currentObjectiveIndex >= objectives.Length)
-        {
-            WinGame();
-            return;
-        }
+        CurrentState = GameState.Playing;
 
         objectives[currentObjectiveIndex].Begin();
     }
 
     public void CompleteObjective()
     {
+        if (CurrentState != GameState.Playing) return;
+
+        CurrentState = GameState.Transition;
+
         currentObjectiveIndex++;
 
-        StartObjective();
+        if (currentObjectiveIndex >= levelScenes.Length)
+        {
+            WinGame();
+            return;
+        }
+
+        MissionAccomplished();
+    }
+
+    // ---------------- TRANSITIONS ----------------
+
+    public void MissionAccomplished()
+    {
+        Debug.Log("Objective Completed");
+
+        TransitionManager.Instance.FadeInCurrentScene(
+            nextLevelTransition,
+            MenuManager.Instance.GetNextLevelMenu(),
+            0f
+        );
     }
 
     public void LoseGame()
     {
         CurrentState = GameState.Lose;
 
-        Debug.Log("Game Over");
-        AudioManager.Instance.StopMusic();
-        //AudioManager.Instance.PlayMusic("lose");
-
-        // Launch transition
         TransitionManager.Instance.FadeInCurrentScene(
             gameOverTransition,
             MenuManager.Instance.GetGameOverMenu(),
@@ -112,18 +110,43 @@ public class GameManager : MonoBehaviour
     {
         CurrentState = GameState.Win;
 
-        Debug.Log("Victory");
-        AudioManager.Instance.StopMusic();
-        //AudioManager.Instance.PlayMusic("win");
-
-        // Launch transition
         TransitionManager.Instance.FadeInCurrentScene(
             winTransition,
             MenuManager.Instance.GetEndMenu(),
             0f
         );
+    }
 
-        
-        UIManager.Instance.ShowWin();
+    // ---------------- NEXT LEVEL ----------------
+
+    public void LoadNextLevel()
+    {
+
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(levelScenes[currentObjectiveIndex]);
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        StartObjective();
+    }
+
+    // ---------------- DEBUG ----------------
+
+    void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.digit0Key.wasPressedThisFrame && !hasWon)
+        {
+            hasWon = true;
+
+            var players = FindObjectsByType<PlayerInputHandler>(FindObjectsSortMode.None);
+            foreach (var p in players)
+                p.enabled = false;
+
+            CompleteObjective();
+        }
     }
 }

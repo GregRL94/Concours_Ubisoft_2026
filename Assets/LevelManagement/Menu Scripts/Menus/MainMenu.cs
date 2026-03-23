@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,12 +9,13 @@ public class MainMenu : Menu
     [SerializeField] private Menu settingsMenu;
     [SerializeField] private Menu creditsMenu;
     [SerializeField] private Menu playerChoiceMenu;
+    [SerializeField] private Menu accessibilityMenu;
 
-    [Header("Transition & Loading")]
+    [Header("Menu Transition")]
     [SerializeField] private float playDelay = 0.5f;
-    //[SerializeField] private float pauseDelay = 2f;
-    [SerializeField] private FadeTransition fadeTransition;
-    //[SerializeField] private string sceneName = "Level";
+    //[SerializeField] private FadeTransition fadeTransition;
+    [SerializeField] private float fadeOutDuration = 0.3f;
+    [SerializeField] private float fadeInDuration = 0.3f;
 
     private void OnEnable()
     {
@@ -27,11 +29,19 @@ public class MainMenu : Menu
     private IEnumerator OnPlayPressedRoutine()
     {
         AudioManager.Instance.PlaySound("UI_Submit");
-        yield return new WaitForSeconds(playDelay);
-        //TransitionManager.Instance.TransitionToScene(sceneName, fadeTransition, pauseDelay);
+
         //TransitionManager.Instance.FadeInCurrentScene(null, MenuManager.Instance.GetPlayerChoiceMenu(), 0f);
-        if (playerChoiceMenu != null)
-            MenuManager.Instance.OpenMenu(playerChoiceMenu);
+        //if (playerChoiceMenu != null)
+        //    MenuManager.Instance.OpenMenu(playerChoiceMenu);
+
+        yield return new WaitForSeconds(playDelay);
+
+        TransitionManager.Instance.TransitionBetweenMenus(
+            this,
+            playerChoiceMenu,
+            fadeOutDuration,
+            fadeInDuration
+        );
     }
 
     public void OnSettingsPressed()
@@ -39,6 +49,12 @@ public class MainMenu : Menu
         AudioManager.Instance.PlaySound("UI_Submit");
         if (settingsMenu != null)
             MenuManager.Instance.OpenMenu(settingsMenu);
+    }
+    public void OnAccessibilityPressed()
+    {
+        AudioManager.Instance.PlaySound("UI_Submit");
+        if (creditsMenu != null)
+            MenuManager.Instance.OpenMenu(accessibilityMenu);
     }
 
     public void OnCreditsPressed()

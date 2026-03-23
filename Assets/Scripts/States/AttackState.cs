@@ -5,11 +5,12 @@ using UnityEngine;
  */
 public class AttackState : EnemyState
 {
-    private float _nextFireTime;
     private float _shootTimer;
+    private float _meleeTimer;
     private bool _isExploding = false;
     private bool _hasExploded = false; //Nouveau flag de securite
     private int attackcounter;
+    private int attackcounter = 1;
 
     private Coroutine _explosionRoutine;//On stock la coroutine pour pouvoir l'arreter
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,7 +28,6 @@ public class AttackState : EnemyState
     {
         float dist = Vector2.Distance(enemy.transform.position, enemy.Player.position);
     
-        Debug.Log(dist);
         if (dist <= enemy.data.attackRange)
         {
             //-- CAS KAMIKAZE --//
@@ -46,7 +46,7 @@ public class AttackState : EnemyState
             {
                 // enemy.Anim.SetTrigger("Shoot"); // Declenche l'animation de tir
                 //Shoot(sData);
-                if (_shootTimer >= 1 / sData.fireRate)
+                if (_shootTimer >= 1 / sData._fireRate)
                 {
                     Shoot(sData);
                 }
@@ -55,10 +55,13 @@ public class AttackState : EnemyState
             } 
             //-- CAS CORPS A CORPS
             else if (enemy.data is MeleeData mData)
-            { 
+            {
+                if (_meleeTimer >= 1 / mData.attackSpeed)
+                {
+                    PerformMeleeAttack(mData);
+                }
+                _meleeTimer += Time.deltaTime;
                 // enemy.Anim.SetTrigger("MeeleAttack")' Declenche l'animation d'attack
-                PerformMeleeAttack(mData);
-                
             }
         }
         else
@@ -122,18 +125,13 @@ public class AttackState : EnemyState
     }
     void Shoot(SniperData sData)
     {
-        if (sData.projectilePrefab != null && enemy.firePoint != null)
+        if (sData._projectilePrefab != null && enemy.firePoint != null)
         {
             Debug.Log(enemy.data.enemyName + " tire une balle !");
-            GameObject proj = Object.Instantiate(sData.projectilePrefab, enemy.firePoint.position, enemy.firePoint.rotation);
-            //a changer
-            // Si ton projectile a besoin de connaître sa vitesse dès le départ :
-            if (proj.TryGetComponent(out Bullet bullet))
-            {
-                //On passe les degats et la vitesse du sniper
-                bullet.Initialize(sData.damage, sData.projectileSpeed);
-                enemy.animator.SetTrigger("attack");
-            }
+            GameObject proj = Object.Instantiate(sData._projectilePrefab, enemy.firePoint.position, enemy.firePoint.rotation);
+            LaserShot projSetup = proj.GetComponent<LaserShot>();
+            projSetup.SetupLaserShoot(sData._speed, sData.damage, sData._lifetime, sData._impactLayerMask);
+            enemy.animator.SetTrigger("attack");
             _shootTimer = 0f; // Reset du timer de tir
         }
     }
@@ -141,10 +139,9 @@ public class AttackState : EnemyState
     void PerformMeleeAttack(MeleeData mData)
     {
         Debug.Log(enemy.data.enemyName + "donne un coup !");
-        if (attackcounter == 0) { enemy.animator.SetTrigger("attack0"); }
-        else { enemy.animator.SetTrigger("attack1"); }
-        attackcounter++;
-        attackcounter = attackcounter > 1 ? 0 : attackcounter; // alterne entre les deux animations d'attaque
+        if (attackcounter >= 0) { enemy.animator.SetTrigger("attack0"); Debug.Log("Attack 0"); }
+        else { enemy.animator.SetTrigger("attack1"); Debug.Log("Attack 1"); }
+        attackcounter *= -1;
         // On detecte si le joueur est dans la zone de frappe (devant l'ennemi)
         // On utilise le fire point comme centre de l'attaque s'il existe, sinon le centre de l'ennemi
         Vector2 attackPoint = enemy.firePoint != null ? (Vector2)enemy.firePoint.position : (Vector2)enemy.transform.position;
@@ -156,11 +153,11 @@ public class AttackState : EnemyState
             {
                 // On peut meme ajouter un recul 
                 Vector2 knockBackDir = (hit.transform.position - enemy.transform.position).normalized;
-                target.OnHit(mData.damage);
+                target.OnHitRepel(mData.damage, mData.repelForce, knockBackDir);
+                target.OnHitStun(0f, mData.stunDuration);
                 Debug.Log("Joueur touche par le corps a corps");
             }
         }
-        
-}
-
+        _meleeTimer = 0f;
+    }
 }

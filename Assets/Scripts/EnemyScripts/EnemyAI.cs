@@ -21,6 +21,10 @@ public class EnemyAI : MonoBehaviour, IHit
     public PatrolState PatrolState { get; private set; }
     public ChaseState ChaseState { get; private set; }
     public AttackState AttackState { get; private set; }
+
+    // Flag pour ne pas relancer l'animation de mort
+    private bool _isDead;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,8 +57,7 @@ public class EnemyAI : MonoBehaviour, IHit
         if (EnemyManager.Instance != null)
         {
             EnemyManager.Instance.RegisterEnemy(this);
-        }
-        
+        }        
     }
 
     // Update is called once per frame
@@ -67,7 +70,7 @@ public class EnemyAI : MonoBehaviour, IHit
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
         currentHealth -= damage;
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !_isDead)
         {
             Die();
         }
@@ -91,8 +94,9 @@ public class EnemyAI : MonoBehaviour, IHit
         }
         Debug.Log("ENEMY DIEEED!!!");
         animator.SetTrigger("Die");
-        
+        _isDead = true;
     }
+
     //Visualisation des portes dans l'editeur
     private void OnDrawGizmosSelected()
     {
