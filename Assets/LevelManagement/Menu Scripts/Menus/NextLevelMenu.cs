@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class NextLevelMenu : Menu
 {
-    [SerializeField] private Text titleText;
+    //[SerializeField] private Text titleText;
 
     private void OnEnable()
     {
