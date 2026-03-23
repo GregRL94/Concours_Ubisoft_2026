@@ -8,6 +8,7 @@ public class AttackState : EnemyState
     private float _nextFireTime;
     private float _shootTimer;
     private bool _isExploding = false;
+    private bool _hasExploded = false; //Nouveau flag de securite
     private int attackcounter;
 
     private Coroutine _explosionRoutine;//On stock la coroutine pour pouvoir l'arreter
@@ -88,8 +89,11 @@ public class AttackState : EnemyState
         yield return new WaitForSeconds(kData.explosionDelay);
         Explode(kData);
     }
-    void Explode(KamikazeData kData)
+    public void Explode(KamikazeData kData)
     {
+
+        if (_hasExploded) return;
+        _hasExploded = true;
         Debug.Log("BOOOOM");
         if(kData.explosionEffect != null)
             Object.Instantiate(kData.explosionEffect, enemy.transform.position, Quaternion.identity);
@@ -99,6 +103,9 @@ public class AttackState : EnemyState
     
         foreach (var hit in hits)
         {
+            //Protection : On ne s'inflige pas de degats a soi-meme ici
+            //car on va de toute facon se detruire a la fin
+            if(hit.gameObject == enemy.gameObject) continue;
             // Utilisation de IHit pour infliger des dégâts
             if (hit.TryGetComponent(out IHit hitComponent))
             {

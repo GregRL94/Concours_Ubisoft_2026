@@ -84,9 +84,14 @@ public class EnemyAI : MonoBehaviour, IHit
         {
             EnemyManager.Instance.UnRegisterEnemy(this);
         }
-        
+
+        if (data is KamikazeData kData)
+        {
+            AttackState.Explode(kData);
+        }
         Debug.Log("ENEMY DIEEED!!!");
         animator.SetTrigger("Die");
+        
     }
     //Visualisation des portes dans l'editeur
     private void OnDrawGizmosSelected()
