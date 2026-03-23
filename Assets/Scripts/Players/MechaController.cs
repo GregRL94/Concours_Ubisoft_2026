@@ -519,7 +519,6 @@ public class MechaController : MonoBehaviour, IHit
         _meleeTimer = 0f;
         AudioManager.Instance.PlaySound("SFX_Player_melee");
         abilityUI?.TriggerAbility("Melee", _meleeAttackCooldown);
-        Debug.Log("MELEE");
     }
 
     IEnumerator Dash()
@@ -575,7 +574,6 @@ public class MechaController : MonoBehaviour, IHit
         UpdateDispersions();
         abilityUI?.TriggerAbility("Laser", 1f / _fireRate);
         AudioManager.Instance.PlaySound("SFX_Player_laser_tir");
-        Debug.Log("SHOOT");
     }
 
     private void GroundSmash(float radius, float damage, float repelForce)
@@ -599,7 +597,6 @@ public class MechaController : MonoBehaviour, IHit
         _aoeTimer = 0f;
         abilityUI?.TriggerAbility("AOE", _aoeCooldown);
         AudioManager.Instance.PlaySound("SFX_Player_aoe");
-        Debug.Log("AOE");
     }
 
     IEnumerator MissileSwarm()
@@ -797,6 +794,7 @@ public class MechaController : MonoBehaviour, IHit
     public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
     {
         TakeDamage(damage);
+        _rb2D.AddForce(repelDirection * repelForce, ForceMode2D.Impulse);
     }
 
     public void OnHitStun(float damage, float stunDuration)

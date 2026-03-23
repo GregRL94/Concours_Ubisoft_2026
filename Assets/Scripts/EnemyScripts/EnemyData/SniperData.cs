@@ -7,7 +7,6 @@ public class SniperData: EnemyData
     public GameObject _projectilePrefab;
     public GameObject _explosionEffect;
     public float _speed;
-    public float _damage;
     public float _lifetime;
     public LayerMask _impactLayerMask;
 }

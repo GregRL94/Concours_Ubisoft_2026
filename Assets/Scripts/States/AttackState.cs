@@ -9,6 +9,7 @@ public class AttackState : EnemyState
     private float _meleeTimer;
     private bool _isExploding = false;
     private int attackcounter = 1;
+    private bool _hasExploded = false;
 
     private Coroutine _explosionRoutine;//On stock la coroutine pour pouvoir l'arreter
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -54,7 +55,7 @@ public class AttackState : EnemyState
             //-- CAS CORPS A CORPS
             else if (enemy.data is MeleeData mData)
             {
-                if (_meleeTimer >= mData.attackSpeed)
+                if (_meleeTimer >= 1 / mData.attackSpeed)
                 {
                     PerformMeleeAttack(mData);
                 }
@@ -90,8 +91,10 @@ public class AttackState : EnemyState
         yield return new WaitForSeconds(kData.explosionDelay);
         Explode(kData);
     }
-    void Explode(KamikazeData kData)
+    public void Explode(KamikazeData kData)
     {
+	if (_hasExploded) return;
+	_hasExploded = true;
         Debug.Log("BOOOOM");
         if(kData.explosionEffect != null)
             Object.Instantiate(kData.explosionEffect, enemy.transform.position, Quaternion.identity);
@@ -101,6 +104,7 @@ public class AttackState : EnemyState
     
         foreach (var hit in hits)
         {
+	    if (hit.gameObject == enemy.gameObject) continue;
             // Utilisation de IHit pour infliger des dégâts
             if (hit.TryGetComponent(out IHit hitComponent))
             {
@@ -122,18 +126,9 @@ public class AttackState : EnemyState
             Debug.Log(enemy.data.enemyName + " tire une balle !");
             GameObject proj = Object.Instantiate(sData._projectilePrefab, enemy.firePoint.position, enemy.firePoint.rotation);
             LaserShot projSetup = proj.GetComponent<LaserShot>();
-            projSetup.SetupLaserShoot(sData._speed, sData._damage, sData._lifetime, sData._impactLayerMask);
+            projSetup.SetupLaserShoot(sData._speed, sData.damage, sData._lifetime, sData._impactLayerMask);
             enemy.animator.SetTrigger("attack");
             _shootTimer = 0f; // Reset du timer de tir
-            //a changer
-            // Si ton projectile a besoin de connaître sa vitesse dès le départ :
-            //if (proj.TryGetComponent(out Bullet bullet))
-            //{
-            //    //On passe les degats et la vitesse du sniper
-            //    bullet.Initialize(sData.damage, sData._speed);
-            //    enemy.animator.SetTrigger("attack");
-            //}
-            //_shootTimer = 0f; // Reset du timer de tir
         }
     }
 
@@ -154,12 +149,11 @@ public class AttackState : EnemyState
             {
                 // On peut meme ajouter un recul 
                 Vector2 knockBackDir = (hit.transform.position - enemy.transform.position).normalized;
-                target.OnHit(mData.damage);
+                target.OnHitRepel(mData.damage, mData.repelForce, knockBackDir);
+                target.OnHitStun(0f, mData.stunDuration);
                 Debug.Log("Joueur touche par le corps a corps");
             }
         }
         _meleeTimer = 0f;
-        
-}
-
+    }
 }
