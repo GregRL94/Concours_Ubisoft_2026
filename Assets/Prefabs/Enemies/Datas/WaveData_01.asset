@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 1392904071871295899, guid: 393bba4de0c85704c94df54e19b0fba9, type: 3}
   - {fileID: 1392904071871295899, guid: 07fd88637fa19a642813f1a408becfd7, type: 3}
   - {fileID: 1392904071871295899, guid: ce0fd2b8632f6dd4c94d60909985d741, type: 3}
-  initialBatchSize: 0
-  regularBatchSize: 2
-  timeBetweenWaves: 10
-  spawnIntervalWithinBatch: 0.2
+  initialBatchSize: 3
+  regularBatchSize: 3
+  timeBetweenWaves: 8
+  spawnIntervalWithinBatch: 0.4
