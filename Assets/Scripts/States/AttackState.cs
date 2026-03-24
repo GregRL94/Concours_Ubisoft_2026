@@ -11,6 +11,7 @@ public class AttackState : EnemyState
     private bool _hasExploded = false; //Nouveau flag de securite
     private int attackcounter;
     private int attackcounter = 1;
+    private bool _hasExploded = false;
 
     private Coroutine _explosionRoutine;//On stock la coroutine pour pouvoir l'arreter
     // Start is called once before the first execution of Update after the MonoBehaviour is created

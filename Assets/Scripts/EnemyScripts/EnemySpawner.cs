@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour, IHit
 {
     public WaveData waveSettings;
 
@@ -61,10 +61,18 @@ public class EnemySpawner : MonoBehaviour
         if (ai != null)
         {
             ai.StateMachine.Initialize(ai.PatrolState);
-        }
-        
+        } 
         
     }
+    public void OnHit(float damage) {
+	    health -= damage;
+	    Debug.Log("Spawner got hit!");
+	    if (health <= 0) {
+	    	Destroy(gameObject);
+	    }
+    }
+    public void OnHitRepel(float f, float ff, Vector2 V) {}
+    public void OnHitStun(float f, float ff) {}
     
     //BoltBat ne change pas de direction lorsqu'il commence a shoot l'ennemi. Le boltbat continue de shoot vers la derniere direction du joueur
    //Cap le nombre d'ennemis que les spawner vont spawn
