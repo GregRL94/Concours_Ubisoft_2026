@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LaserShot : MonoBehaviour
+public class LaserShotEnnemy : MonoBehaviour
 {
     [SerializeField] private GameObject _explosionEffect;
     private float _speed;
@@ -31,7 +31,7 @@ public class LaserShot : MonoBehaviour
 
     private void Move()
     {
-        transform.Translate(Vector2.up * _speed * Time.deltaTime);
+        transform.Translate(Vector3.right * _speed * Time.deltaTime);
     }
 
     private void _Destroy()

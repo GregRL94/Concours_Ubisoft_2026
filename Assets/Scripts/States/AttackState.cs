@@ -144,7 +144,7 @@ public class AttackState : EnemyState
             // On utilise la rotation du firePoint qui "track" déjà le joueur grâce à l'Update
             GameObject proj = Object.Instantiate(sData._projectilePrefab, enemy.firePoint.position, enemy.firePoint.rotation);
         
-            LaserShot projSetup = proj.GetComponent<LaserShot>();
+            LaserShotEnnemy projSetup = proj.GetComponent<LaserShotEnnemy>();
             projSetup.SetupLaserShoot(sData._speed, sData.damage, sData._lifetime, sData._impactLayerMask);
             enemy.animator.SetTrigger("attack");
             _shootTimer = 0f; // Reset du timer de tir
