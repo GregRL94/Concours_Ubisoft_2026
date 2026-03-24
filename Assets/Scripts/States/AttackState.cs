@@ -9,9 +9,9 @@ public class AttackState : EnemyState
     private float _meleeTimer;
     private bool _isExploding = false;
     private bool _hasExploded = false; //Nouveau flag de securite
-    private int attackcounter;
+    //private int attackcounter;
     private int attackcounter = 1;
-    private bool _hasExploded = false;
+   
 
     private Coroutine _explosionRoutine;//On stock la coroutine pour pouvoir l'arreter
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,8 +45,19 @@ public class AttackState : EnemyState
             //-- CAS SNIPER --//
             else if (enemy.data is SniperData sData)
             {
-                // enemy.Anim.SetTrigger("Shoot"); // Declenche l'animation de tir
-                //Shoot(sData);
+                if (enemy.Player != null)
+                {
+                    // 1. Calculer le vecteur direction
+                    Vector2 direction = (enemy.Player.position - enemy.firePoint.position).normalized;
+
+                    // 2. Calculer l'angle (Atan2 donne l'angle pour l'axe X)
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+                    // 3. Appliquer la rotation au firePoint
+                    // Si tes balles tirent de côté, utilise (0, 0, angle)
+                    // Si elles tirent vers le "haut" du sprite, utilise (0, 0, angle - 90)
+                    enemy.firePoint.rotation = Quaternion.Euler(0, 0, angle);
+                }
                 if (_shootTimer >= 1 / sData._fireRate)
                 {
                     Shoot(sData);
@@ -128,8 +139,11 @@ public class AttackState : EnemyState
     {
         if (sData._projectilePrefab != null && enemy.firePoint != null)
         {
-            Debug.Log(enemy.data.enemyName + " tire une balle !");
+           
+            
+            // On utilise la rotation du firePoint qui "track" déjà le joueur grâce à l'Update
             GameObject proj = Object.Instantiate(sData._projectilePrefab, enemy.firePoint.position, enemy.firePoint.rotation);
+        
             LaserShot projSetup = proj.GetComponent<LaserShot>();
             projSetup.SetupLaserShoot(sData._speed, sData.damage, sData._lifetime, sData._impactLayerMask);
             enemy.animator.SetTrigger("attack");
