@@ -15,11 +15,11 @@ MonoBehaviour:
   enemyName: Mikpin
   patrolRadius: 30
   moveSpeed: 3
-  maxHealth: 15
-  detectionRange: 5
+  maxHealth: 10
+  detectionRange: 75
   attackRange: 2
   stopDistance: 0
   damage: 10
-  explosionRadius: 3
+  explosionRadius: 2
   explosionEffect: {fileID: 3392167224638232088, guid: d7c9b16988421954daf726aac8371e7f, type: 3}
   explosionDelay: 0.5
