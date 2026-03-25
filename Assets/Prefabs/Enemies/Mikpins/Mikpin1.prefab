@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   data: {fileID: 11400000, guid: 7c9c269493edb5547b1cd6edda99f24e, type: 2}
+  bloodSplashPrefab: {fileID: 3015472318778711838, guid: 896da33545a96f944a0ac1e398d57a01, type: 3}
   firePoint: {fileID: 4901014329125216784}
 --- !u!195 &6276922060709080670
 NavMeshAgent:

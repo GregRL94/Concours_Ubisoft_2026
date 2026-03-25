@@ -139,6 +139,8 @@ public class MechaController : MonoBehaviour, IHit
     [Space]
 
     [Header("ULTIMATE TEAM ATTACK PARAMETERS")]
+    [SerializeField] private GameObject _leftMissileLauncher;
+    [SerializeField] private GameObject _rightMissileLauncher;
     [SerializeField] private LayerMask _ultimateTargetsWhat;
     [SerializeField] private Transform[] _missilePoints = new Transform[2];
     [SerializeField] private float _maxTargetingRange = 10f;
@@ -385,14 +387,27 @@ public class MechaController : MonoBehaviour, IHit
         // Si on est en train de tenter un ultimate → on coupe l'anim ability
         // Sinon comportement normal (hold dash)
         if (movementHold)
+        {
             animIsPressedDash.SetBool("isPressed", true);
+            _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
+        }
         else
+        {
             animIsPressedDash.SetBool("isPressed", false);
+            _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
+        }            
         
         if (shootHold)
+        {
             animIsPressedAOE.SetBool("isPressed", true);
+            _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
+        }
+
         else
+        {
             animIsPressedAOE.SetBool("isPressed", false);
+            _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
+        }            
 
         if (laserHold)
             animIsPressedGun.SetBool("isPressed", true);
@@ -513,7 +528,9 @@ public class MechaController : MonoBehaviour, IHit
         {
             if (hitObject.TryGetComponent(out IHit hitComponent))
             {
+                Vector2 repelDirection = (hitObject.transform.position - transform.position).normalized;
                 hitComponent.OnHitStun(_meleeDamage, _meleeAttackStunDuration);
+                hitComponent.OnHitRepel(0f, _aoeRepelForce, repelDirection);
             }
         }
         _meleeTimer = 0f;
@@ -592,6 +609,7 @@ public class MechaController : MonoBehaviour, IHit
             {
                 Vector2 repelDirection = (hitObject.transform.position - transform.position).normalized;
                 hitComponent.OnHitRepel(damage, repelForce, repelDirection);
+                hitComponent.OnHitStun(0f, _meleeAttackStunDuration);
             }
         }
         _aoeTimer = 0f;
