@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-
+        AudioManager.Instance.PlayRandomPlaylist(playlistMusic);
         StartObjective();
     }
 
