@@ -100,7 +100,7 @@ public class AttackState : EnemyState
             Object.Instantiate(kData.explosionEffect, enemy.transform.position, Quaternion.identity);
        
         // Détection des entités dans le rayon d'explosion
-        Collider2D[] hits = Physics2D.OverlapCircleAll(enemy.transform.position, kData.explosionRadius);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(enemy.transform.position, kData.explosionRadius, kData._explosionImpactsWhat);
     
         foreach (var hit in hits)
         {
