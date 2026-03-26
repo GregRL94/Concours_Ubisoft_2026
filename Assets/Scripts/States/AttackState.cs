@@ -27,9 +27,7 @@ public class AttackState : EnemyState
 
     public override void Update()
     {
-        float dist = Vector2.Distance(enemy.transform.position, enemy.Player.position);
-    
-        if (dist <= enemy.data.attackRange)
+        if (enemy.DistanceToPlayer <= enemy.data.attackRange)
         {
             //-- CAS KAMIKAZE --//
             if (enemy.data is KamikazeData kData)

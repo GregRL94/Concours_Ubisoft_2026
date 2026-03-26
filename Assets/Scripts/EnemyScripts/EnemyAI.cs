@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour, IHit
     public Transform firePoint;
     public EnemyState.EnemyStateMachine StateMachine { get; set; }
     
-    
+    public float DistanceToPlayer { get;private set; }
     //Variables privees synchronisees avec Data
     private float currentHealth;
     public NavMeshAgent Agent { get; set; } 
@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour, IHit
     public PatrolState PatrolState { get; private set; }
     public ChaseState ChaseState { get; private set; }
     public AttackState AttackState { get; private set; }
+    public StunState StunState { get; private set; }
 
     // Flag pour ne pas relancer l'animation de mort
     private bool _isDead;
@@ -63,6 +64,10 @@ public class EnemyAI : MonoBehaviour, IHit
     // Update is called once per frame
     void Update()
     {
+        if (Player != null)
+        {
+            DistanceToPlayer = Vector2.Distance(transform.position, Player.position);
+        }
         StateMachine.CurrentState.Update();
     }
 
@@ -122,5 +127,7 @@ public class EnemyAI : MonoBehaviour, IHit
     {
         // Implémenter la logique de stun ici (par exemple, désactiver les mouvements et les attaques pendant stunDuration)
         TakeDamage(damage);
+        StunState stunState = new StunState(this, StateMachine, stunDuration);
+        StateMachine.ChangeState(stunState);
     }
 }

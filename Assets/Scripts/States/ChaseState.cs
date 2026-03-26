@@ -16,20 +16,19 @@ public class ChaseState : EnemyState
         base.Enter();
         enemy.animator.SetBool("isWalking", true);
         // enemy.animator.SetBool("isRunning",true);
-        _agent.speed = enemy.data.moveSpeed * 1.5f;
+        _agent.speed = enemy.data.moveSpeed * 20f;
     }
 
     public override void Update()
     {
-        float dist = Vector2.Distance(enemy.transform.position, enemy.Player.transform.position);
-        
         //Transition vers Attaque ou Patrouille 
-        if(dist <= enemy.data.attackRange) stateMachine.ChangeState(enemy.AttackState);
-        else if (dist>enemy.data.detectionRange)stateMachine.ChangeState(enemy.PatrolState);
+        if(enemy.DistanceToPlayer <= enemy.data.attackRange) stateMachine.ChangeState(enemy.AttackState);
+        else if (enemy.DistanceToPlayer>enemy.data.detectionRange)stateMachine.ChangeState(enemy.PatrolState);
         
         //On donne la cible au navMesh 
         _agent.SetDestination(enemy.Player.position);
         //MIkPIN trouve le joueur, on se deplace plus vite...
+       
         //Dash lorsque le joueur est a porte
         Vector2 direction = enemy.Player.position - enemy.transform.position;
         RotateTowards(direction);
