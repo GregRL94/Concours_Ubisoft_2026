@@ -130,13 +130,39 @@ public class MenuInputListener : MonoBehaviour
     {
         if (!context.performed) return;
 
+        if (menuManager == null)
+        {
+            menuManager = MenuManager.Instance;
+            if (menuManager == null)
+                return;
+        }
+
         if (PlayerChoiceMenu.Instance != null && PlayerChoiceMenu.Instance.HasLockedSelection()) return;
 
         if (IsMainMenuScene() && menuManager.HasOpenMenu && !menuManager.IsMainMenuActive())
         {
+            audioManager.PlaySound("UI_Back");
             menuManager.CloseMenu();
+        }
+        else if (MenuManager.Instance.IsPlayerChoiceMenuActive())
+        {
+            //MenuManager.Instance.OpenMenu(MenuManager.Instance.GetPauseMenu());
+            MenuManager.Instance.CloseMenu();
             audioManager.PlaySound("UI_Back");
         }
+        else if (MenuManager.Instance.IsSettingsMenuActive())
+        {
+            //MenuManager.Instance.OpenMenu(MenuManager.Instance.GetPauseMenu());
+            MenuManager.Instance.CloseMenu();
+            audioManager.PlaySound("UI_Back");
+        }
+        //else if (MenuManager.Instance.IsPauseMenuActive())
+        //{
+        //    MenuManager.Instance.ClearMenu();
+        //    MenuManager.Instance.CloseMenu();
+        //}
+            
+
     }
 
     private void OnSubmit(InputAction.CallbackContext context)
@@ -145,7 +171,6 @@ public class MenuInputListener : MonoBehaviour
 
         if (menuManager.HasOpenMenu)
         {
-            //audioManager.PlaySound("UI_Submit");
         }
     }
 

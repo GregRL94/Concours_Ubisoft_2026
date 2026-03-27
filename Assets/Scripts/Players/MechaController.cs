@@ -222,6 +222,8 @@ public class MechaController : MonoBehaviour, IHit
     // Mise à jour des timers de cooldowns, gestion des abilités actives et des collisions de dash
     private void Update()
     {
+        if (Time.timeScale == 0f) return;
+
         UpdateTimers();
 
         if (movementPlayer != null && shootPlayer != null)

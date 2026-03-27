@@ -20,15 +20,26 @@ public class GameManager : MonoBehaviour
     [Header("Music Playlist")]
     public string[] playlistMusic;
 
-    public enum GameState
+    public enum GameplayState
     {
         Playing,
         Transition,
         Win,
         Lose
     }
+    public GameplayState CurrentState { get; private set; }
 
-    public GameState CurrentState { get; private set; }
+    public enum GameModeState
+    {
+        Gameplay,
+        Menu
+    }
+    public GameModeState CurrentModeState { get; private set; }
+
+    public void SetModeState(GameModeState newState)
+    {
+        CurrentModeState = newState;
+    }
 
     private int currentObjectiveIndex = 0;
     private bool hasWon = false;
@@ -60,16 +71,16 @@ public class GameManager : MonoBehaviour
     {
         hasWon = false;
 
-        CurrentState = GameState.Playing;
+        CurrentState = GameplayState.Playing;
 
         objectives[currentObjectiveIndex].Begin();
     }
 
     public void CompleteObjective()
     {
-        if (CurrentState != GameState.Playing) return;
+        if (CurrentState != GameplayState.Playing) return;
 
-        CurrentState = GameState.Transition;
+        CurrentState = GameplayState.Transition;
 
         currentObjectiveIndex++;
 
@@ -97,7 +108,7 @@ public class GameManager : MonoBehaviour
 
     public void LoseGame()
     {
-        CurrentState = GameState.Lose;
+        CurrentState = GameplayState.Lose;
 
         TransitionManager.Instance.FadeInCurrentScene(
             gameOverTransition,
@@ -108,7 +119,7 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-        CurrentState = GameState.Win;
+        CurrentState = GameplayState.Win;
 
         TransitionManager.Instance.FadeInCurrentScene(
             winTransition,
@@ -141,7 +152,8 @@ public class GameManager : MonoBehaviour
         if (Keyboard.current != null && Keyboard.current.digit0Key.wasPressedThisFrame && !hasWon)
         {
             hasWon = true;
-
+            
+            // todo: disable player move when dead
             var players = FindObjectsByType<PlayerInputHandler>(FindObjectsSortMode.None);
             foreach (var p in players)
                 p.enabled = false;

@@ -20,6 +20,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Menu endMenu;
     [SerializeField] private Menu nextLevelMenu;
     [SerializeField] private Menu playerChoiceMenu;
+    [SerializeField] private Menu settingsMenu;
     [SerializeField] private Menu accessibilityMenu;
 
 
@@ -83,6 +84,9 @@ public class MenuManager : MonoBehaviour
         if (nextLevelMenu == null)
             nextLevelMenu = FindAnyObjectByType<NextLevelMenu>(FindObjectsInactive.Include);
 
+        if (settingsMenu == null)
+            settingsMenu = FindAnyObjectByType<SettingsMenu>(FindObjectsInactive.Include);
+
 
         HideMenusDebug();
 
@@ -142,6 +146,7 @@ public class MenuManager : MonoBehaviour
 
     // GETTERS / RETURN BOOL
     public bool HasOpenMenu => menuStack.Count > 0;
+    public bool IsMainMenuScene() => SceneManager.GetActiveScene().name == "MainMenu";
     public bool IsMainMenuActive()
     {
         return mainMenu != null && mainMenu.gameObject.activeInHierarchy;
@@ -154,6 +159,10 @@ public class MenuManager : MonoBehaviour
     public bool IsPlayerChoiceMenuActive()
     {
         return playerChoiceMenu != null && playerChoiceMenu.gameObject.activeInHierarchy;
+    }
+    public bool IsSettingsMenuActive()
+    {
+        return settingsMenu != null && settingsMenu.gameObject.activeInHierarchy;
     }
 
     public PauseMenu GetPauseMenu()
@@ -207,6 +216,13 @@ public class MenuManager : MonoBehaviour
             nextLevelMenu = FindAnyObjectByType<NextLevelMenu>(FindObjectsInactive.Include);
 
         return nextLevelMenu as NextLevelMenu;
+    }
+    public SettingsMenu GetSettingsMenu()
+    {
+        if (settingsMenu == null)
+            settingsMenu = FindAnyObjectByType<SettingsMenu>(FindObjectsInactive.Include);
+
+        return settingsMenu as SettingsMenu;
     }
 }
 
