@@ -64,14 +64,27 @@ public class EnemySpawner : MonoBehaviour, IHit
         } 
         
     }
-    public void OnHit(float damage) {
-	    health -= damage;
-	    Debug.Log("Spawner got hit!");
-	    if (health <= 0) {
-	    	Destroy(gameObject);
-	    }
+
+    private void TakeDamage(float damage)
+    {
+        health -= damage;
+        Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
+        Debug.Log("Spawner got hit!");
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
-    public void OnHitRepel(float f, float ff, Vector2 V) {}
+
+    public void OnHit(float damage)
+    {
+	    TakeDamage(damage);
+    }
+    public void OnHitRepel(float damage, float ff, Vector2 V)
+    {
+        TakeDamage(damage);
+    }
+
     public void OnHitStun(float f, float ff) {}
     
     //BoltBat ne change pas de direction lorsqu'il commence a shoot l'ennemi. Le boltbat continue de shoot vers la derniere direction du joueur
