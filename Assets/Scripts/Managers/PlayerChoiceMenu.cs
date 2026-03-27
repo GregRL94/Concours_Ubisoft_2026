@@ -41,7 +41,7 @@ public class PlayerChoiceMenu : Menu
     [Header("Confirm Config")]
     [SerializeField] private float confirmTime = 1.2f;
     [SerializeField] private string sceneName = "Mission1";
-    [SerializeField] private float shakeIntensity = 5f;
+    //[SerializeField] private float shakeIntensity = 5f;
 
     private PlayerSlot p1Slot = PlayerSlot.Center;
     private PlayerSlot p2Slot = PlayerSlot.Center;

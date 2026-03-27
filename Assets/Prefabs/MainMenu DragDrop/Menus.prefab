@@ -6320,14 +6320,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: {fileID: 6868450918223530724}
   buttonsGroup: {fileID: 6822043145514040764}
+  delayBeforeBtns: 1
   startScale: 0.6
   peakScale: 1.3
   finalScale: 1
   scaleUpDuration: 0.15
   scaleDownDuration: 0.2
-  delayBeforeButtons: 0.3
   shakeDuration: 0.25
   shakeStrength: 10
+  starThresholds: []
+  stars: []
+  delayBeforeStars: 0.5
+  delayBetweenStars: 0.3
+  finalTimeText: {fileID: 0}
+  finalTimeTransform: {fileID: 0}
+  punchStartScale: 0
+  punchPeakScale: 1.6
+  punchEndScale: 1
+  punchUpDuration: 0.25
+  punchDownDuration: 0.15
+  delayBeforePunch: 0.2
+  timerRevealDuration: 0.8
 --- !u!114 &7822971213133325988
 MonoBehaviour:
   m_ObjectHideFlags: 0

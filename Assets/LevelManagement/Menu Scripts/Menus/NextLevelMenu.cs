@@ -1,10 +1,11 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class NextLevelMenu : Menu
 {
     [Header("References")]
-    [SerializeField] private RectTransform header;
+    [SerializeField] private RectTransform missionCompleteTitle;
     [SerializeField] private GameObject buttonsGroup;
 
     [Header("Positions")]
@@ -19,6 +20,11 @@ public class NextLevelMenu : Menu
     [Header("Impact")]
     [SerializeField] private float impactScale = 1.3f;
 
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI missionTitleText;
+    [SerializeField] private string missionCompleteFormat = "Mission {0} Complete";
+    [SerializeField] private string[] missionNames;
+
     private Vector3 startInitial;
 
     private void Awake()
@@ -30,10 +36,12 @@ public class NextLevelMenu : Menu
     {
         Time.timeScale = 0f;
 
-        header.position = startInitial;
-        header.localScale = Vector3.one;
+        missionCompleteTitle.position = startInitial;
+        missionCompleteTitle.localScale = Vector3.one;
 
         buttonsGroup.SetActive(false);
+
+        UpdateMissionText();
 
         StopAllCoroutines();
         StartCoroutine(AnimationRoutine());
@@ -48,7 +56,7 @@ public class NextLevelMenu : Menu
     IEnumerator AnimationRoutine()
     {
         // Slide 
-        yield return StartCoroutine(Slide(header, centerPos.position, slideDuration));
+        yield return StartCoroutine(Slide(missionCompleteTitle, centerPos.position, slideDuration));
 
         // Petit impact
         yield return StartCoroutine(Impact());
@@ -88,13 +96,21 @@ public class NextLevelMenu : Menu
             float lerp = t / impactDuration;
 
             float scale = Mathf.Lerp(1f, impactScale, lerp);
-            header.localScale = Vector3.one * scale;
+            missionCompleteTitle.localScale = Vector3.one * scale;
 
             yield return null;
         }
 
-        header.localScale = Vector3.one;
+        missionCompleteTitle.localScale = Vector3.one;
     }
+
+    void UpdateMissionText()
+    {
+        int missionNumber = Mathf.Clamp(GameManager.Instance.CurrentObjectiveIndex, 1, 99);
+
+        missionTitleText.text = string.Format(missionCompleteFormat, missionNumber);
+    }
+
 
     float EaseOutCubic(float x)
     {

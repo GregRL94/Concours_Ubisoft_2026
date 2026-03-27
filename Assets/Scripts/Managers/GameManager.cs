@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Transition Prefabs")]
     [SerializeField] private FadeTransition gameOverTransition;
-    [SerializeField] private FadeTransition nextLevelTransition;
+    [SerializeField] private FadeTransition nextLevelTransition; // bg screen before showing menu for next level
+    [SerializeField] private FadeTransition mission2Transition;
+    [SerializeField] private FadeTransition mission3Transition;
     [SerializeField] private FadeTransition winTransition;
 
     [Header("Scenes")]
@@ -16,10 +18,15 @@ public class GameManager : MonoBehaviour
 
     [Header("Objectives")]
     public Objective[] objectives;
+    private int currentObjectiveIndex = 0;
+    private bool hasWon = false;
+    public int CurrentObjectiveIndex => currentObjectiveIndex;
 
     [Header("Music Playlist")]
     public string[] playlistMusic;
 
+    private float timer = 0f;
+    public float CurrentTime => timer;
     public enum GameplayState
     {
         Playing,
@@ -41,8 +48,6 @@ public class GameManager : MonoBehaviour
         CurrentModeState = newState;
     }
 
-    private int currentObjectiveIndex = 0;
-    private bool hasWon = false;
 
     // ---------------- INIT ----------------
 
@@ -60,10 +65,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        AudioManager.Instance.PlayRandomPlaylist(playlistMusic);
-
+        MusicPlaylistStart();
         StartObjective();
     }
+
+    public void MusicPlaylistStart() => AudioManager.Instance.PlayRandomPlaylist(playlistMusic);
+
 
     // ---------------- OBJECTIVES ----------------
 
@@ -132,28 +139,57 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-
+        string nextScene = levelScenes[currentObjectiveIndex];
+        print(nextScene);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(levelScenes[currentObjectiveIndex]);
+
+        if(nextScene == "Mission2")
+        {
+            TransitionManager.Instance.TransitionToScene(
+                nextScene,
+                mission2Transition,
+                0f
+            );
+        }
+        else if(nextScene == "Mission3")
+        {
+            TransitionManager.Instance.TransitionToScene(
+                nextScene,
+                mission3Transition,
+                0f
+            );
+        }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        AudioManager.Instance.PlayRandomPlaylist(playlistMusic);
+
+        //// relancer la playlist après reload
+        //AudioManager.Instance.PlayRandomPlaylist(playlistMusic);
+
         StartObjective();
     }
 
-    // ---------------- DEBUG ----------------
+
+    // ---------------- TIMER ----------------
+
 
     void Update()
     {
+        if (CurrentState == GameplayState.Playing)
+        {
+            timer += Time.deltaTime;
+
+            UpdateTimerUI();
+        }
+
+        // DEBUG
         if (Keyboard.current != null && Keyboard.current.digit0Key.wasPressedThisFrame && !hasWon)
         {
             hasWon = true;
-            
-            // todo: disable player move when dead
+
             var players = FindObjectsByType<PlayerInputHandler>(FindObjectsSortMode.None);
             foreach (var p in players)
                 p.enabled = false;
@@ -161,4 +197,20 @@ public class GameManager : MonoBehaviour
             CompleteObjective();
         }
     }
+
+    void UpdateTimerUI()
+    {
+        if (UIManager.Instance == null) return;
+
+        int minutes = (int)(timer / 60);
+        int seconds = (int)(timer % 60);
+        int ms = (int)((timer * 100) % 100);
+
+        string display = $"{minutes:D2}:{seconds:D2}:{ms:D2}";
+
+        UIManager.Instance.UpdateTimer(display);
+    }
+
+
+
 }

@@ -34,6 +34,11 @@ public class PauseMenu : Menu
     {
         MenuManager.Instance.CloseMenu();
         AudioManager.Instance.StopMusic();
+        // Détruire le GameManager existant
+        if (GameManager.Instance != null)
+        {
+            Destroy(GameManager.Instance.gameObject);
+        }
         LevelLoader.LoadMainMenuLevel();
     }
 

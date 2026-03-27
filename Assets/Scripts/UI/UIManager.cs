@@ -11,20 +11,34 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        //if (Instance != null && Instance != this)
-        //{
-        //    Destroy(gameObject);
-        //    return;
-        //}
+        Instance = this;
+    }
 
-        if(Instance == null)Instance = this;
-        //DontDestroyOnLoad(gameObject);
+    void Start()
+    {
+        UpdateGameTime();
+    }
+
+    private void UpdateGameTime()
+    {
+        if (GameManager.Instance != null)
+        {
+            float time = GameManager.Instance.CurrentTime;
+
+            int minutes = (int)(time / 60);
+            int seconds = (int)(time % 60);
+            int ms = (int)((time * 100) % 100);
+            string display = $"{minutes:D2}:{seconds:D2}:{ms:D2}";
+
+            UpdateTimer(display);
+        }
     }
 
     #region TIMER
 
     public void UpdateTimer(string time)
     {
+        print("update timer !");
         if (timerText != null)
             timerText.text = time;
     }

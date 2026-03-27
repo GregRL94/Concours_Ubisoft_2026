@@ -27,7 +27,7 @@ public class SettingsMenu : Menu
 
     [Header("Audio Settings (dB)")]
     [SerializeField] private float maxDb = -6f; // slider à 1 à environ -6 dB
-    [SerializeField] private float minDb = -80f;
+    //[SerializeField] private float minDb = -80f;
     [SerializeField] private float startSliderValue = 1f;
 
     [Header("Fullscreen Toggle")]
