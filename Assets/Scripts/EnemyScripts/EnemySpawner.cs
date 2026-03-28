@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour, IHit
 {
     public WaveData waveSettings;
 
@@ -61,10 +61,31 @@ public class EnemySpawner : MonoBehaviour
         if (ai != null)
         {
             ai.StateMachine.Initialize(ai.PatrolState);
-        }
-        
+        } 
         
     }
+
+    private void TakeDamage(float damage)
+    {
+        health -= damage;
+        Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
+        Debug.Log("Spawner got hit!");
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void OnHit(float damage)
+    {
+	    TakeDamage(damage);
+    }
+    public void OnHitRepel(float damage, float ff, Vector2 V)
+    {
+        TakeDamage(damage);
+    }
+
+    public void OnHitStun(float f, float ff) {}
     
     //BoltBat ne change pas de direction lorsqu'il commence a shoot l'ennemi. Le boltbat continue de shoot vers la derniere direction du joueur
     //Si le mikpin se fait shoot/attack de melee, il doit exploser et il fait ses degats

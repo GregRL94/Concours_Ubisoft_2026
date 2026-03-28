@@ -9,6 +9,7 @@ public class AttackState : EnemyState
     private float _meleeTimer;
     private bool _isExploding = false;
     private int attackcounter = 1;
+    private bool _hasExploded = false;
 
     private Coroutine _explosionRoutine;//On stock la coroutine pour pouvoir l'arreter
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -90,17 +91,20 @@ public class AttackState : EnemyState
         yield return new WaitForSeconds(kData.explosionDelay);
         Explode(kData);
     }
-    void Explode(KamikazeData kData)
+    public void Explode(KamikazeData kData)
     {
+	if (_hasExploded) return;
+	_hasExploded = true;
         Debug.Log("BOOOOM");
         if(kData.explosionEffect != null)
             Object.Instantiate(kData.explosionEffect, enemy.transform.position, Quaternion.identity);
        
         // Détection des entités dans le rayon d'explosion
-        Collider2D[] hits = Physics2D.OverlapCircleAll(enemy.transform.position, kData.explosionRadius);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(enemy.transform.position, kData.explosionRadius, kData._explosionImpactsWhat);
     
         foreach (var hit in hits)
         {
+	    if (hit.gameObject == enemy.gameObject) continue;
             // Utilisation de IHit pour infliger des dégâts
             if (hit.TryGetComponent(out IHit hitComponent))
             {

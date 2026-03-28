@@ -6,6 +6,8 @@ public class EnemyAI : MonoBehaviour, IHit
     [Header("Donnees de l'ennemi")] 
     public EnemyData data; //Nouvellle fiche de stats ScriptableObj
     public Animator animator {get; private set;}
+    [Header("BloodSplash Particles")]
+    public GameObject bloodSplashPrefab;
     [Header("Références de combat")]
     public Transform firePoint;
     public EnemyState.EnemyStateMachine StateMachine { get; set; }
@@ -69,6 +71,12 @@ public class EnemyAI : MonoBehaviour, IHit
     public void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+        float randBloodChance = UnityEngine.Random.Range(0f, 1f);
+        if (damage > 0f && randBloodChance >= 0.5f)
+        {
+            Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
+            Instantiate(bloodSplashPrefab, transform.position, Quaternion.identity);
+        }
         currentHealth -= damage;
         if (currentHealth <= 0 && !_isDead)
         {
@@ -87,7 +95,11 @@ public class EnemyAI : MonoBehaviour, IHit
         {
             EnemyManager.Instance.UnRegisterEnemy(this);
         }
-        
+    
+    	if (data is KamikazeData kdata) 
+	{
+		AttackState.Explode(kdata);
+	}	
         Debug.Log("ENEMY DIEEED!!!");
         animator.SetTrigger("Die");
         _isDead = true;
