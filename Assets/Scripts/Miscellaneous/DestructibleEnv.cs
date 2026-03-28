@@ -10,8 +10,7 @@ public class DestructibleEnv : MonoBehaviour, IHit
         _currentHealth = _maxHealth;
     }
 
-    #region IHit Implementation
-    public void OnHit(float damage)
+    private void TakeDamage(float damage)
     {
         _currentHealth -= damage;
         if (_currentHealth <= 0)
@@ -20,8 +19,20 @@ public class DestructibleEnv : MonoBehaviour, IHit
         }
     }
 
-    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection) {}
-    public void OnHitStun(float damage, float stunDuration) {}
+    #region IHit Implementation
+    public void OnHit(float damage)
+    {
+        TakeDamage(damage);
+    }
+
+    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
+    {
+        TakeDamage(damage);
+    }
+    public void OnHitStun(float damage, float stunDuration)
+    {
+        TakeDamage(damage);
+    }
     #endregion IHit Implementation
 
     private void _Destroy()

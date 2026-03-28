@@ -1,5 +1,3 @@
-//hold sa active les cooldown dash  aoe, mais si je release vite sa nactive pas les cooldowns aoe dash ouff jen ai marre
-
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -110,8 +108,11 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private Transform _meleeAttackPoint;
     [SerializeField] private Vector2 _meleeAttackHitBox;
     [SerializeField] private LayerMask _meleeAttackImpactsWhat;
+    [SerializeField] private bool _meleeAttackStuns = true;
+    [SerializeField] private bool _meleeAttackRepels = true;
     [SerializeField] private float _meleeDamage = 10f;
     [SerializeField] private float _meleeAttackStunDuration = 1.5f;
+    [SerializeField] private float _meleeAttackRepelForce = 100f;
     [SerializeField] private float _meleeAttackCooldown = 1f;
     [SerializeField] private Animator animIsPressedMelee;
     [Space]
@@ -131,9 +132,12 @@ public class MechaController : MonoBehaviour, IHit
     [Header("AOE parameters")]
     [SerializeField] private GameObject _aoeEffectPrefab;
     [SerializeField] private LayerMask _aoeImpactsWhat;
+    [SerializeField] private bool _aoeStuns = true;
+    [SerializeField] private bool _aoeRepels = true;
     [SerializeField] private float _aoeRadius = 3f;
     [SerializeField] private float _aoeDamage = 5f;
-    [SerializeField] private float _aoeRepelForce = 2f;
+    [SerializeField] private float _aoeStunDuration = 1.5f;
+    [SerializeField] private float _aoeRepelForce = 100f;
     [SerializeField] private float _aoeCooldown = 5f;
     [SerializeField] private Animator animIsPressedAOE;
     [Space]
@@ -190,7 +194,7 @@ public class MechaController : MonoBehaviour, IHit
     private float _meleeHoldMovementDuration = 0.5f;
     private float _meleeHoldMovementTimer;
     private float _aoeTimer;
-    private Vector2 _lastNonZeroDir;
+    private Vector2 _lastNonZeroDir = new Vector2(1f, 0f);
     private int _currentGunIndex = 0;
     private float _currentAngularDispersion;
     private float _currentLinearDispersion;
@@ -316,6 +320,10 @@ public class MechaController : MonoBehaviour, IHit
 
         }
 
+        if (_isDashing && move == Vector2.zero)
+        {
+            move = _lastNonZeroDir; // Permet de continuer à dash dans la dernière direction de mouvement même si le stick est relâché
+        }
         _rb2D.linearVelocity = move * _currentSpeed; // Deplacement du mecha selon les inputs du joueur de mouvement
         _mechaBase.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(_lastNonZeroDir.x, _lastNonZeroDir.y, _offsetAngleDeg)); // Rotation de la base du mecha selon la direction de d�placement
     }
@@ -540,8 +548,8 @@ public class MechaController : MonoBehaviour, IHit
             if (hitObject.TryGetComponent(out IHit hitComponent))
             {
                 Vector2 repelDirection = (hitObject.transform.position - transform.position).normalized;
-                hitComponent.OnHitStun(_meleeDamage, _meleeAttackStunDuration);
-                hitComponent.OnHitRepel(0f, _aoeRepelForce, repelDirection);
+                if (_meleeAttackStuns) { hitComponent.OnHitStun(_meleeDamage, _meleeAttackStunDuration); }
+                if (_meleeAttackRepels) { hitComponent.OnHitRepel(0f, _meleeAttackRepelForce, repelDirection); }                
             }
         }
         _meleeTimer = 0f;
@@ -618,8 +626,8 @@ public class MechaController : MonoBehaviour, IHit
             if (hitObject.TryGetComponent(out IHit hitComponent))
             {
                 Vector2 repelDirection = (hitObject.transform.position - transform.position).normalized;
-                hitComponent.OnHitRepel(damage, repelForce, repelDirection);
-                hitComponent.OnHitStun(0f, _meleeAttackStunDuration);
+                if (_aoeRepels) { hitComponent.OnHitRepel(damage, repelForce, repelDirection); }
+                if (_aoeStuns) { hitComponent.OnHitStun(0f, _aoeStunDuration); }
             }
         }
         _aoeTimer = 0f;
