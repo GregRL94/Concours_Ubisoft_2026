@@ -208,15 +208,12 @@ public class GameOverMenu : Menu
     // ---------------------------
     public void OnRestartPressed()
     {
-        AudioManager.Instance.StopPlaylist(); // juste stop la playlist, pas tous les AudioSources
-        AudioManager.Instance.PlaySound("UI_Submit");
-
-        LevelLoader.ReloadLevel(); // recharge la scène
+        GameManager.Instance.RestartLevel();
     }
 
     public void OnMainMenuPressed()
     {
-        AudioManager.Instance.StopMusic();
+        OnReturnToMainMenu();
         LevelLoader.LoadMainMenuLevel();
     }
 

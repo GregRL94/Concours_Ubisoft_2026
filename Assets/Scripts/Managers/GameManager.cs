@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Transition Prefabs")]
     [SerializeField] private FadeTransition gameOverTransition;
-    [SerializeField] private FadeTransition nextLevelTransition; // bg screen before showing menu for next level
+    [SerializeField] private FadeTransition nextLevelTransition;
     [SerializeField] private FadeTransition mission2Transition;
     [SerializeField] private FadeTransition mission3Transition;
     [SerializeField] private FadeTransition winTransition;
@@ -16,40 +16,26 @@ public class GameManager : MonoBehaviour
     [Header("Scenes")]
     [SerializeField] private string[] levelScenes;
 
-    [Header("Objectives")]
-    public Objective[] objectives;
-    private int currentObjectiveIndex = 0;
-    private bool hasWon = false;
-    public int CurrentObjectiveIndex => currentObjectiveIndex;
+    [Header("Objectives Texts")]
+    [SerializeField] private string[] objectiveTexts; // index correspond à levelScenes
+
+    [Header("UI References")]
+    [SerializeField] private TextMeshProUGUI missionText;
+    [SerializeField] private TextMeshProUGUI objectiveText;
+    [SerializeField] private TextMeshProUGUI timerText;
 
     [Header("Music Playlist")]
     public string[] playlistMusic;
 
+    private int currentObjectiveIndex = 0;
+    public int CurrentObjectiveIndex => currentObjectiveIndex;
     private float timer = 0f;
     public float CurrentTime => timer;
-    public enum GameplayState
-    {
-        Playing,
-        Transition,
-        Win,
-        Lose
-    }
+    private float checkpointTime = 0f; // checkpoint du début de la mission 2+
+    private bool hasWon = false;
+
+    public enum GameplayState { Playing, Transition, Win, Lose }
     public GameplayState CurrentState { get; private set; }
-
-    public enum GameModeState
-    {
-        Gameplay,
-        Menu
-    }
-    public GameModeState CurrentModeState { get; private set; }
-
-    public void SetModeState(GameModeState newState)
-    {
-        CurrentModeState = newState;
-    }
-
-
-    // ---------------- INIT ----------------
 
     void Awake()
     {
@@ -65,152 +51,176 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        MusicPlaylistStart();
-        StartObjective();
-    }
+        // On récupère l'index de la scène actuelle
+        currentObjectiveIndex = 0;
 
-    public void MusicPlaylistStart() => AudioManager.Instance.PlayRandomPlaylist(playlistMusic);
-
-
-    // ---------------- OBJECTIVES ----------------
-
-    void StartObjective()
-    {
+        // Checkpoint = 0 pour la mission 1, sinon garder l'ancien si restart
+        checkpointTime = (currentObjectiveIndex == 0) ? 0f : checkpointTime;
+        timer = checkpointTime;
         hasWon = false;
-
         CurrentState = GameplayState.Playing;
 
-        objectives[currentObjectiveIndex].Begin();
+        UpdateUI();
+        MusicPlaylistStart();
     }
 
+    void Update()
+    {
+        if (CurrentState != GameplayState.Playing) return;
+
+        timer += Time.deltaTime;
+        UpdateTimerUI();
+
+        // DEBUG: passer l'objectif avec 0
+        if (UnityEngine.InputSystem.Keyboard.current != null &&
+            UnityEngine.InputSystem.Keyboard.current.digit0Key.wasPressedThisFrame &&
+            !hasWon)
+        {
+            hasWon = true;
+            CompleteObjective();
+        }
+    }
+
+    #region TIMER & UI
+    private void UpdateUI()
+    {
+        UpdateMissionUI();
+        UpdateObjectiveUI();
+        UpdateTimerUI();
+    }
+
+    private void UpdateMissionUI()
+    {
+        if (missionText != null)
+            missionText.text = $"Mission {currentObjectiveIndex + 1}";
+    }
+
+    private void UpdateObjectiveUI()
+    {
+        if (objectiveText != null && objectiveTexts.Length > currentObjectiveIndex)
+            objectiveText.text = objectiveTexts[currentObjectiveIndex];
+    }
+
+    private void UpdateTimerUI()
+    {
+        if (timerText == null) return;
+
+        int minutes = (int)(timer / 60);
+        int seconds = (int)(timer % 60);
+        int ms = (int)((timer * 100) % 100);
+        timerText.text = $"{minutes:D2}:{seconds:D2}:{ms:D2}";
+    }
+    #endregion
+
+    #region MUSIC
+    public void MusicPlaylistStart()
+    {
+        if (playlistMusic != null && playlistMusic.Length > 0)
+            AudioManager.Instance.PlayRandomPlaylist(playlistMusic);
+    }
+    #endregion
+
+    #region OBJECTIVES
     public void CompleteObjective()
     {
         if (CurrentState != GameplayState.Playing) return;
 
         CurrentState = GameplayState.Transition;
-
         currentObjectiveIndex++;
 
         if (currentObjectiveIndex >= levelScenes.Length)
         {
             WinGame();
-            return;
         }
+        else
+        {
+            // Pour missions 2+, on sauvegarde le checkpoint au début de la mission
+            if (currentObjectiveIndex > 0)
+                checkpointTime = timer;
 
-        MissionAccomplished();
+            MissionAccomplished();
+        }
     }
+    #endregion
 
-    // ---------------- TRANSITIONS ----------------
-
+    #region TRANSITIONS
     public void MissionAccomplished()
     {
         Debug.Log("Objective Completed");
-
-        TransitionManager.Instance.FadeInCurrentScene(
-            nextLevelTransition,
-            MenuManager.Instance.GetNextLevelMenu(),
-            0f
-        );
+        TransitionManager.Instance.FadeInCurrentScene(nextLevelTransition, MenuManager.Instance.GetNextLevelMenu(), 0f);
     }
 
     public void LoseGame()
     {
         CurrentState = GameplayState.Lose;
-
-        TransitionManager.Instance.FadeInCurrentScene(
-            gameOverTransition,
-            MenuManager.Instance.GetGameOverMenu(),
-            0f
-        );
+        TransitionManager.Instance.FadeInCurrentScene(gameOverTransition, MenuManager.Instance.GetGameOverMenu(), 0f);
     }
 
     public void WinGame()
     {
         CurrentState = GameplayState.Win;
-
-        TransitionManager.Instance.FadeInCurrentScene(
-            winTransition,
-            MenuManager.Instance.GetEndMenu(),
-            0f
-        );
+        TransitionManager.Instance.FadeInCurrentScene(winTransition, MenuManager.Instance.GetEndMenu(), 0f);
     }
+    #endregion
 
-    // ---------------- NEXT LEVEL ----------------
-
+    #region LEVEL MANAGEMENT
     public void LoadNextLevel()
     {
-        string nextScene = levelScenes[currentObjectiveIndex];
-        print(nextScene);
+        if (currentObjectiveIndex >= levelScenes.Length) return;
 
+        string nextScene = levelScenes[currentObjectiveIndex];
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        if(nextScene == "Mission2")
+        if (nextScene == "Mission2")
         {
-            TransitionManager.Instance.TransitionToScene(
-                nextScene,
-                mission2Transition,
-                0f
-            );
+            TransitionManager.Instance.TransitionToScene(nextScene, mission2Transition, 0f);
         }
-        else if(nextScene == "Mission3")
+        else if (nextScene == "Mission3")
         {
-            TransitionManager.Instance.TransitionToScene(
-                nextScene,
-                mission3Transition,
-                0f
-            );
+            TransitionManager.Instance.TransitionToScene(nextScene, mission3Transition, 0f);
         }
+
+        hasWon = false;
+        CurrentState = GameplayState.Playing;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void RestartLevel()
+    {
+        // Stop et restart musique
+        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlaySound("UI_Submit");
+        MusicPlaylistStart();
+
+        // Reset timer au checkpoint si mission 2+, sinon 0 pour mission 1
+        timer = (currentObjectiveIndex == 0) ? 0f : checkpointTime;
+        hasWon = false;
+        CurrentState = GameplayState.Playing;
+
+        SceneManager.sceneLoaded += OnSceneReloaded;
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
+
+    private void OnSceneReloaded(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= OnSceneReloaded;
+        UpdateUI();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-
-        //// relancer la playlist après reload
-        //AudioManager.Instance.PlayRandomPlaylist(playlistMusic);
-
-        StartObjective();
+        UpdateUI();
     }
 
-
-    // ---------------- TIMER ----------------
-
-
-    void Update()
-    {
-        if (CurrentState == GameplayState.Playing)
-        {
-            timer += Time.deltaTime;
-
-            UpdateTimerUI();
-        }
-
-        // DEBUG
-        if (Keyboard.current != null && Keyboard.current.digit0Key.wasPressedThisFrame && !hasWon)
-        {
-            hasWon = true;
-
-            var players = FindObjectsByType<PlayerInputHandler>(FindObjectsSortMode.None);
-            foreach (var p in players)
-                p.enabled = false;
-
-            CompleteObjective();
-        }
-    }
-
-    void UpdateTimerUI()
-    {
-        if (UIManager.Instance == null) return;
-
-        int minutes = (int)(timer / 60);
-        int seconds = (int)(timer % 60);
-        int ms = (int)((timer * 100) % 100);
-
-        string display = $"{minutes:D2}:{seconds:D2}:{ms:D2}";
-
-        UIManager.Instance.UpdateTimer(display);
-    }
-
-
-
+    //private int GetSceneIndex(string sceneName)
+    //{
+    //    for (int i = 0; i < levelScenes.Length; i++)
+    //    {
+    //        if (levelScenes[i] == sceneName)
+    //            return i;
+    //    }
+    //    return 0; // défaut = mission 1
+    //}
+    #endregion
 }

@@ -152,6 +152,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private Animator animIsPressedShot;
     [SerializeField] private float _ultimateHoldDuration = 3f;
     [SerializeField] private float _ultimateMax = 100f;
+    [SerializeField] private Animator animIsReadyUltimate;
     private float _ultimateCharge = 0f;
     private bool _isAttemptingUltimate = false;
     private bool _ultimateReady = false;
@@ -373,6 +374,7 @@ public class MechaController : MonoBehaviour, IHit
         {
             _ultimateCharge = _ultimateMax;
             _ultimateReady = true;
+            animIsReadyUltimate.SetBool("isReady", _ultimateReady);
         }
 
         // -------- SI ULTIMATE PAS READY STOP ICI --------
@@ -505,6 +507,7 @@ public class MechaController : MonoBehaviour, IHit
         }        
 
         _ultimateReady = false;
+        animIsReadyUltimate.SetBool("isReady", _ultimateReady);
         _ultimateCharge = 0;
 
         _movementCharged = false;

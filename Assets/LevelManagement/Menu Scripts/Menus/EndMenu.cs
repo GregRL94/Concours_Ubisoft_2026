@@ -82,9 +82,9 @@ public class EndMenu : Menu
         yield return StartCoroutine(PunchFinalTime());
         yield return StartCoroutine(AnimateFinalTime(finalTime));
 
-        // étoiles
-        int starsEarned = CalculateStars(finalTime);
-        yield return StartCoroutine(AnimateStars(starsEarned));
+        //// stars
+        //int starsEarned = CalculateStars(finalTime);
+        //yield return StartCoroutine(AnimateStars(starsEarned));
 
         yield return new WaitForSecondsRealtime(delayBeforeBtns);
 
@@ -306,19 +306,12 @@ public class EndMenu : Menu
     // BUTTONS
     public void OnRestartPressed()
     {
-        AudioManager.Instance.StopMusic();
-        AudioManager.Instance.PlaySound("UI_Submit");
-        LevelLoader.ReloadLevel();
+        GameManager.Instance.RestartLevel();
     }
 
     public void OnMainMenuPressed()
     {
-        AudioManager.Instance.StopMusic();
-        // Détruire le GameManager existant
-        if (GameManager.Instance != null)
-        {
-            Destroy(GameManager.Instance.gameObject);
-        }
+        OnReturnToMainMenu();
         LevelLoader.LoadMainMenuLevel();
     }
 

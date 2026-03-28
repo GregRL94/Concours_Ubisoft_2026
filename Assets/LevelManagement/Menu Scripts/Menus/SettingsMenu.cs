@@ -202,9 +202,7 @@ public class SettingsMenu : Menu
         // Check si on est dans MainMenu
         if (!MenuManager.Instance.IsMainMenuScene())
         {
-            // Freeze le gameplay
             Time.timeScale = 0f;
-            //InputManager.Instance.DisableGameplay();
         }
     }
 
@@ -214,9 +212,7 @@ public class SettingsMenu : Menu
 
         if (!MenuManager.Instance.IsMainMenuScene())
         {
-            // Reprendre le gameplay
             Time.timeScale = 1f;
-            //InputManager.Instance.EnableGameplay();
         }
     }
     private void HandleResolutionNavigate(Vector2 dir)

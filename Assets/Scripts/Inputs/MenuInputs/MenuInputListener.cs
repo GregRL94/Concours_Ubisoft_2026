@@ -146,13 +146,16 @@ public class MenuInputListener : MonoBehaviour
         }
         else if (MenuManager.Instance.IsPlayerChoiceMenuActive())
         {
-            //MenuManager.Instance.OpenMenu(MenuManager.Instance.GetPauseMenu());
             MenuManager.Instance.CloseMenu();
             audioManager.PlaySound("UI_Back");
         }
         else if (MenuManager.Instance.IsSettingsMenuActive())
         {
-            //MenuManager.Instance.OpenMenu(MenuManager.Instance.GetPauseMenu());
+            MenuManager.Instance.CloseMenu();
+            audioManager.PlaySound("UI_Back");
+        }
+        else if (MenuManager.Instance.IsAccessibilityMenuActive())
+        {
             MenuManager.Instance.CloseMenu();
             audioManager.PlaySound("UI_Back");
         }

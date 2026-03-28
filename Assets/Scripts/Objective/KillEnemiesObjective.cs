@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KillEnemiesObjective : Objective
 {
@@ -8,4 +9,20 @@ public class KillEnemiesObjective : Objective
         UIManager.Instance.UpdateObjective(objectiveText);
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        UIManager.Instance.UpdateObjective(objectiveText);
+        //GameManager.Instance.UpdateMissionUI();
+
+    }
 }

@@ -162,6 +162,11 @@ public class MenuManager : MonoBehaviour
         return settingsMenu != null && settingsMenu.gameObject.activeInHierarchy;
     }
 
+    public bool IsAccessibilityMenuActive()
+    {
+        return accessibilityMenu != null && accessibilityMenu.gameObject.activeInHierarchy;
+    }
+
     public PauseMenu GetPauseMenu()
     {
         if (pauseMenu == null)

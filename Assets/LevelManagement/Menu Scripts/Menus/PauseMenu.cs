@@ -14,14 +14,18 @@ public class PauseMenu : Menu
 
     public void OnRestartPressed()
     {
-        AudioManager.Instance.StopMusic();
-        AudioManager.Instance.PlaySound("UI_Submit");
-        LevelLoader.ReloadLevel();
+        GameManager.Instance.RestartLevel();
+
     }
     public void OnSettingsPressed()
     {
         AudioManager.Instance.PlaySound("UI_Submit");
         MenuManager.Instance.OpenMenu(MenuManager.Instance.GetSettingsMenu());
+    }
+    public void OnAccessibilityPressed()
+    {
+        AudioManager.Instance.PlaySound("UI_Submit");
+        MenuManager.Instance.OpenMenu(MenuManager.Instance.GetAccessibilityMenu());
     }
 
     public void OnChangeRolePressed()
@@ -33,12 +37,7 @@ public class PauseMenu : Menu
     public void OnMainMenuPressed()
     {
         MenuManager.Instance.CloseMenu();
-        AudioManager.Instance.StopMusic();
-        // Détruire le GameManager existant
-        if (GameManager.Instance != null)
-        {
-            Destroy(GameManager.Instance.gameObject);
-        }
+        OnReturnToMainMenu();
         LevelLoader.LoadMainMenuLevel();
     }
 
