@@ -57,10 +57,10 @@ public class PlayerInputHandler : MonoBehaviour
         return moveAction.ReadValue<Vector2>();
     }
 
-    public bool MeleePressed()
+    public bool MeleeReleased()
     {
         return Role == PlayerRole.Movement &&
-               meleeAction.WasPressedThisFrame();
+               meleeAction.WasReleasedThisFrame();
     }
     public bool DashReleased()
     {
