@@ -87,7 +87,9 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private GameObject _boost0;
     [SerializeField] private GameObject _boost1;
     [SerializeField] private float _offsetAngleDeg;
-    [field: SerializeField] public float MechaHealth { get; private set; } = 100f;
+    [Header("Shooting configuration")]
+    [SerializeField] private bool _advancedShootingControls = true;
+    [SerializeField] private float _mechaTopRotSpeed = 180f;
     [Header("Stun parameters")]
     [SerializeField] private bool _stunStopsAbilities = true;
     [SerializeField] private bool _stunStopsMovement = true;
@@ -217,6 +219,8 @@ public class MechaController : MonoBehaviour, IHit
 
         ultimateUI?.Initialize(_ultimateMax);
 
+        if (!_advancedShootingControls) { _aimingReticle.SetActive(false); }
+
         // NO COOLDOWN ABILITY ON START
         _aoeTimer = _aoeCooldown;
         _dashCooldownTimer = _dashCooldown;
@@ -322,7 +326,7 @@ public class MechaController : MonoBehaviour, IHit
 
         if (_isDashing && move == Vector2.zero)
         {
-            move = _lastNonZeroDir; // Permet de continuer à dash dans la dernière direction de mouvement même si le stick est relâché
+            move = _lastNonZeroDir;
         }
         _rb2D.linearVelocity = move * _currentSpeed; // Deplacement du mecha selon les inputs du joueur de mouvement
         _mechaBase.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(_lastNonZeroDir.x, _lastNonZeroDir.y, _offsetAngleDeg)); // Rotation de la base du mecha selon la direction de d�placement
@@ -340,11 +344,12 @@ public class MechaController : MonoBehaviour, IHit
 
         Vector2 aim = shootPlayer.GetAim();
 
-        AimReticle(aim);
+        if (_advancedShootingControls) { AimReticle(aim); }
+        else { RotateUpperMech(aim.x); }
 
         if (shootPlayer.ShootPressed() && _laserCoolDown >= 1 / _fireRate)
         {
-            ShootLaser(LaserShotParameters.LaserShotPrefab, _synchFire);
+            ShootLaser(LaserShotParameters.LaserShotPrefab, _synchFire, _advancedShootingControls);
         }
         else
         {
@@ -588,21 +593,21 @@ public class MechaController : MonoBehaviour, IHit
         yield break;
     }
 
-    private void ShootLaser(GameObject _laserShotPrefab, bool synchFire = false)
+    private void ShootLaser(GameObject _laserShotPrefab, bool synchFire = false, bool _advancedShooting = true)
     {
         if (!synchFire)
         {
             if (_currentGunIndex > _shootingPoints.Length - 1) { _currentGunIndex = 0; }
-            ApplyAngularDispersion(_currentGunIndex);
-            InstantiateShotAtGunIndex(_currentGunIndex);
+            if (_advancedShooting) { ApplyAngularDispersion(_currentGunIndex); }
+            InstantiateShotAtGunIndex(_currentGunIndex, _advancedShooting);
             _currentGunIndex++;
         }
         else
         {
             for (int i = 0; i < _shootingPoints.Length; i++)
             {
-                ApplyAngularDispersion(i);
-                InstantiateShotAtGunIndex(i);
+                if (_advancedShooting) { ApplyAngularDispersion(i); }
+                InstantiateShotAtGunIndex(i, _advancedShooting);
             }
         }
         _laserCoolDown = 0f;
@@ -710,6 +715,12 @@ public class MechaController : MonoBehaviour, IHit
     #endregion Damage & Health Logic
 
     #region Aiming & Shooting Logic
+    
+    private void RotateUpperMech(float rotDir)
+    {
+        _mechaTop.transform.Rotate(0f, 0f, -rotDir * _mechaTopRotSpeed * Time.deltaTime);
+    }
+
     private void AimReticle(Vector2 aim)
     {
         float[] boundaries = ScreenBoundaries();
@@ -749,12 +760,13 @@ public class MechaController : MonoBehaviour, IHit
         return new float[4] { screenBottomLeft.x, screenBottomLeft.y, screenTopRight.x, screenTopRight.y }; 
     }
 
-    private void InstantiateShotAtGunIndex(int gunIndex)
+    private void InstantiateShotAtGunIndex(int gunIndex, bool advancedShooting)
     {
         GameObject laserShotGO = Instantiate(LaserShotParameters.LaserShotPrefab, _shootingPoints[gunIndex].position, _shootingPoints[gunIndex].rotation);
         if (laserShotGO.TryGetComponent(out LaserShot laserShotComponent))
         {
-            laserShotComponent.SetupLaserShoot(LaserShotParameters.Speed, LaserShotParameters.Damage, CalculateShotLifeTime(gunIndex), LaserShotParameters.LaserImpactLayerMask);
+            float lifeTime = advancedShooting ? CalculateShotLifeTime(gunIndex) : LaserShotParameters.Lifetime;
+            laserShotComponent.SetupLaserShoot(LaserShotParameters.Speed, LaserShotParameters.Damage, lifeTime, LaserShotParameters.LaserImpactLayerMask);
         }
     }
 
