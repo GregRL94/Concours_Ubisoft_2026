@@ -13,6 +13,10 @@ public class EnemySpawner : MonoBehaviour, IHit
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.RegisterSpawner(this);
+        }
         StartCoroutine(SpawnRoutine());
     }
 
@@ -72,6 +76,11 @@ public class EnemySpawner : MonoBehaviour, IHit
         Debug.Log("Spawner got hit!");
         if (health <= 0)
         {
+            if (EnemyManager.Instance != null)
+            {
+                EnemyManager.Instance.UnRegisterSpawner(this);
+            }
+
             Destroy(gameObject);
         }
     }

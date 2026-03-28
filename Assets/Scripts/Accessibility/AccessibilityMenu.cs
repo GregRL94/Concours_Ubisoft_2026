@@ -46,14 +46,26 @@ public class AccessibilityMenu : Menu
         UpdateEnemyText(AccessibilityManager.Instance.enemyDamageMultiplier);
     }
 
+
     void OnEnable()
     {
         MenuInputListener.UINavigate += HandleSliderNavigate;
+
+        // Check si on est dans MainMenu
+        if (!MenuManager.Instance.IsMainMenuScene())
+        {
+            Time.timeScale = 0f;
+        }
     }
 
     void OnDisable()
     {
         MenuInputListener.UINavigate -= HandleSliderNavigate;
+
+        if (!MenuManager.Instance.IsMainMenuScene())
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     void SetupSlider(Slider slider)

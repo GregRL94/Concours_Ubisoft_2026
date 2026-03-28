@@ -1,36 +1,28 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KillEnemiesObjective : Objective
 {
-    public int enemiesToKill = 10;
-
-    int killCount;
-
-    void OnEnable()
-    {
-        //Enemy.OnEnemyKilled += RegisterKill;
-    }
-
-    void OnDisable()
-    {
-        //Enemy.OnEnemyKilled -= RegisterKill;
-    }
-
+    [SerializeField] private string objectiveText;
     public override void Begin()
     {
-        killCount = 0;
-        UIManager.Instance.UpdateObjective("Aliens à tuer " + killCount + "/" + enemiesToKill);
+        UIManager.Instance.UpdateObjective(objectiveText);
     }
 
-    void RegisterKill()
+    private void OnEnable()
     {
-        killCount++;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
-        UIManager.Instance.UpdateObjective("Aliens à tuer " + killCount + "/" + enemiesToKill);
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
-        if (killCount >= enemiesToKill)
-        {
-            Complete();
-        }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        UIManager.Instance.UpdateObjective(objectiveText);
+        //GameManager.Instance.UpdateMissionUI();
+
     }
 }
