@@ -208,18 +208,12 @@ public class GameOverMenu : Menu
     // ---------------------------
     public void OnRestartPressed()
     {
-        //// save ds memoire
-        //gameStartInitial = gameStart.position;
-        //overStartInitial = overStart.position;
-
-        AudioManager.Instance.StopMusic();
-        AudioManager.Instance.PlaySound("UI_Submit");
-        LevelLoader.ReloadLevel();
+        GameManager.Instance.RestartLevel();
     }
 
     public void OnMainMenuPressed()
     {
-        AudioManager.Instance.StopMusic();
+        OnReturnToMainMenu();
         LevelLoader.LoadMainMenuLevel();
     }
 
