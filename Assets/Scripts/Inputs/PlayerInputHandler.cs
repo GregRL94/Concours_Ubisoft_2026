@@ -59,13 +59,11 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool MeleePressed()
     {
-        print("melee");
         return Role == PlayerRole.Movement &&
                meleeAction.WasPressedThisFrame();
     }
     public bool DashReleased()
     {
-        print("dash");
         return Role == PlayerRole.Movement &&
                dashAction.WasReleasedThisFrame();
     }
