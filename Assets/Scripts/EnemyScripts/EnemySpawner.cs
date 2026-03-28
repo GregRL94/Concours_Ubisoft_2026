@@ -71,6 +71,7 @@ public class EnemySpawner : MonoBehaviour, IHit
 
     private void TakeDamage(float damage)
     {
+        if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
         health -= damage;
         Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
         Debug.Log("Spawner got hit!");
@@ -80,8 +81,7 @@ public class EnemySpawner : MonoBehaviour, IHit
             {
                 EnemyManager.Instance.UnRegisterSpawner(this);
             }
-
-            Destroy(gameObject);
+            GetComponent<Animator>()?.SetTrigger("Die");
         }
     }
 
