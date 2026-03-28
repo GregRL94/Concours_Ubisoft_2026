@@ -23,7 +23,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         moveAction = actions.Player.Move;
         meleeAction = actions.Player.Melee;
-        dashAction = actions.Player.GrapplingHook;
+        dashAction = actions.Player.Dash;
 
         aimAction = actions.Player.AimCursor;
         shootAction = actions.Player.Shoot;
@@ -48,6 +48,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     //////////////////// INPUT LISTENER ////////////////////////
 
+    // MOVEMENT INPUT 
     public Vector2 GetMovement()
     {
         if (Role != PlayerRole.Movement)
@@ -58,58 +59,18 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool MeleePressed()
     {
+        print("melee");
         return Role == PlayerRole.Movement &&
                meleeAction.WasPressedThisFrame();
     }
-
-    public bool DashPressed()
-    {
-        return Role == PlayerRole.Movement &&
-               dashAction.WasPressedThisFrame();
-    }
-
-    // HOLD / RELEASE 
-
-    public bool DashHold()
-    {
-        return Role == PlayerRole.Movement &&
-               dashAction.IsPressed();
-    }
-
     public bool DashReleased()
     {
+        print("dash");
         return Role == PlayerRole.Movement &&
                dashAction.WasReleasedThisFrame();
     }
 
-    public bool AOEHold()
-    {
-        return Role == PlayerRole.Shoot &&
-               aoeAction.IsPressed();
-    }
-
-    public bool AOEReleased()
-    {
-        return Role == PlayerRole.Shoot &&
-               aoeAction.WasReleasedThisFrame();
-    }
-
-
-    //
-    public bool MeleeHold()
-    {
-        return Role == PlayerRole.Movement &&
-               meleeAction.IsPressed();
-    }
-
-    public bool ShootHold()
-    {
-        return Role == PlayerRole.Shoot &&
-               shootAction.IsPressed();
-    }
-    //
-
-
+    // SHOOT INPUT
     public Vector2 GetAim()
     {
         if (Role != PlayerRole.Shoot)
@@ -123,25 +84,54 @@ public class PlayerInputHandler : MonoBehaviour
         return Role == PlayerRole.Shoot &&
                shootAction.IsPressed();
     }
-
-    public bool AOEPressed()
+    public bool AOEReleased()
     {
         return Role == PlayerRole.Shoot &&
-               aoeAction.WasPressedThisFrame();
+               aoeAction.WasReleasedThisFrame();
     }
 
-    public bool UltimateComboPressed()
+    // HOLD
+    public bool ShootHold()
     {
-        if (Role == PlayerRole.Movement)
-        {
-            return dashAction.IsPressed();
-        }
-
-        if (Role == PlayerRole.Shoot)
-        {
-            return aoeAction.IsPressed();
-        }
-
-        return false;
+        return Role == PlayerRole.Shoot &&
+               shootAction.IsPressed();
     }
+    public bool MeleeHold()
+    {
+        return Role == PlayerRole.Movement &&
+               meleeAction.IsPressed();
+    }
+    public bool DashHold()
+    {
+        return Role == PlayerRole.Movement &&
+               dashAction.IsPressed();
+    }
+
+    public bool AOEHold()
+    {
+        return Role == PlayerRole.Shoot &&
+               aoeAction.IsPressed();
+    }
+
+
+    //public bool AOEPressed()
+    //{
+    //    return Role == PlayerRole.Shoot &&
+    //           aoeAction.WasPressedThisFrame();
+    //}
+
+    //public bool UltimateComboPressed()
+    //{
+    //    if (Role == PlayerRole.Movement)
+    //    {
+    //        return dashAction.IsPressed();
+    //    }
+
+    //    if (Role == PlayerRole.Shoot)
+    //    {
+    //        return aoeAction.IsPressed();
+    //    }
+
+    //    return false;
+    //}
 }
