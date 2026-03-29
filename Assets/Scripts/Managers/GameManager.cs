@@ -164,18 +164,19 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region LEVEL MANAGEMENT
-    public void LoadNextLevel()
+   
+	public void LoadNextLevel()
     {
         if (currentObjectiveIndex >= levelScenes.Length) return;
 
         string nextScene = levelScenes[currentObjectiveIndex];
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        if (nextScene == "Mission2")
+        if (nextScene == levelScenes[1])
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission2Transition, 0f);
         }
-        else if (nextScene == "Mission3")
+        else if (nextScene == levelScenes[levelScenes.Length - 1])
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission3Transition, 0f);
         }
