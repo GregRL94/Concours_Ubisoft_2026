@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KamikazeData
   enemyName: Mikpin
   patrolRadius: 30
-  moveSpeed: 5
+  moveSpeed: 4
   maxHealth: 5
   detectionRange: 75
   attackRange: 2
