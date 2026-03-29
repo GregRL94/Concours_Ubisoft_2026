@@ -10,17 +10,21 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject tutorialPanel;
     [SerializeField] private TextMeshProUGUI tutorialText;
 
+    //private void Awake()
+    //{
+    //    if (Instance == null)
+    //    {
+    //        Instance = this;
+    //        DontDestroyOnLoad(gameObject);
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instance = this;
     }
 
     #region Tutorial

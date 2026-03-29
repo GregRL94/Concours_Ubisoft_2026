@@ -13,7 +13,7 @@ public class MechaHealth : MonoBehaviour
     [SerializeField] private float iFrameDuration = 0.5f; // durée de l’invincibilité après un hit
     
     [Header("Mecha Destroyed Parameters")]
-    [SerializeField] private float timeBeforeDisapear = 1f;
+    //[SerializeField] private float timeBeforeDisapear = 1f;
     [SerializeField] private float timeAnimDeath = 1f;
     [SerializeField] private float delayBeforeGameOverScreen = 1f;
     [SerializeField] private GameObject explosiveFX; 
