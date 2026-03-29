@@ -1,6 +1,11 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
+
+using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class GameManager : MonoBehaviour
 {
@@ -14,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FadeTransition winTransition;
 
     [Header("Scenes")]
-    [SerializeField] private string[] levelScenes;
+    [SerializeField] private List<SceneAsset> levelScenes;
 
     [Header("Objectives Texts")]
     [SerializeField] private string[] objectiveTexts; // index correspond à levelScenes
@@ -128,7 +133,7 @@ public class GameManager : MonoBehaviour
         CurrentState = GameplayState.Transition;
         currentObjectiveIndex++;
 
-        if (currentObjectiveIndex >= levelScenes.Length)
+        if (currentObjectiveIndex >= levelScenes.Count)
         {
             WinGame();
         }
@@ -166,16 +171,17 @@ public class GameManager : MonoBehaviour
     #region LEVEL MANAGEMENT
     public void LoadNextLevel()
     {
-        if (currentObjectiveIndex >= levelScenes.Length) return;
+        if (currentObjectiveIndex >= levelScenes.Count) return;
 
-        string nextScene = levelScenes[currentObjectiveIndex];
+        //string nextScene = levelScenes[currentObjectiveIndex];
+        string nextScene = levelScenes[currentObjectiveIndex].name;
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        if (nextScene == "Mission2")
+        if (nextScene == levelScenes[1].name)
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission2Transition, 0f);
         }
-        else if (nextScene == "Mission3")
+        else if (nextScene == levelScenes[levelScenes.Count - 1].name)
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission3Transition, 0f);
         }
