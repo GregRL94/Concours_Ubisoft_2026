@@ -105,6 +105,16 @@ public class EnemyAI : MonoBehaviour, IHit
         _isDead = true;
     }
 
+    // Si les ennemis ne passe pas par Die() -> on le unregistre
+    private void OnDestroy()
+    {
+        Debug.Log("ENEMY DIEEED WITHOUT GOING ON DIE METHOD!!!");
+        if (!_isDead && EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.UnRegisterEnemy(this);
+        }
+    }
+
     //Visualisation des portes dans l'editeur
     private void OnDrawGizmosSelected()
     {

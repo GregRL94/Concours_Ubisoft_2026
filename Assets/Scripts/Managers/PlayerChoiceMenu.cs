@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerChoiceMenu : Menu
@@ -39,7 +40,8 @@ public class PlayerChoiceMenu : Menu
 
     [Header("Confirm Config")]
     [SerializeField] private float confirmTime = 1.2f;
-    [SerializeField] private string sceneName = "Gym_Ajmal_03";
+    [SerializeField] private string sceneName = "Mission1";
+    //[SerializeField] private float shakeIntensity = 5f;
 
     private PlayerSlot p1Slot = PlayerSlot.Center;
     private PlayerSlot p2Slot = PlayerSlot.Center;
@@ -66,6 +68,9 @@ public class PlayerChoiceMenu : Menu
 
     private void Start()
     {
+        p1Slot = PlayerSlot.Center;
+        p2Slot = PlayerSlot.Center;
+
         UpdateSelectors();
         RefreshUI();
 
@@ -77,13 +82,21 @@ public class PlayerChoiceMenu : Menu
     {
         HandleFill(ref p1Fill, p1Holding, ref p1Locked, player1);
         HandleFill(ref p2Fill, p2Holding, ref p2Locked, player2);
+
     }
+
 
     private void OnEnable()
     {
         PlayerInputListener.UINavigate += OnNavigate;
         PlayerInputListener.UISubmit += OnSubmit;
         PlayerInputListener.UISubmitReleased += StopHolding;
+
+        // Check si on est dans MainMenu
+        if (!MenuManager.Instance.IsMainMenuScene())
+        {
+            Time.timeScale = 0f;
+        }
     }
 
     private void OnDisable()
@@ -91,8 +104,15 @@ public class PlayerChoiceMenu : Menu
         PlayerInputListener.UINavigate -= OnNavigate;
         PlayerInputListener.UISubmit -= OnSubmit;
         PlayerInputListener.UISubmitReleased -= StopHolding;
-    }
 
+        if (!MenuManager.Instance.IsMainMenuScene())
+        {
+            Time.timeScale = 1f;
+        }
+
+        // Reset Locks quand on quitte le menu
+        ResetLocks();
+    }
 
     // INPUT LISTENER
     private void OnNavigate(int playerId, Vector2 dir)
@@ -141,8 +161,7 @@ public class PlayerChoiceMenu : Menu
         }
     }
 
-
-
+    // SELECTION LOGICS
     public void StopHolding(int playerId)
     {
         if (playerId == 0)
@@ -261,11 +280,20 @@ public class PlayerChoiceMenu : Menu
         p1Locked = false;
         p2Locked = false;
 
+        p1Holding = false;
+        p2Holding = false;
+
         p1Fill = 0;
         p2Fill = 0;
 
         player1.confirmFill.fillAmount = 0;
         player2.confirmFill.fillAmount = 0;
+
+        p1Slot = PlayerSlot.Center;
+        p2Slot = PlayerSlot.Center;
+
+        UpdateSelectors();
+        RefreshUI();
     }
 
     // UI
@@ -308,18 +336,41 @@ public class PlayerChoiceMenu : Menu
     // GAME START
     private void StartGame()
     {
+        // Assigner les rôles
         PlayerRoleManager.Instance.AssignRoles(
             SlotToManagerRole(p1Slot),
             SlotToManagerRole(p2Slot)
         );
 
-        TransitionManager.Instance.TransitionToScene(
-            sceneName,
-            fadeTransition,
-            0.5f
-        );
-    }
+        // SI on est dans le Main Menu scene
+        if (MenuManager.Instance.IsMainMenuScene())
+        {
+            TransitionManager.Instance.TransitionToScene(
+                sceneName,
+                fadeTransition,
+                0.5f
+            );
+        }
+        //else // pause menu
+        //{
+        //    // Refresh Input 
+        //    PlayerInputInitializer initializer = FindObjectOfType<PlayerInputInitializer>();
 
+        //    if (initializer != null)
+        //    {
+        //        initializer.ApplyRoles();
+        //    }
+        //    else
+        //    {
+        //        Debug.LogWarning("PlayerInputInitializer not found in scene!");
+        //    }
+
+        //    //Retour au pause menu
+        //    MenuManager.Instance.CloseMenu();
+        //    AudioManager.Instance.PlaySound("UI_Back");
+
+        //}
+    }
     private PlayerRole SlotToManagerRole(PlayerSlot slot)
     {
         return slot switch
@@ -339,3 +390,9 @@ public class PlayerChoiceMenu : Menu
         };
     }
 }
+
+// si meme chose role reset aussi position de depart pr p1 et p2
+// et aussi si mon playerolemenu est ondisable on reset aussi 
+// si nest pas ds scene menu et pause menu hierarchy est true et aussi le holding et est fait avec couleur et on fait back sa va reassigné les
+//          controlles selon ce que on choisi
+// 

@@ -111,7 +111,7 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""GrapplingHook"",
+                    ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""ece6b6f9-8389-4bc9-93d5-d35bb4fa4ff0"",
                     ""expectedControlType"": """",
@@ -282,8 +282,8 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f9658d8d-5afd-4b77-9b49-272f0f6058fa"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""id"": ""c5203f9a-7896-4993-a39d-7ae7e5425eae"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -304,12 +304,12 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c59d278e-d4cd-4cde-8057-a8cef34df3c9"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""id"": ""a642f460-d979-4162-a55e-33ddd8e80cd0"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""GrapplingHook"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -320,7 +320,7 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""GrapplingHook"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -831,7 +831,7 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Melee = m_Player.FindAction("Melee", throwIfNotFound: true);
-        m_Player_GrapplingHook = m_Player.FindAction("GrapplingHook", throwIfNotFound: true);
+        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_AimCursor = m_Player.FindAction("AimCursor", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_AOEAttack = m_Player.FindAction("AOEAttack", throwIfNotFound: true);
@@ -931,7 +931,7 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Melee;
-    private readonly InputAction m_Player_GrapplingHook;
+    private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_AimCursor;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_AOEAttack;
@@ -955,9 +955,9 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Melee => m_Wrapper.m_Player_Melee;
         /// <summary>
-        /// Provides access to the underlying input action "Player/GrapplingHook".
+        /// Provides access to the underlying input action "Player/Dash".
         /// </summary>
-        public InputAction @GrapplingHook => m_Wrapper.m_Player_GrapplingHook;
+        public InputAction @Dash => m_Wrapper.m_Player_Dash;
         /// <summary>
         /// Provides access to the underlying input action "Player/AimCursor".
         /// </summary>
@@ -1002,9 +1002,9 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
             @Melee.started += instance.OnMelee;
             @Melee.performed += instance.OnMelee;
             @Melee.canceled += instance.OnMelee;
-            @GrapplingHook.started += instance.OnGrapplingHook;
-            @GrapplingHook.performed += instance.OnGrapplingHook;
-            @GrapplingHook.canceled += instance.OnGrapplingHook;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
             @AimCursor.started += instance.OnAimCursor;
             @AimCursor.performed += instance.OnAimCursor;
             @AimCursor.canceled += instance.OnAimCursor;
@@ -1031,9 +1031,9 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
             @Melee.started -= instance.OnMelee;
             @Melee.performed -= instance.OnMelee;
             @Melee.canceled -= instance.OnMelee;
-            @GrapplingHook.started -= instance.OnGrapplingHook;
-            @GrapplingHook.performed -= instance.OnGrapplingHook;
-            @GrapplingHook.canceled -= instance.OnGrapplingHook;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
             @AimCursor.started -= instance.OnAimCursor;
             @AimCursor.performed -= instance.OnAimCursor;
             @AimCursor.canceled -= instance.OnAimCursor;
@@ -1369,12 +1369,12 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMelee(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "GrapplingHook" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnGrapplingHook(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "AimCursor" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

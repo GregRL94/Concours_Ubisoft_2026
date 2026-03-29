@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 2537720267561633478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.373585, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -156,7 +156,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 5.5234375
+  orthographic size: 8.4375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -651,7 +651,7 @@ Transform:
   m_GameObject: {fileID: 4503489397842482685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.734, y: 1.875, z: 0}
+  m_LocalPosition: {x: -0.544, y: 1.808, z: 0}
   m_LocalScale: {x: 1, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -904,7 +904,7 @@ Transform:
   m_GameObject: {fileID: 5020804249824242362}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.98, z: 0}
+  m_LocalPosition: {x: 0, y: 1.136, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1017,7 +1017,7 @@ Transform:
   m_GameObject: {fileID: 5281835591307895253}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.734, y: 1.875, z: 0}
+  m_LocalPosition: {x: 0.547, y: 1.773, z: 0}
   m_LocalScale: {x: 1, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1169,8 +1169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MechaController
   LaserShotParameters:
     <LaserShotPrefab>k__BackingField: {fileID: 7801827202018218392, guid: feff21240f8dc67438716ba915efda8f, type: 3}
-    <Speed>k__BackingField: 15
-    <Damage>k__BackingField: 10
+    <Speed>k__BackingField: 20
+    <Damage>k__BackingField: 5
     <Lifetime>k__BackingField: 1
     <LaserImpactLayerMask>k__BackingField:
       serializedVersion: 2
@@ -1199,13 +1199,14 @@ MonoBehaviour:
   _boost0: {fileID: 1111033094556528008}
   _boost1: {fileID: 3366369253569095122}
   _offsetAngleDeg: -90
-  <MechaHealth>k__BackingField: 100
+  _advancedShootingControls: 1
+  _mechaTopRotSpeed: 180
   _stunStopsAbilities: 1
   _stunStopsMovement: 1
-  _movementSpeed: 5
-  _dashSpeedFactor: 6
+  _movementSpeed: 6
+  _dashSpeedFactor: 8
   _dashDuration: 0.1
-  _dashCooldown: 2
+  _dashCooldown: 1.5
   _dashDoesDamage: 1
   _dashImpactsWhat:
     serializedVersion: 2
@@ -1213,25 +1214,28 @@ MonoBehaviour:
   _dashIgnoresWhat:
     serializedVersion: 2
     m_Bits: 1024
-  _dashDamage: 10
+  _dashDamage: 5
   animIsPressedDash: {fileID: 0}
   _meleeAttackPoint: {fileID: 4551997135442846276}
-  _meleeAttackHitBox: {x: 2, y: 1}
+  _meleeAttackHitBox: {x: 6, y: 3}
   _meleeAttackImpactsWhat:
     serializedVersion: 2
-    m_Bits: 384
-  _meleeDamage: 25
+    m_Bits: 2176
+  _meleeAttackStuns: 1
+  _meleeAttackRepels: 1
+  _meleeDamage: 100
   _meleeAttackStunDuration: 1.5
-  _meleeAttackCooldown: 1
+  _meleeAttackRepelForce: 100
+  _meleeAttackCooldown: 5
   animIsPressedMelee: {fileID: 0}
   _shootingPoints:
   - {fileID: 1203288601306859973}
   - {fileID: 7123907203564862564}
   _aimingReticle: {fileID: 7688457587450742652}
-  _aimingReticleSpeed: 6
-  _aimingReticleMinDistance: 4
+  _aimingReticleSpeed: 20
+  _aimingReticleMinDistance: 1.5
   _synchFire: 0
-  _fireRate: 10
+  _fireRate: 15
   _angularDispersion: 1
   _linearDispersion: 1
   animIsPressedGun: {fileID: 0}
@@ -1239,10 +1243,13 @@ MonoBehaviour:
   _aoeImpactsWhat:
     serializedVersion: 2
     m_Bits: 2176
-  _aoeRadius: 1.5
-  _aoeDamage: 25
-  _aoeRepelForce: 20
-  _aoeCooldown: 10
+  _aoeStuns: 1
+  _aoeRepels: 1
+  _aoeRadius: 9
+  _aoeDamage: 1
+  _aoeStunDuration: 1.5
+  _aoeRepelForce: 350
+  _aoeCooldown: 5
   animIsPressedAOE: {fileID: 0}
   _leftMissileLauncher: {fileID: 2281712704847022891}
   _rightMissileLauncher: {fileID: 7021224921679878134}
@@ -1261,6 +1268,7 @@ MonoBehaviour:
   animIsPressedShot: {fileID: 0}
   _ultimateHoldDuration: 3
   _ultimateMax: 100
+  animIsReadyUltimate: {fileID: 0}
   _ultimateHoldThreshold: 0.25
   abilityUI: {fileID: 7588572628328435216}
   ultimateUI: {fileID: 7658851919928563416}
@@ -1280,7 +1288,6 @@ MonoBehaviour:
   maxHealth: 100
   _onHitEffect: {fileID: 3794378016294545788}
   iFrameDuration: 0.1
-  timeBeforeDisapear: 1
   timeAnimDeath: 1
   delayBeforeGameOverScreen: 1
   explosiveFX: {fileID: 0}
@@ -2396,10 +2403,6 @@ PrefabInstance:
       value: 3.67
       objectReference: {fileID: 0}
     - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
-      propertyPath: Lens.OrthographicSize
-      value: 5.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 981076627514167658}
@@ -2417,11 +2420,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4715727468993008621, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Composition.DeadZone.Size.x
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4715727468993008621, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Composition.DeadZone.Size.y
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4715727468993008621, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Composition.ScreenPosition.x
@@ -2445,11 +2448,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000023841858
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000011920929
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.z

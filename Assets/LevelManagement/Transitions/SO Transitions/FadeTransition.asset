@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7fbe0d88454564e932c3325374c07b, type: 3}
   m_Name: FadeTransition
   m_EditorClassIdentifier: 
-  duration: 1.5
+  duration: 0.7
   ease: 10
