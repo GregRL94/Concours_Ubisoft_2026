@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c9983828aaf2464479eeb4ecd281e697
   - enabled: 0
-    path: Assets/Scenes/MainLevels/Level1.unity
+    path: Assets/Scenes/MainLevels/Level1_old.unity
     guid: 27be3ff65fd13f5fcbf1b51e107db50a
   - enabled: 1
     path: Assets/Scenes/Scenes Ajmal/Mission1.unity

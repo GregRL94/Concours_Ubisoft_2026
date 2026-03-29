@@ -156,7 +156,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 6.46875
+  orthographic size: 8.4375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -904,7 +904,7 @@ Transform:
   m_GameObject: {fileID: 5020804249824242362}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.98, z: 0}
+  m_LocalPosition: {x: 0, y: 1.136, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1199,7 +1199,8 @@ MonoBehaviour:
   _boost0: {fileID: 1111033094556528008}
   _boost1: {fileID: 3366369253569095122}
   _offsetAngleDeg: -90
-  <MechaHealth>k__BackingField: 100
+  _advancedShootingControls: 1
+  _mechaTopRotSpeed: 180
   _stunStopsAbilities: 1
   _stunStopsMovement: 1
   _movementSpeed: 6
@@ -1220,8 +1221,11 @@ MonoBehaviour:
   _meleeAttackImpactsWhat:
     serializedVersion: 2
     m_Bits: 2176
+  _meleeAttackStuns: 1
+  _meleeAttackRepels: 1
   _meleeDamage: 100
   _meleeAttackStunDuration: 1.5
+  _meleeAttackRepelForce: 100
   _meleeAttackCooldown: 5
   animIsPressedMelee: {fileID: 0}
   _shootingPoints:
@@ -1239,8 +1243,11 @@ MonoBehaviour:
   _aoeImpactsWhat:
     serializedVersion: 2
     m_Bits: 2176
+  _aoeStuns: 1
+  _aoeRepels: 1
   _aoeRadius: 9
   _aoeDamage: 1
+  _aoeStunDuration: 1.5
   _aoeRepelForce: 350
   _aoeCooldown: 5
   animIsPressedAOE: {fileID: 0}
@@ -1261,6 +1268,7 @@ MonoBehaviour:
   animIsPressedShot: {fileID: 0}
   _ultimateHoldDuration: 3
   _ultimateMax: 100
+  animIsReadyUltimate: {fileID: 0}
   _ultimateHoldThreshold: 0.25
   abilityUI: {fileID: 7588572628328435216}
   ultimateUI: {fileID: 7658851919928563416}
@@ -1280,7 +1288,6 @@ MonoBehaviour:
   maxHealth: 100
   _onHitEffect: {fileID: 3794378016294545788}
   iFrameDuration: 0.1
-  timeBeforeDisapear: 1
   timeAnimDeath: 1
   delayBeforeGameOverScreen: 1
   explosiveFX: {fileID: 0}
@@ -2394,10 +2401,6 @@ PrefabInstance:
     - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Lens.FieldOfView
       value: 3.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
-      propertyPath: Lens.OrthographicSize
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Target.TrackingTarget
