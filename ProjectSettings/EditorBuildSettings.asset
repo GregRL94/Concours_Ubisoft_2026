@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c9983828aaf2464479eeb4ecd281e697
   - enabled: 0
-    path: Assets/Scenes/MainLevels/Level1_old.unity
+    path: Assets/Scenes/VieuxNiveaux/Level1_old.unity
     guid: 27be3ff65fd13f5fcbf1b51e107db50a
   - enabled: 1
     path: Assets/Scenes/Scenes Ajmal/Mission1.unity
@@ -20,6 +20,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scenes Ajmal/Mission3.unity
     guid: 6e9d5dc37445d6f46b594fe1a60e669e
+  - enabled: 1
+    path: Assets/Scenes/MainLevels/LevelLabyrinthe.unity
+    guid: 0c1a2cc6c0cb91ab685725f45355db30
+  - enabled: 1
+    path: Assets/Scenes/MainLevels/LevelNeighbourhood.unity
+    guid: e7465f8c1d768224aa56fb7787d922ae
+  - enabled: 1
+    path: Assets/Scenes/MainLevels/LevelFinal.unity
+    guid: 7aea818d0827380f2b64ada6255c358b
+  - enabled: 1
+    path: Assets/Scenes/MainLevels/Tutorial.unity
+    guid: 02dfa4bee2dc6e2949e7e7f847c56d5f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c4dbaf598c0749041b3e964b1e92c372, type: 3}
   m_UseUCBPForAssetBundles: 0
