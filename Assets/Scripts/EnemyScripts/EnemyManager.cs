@@ -10,6 +10,9 @@ public class EnemyManager : MonoBehaviour
     [Header("Suivis des ennemis")] 
     public List<EnemyAI> activeEnnemis = new List<EnemyAI>();
 
+    [Header("Suivis des spawners")] 
+    public List<EnemySpawner> activeSpawners = new List<EnemySpawner>();
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -32,16 +35,46 @@ public class EnemyManager : MonoBehaviour
             activeEnnemis.Remove(enemyAI);
             Debug.Log($"Ennemi retiré. Restants : {activeEnnemis.Count}");
 
-            if (activeEnnemis.Count == 0)
-            {
-                OnAllEnemiesCleared();
-            }
+            //if (activeEnnemis.Count == 0)
+            //{
+            //    OnAllEnemiesCleared();
+            //}
+            OnAllEnemiesCleared();
+        }
+
+
+    }
+
+    //Appele par le spawner si present
+    public void RegisterSpawner(EnemySpawner spawner)
+    {
+        if (!activeSpawners.Contains(spawner))
+        {
+            activeSpawners.Add(spawner);
+            Debug.Log($"Spawner ajouté. Total: {activeSpawners.Count}");
+        }
+    }
+
+    //appeler par le spawner quand il est destruit
+    public void UnRegisterSpawner(EnemySpawner spawner)
+    {
+        if (activeSpawners.Contains(spawner))
+        {
+            activeSpawners.Remove(spawner);
+            Debug.Log($"Spawner détruit. Restants: {activeSpawners.Count}");
+
+            OnAllEnemiesCleared();
         }
     }
 
     private void OnAllEnemiesCleared()
     {
-        Debug.Log("All enemies cleared");
         //On peut appeler la gestion du niveau
+        if (activeEnnemis.Count == 0 && activeSpawners.Count == 0)
+        {
+            Debug.Log("All enemies and spawners cleared\n Level Completed !");
+            GameManager.Instance.CompleteObjective();
+        }
+
     }
 }

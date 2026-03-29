@@ -23,6 +23,21 @@ public abstract class Menu : MonoBehaviour
     {
         MenuManager.Instance.CloseMenu();
     }
+
+    public virtual void OnReturnToMainMenu()
+    {
+        AudioManager.Instance.StopMusic();
+        // Détruire le GameManager existant
+        if (GameManager.Instance != null)
+        {
+            Destroy(GameManager.Instance.gameObject);
+        }
+    }
+    public virtual void OnRestart()
+    {
+
+    }
+
 }
 
 

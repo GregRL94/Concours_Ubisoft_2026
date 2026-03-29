@@ -9,17 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c9983828aaf2464479eeb4ecd281e697
   - enabled: 0
-    path: Assets/Scenes/Level1.unity
-    guid: 2184ec077826d1a738b76a8cf8b1b745
+    path: Assets/Scenes/MainLevels/Level1.unity
+    guid: 27be3ff65fd13f5fcbf1b51e107db50a
   - enabled: 1
     path: Assets/Scenes/Scenes Ajmal/Mission1.unity
-    guid: c010adcc39be9d542ba6254366301f36
+    guid: fe4f8b33052446f4a915f89efbd04c75
   - enabled: 1
     path: Assets/Scenes/Scenes Ajmal/Mission2.unity
-    guid: 57da8e3f29bc8174282547709e834dd0
+    guid: b271541f3d12d65449ac5ce0250b118a
   - enabled: 1
     path: Assets/Scenes/Scenes Ajmal/Mission3.unity
-    guid: 739f0d881b1dec54797d9b79c955e1ad
+    guid: 6e9d5dc37445d6f46b594fe1a60e669e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c4dbaf598c0749041b3e964b1e92c372, type: 3}
   m_UseUCBPForAssetBundles: 0

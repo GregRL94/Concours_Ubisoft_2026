@@ -13,6 +13,10 @@ public class EnemySpawner : MonoBehaviour, IHit
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.RegisterSpawner(this);
+        }
         StartCoroutine(SpawnRoutine());
     }
 
@@ -67,12 +71,17 @@ public class EnemySpawner : MonoBehaviour, IHit
 
     private void TakeDamage(float damage)
     {
+        if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
         health -= damage;
         Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
         Debug.Log("Spawner got hit!");
         if (health <= 0)
         {
-            Destroy(gameObject);
+            if (EnemyManager.Instance != null)
+            {
+                EnemyManager.Instance.UnRegisterSpawner(this);
+            }
+            GetComponent<Animator>()?.SetTrigger("Die");
         }
     }
 
