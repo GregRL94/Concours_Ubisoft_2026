@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 2537720267561633478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0.44085884, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -130,8 +130,8 @@ Camera:
   m_GameObject: {fileID: 2537720267561633478}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.025577508, g: 0.014017441, b: 0.066037714, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -156,7 +156,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 10.3125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1064,6 +1064,7 @@ Transform:
   - {fileID: 3593828043842902929}
   - {fileID: 3989826085583833299}
   - {fileID: 8717359662495792098}
+  - {fileID: 8912567188512261498}
   - {fileID: 1326783961366681729}
   - {fileID: 9144434361229252261}
   - {fileID: 7799809895938733571}
@@ -1171,7 +1172,7 @@ MonoBehaviour:
     <LaserShotPrefab>k__BackingField: {fileID: 7801827202018218392, guid: feff21240f8dc67438716ba915efda8f, type: 3}
     <Speed>k__BackingField: 20
     <Damage>k__BackingField: 5
-    <Lifetime>k__BackingField: 1
+    <Lifetime>k__BackingField: 0.7
     <LaserImpactLayerMask>k__BackingField:
       serializedVersion: 2
       m_Bits: 2688
@@ -1199,15 +1200,15 @@ MonoBehaviour:
   _boost0: {fileID: 1111033094556528008}
   _boost1: {fileID: 3366369253569095122}
   _offsetAngleDeg: -90
-  _advancedShootingControls: 1
-  _mechaTopRotSpeed: 180
+  _advancedShootingControls: 0
+  _mechaTopRotSpeed: 270
   _stunStopsAbilities: 1
   _stunStopsMovement: 1
   _movementSpeed: 6
   _dashSpeedFactor: 8
   _dashDuration: 0.1
-  _dashCooldown: 1.5
-  _dashDoesDamage: 1
+  _dashCooldown: 1
+  _dashDoesDamage: 0
   _dashImpactsWhat:
     serializedVersion: 2
     m_Bits: 2176
@@ -1223,7 +1224,7 @@ MonoBehaviour:
     m_Bits: 2176
   _meleeAttackStuns: 1
   _meleeAttackRepels: 1
-  _meleeDamage: 100
+  _meleeDamage: 75
   _meleeAttackStunDuration: 1.5
   _meleeAttackRepelForce: 100
   _meleeAttackCooldown: 5
@@ -1248,7 +1249,7 @@ MonoBehaviour:
   _aoeRadius: 9
   _aoeDamage: 1
   _aoeStunDuration: 1.5
-  _aoeRepelForce: 350
+  _aoeRepelForce: 400
   _aoeCooldown: 5
   animIsPressedAOE: {fileID: 0}
   _leftMissileLauncher: {fileID: 2281712704847022891}
@@ -1368,6 +1369,61 @@ MonoBehaviour:
   pulseScale: 0.08
   normalColor: {r: 0.9559748, g: 0.40380287, b: 0.03908056, a: 1}
   readyColor: {r: 1, g: 0, b: 0.7745948, a: 1}
+--- !u!1 &7682065259496983473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8912567188512261498}
+  - component: {fileID: 1687066740637305180}
+  m_Layer: 6
+  m_Name: Target Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8912567188512261498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7682065259496983473}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.44086027, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 981076627514167658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1687066740637305180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7682065259496983473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5eb80d8e62d9d145bb50fb783c0f731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineTargetGroup
+  PositionMode: 0
+  RotationMode: 0
+  UpdateMethod: 2
+  Targets:
+  - Object: {fileID: 3821001659748397933}
+    Weight: 0.7
+    Radius: 0.5
+  - Object: {fileID: 3989826085583833299}
+    Weight: 0.2
+    Radius: 0.5
+  m_LegacyTargets: []
 --- !u!1 &7688457587450742652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,9 +2459,13 @@ PrefabInstance:
       value: 3.67
       objectReference: {fileID: 0}
     - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
+      propertyPath: Lens.OrthographicSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 981076627514167658}
+      objectReference: {fileID: 8912567188512261498}
     - target: {fileID: 4715727468993008621, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Damping.x
       value: 1
@@ -2452,7 +2512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.44085884
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.z
