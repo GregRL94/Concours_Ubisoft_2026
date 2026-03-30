@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FadeTransition nextLevelTransition;
     [SerializeField] private FadeTransition mission2Transition;
     [SerializeField] private FadeTransition mission3Transition;
+    [SerializeField] private FadeTransition mission4Transition;
+    [SerializeField] private FadeTransition mission5Transition;
     [SerializeField] private FadeTransition winTransition;
 
     [Header("Scenes")]
@@ -177,14 +179,24 @@ public class GameManager : MonoBehaviour
         string nextScene = levelScenes[currentObjectiveIndex].name;
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        if (nextScene == levelScenes[1].name)
+        if (nextScene == levelScenes[1].name) // mission 2 transition
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission2Transition, 0f);
         }
-        else if (nextScene == levelScenes[levelScenes.Count - 1].name)
+        else if (nextScene == levelScenes[2].name) // mission 3 transition
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission3Transition, 0f);
         }
+        else if (nextScene == levelScenes[3].name) // mission 4 transition
+        {
+            TransitionManager.Instance.TransitionToScene(nextScene, mission4Transition, 0f);
+        }
+        else if (nextScene == levelScenes[levelScenes.Count - 1].name) // mission 5 transition
+        {
+            TransitionManager.Instance.TransitionToScene(nextScene, mission5Transition, 0f);
+        }
+
+        // todo: faudra plus de scenestranstion different si les designers decident d'avoir plus de niveaux
 
         hasWon = false;
         CurrentState = GameplayState.Playing;
