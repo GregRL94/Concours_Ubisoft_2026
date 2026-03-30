@@ -374,11 +374,11 @@ MonoBehaviour:
   mission5Transition: {fileID: 3666372629576033369, guid: 412733911f10e0343a5478147abce349, type: 3}
   winTransition: {fileID: 6900355812699795769, guid: d448d7e6c8bd73c428c47c99862017f8, type: 3}
   levelScenes:
-  - {fileID: 102900000, guid: 02dfa4bee2dc6e2949e7e7f847c56d5f, type: 3}
-  - {fileID: 102900000, guid: e7465f8c1d768224aa56fb7787d922ae, type: 3}
-  - {fileID: 102900000, guid: 3274988395f982a4cb9754eae142fb9e, type: 3}
-  - {fileID: 102900000, guid: 0c1a2cc6c0cb91ab685725f45355db30, type: 3}
-  - {fileID: 102900000, guid: 7aea818d0827380f2b64ada6255c358b, type: 3}
+  - Tutorial
+  - LevelNeighbourhood
+  - LevelBoltbat
+  - LevelLabyrinthe
+  - LevelFinal
   objectiveTexts:
   - '1- Tutorial '
   - 2- Kill all the aliens and nests
