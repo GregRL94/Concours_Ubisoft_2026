@@ -1,6 +1,10 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
+
+using System.Collections.Generic;
+using System.Collections;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -9,31 +13,35 @@ public class GameManager : MonoBehaviour
     [Header("Transition Prefabs")]
     [SerializeField] private FadeTransition gameOverTransition;
     [SerializeField] private FadeTransition nextLevelTransition;
+    [SerializeField] private FadeTransition mission2Transition;
+    [SerializeField] private FadeTransition mission3Transition;
+    [SerializeField] private FadeTransition mission4Transition;
+    [SerializeField] private FadeTransition mission5Transition;
     [SerializeField] private FadeTransition winTransition;
 
     [Header("Scenes")]
-    [SerializeField] private string[] levelScenes;
+    [SerializeField] private List<string> levelScenes;
 
-    [Header("Objectives")]
-    public Objective[] objectives;
+    [Header("Objectives Texts")]
+    [SerializeField] private string[] objectiveTexts; // index correspond à levelScenes
+
+    [Header("UI References")]
+    [SerializeField] private TextMeshProUGUI missionText;
+    [SerializeField] private TextMeshProUGUI objectiveText;
+    [SerializeField] private TextMeshProUGUI timerText;
 
     [Header("Music Playlist")]
     public string[] playlistMusic;
 
-    public enum GameState
-    {
-        Playing,
-        Transition,
-        Win,
-        Lose
-    }
-
-    public GameState CurrentState { get; private set; }
-
     private int currentObjectiveIndex = 0;
+    public int CurrentObjectiveIndex => currentObjectiveIndex;
+    private float timer = 0f;
+    public float CurrentTime => timer;
+    private float checkpointTime = 0f; // checkpoint du début de la mission 2+
     private bool hasWon = false;
 
-    // ---------------- INIT ----------------
+    public enum GameplayState { Playing, Transition, Win, Lose }
+    public GameplayState CurrentState { get; private set; }
 
     void Awake()
     {
@@ -49,104 +57,241 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        AudioManager.Instance.PlayRandomPlaylist(playlistMusic);
+        // On récupère l'index de la scène actuelle
+        currentObjectiveIndex = 0;
 
-        StartObjective();
-    }
-
-    // ---------------- OBJECTIVES ----------------
-
-    void StartObjective()
-    {
+        // Checkpoint = 0 pour la mission 1, sinon garder l'ancien si restart
+        checkpointTime = (currentObjectiveIndex == 0) ? 0f : checkpointTime;
+        timer = checkpointTime;
         hasWon = false;
+        CurrentState = GameplayState.Playing;
 
-        CurrentState = GameState.Playing;
-
-        objectives[currentObjectiveIndex].Begin();
+        UpdateUI();
+        MusicPlaylistStart();
     }
 
+    void Update()
+    {
+        if (CurrentState != GameplayState.Playing) return;
+
+        timer += Time.deltaTime;
+        UpdateTimerUI();
+
+        // DEBUG: passer l'objectif avec 0
+        if (UnityEngine.InputSystem.Keyboard.current != null &&
+            UnityEngine.InputSystem.Keyboard.current.digit0Key.wasPressedThisFrame &&
+            !hasWon)
+        {
+            hasWon = true;
+            CompleteObjective();
+        }
+    }
+
+    #region TIMER & UI
+    private void UpdateUI()
+    {
+        UpdateMissionUI();
+        UpdateObjectiveUI();
+        UpdateTimerUI();
+    }
+
+    private void UpdateMissionUI()
+    {
+        if (missionText != null)
+            missionText.text = $"Mission {currentObjectiveIndex + 1}";
+    }
+
+    private void UpdateObjectiveUI()
+    {
+        if (objectiveText != null && objectiveTexts.Length > currentObjectiveIndex)
+            objectiveText.text = objectiveTexts[currentObjectiveIndex];
+    }
+
+    private void UpdateTimerUI()
+    {
+        if (timerText == null) return;
+
+        int minutes = (int)(timer / 60);
+        int seconds = (int)(timer % 60);
+        int ms = (int)((timer * 100) % 100);
+        timerText.text = $"{minutes:D2}:{seconds:D2}:{ms:D2}";
+    }
+    #endregion
+
+    #region MUSIC
+    public void MusicPlaylistStart()
+    {
+        if (playlistMusic != null && playlistMusic.Length > 0)
+            AudioManager.Instance.PlayRandomPlaylist(playlistMusic);
+    }
+    #endregion
+
+    #region OBJECTIVES
     public void CompleteObjective()
     {
-        if (CurrentState != GameState.Playing) return;
+        if (CurrentState != GameplayState.Playing) return;
 
-        CurrentState = GameState.Transition;
+        StartCoroutine(CompleteObjectiveRoutine());
+        //CompleteObjectiveRoutine();
+    }
+
+    private IEnumerator CompleteObjectiveRoutine()
+    {
+        // Bloque direct le state
+        CurrentState = GameplayState.Transition;
+
+        // Attend que l'anim soit completement fini
+        yield return StartCoroutine(ObjectiveAnimRoutine());
 
         currentObjectiveIndex++;
 
-        if (currentObjectiveIndex >= levelScenes.Length)
+        if (currentObjectiveIndex >= levelScenes.Count)
         {
             WinGame();
-            return;
         }
+        else
+        {
+            if (currentObjectiveIndex > 0)
+                checkpointTime = timer;
 
-        MissionAccomplished();
+            MissionAccomplished();
+        }
     }
 
-    // ---------------- TRANSITIONS ----------------
+    private IEnumerator ObjectiveAnimRoutine()
+    {
+        // UI + SFX
+        objectiveText.text = "OBJECTIVE COMPLETED";
+        AudioManager.Instance.PlaySound("SFX_ObjectiveCompleted");
 
+        // Petite anim - scale punch 
+        yield return StartCoroutine(AnimateObjectiveText());
+
+        // Attente 2 secondes
+        yield return new WaitForSeconds(1.5f);
+    }
+
+    #endregion
+
+    #region TRANSITIONS
     public void MissionAccomplished()
     {
         Debug.Log("Objective Completed");
-
-        TransitionManager.Instance.FadeInCurrentScene(
-            nextLevelTransition,
-            MenuManager.Instance.GetNextLevelMenu(),
-            0f
-        );
+        TransitionManager.Instance.FadeInCurrentScene(nextLevelTransition, MenuManager.Instance.GetNextLevelMenu(), 0f);
     }
 
     public void LoseGame()
     {
-        CurrentState = GameState.Lose;
-
-        TransitionManager.Instance.FadeInCurrentScene(
-            gameOverTransition,
-            MenuManager.Instance.GetGameOverMenu(),
-            0f
-        );
+        CurrentState = GameplayState.Lose;
+        TransitionManager.Instance.FadeInCurrentScene(gameOverTransition, MenuManager.Instance.GetGameOverMenu(), 0f);
     }
 
     public void WinGame()
     {
-        CurrentState = GameState.Win;
-
-        TransitionManager.Instance.FadeInCurrentScene(
-            winTransition,
-            MenuManager.Instance.GetEndMenu(),
-            0f
-        );
+        CurrentState = GameplayState.Win;
+        TransitionManager.Instance.FadeInCurrentScene(winTransition, MenuManager.Instance.GetEndMenu(), 0f);
     }
+    #endregion
 
-    // ---------------- NEXT LEVEL ----------------
-
+    #region LEVEL MANAGEMENT
     public void LoadNextLevel()
     {
+        if (currentObjectiveIndex >= levelScenes.Count) return;
 
-
+        //string nextScene = levelScenes[currentObjectiveIndex];
+        string nextScene = levelScenes[currentObjectiveIndex];
         SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(levelScenes[currentObjectiveIndex]);
+
+        if (nextScene == levelScenes[1]) // mission 2 transition
+        {
+            TransitionManager.Instance.TransitionToScene(nextScene, mission2Transition, 0f);
+        }
+        else if (nextScene == levelScenes[2]) // mission 3 transition
+        {
+            TransitionManager.Instance.TransitionToScene(nextScene, mission3Transition, 0f);
+        }
+        else if (nextScene == levelScenes[3]) // mission 4 transition
+        {
+            TransitionManager.Instance.TransitionToScene(nextScene, mission4Transition, 0f);
+        }
+        else if (nextScene == levelScenes[levelScenes.Count - 1]) // mission 4 transition
+        {
+            TransitionManager.Instance.TransitionToScene(nextScene, mission5Transition, 0f);
+        }
+
+        // todo: faudra plus de scenestranstion different si les designers decident d'avoir plus de niveaux
+
+        hasWon = false;
+        CurrentState = GameplayState.Playing;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void RestartLevel()
+    {
+        // Stop et restart musique
+        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlaySound("UI_Submit");
+        MusicPlaylistStart();
+
+        // Reset timer au checkpoint si mission 2+, sinon 0 pour mission 1
+        timer = (currentObjectiveIndex == 0) ? 0f : checkpointTime;
+        hasWon = false;
+        CurrentState = GameplayState.Playing;
+
+        SceneManager.sceneLoaded += OnSceneReloaded;
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
+
+    private void OnSceneReloaded(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= OnSceneReloaded;
+        UpdateUI();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-
-        StartObjective();
+        UpdateUI();
     }
 
-    // ---------------- DEBUG ----------------
+    //private int GetSceneIndex(string sceneName)
+    //{
+    //    for (int i = 0; i < levelScenes.Length; i++)
+    //    {
+    //        if (levelScenes[i] == sceneName)
+    //            return i;
+    //    }
+    //    return 0; // défaut = mission 1
+    //}
 
-    void Update()
+    private IEnumerator AnimateObjectiveText()
     {
-        if (Keyboard.current != null && Keyboard.current.digit0Key.wasPressedThisFrame && !hasWon)
+        Vector3 startScale = Vector3.zero;
+        Vector3 targetScale = Vector3.one;
+
+        float duration = 0.25f;
+        float time = 0f;
+
+        objectiveText.transform.localScale = startScale;
+
+        // Scale up rapide
+        while (time < duration)
         {
-            hasWon = true;
+            time += Time.deltaTime;
+            float t = time / duration;
+            objectiveText.transform.localScale = Vector3.Lerp(startScale, targetScale * 1.2f, t);
+            yield return null;
+        }
 
-            var players = FindObjectsByType<PlayerInputHandler>(FindObjectsSortMode.None);
-            foreach (var p in players)
-                p.enabled = false;
-
-            CompleteObjective();
+        // Petit bounce retour
+        time = 0f;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            objectiveText.transform.localScale = Vector3.Lerp(targetScale * 1.2f, targetScale, t);
+            yield return null;
         }
     }
+    #endregion
 }

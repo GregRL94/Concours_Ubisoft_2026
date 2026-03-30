@@ -18,21 +18,37 @@ public class TutorialTrigger : MonoBehaviour
 
     private bool hasTriggered = false;
 
+
+    void Start()
+    {
+        if (EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.RegisterTrigger(this);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (hasTriggered) return;
+        if (!collision.CompareTag("Player")) return;
 
         if (collision.CompareTag("Player"))
         {
             hasTriggered = true;
 
-            ExecuteLogic();
+            ExecuteTrigger();
+
+            //unregistre le trigger 
+            if (EnemyManager.Instance != null)
+            {
+                EnemyManager.Instance.UnRegisterTrigger(this);
+            }
 
             Destroy(gameObject);
         }
     }
 
-    private void ExecuteLogic()
+    private void ExecuteTrigger()
     {
         foreach (var obj in objectsToActivate)
         {
@@ -49,7 +65,6 @@ public class TutorialTrigger : MonoBehaviour
         if (TutorialManager.Instance != null && !string.IsNullOrEmpty(tutorialMessage))
         {
             TutorialManager.Instance.ShowTutorial(tutorialMessage);
-            UIManager.Instance.UpdateObjective("Éliminer les aliens");
         }
 
         //onTriggered?.Invoke();
