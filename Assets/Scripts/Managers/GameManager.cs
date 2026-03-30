@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using System.Collections.Generic;
+using System.Collections;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -132,7 +134,18 @@ public class GameManager : MonoBehaviour
     {
         if (CurrentState != GameplayState.Playing) return;
 
+        StartCoroutine(CompleteObjectiveRoutine());
+        //CompleteObjectiveRoutine();
+    }
+
+    private IEnumerator CompleteObjectiveRoutine()
+    {
+        // Bloque direct le state
         CurrentState = GameplayState.Transition;
+
+        // Attend que l'anim soit completement fini
+        yield return StartCoroutine(ObjectiveAnimRoutine());
+
         currentObjectiveIndex++;
 
         if (currentObjectiveIndex >= levelScenes.Count)
@@ -141,13 +154,26 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // Pour missions 2+, on sauvegarde le checkpoint au début de la mission
             if (currentObjectiveIndex > 0)
                 checkpointTime = timer;
 
             MissionAccomplished();
         }
     }
+
+    private IEnumerator ObjectiveAnimRoutine()
+    {
+        // UI + SFX
+        objectiveText.text = "OBJECTIVE COMPLETED";
+        AudioManager.Instance.PlaySound("SFX_ObjectiveCompleted");
+
+        // Petite anim - scale punch 
+        yield return StartCoroutine(AnimateObjectiveText());
+
+        // Attente 2 secondes
+        yield return new WaitForSeconds(1.5f);
+    }
+
     #endregion
 
     #region TRANSITIONS
@@ -191,7 +217,7 @@ public class GameManager : MonoBehaviour
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission4Transition, 0f);
         }
-        else if (nextScene == levelScenes[levelScenes.Count - 1].name) // mission 5 transition
+        else if (nextScene == levelScenes[levelScenes.Count - 1].name) // mission 4 transition
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission5Transition, 0f);
         }
@@ -240,5 +266,35 @@ public class GameManager : MonoBehaviour
     //    }
     //    return 0; // défaut = mission 1
     //}
+
+    private IEnumerator AnimateObjectiveText()
+    {
+        Vector3 startScale = Vector3.zero;
+        Vector3 targetScale = Vector3.one;
+
+        float duration = 0.25f;
+        float time = 0f;
+
+        objectiveText.transform.localScale = startScale;
+
+        // Scale up rapide
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            objectiveText.transform.localScale = Vector3.Lerp(startScale, targetScale * 1.2f, t);
+            yield return null;
+        }
+
+        // Petit bounce retour
+        time = 0f;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            objectiveText.transform.localScale = Vector3.Lerp(targetScale * 1.2f, targetScale, t);
+            yield return null;
+        }
+    }
     #endregion
 }
