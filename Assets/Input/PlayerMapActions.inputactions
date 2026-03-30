@@ -25,7 +25,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "GrapplingHook",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "ece6b6f9-8389-4bc9-93d5-d35bb4fa4ff0",
                     "expectedControlType": "",
@@ -196,8 +196,8 @@
                 },
                 {
                     "name": "",
-                    "id": "f9658d8d-5afd-4b77-9b49-272f0f6058fa",
-                    "path": "<Gamepad>/buttonSouth",
+                    "id": "c5203f9a-7896-4993-a39d-7ae7e5425eae",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -218,12 +218,12 @@
                 },
                 {
                     "name": "",
-                    "id": "c59d278e-d4cd-4cde-8057-a8cef34df3c9",
-                    "path": "<Gamepad>/buttonEast",
+                    "id": "a642f460-d979-4162-a55e-33ddd8e80cd0",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "GrapplingHook",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -234,7 +234,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "GrapplingHook",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

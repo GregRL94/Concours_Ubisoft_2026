@@ -170,6 +170,7 @@ public class MechaController : MonoBehaviour, IHit
     private bool _movementHoldWasShort = true;
     private bool _shootHoldWasShort = true;
 
+
     [Header("Mecha Ability Ref")]
     [SerializeField] private MechaAbilityUI abilityUI;
     [SerializeField] private MechaUltimateUI ultimateUI;
@@ -249,6 +250,7 @@ public class MechaController : MonoBehaviour, IHit
     }
     #endregion MonoBehaviour Methods
 
+
     #region Input Bindings
     // Injecte les inputs des joueurs selon leur role choisi
     public void GameplayInitialize(PlayerInputHandler p1, PlayerInputHandler p2)
@@ -264,7 +266,6 @@ public class MechaController : MonoBehaviour, IHit
             shootPlayer = p1;
         }
     }
-
     private void HandleMovement()
     {
         // --------------- SI STUN STOP ICI ---------------
@@ -304,15 +305,16 @@ public class MechaController : MonoBehaviour, IHit
             _isPlayingMvtSound = false;
         }
 
-        if (movementPlayer.MeleePressed() && _meleeTimer >= _meleeAttackCooldown)
+        if (movementPlayer.MeleeReleased()
+            && _movementHoldWasShort
+            && !_isAttemptingUltimate
+            && _meleeTimer >= _meleeAttackCooldown)
         {
             MeleeAttack(move, _meleeAttackHitBox.x, _meleeAttackHitBox.y, _meleeAttackImpactsWhat);
         }
 
-        if (movementPlayer.DashReleased()
-            && _movementHoldWasShort
-            && !_isAttemptingUltimate
-            && _dashCooldownTimer >= _dashCooldown)
+
+        if (movementPlayer.DashReleased() && _dashCooldownTimer >= _dashCooldown)
         {
             if (_currentDashCoroutine != null)
             {
@@ -394,12 +396,14 @@ public class MechaController : MonoBehaviour, IHit
         if (!_ultimateReady)
             return;
 
-        bool movementHold = movementPlayer.DashHold();
+        bool movementHold = movementPlayer.MeleeHold();
         bool shootHold = shootPlayer.AOEHold();
-        bool meleeHold = movementPlayer.MeleeHold();
+        bool dashHold = movementPlayer.DashHold();
         bool laserHold = shootPlayer.ShootHold();
 
-        _isAttemptingUltimate = _ultimateReady && (movementHold || shootHold);
+        _isAttemptingUltimate = _ultimateReady &&
+                               (movementHold && _movementHoldTimer > _ultimateHoldThreshold
+                                || shootHold && _shootHoldTimer > _ultimateHoldThreshold);
 
         /////////////////////////////////////////////////////
         // ABILITIES UI SYNC
@@ -407,12 +411,12 @@ public class MechaController : MonoBehaviour, IHit
         // Sinon comportement normal (hold dash)
         if (movementHold)
         {
-            animIsPressedDash.SetBool("isPressed", true);
+            animIsPressedMelee.SetBool("isPressed", true);
             _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
         }
         else
         {
-            animIsPressedDash.SetBool("isPressed", false);
+            animIsPressedMelee.SetBool("isPressed", false);
             _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
         }            
         
@@ -421,7 +425,6 @@ public class MechaController : MonoBehaviour, IHit
             animIsPressedAOE.SetBool("isPressed", true);
             _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
         }
-
         else
         {
             animIsPressedAOE.SetBool("isPressed", false);
@@ -433,10 +436,10 @@ public class MechaController : MonoBehaviour, IHit
         else
             animIsPressedGun.SetBool("isPressed", false);
 
-        if (meleeHold)
-            animIsPressedMelee.SetBool("isPressed", true);
+        if (dashHold)
+            animIsPressedDash.SetBool("isPressed", true);
         else
-            animIsPressedMelee.SetBool("isPressed", false);
+            animIsPressedDash.SetBool("isPressed", false);
         /////////////////////////////////////////////////////////
 
 
@@ -458,7 +461,6 @@ public class MechaController : MonoBehaviour, IHit
         {
             _shootHoldTimer += Time.deltaTime;
             animIsPressedShot.SetBool("isPressed", true);
-
         }
         else
         {
@@ -496,8 +498,6 @@ public class MechaController : MonoBehaviour, IHit
         {
             _hasPlayedUltiSound2 = false;
         }
-
-
 
         float sync = 0f;
         sync += Mathf.Clamp01(_movementHoldTimer / _ultimateHoldDuration) * 0.5f;
@@ -683,6 +683,7 @@ public class MechaController : MonoBehaviour, IHit
         // Movement hold during melee attack timer
         if (_meleeHoldMovementTimer > 0f) { _meleeHoldMovementTimer -= Time.deltaTime; }
         else if (_meleeHoldMovement) { _meleeHoldMovement = false; }
+
 
         // Dash collision disable timer
         if (_dashCollisionDisableTimer > 0f) { _dashCollisionDisableTimer -= Time.deltaTime; }
