@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 
 using System.Collections.Generic;
 using System.Collections;
+using System;
 
 
 public class GameManager : MonoBehaviour
 {
+    public static Action<float> OnUltimateJaugeIncrease; // event pour augmenter la jauge ultimate, float = amount
     public static GameManager Instance;
 
     [Header("Transition Prefabs")]
@@ -292,6 +294,13 @@ public class GameManager : MonoBehaviour
             objectiveText.transform.localScale = Vector3.Lerp(targetScale * 1.2f, targetScale, t);
             yield return null;
         }
+    }
+    #endregion
+
+    #region INGAME EVENTS BINDINGS
+    public void IncreaseUltimateJauge(float amount)
+    {
+        OnUltimateJaugeIncrease?.Invoke(amount);
     }
     #endregion
 }

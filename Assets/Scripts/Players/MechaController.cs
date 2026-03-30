@@ -58,6 +58,9 @@ public class MissileSetup
     [field: SerializeField, Range(0f, 100f), Tooltip("Damage dealt by the missile on impact.")]
     public float Damage { get; private set; } = 30f;
 
+    [field: SerializeField, Range(0f, 10f), Tooltip("Damage dealt by the missile explosion.")]
+    public float AOEDamage { get; private set; } = 15f;
+
     [field: SerializeField, Range(0f, 2f), Tooltip("Time before the missile can start turning towards its target.")]
     public float HoldRotationTimer { get; private set; } = 0.5f;
 
@@ -224,6 +227,8 @@ public class MechaController : MonoBehaviour, IHit
         _currentSpeed = _movementSpeed;
 
         ultimateUI?.Initialize(_ultimateMax);
+
+        Subscribe(true);
 
         // Désactivation du viseur de précision si les contrôles de tir avancés ne sont pas activés
         if (!_advancedShootingControls) { _aimingReticle.SetActive(false); }
@@ -519,16 +524,18 @@ public class MechaController : MonoBehaviour, IHit
 
         ultimateUI?.UpdateCoopHold(sync);
 
-        if (_movementCharged && _shootCharged && movementHold && shootHold)
-            ActivateUltimate();
+        Collider2D[] targets;
+        bool targetsInArea = CheckAreaForTargets(transform.position, ScreenSizeToWorldBox(), 0f, _ultimateTargetsWhat, out targets);
+        if (_movementCharged && _shootCharged && movementHold && shootHold && targetsInArea)
+            ActivateUltimate(targets);
     }
 
-    private void ActivateUltimate()
+    private void ActivateUltimate(Collider2D[] targets)
     {
         if (_ultimateReady)
         {
             if (_currentUltimateCoroutine != null) { StopCoroutine(_currentUltimateCoroutine); }
-            _currentUltimateCoroutine = StartCoroutine(MissileSwarm());
+            _currentUltimateCoroutine = StartCoroutine(MissileSwarm(targets));
             AudioManager.Instance.PlaySound("UI_ulti_declenche");
             Debug.Log("ULTIMATE TEAM ATTACK UNLEASHED !!!");
         }        
@@ -568,8 +575,8 @@ public class MechaController : MonoBehaviour, IHit
             {
                 Vector2 repelDirection = (hitObject.transform.position - transform.position).normalized;
                 hitComponent.OnHit(_meleeDamage);
-                if (_meleeAttackStuns) { hitComponent.OnHitStun(0f, _meleeAttackStunDuration); }
-                if (_meleeAttackRepels) { hitComponent.OnHitRepel(0f, _meleeAttackRepelForce, repelDirection); }                
+                if (_meleeAttackStuns) { hitComponent.OnHitStun(_meleeAttackStunDuration); }
+                if (_meleeAttackRepels) { hitComponent.OnHitRepel(_meleeAttackRepelForce, repelDirection); }                
             }
         }
         _meleeTimer = 0f;
@@ -648,8 +655,8 @@ public class MechaController : MonoBehaviour, IHit
             {
                 Vector2 repelDirection = (hitObject.transform.position - transform.position).normalized;
                 hitComponent.OnHit(damage);
-                if (_aoeRepels) { hitComponent.OnHitRepel(0f, repelForce, repelDirection); }
-                if (_aoeStuns) { hitComponent.OnHitStun(0f, _aoeStunDuration); }
+                if (_aoeRepels) { hitComponent.OnHitRepel(repelForce, repelDirection); }
+                if (_aoeStuns) { hitComponent.OnHitStun(_aoeStunDuration); }
             }
         }
         _aoeTimer = 0f;
@@ -657,16 +664,16 @@ public class MechaController : MonoBehaviour, IHit
         AudioManager.Instance.PlaySound("SFX_Player_aoe");
     }
 
-    IEnumerator MissileSwarm()
+    IEnumerator MissileSwarm(Collider2D[] targets)
     {
         int currentLauncherIndex = 0;
         int missilesSpawned = 0;
-        Collider2D[] targets = Physics2D.OverlapBoxAll(transform.position, new Vector2(_maxTargetingRange * 2, _maxTargetingRange * 2), 0f, _ultimateTargetsWhat);
         
         while (missilesSpawned < _maxNumberOfMissiles)
         {
             int randIndex = Random.Range(0, targets.Length);
-            GameObject target = targets[randIndex].gameObject;
+            GameObject target = null;
+            if (targets[randIndex] != null) { target = targets[randIndex].gameObject; }
 
             if (currentLauncherIndex > _missilePoints.Length - 1) { currentLauncherIndex = 0; }
             Vector2 ejectionForceDir = (_missilePoints[currentLauncherIndex].position - transform.position).normalized;
@@ -674,7 +681,14 @@ public class MechaController : MonoBehaviour, IHit
             GameObject spawnedMissile = Instantiate(MissileParameters.MissilePrefab, _missilePoints[currentLauncherIndex].position, _missilePoints[currentLauncherIndex].rotation);
             spawnedMissile.GetComponent<Rigidbody2D>().AddForce(ejectionForceDir * Random.Range(_minReleaseForce, _maxReleaseForce), ForceMode2D.Impulse);
             Missile missileLogic = spawnedMissile.GetComponent<Missile>();
-            missileLogic.SetupMissile(MissileParameters.Speed, MissileParameters.RotationSpeed, MissileParameters.Lifetime, MissileParameters.Damage, MissileParameters.HoldRotationTimer,MissileParameters.HoldMovementTimer, MissileParameters.MissileImpactLayerMask);
+            missileLogic.SetupMissile(MissileParameters.Speed,
+                MissileParameters.RotationSpeed,
+                MissileParameters.Lifetime,
+                MissileParameters.Damage,
+                MissileParameters.AOEDamage,
+                MissileParameters.HoldRotationTimer,
+                MissileParameters.HoldMovementTimer,
+                MissileParameters.MissileImpactLayerMask);
             missileLogic.SetTarget(target);
 
             AudioManager.Instance.PlaySound("SFX_ulti_missile_popout");
@@ -684,7 +698,14 @@ public class MechaController : MonoBehaviour, IHit
 
             yield return new WaitForSeconds(_missileSpawnInterval);
         }
+        _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
+        _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
         yield break;
+    }
+
+    private void IncreaseUltimateCharge(float amount)
+    {
+        _ultimateCharge += amount;
     }
 
     private void UpdateTimers()
@@ -695,7 +716,7 @@ public class MechaController : MonoBehaviour, IHit
         _aoeTimer += Time.deltaTime;
 
         // Cooldown de l'Ultimate
-        _ultimateCharge += Time.deltaTime * 35f;
+        //_ultimateCharge += Time.deltaTime * 35f;
 
         // Movement hold during melee attack timer
         if (_meleeHoldMovementTimer > 0f) { _meleeHoldMovementTimer -= Time.deltaTime; }
@@ -802,6 +823,12 @@ public class MechaController : MonoBehaviour, IHit
         return new float[4] { screenBottomLeft.x, screenBottomLeft.y, screenTopRight.x, screenTopRight.y }; 
     }
 
+    private Vector2 ScreenSizeToWorldBox()
+    {
+        float[] boundaries = ScreenBoundaries();
+        return new Vector2(boundaries[2] - boundaries[0], boundaries[3] - boundaries[1]);
+    }
+
     private void InstantiateShotAtGunIndex(int gunIndex, bool advancedShooting)
     {
         GameObject laserShotGO = Instantiate(LaserShotParameters.LaserShotPrefab, _shootingPoints[gunIndex].position, _shootingPoints[gunIndex].rotation);
@@ -819,9 +846,9 @@ public class MechaController : MonoBehaviour, IHit
         return distanceToAimPoint / LaserShotParameters.Speed;
     }
 
-    private bool CheckAreaForTargets(Vector2 center, Vector2 size, float angle, LayerMask layerMask)
+    private bool CheckAreaForTargets(Vector2 center, Vector2 size, float angle, LayerMask layerMask, out Collider2D[] hits)
     {
-        Collider2D[] hits = Physics2D.OverlapBoxAll(center, size, angle, layerMask);
+        hits = Physics2D.OverlapBoxAll(center, size, angle, layerMask);
         return hits.Length > 0;
     }
     #endregion Aiming & Shooting Logic
@@ -885,21 +912,37 @@ public class MechaController : MonoBehaviour, IHit
     }
     #endregion Collision Logic
 
+    #region Subscribtions
+    private void Subscribe(bool state)
+    {
+        if (state) { GameManager.OnUltimateJaugeIncrease += IncreaseUltimateCharge; }
+        else { GameManager.OnUltimateJaugeIncrease -= IncreaseUltimateCharge; }
+    }
+
+    private void OnDisable()
+    {
+        Subscribe(false);
+    }
+
+    private void OnDestroy()
+    {
+        Subscribe(false);
+    }
+    #endregion Subscribtions
+
     #region IHit Implementation
     public void OnHit(float damage)
     {
         TakeDamage(damage);
     }
 
-    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
+    public void OnHitRepel(float repelForce, Vector2 repelDirection)
     {
-        TakeDamage(damage);
         _rb2D.AddForce(repelDirection * repelForce, ForceMode2D.Impulse);
     }
 
-    public void OnHitStun(float damage, float stunDuration)
+    public void OnHitStun(float stunDuration)
     {
-        TakeDamage(damage);
         Stun(stunDuration);
     }
     #endregion IHit Implementation

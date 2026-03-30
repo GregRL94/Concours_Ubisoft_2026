@@ -26,14 +26,8 @@ public class DestructibleEnv : MonoBehaviour, IHit
         TakeDamage(damage);
     }
 
-    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
-    {
-        TakeDamage(damage);
-    }
-    public void OnHitStun(float damage, float stunDuration)
-    {
-        TakeDamage(damage);
-    }
+    public void OnHitRepel(float repelForce, Vector2 repelDirection) { }
+    public void OnHitStun(float stunDuration) { }
     #endregion IHit Implementation
 
     private void _Destroy()
