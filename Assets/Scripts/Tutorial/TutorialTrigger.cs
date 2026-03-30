@@ -26,14 +26,15 @@ public class TutorialTrigger : MonoBehaviour
         {
             hasTriggered = true;
 
-            ExecuteLogic();
+            ExecuteTrigger();
 
             Destroy(gameObject);
         }
     }
 
-    private void ExecuteLogic()
+    private void ExecuteTrigger()
     {
+        //GameManager.Instance.MusicPlaylistStart();
         foreach (var obj in objectsToActivate)
         {
             if (obj != null)
@@ -49,7 +50,7 @@ public class TutorialTrigger : MonoBehaviour
         if (TutorialManager.Instance != null && !string.IsNullOrEmpty(tutorialMessage))
         {
             TutorialManager.Instance.ShowTutorial(tutorialMessage);
-            UIManager.Instance.UpdateObjective("Éliminer les aliens");
+            //UIManager.Instance.UpdateObjective("Éliminer les aliens");
         }
 
         //onTriggered?.Invoke();

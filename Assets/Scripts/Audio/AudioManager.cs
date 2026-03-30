@@ -144,7 +144,11 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
+
         currentPlaylist = musicIds;
+
+        //if (currentMusicId == musicId)
+        //    return;
 
         if (playlistRoutine != null)
             StopCoroutine(playlistRoutine);
@@ -167,6 +171,13 @@ public class AudioManager : MonoBehaviour
                 yield break;
             }
 
+            // Skip si c’est la même musique déjà jouer
+            if (currentMusicId == next)
+            {
+                yield return null;
+                continue;
+            }
+
             SoundData sound = library.Get(next);
 
             if (sound == null || sound.clip == null)
@@ -176,12 +187,12 @@ public class AudioManager : MonoBehaviour
                 continue;
             }
 
+            // Toujours false pour la playlist -> on ne veut pas loop 
             sound.loop = false;
 
             // Crossfade vers nouvelle musique
             CrossFadeMusic(next, true);
 
-            currentMusicId = next;
             lastPlayed = next;
 
             // attendre la fin du clip

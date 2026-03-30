@@ -45,6 +45,7 @@ public class InputManager : MonoBehaviour
         UIInputModule = FindAnyObjectByType<InputSystemUIInputModule>();
     }
 
+    // TRANSITION INPUT
     public void EnableAll()
     {
         Inputs.UI.Enable();
@@ -53,6 +54,7 @@ public class InputManager : MonoBehaviour
         if (UIInputModule)
             UIInputModule.enabled = true;
     }
+
 
     public void DisableAll()
     {
@@ -64,5 +66,21 @@ public class InputManager : MonoBehaviour
     }
 
 
+    public void EnableGameplay()
+    {
+        Inputs.Player.Enable();
+        Inputs.UI.Disable();
 
+        if (UIInputModule)
+            UIInputModule.enabled = true;
+    }
+
+    public void DisableGameplay()
+    {
+        Inputs.Player.Disable();
+        Inputs.UI.Enable();
+
+        if (UIInputModule)
+            UIInputModule.enabled = true;
+    }
 }

@@ -29,6 +29,14 @@ MonoBehaviour:
     loop: 0
     randomizePitch: 0
     pitchRange: 0
+  - id: Music_BeforeEnemySpawn
+    clip: {fileID: 8300000, guid: 5d6f649b95cf74140a8d7f9dc7d505a6, type: 3}
+    type: 0
+    volume: 0.314
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
   - id: UI_Submit
     clip: {fileID: 8300000, guid: 72ed74600bcbc4849a58be4e12980d38, type: 3}
     type: 2
