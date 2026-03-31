@@ -156,7 +156,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 10.3125
+  orthographic size: 8.4375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1188,6 +1188,7 @@ MonoBehaviour:
     <Speed>k__BackingField: 10
     <RotationSpeed>k__BackingField: 90
     <Damage>k__BackingField: 30
+    <AOEDamage>k__BackingField: 15
     <HoldRotationTimer>k__BackingField: 0.5
     <HoldMovementTimer>k__BackingField: 1.5
     <Lifetime>k__BackingField: 5
@@ -1235,6 +1236,10 @@ MonoBehaviour:
   _aimingReticle: {fileID: 7688457587450742652}
   _aimingReticleSpeed: 20
   _aimingReticleMinDistance: 1.5
+  _aimingReticleMaxDistance: 10
+  _aimingReticleScreenMargin: 2
+  _aimingReticleKeepOnScreenSpeed: 5
+  _aimingReticleKeepOnScreenSmoothTime: 0.5
   _synchFire: 0
   _fireRate: 15
   _angularDispersion: 1
@@ -1267,7 +1272,7 @@ MonoBehaviour:
   _missileSpawnInterval: 0.2
   animIsPressedMovement: {fileID: 0}
   animIsPressedShot: {fileID: 0}
-  _ultimateHoldDuration: 3
+  _ultimateHoldDuration: 2
   _ultimateMax: 100
   animIsReadyUltimate: {fileID: 0}
   _ultimateHoldThreshold: 0.25
@@ -1395,7 +1400,7 @@ Transform:
   m_GameObject: {fileID: 7682065259496983473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.44086027, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4408598, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

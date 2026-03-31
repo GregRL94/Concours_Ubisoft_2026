@@ -4,13 +4,12 @@ using UnityEngine.SceneManagement;
 
 using System.Collections.Generic;
 using System.Collections;
+using System;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 public class GameManager : MonoBehaviour
 {
+    public static Action<float> OnUltimateJaugeIncrease; // event pour augmenter la jauge ultimate, float = amount
     public static GameManager Instance;
 
     [Header("Transition Prefabs")]
@@ -23,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FadeTransition winTransition;
 
     [Header("Scenes")]
-    [SerializeField] private List<SceneAsset> levelScenes;
+    [SerializeField] private List<string> levelScenes;
 
     [Header("Objectives Texts")]
     [SerializeField] private string[] objectiveTexts; // index correspond à levelScenes
@@ -202,22 +201,22 @@ public class GameManager : MonoBehaviour
         if (currentObjectiveIndex >= levelScenes.Count) return;
 
         //string nextScene = levelScenes[currentObjectiveIndex];
-        string nextScene = levelScenes[currentObjectiveIndex].name;
+        string nextScene = levelScenes[currentObjectiveIndex];
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        if (nextScene == levelScenes[1].name) // mission 2 transition
+        if (nextScene == levelScenes[1]) // mission 2 transition
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission2Transition, 0f);
         }
-        else if (nextScene == levelScenes[2].name) // mission 3 transition
+        else if (nextScene == levelScenes[2]) // mission 3 transition
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission3Transition, 0f);
         }
-        else if (nextScene == levelScenes[3].name) // mission 4 transition
+        else if (nextScene == levelScenes[3]) // mission 4 transition
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission4Transition, 0f);
         }
-        else if (nextScene == levelScenes[levelScenes.Count - 1].name) // mission 4 transition
+        else if (nextScene == levelScenes[levelScenes.Count - 1]) // mission 4 transition
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission5Transition, 0f);
         }
@@ -295,6 +294,13 @@ public class GameManager : MonoBehaviour
             objectiveText.transform.localScale = Vector3.Lerp(targetScale * 1.2f, targetScale, t);
             yield return null;
         }
+    }
+    #endregion
+
+    #region INGAME EVENTS BINDINGS
+    public void IncreaseUltimateJauge(float amount)
+    {
+        OnUltimateJaugeIncrease?.Invoke(amount);
     }
     #endregion
 }

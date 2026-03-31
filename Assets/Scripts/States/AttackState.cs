@@ -149,8 +149,9 @@ public class AttackState : EnemyState
             {
                 // On peut meme ajouter un recul 
                 Vector2 knockBackDir = (hit.transform.position - enemy.transform.position).normalized;
-                target.OnHitRepel(mData.damage, mData.repelForce, knockBackDir);
-                target.OnHitStun(0f, mData.stunDuration);
+                target.OnHit(mData.damage);
+                target.OnHitRepel(mData.repelForce, knockBackDir);
+                target.OnHitStun(mData.stunDuration);
                 Debug.Log("Joueur touche par le corps a corps");
             }
         }

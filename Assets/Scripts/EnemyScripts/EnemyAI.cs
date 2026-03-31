@@ -71,6 +71,8 @@ public class EnemyAI : MonoBehaviour, IHit
     public void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+        GameManager.Instance.IncreaseUltimateJauge(data.ultimateChargeOnHit);
+
         float randBloodChance = UnityEngine.Random.Range(0f, 1f);
         if (damage > 0f && randBloodChance >= 0.5f)
         {
@@ -129,16 +131,13 @@ public class EnemyAI : MonoBehaviour, IHit
         TakeDamage(damage);
     }
 
-    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
+    public void OnHitRepel(float repelForce, Vector2 repelDirection)
     {
-        if(rb!= null)
-            rb.AddForce(repelDirection *repelForce, ForceMode2D.Impulse);
-        TakeDamage(damage);
+        if (rb!= null) { rb.AddForce(repelDirection * repelForce, ForceMode2D.Impulse); }            
     }
 
-    public void OnHitStun(float damage, float stunDuration)
+    public void OnHitStun(float stunDuration)
     {
         // Implémenter la logique de stun ici (par exemple, désactiver les mouvements et les attaques pendant stunDuration)
-        TakeDamage(damage);
     }
 }
