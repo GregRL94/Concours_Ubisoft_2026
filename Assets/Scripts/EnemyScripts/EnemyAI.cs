@@ -144,7 +144,8 @@ public class EnemyAI : MonoBehaviour, IHit
     public void OnHitStun(float stunDuration)
     {
         // Implémenter la logique de stun ici (par exemple, désactiver les mouvements et les attaques pendant stunDuration)
-        TakeDamage(damage);
+        //TakeDamage(damage);
+        Debug.Log("On ma stunned");
         StunState stunState = new StunState(this, StateMachine, stunDuration);
         StateMachine.ChangeState(stunState);
     }
