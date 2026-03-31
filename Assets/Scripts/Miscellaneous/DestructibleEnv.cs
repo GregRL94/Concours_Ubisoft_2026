@@ -13,6 +13,10 @@ public class DestructibleEnv : MonoBehaviour, IHit
     private void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+        foreach (var childFlashEffect in GetComponentsInChildren<FlashEffect>())
+        {
+            childFlashEffect.Flash();
+        }
         _currentHealth -= damage;
         if (_currentHealth <= 0)
         {
