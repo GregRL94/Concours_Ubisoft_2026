@@ -31,7 +31,7 @@ public class LaserShotEnnemy : MonoBehaviour
 
     private void Move()
     {
-        transform.Translate(Vector3.right * _speed * Time.deltaTime);
+        transform.Translate(Vector3.up * _speed * Time.deltaTime);
     }
 
     private void _Destroy()

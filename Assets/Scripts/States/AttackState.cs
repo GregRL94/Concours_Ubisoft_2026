@@ -54,7 +54,7 @@ public class AttackState : EnemyState
                     // 3. Appliquer la rotation au firePoint
                     // Si tes balles tirent de côté, utilise (0, 0, angle)
                     // Si elles tirent vers le "haut" du sprite, utilise (0, 0, angle - 90)
-                    enemy.firePoint.rotation = Quaternion.Euler(0, 0, angle);
+                    enemy.firePoint.rotation = Quaternion.Euler(0, 0, angle -90f);
                 }
                 if (_shootTimer >= 1 / sData._fireRate)
                 {
