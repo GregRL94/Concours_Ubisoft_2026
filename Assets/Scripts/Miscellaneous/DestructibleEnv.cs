@@ -13,6 +13,10 @@ public class DestructibleEnv : MonoBehaviour, IHit
     private void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+        foreach (var childFlashEffect in GetComponentsInChildren<FlashEffect>())
+        {
+            childFlashEffect.Flash();
+        }
         _currentHealth -= damage;
         if (_currentHealth <= 0)
         {
@@ -26,14 +30,8 @@ public class DestructibleEnv : MonoBehaviour, IHit
         TakeDamage(damage);
     }
 
-    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
-    {
-        TakeDamage(damage);
-    }
-    public void OnHitStun(float damage, float stunDuration)
-    {
-        TakeDamage(damage);
-    }
+    public void OnHitRepel(float repelForce, Vector2 repelDirection) { }
+    public void OnHitStun(float stunDuration) { }
     #endregion IHit Implementation
 
     private void _Destroy()

@@ -16,7 +16,7 @@ MonoBehaviour:
   - id: Music_MainMenu
     clip: {fileID: 8300000, guid: 5c850a35c11a0ca4789f0eb00dbdc0bf, type: 3}
     type: 0
-    volume: 1
+    volume: 0.669
     pitch: 1
     loop: 0
     randomizePitch: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   - id: Music_Gameplay
     clip: {fileID: 8300000, guid: 81d447ad6573e594f8a938eba6d64f5b, type: 3}
     type: 0
-    volume: 1
+    volume: 0.661
     pitch: 1
     loop: 0
     randomizePitch: 0

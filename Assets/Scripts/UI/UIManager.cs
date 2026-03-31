@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -66,5 +67,35 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+
+    //public IEnumerator AnimateObjectiveText()
+    //{
+    //    Vector3 startScale = Vector3.zero;
+    //    Vector3 targetScale = Vector3.one;
+
+    //    float duration = 0.25f;
+    //    float time = 0f;
+
+    //    objectiveText.transform.localScale = startScale;
+
+    //    // Scale up rapide
+    //    while (time < duration)
+    //    {
+    //        time += Time.deltaTime;
+    //        float t = time / duration;
+    //        objectiveText.transform.localScale = Vector3.Lerp(startScale, targetScale * 1.2f, t);
+    //        yield return null;
+    //    }
+
+    //    // Petit bounce retour
+    //    time = 0f;
+    //    while (time < duration)
+    //    {
+    //        time += Time.deltaTime;
+    //        float t = time / duration;
+    //        objectiveText.transform.localScale = Vector3.Lerp(targetScale * 1.2f, targetScale, t);
+    //        yield return null;
+    //    }
+    //}
 
 }

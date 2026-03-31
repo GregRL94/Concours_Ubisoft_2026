@@ -14,6 +14,7 @@ public class Missile : MonoBehaviour
     private float _rotationSpeed;
     private float _lifetime;
     private float _damage;
+    private float _aoeDamage;
     private float _holdRotationTimer;
     private float _holdMovementTimer;
     private float _timer;
@@ -50,30 +51,31 @@ public class Missile : MonoBehaviour
         }
         if (_rotationActive)
         {
-            RotateTowardsTarget();
+            if (_target) { RotateTowardsTarget(); }
         }
         if (_movementActive)
         {
             Move();
         }
-        if (_timer >= _lifetime || _target == null)
+        if (_timer >= _lifetime)
         {
             _Destroy();
         }
     }
 
-    public void SetupMissile(float speed, float rotationSpeed, float lifetime, float damage, float holdRotationTimer, float holdMovementTimer, LayerMask missileImpactsWhat)
+    public void SetupMissile(float speed, float rotationSpeed, float lifetime, float damage, float aoeDamage, float holdRotationTimer, float holdMovementTimer, LayerMask missileImpactsWhat)
     {
         _speed = speed;
         _rotationSpeed = rotationSpeed;
         _lifetime = lifetime;
         _damage = damage;
+        _aoeDamage = aoeDamage;
         _holdRotationTimer = holdRotationTimer;
         _holdMovementTimer = holdMovementTimer;
         _impactLayerMask = missileImpactsWhat;
     }
 
-    public void SetTarget(GameObject target)
+    public void SetTarget(GameObject target=null)
     {
         _target = target;
     }
@@ -106,7 +108,8 @@ public class Missile : MonoBehaviour
 
     private void _Destroy()
     {
-        Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+        GameObject explosion = Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+        explosion.GetComponent<ExplosionEffect>()?.SetupExplosion(_aoeDamage, _impactLayerMask);
         AudioManager.Instance.PlaySound("SFX_ulti_missile_explosion");
         Destroy(gameObject);
     }
