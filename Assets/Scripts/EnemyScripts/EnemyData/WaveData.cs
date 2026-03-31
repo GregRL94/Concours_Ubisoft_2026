@@ -9,4 +9,5 @@ public class WaveData : ScriptableObject
     public int regularBatchSize = 5;
     public float timeBetweenWaves = 5f;
     public float spawnIntervalWithinBatch = 0.2f;
+    public int maxActiveEnemies;
 }

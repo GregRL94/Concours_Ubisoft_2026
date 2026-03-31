@@ -29,6 +29,11 @@ public class AttackState : EnemyState
     {
         if (enemy.DistanceToPlayer <= enemy.data.attackRange)
         {
+            if (enemy.Player != null)
+            {
+                Vector2 dirToPlayer = (enemy.Player.position - enemy.transform.position).normalized;
+                RotateEnemyTowardsPlayer(dirToPlayer);
+            }
             //-- CAS KAMIKAZE --//
             if (enemy.data is KamikazeData kData)
             {
@@ -85,6 +90,11 @@ public class AttackState : EnemyState
         
     }
 
+    private void RotateEnemyTowardsPlayer(Vector2 direction)
+    {
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        enemy.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+    }
     private void CancelExplosion()
     {
         if (_explosionRoutine != null)
