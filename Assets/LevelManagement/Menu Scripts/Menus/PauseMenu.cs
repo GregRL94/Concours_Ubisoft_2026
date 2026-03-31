@@ -8,20 +8,36 @@ public class PauseMenu : Menu
     public void OnResumePressed()
     {
         AudioManager.Instance.PlaySound("UI_Submit");
+        MenuManager.Instance.ClearMenu();
         MenuManager.Instance.CloseMenu();
     }
 
     public void OnRestartPressed()
     {
-        AudioManager.Instance.StopMusic();
+        GameManager.Instance.RestartLevel();
+
+    }
+    public void OnSettingsPressed()
+    {
         AudioManager.Instance.PlaySound("UI_Submit");
-        LevelLoader.ReloadLevel();
+        MenuManager.Instance.OpenMenu(MenuManager.Instance.GetSettingsMenu());
+    }
+    public void OnAccessibilityPressed()
+    {
+        AudioManager.Instance.PlaySound("UI_Submit");
+        MenuManager.Instance.OpenMenu(MenuManager.Instance.GetAccessibilityMenu());
+    }
+
+    public void OnChangeRolePressed()
+    {
+        AudioManager.Instance.PlaySound("UI_Submit");
+        MenuManager.Instance.OpenMenu(MenuManager.Instance.GetPlayerChoiceMenu());
     }
 
     public void OnMainMenuPressed()
     {
         MenuManager.Instance.CloseMenu();
-        AudioManager.Instance.StopMusic();
+        OnReturnToMainMenu();
         LevelLoader.LoadMainMenuLevel();
     }
 

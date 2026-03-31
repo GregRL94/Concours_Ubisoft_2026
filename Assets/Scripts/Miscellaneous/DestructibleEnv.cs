@@ -10,9 +10,9 @@ public class DestructibleEnv : MonoBehaviour, IHit
         _currentHealth = _maxHealth;
     }
 
-    #region IHit Implementation
-    public void OnHit(float damage)
+    private void TakeDamage(float damage)
     {
+        if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
         _currentHealth -= damage;
         if (_currentHealth <= 0)
         {
@@ -20,8 +20,14 @@ public class DestructibleEnv : MonoBehaviour, IHit
         }
     }
 
-    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection) {}
-    public void OnHitStun(float damage, float stunDuration) {}
+    #region IHit Implementation
+    public void OnHit(float damage)
+    {
+        TakeDamage(damage);
+    }
+
+    public void OnHitRepel(float repelForce, Vector2 repelDirection) { }
+    public void OnHitStun(float stunDuration) { }
     #endregion IHit Implementation
 
     private void _Destroy()

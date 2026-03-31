@@ -6,6 +6,8 @@ public class EnemyAI : MonoBehaviour, IHit
     [Header("Donnees de l'ennemi")] 
     public EnemyData data; //Nouvellle fiche de stats ScriptableObj
     public Animator animator {get; private set;}
+    [Header("BloodSplash Particles")]
+    public GameObject bloodSplashPrefab;
     [Header("Références de combat")]
     public Transform firePoint;
     public EnemyState.EnemyStateMachine StateMachine { get; set; }
@@ -74,6 +76,14 @@ public class EnemyAI : MonoBehaviour, IHit
     public void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+        GameManager.Instance.IncreaseUltimateJauge(data.ultimateChargeOnHit);
+
+        float randBloodChance = UnityEngine.Random.Range(0f, 1f);
+        if (damage > 0f && randBloodChance >= 0.5f)
+        {
+            Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
+            Instantiate(bloodSplashPrefab, transform.position, Quaternion.identity);
+        }
         currentHealth -= damage;
         if (currentHealth <= 0 && !_isDead)
         {
@@ -102,6 +112,16 @@ public class EnemyAI : MonoBehaviour, IHit
         _isDead = true;
     }
 
+    // Si les ennemis ne passe pas par Die() -> on le unregistre
+    private void OnDestroy()
+    {
+        Debug.Log("ENEMY DIEEED WITHOUT GOING ON DIE METHOD!!!");
+        if (!_isDead && EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.UnRegisterEnemy(this);
+        }
+    }
+
     //Visualisation des portes dans l'editeur
     private void OnDrawGizmosSelected()
     {
@@ -116,14 +136,12 @@ public class EnemyAI : MonoBehaviour, IHit
         TakeDamage(damage);
     }
 
-    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
+    public void OnHitRepel(float repelForce, Vector2 repelDirection)
     {
-        if(rb!= null)
-            rb.AddForce(repelDirection *repelForce, ForceMode2D.Impulse);
-        TakeDamage(damage);
+        if (rb!= null) { rb.AddForce(repelDirection * repelForce, ForceMode2D.Impulse); }            
     }
 
-    public void OnHitStun(float damage, float stunDuration)
+    public void OnHitStun(float stunDuration)
     {
         // Implémenter la logique de stun ici (par exemple, désactiver les mouvements et les attaques pendant stunDuration)
         TakeDamage(damage);

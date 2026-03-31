@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: MinkaiData_01
   m_EditorClassIdentifier: Assembly-CSharp::MeleeData
   enemyName: Minkai
-  patrolRadius: 30
+  patrolRadius: 1
   moveSpeed: 3
-  maxHealth: 100
-  detectionRange: 2
+  maxHealth: 500
+  detectionRange: 10
   attackRange: 4
   stopDistance: 4
   damage: 25

@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   data: {fileID: 11400000, guid: bb373dd6278c22a68a202fb4d0884321, type: 2}
+  bloodSplashPrefab: {fileID: 3015472318778711838, guid: 896da33545a96f944a0ac1e398d57a01, type: 3}
   firePoint: {fileID: 4901014329125216784}
 --- !u!195 &6276922060709080670
 NavMeshAgent:
@@ -147,8 +148,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
+  m_Mass: 6
+  m_LinearDamping: 8
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -160,7 +161,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &8355944893603879564
 CircleCollider2D:

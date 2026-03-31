@@ -13,6 +13,10 @@ public class EnemySpawner : MonoBehaviour, IHit
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.RegisterSpawner(this);
+        }
         StartCoroutine(SpawnRoutine());
     }
 
@@ -64,15 +68,31 @@ public class EnemySpawner : MonoBehaviour, IHit
         } 
         
     }
-    public void OnHit(float damage) {
-	    health -= damage;
-	    Debug.Log("Spawner got hit!");
-	    if (health <= 0) {
-	    	Destroy(gameObject);
-	    }
+
+    private void TakeDamage(float damage)
+    {
+        if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+        health -= damage;
+        Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
+        Debug.Log("Spawner got hit!");
+        if (health <= 0)
+        {
+            if (EnemyManager.Instance != null)
+            {
+                EnemyManager.Instance.UnRegisterSpawner(this);
+            }
+            GetComponent<Animator>()?.SetTrigger("Die");
+        }
     }
-    public void OnHitRepel(float f, float ff, Vector2 V) {}
-    public void OnHitStun(float f, float ff) {}
+
+    public void OnHit(float damage)
+    {
+	    TakeDamage(damage);
+    }
+
+    public void OnHitRepel(float ff, Vector2 V) {}
+
+    public void OnHitStun(float ff) {}
     
     //BoltBat ne change pas de direction lorsqu'il commence a shoot l'ennemi. Le boltbat continue de shoot vers la derniere direction du joueur
    //Cap le nombre d'ennemis que les spawner vont spawn
