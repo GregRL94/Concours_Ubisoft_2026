@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc22db9c52d9e2c4389d9765716fed73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleEnv
-  _maxHealth: 100
+  _maxHealth: 200
 --- !u!114 &6371619343593868281
 MonoBehaviour:
   m_ObjectHideFlags: 0
