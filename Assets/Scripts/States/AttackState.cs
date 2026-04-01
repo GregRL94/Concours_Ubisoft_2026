@@ -117,7 +117,6 @@ public class AttackState : EnemyState
 
         if (_hasExploded) return;
         _hasExploded = true;
-        Debug.Log("BOOOOM");
         AudioManager.Instance.PlaySound(kData.soundExplode);
         if(kData.explosionEffect != null)
             Object.Instantiate(kData.explosionEffect, enemy.transform.position, Quaternion.identity);
@@ -166,8 +165,8 @@ public class AttackState : EnemyState
         AudioManager.Instance.PlaySound(mData.soundAttack);
 
         Debug.Log(enemy.data.enemyName + "donne un coup !");
-        if (attackcounter >= 0) { enemy.animator.SetTrigger("attack0"); Debug.Log("Attack 0"); }
-        else { enemy.animator.SetTrigger("attack1"); Debug.Log("Attack 1"); }
+        if (attackcounter >= 0) { enemy.animator.SetTrigger("attack0"); }
+        else { enemy.animator.SetTrigger("attack1"); }
         attackcounter *= -1;
         // On detecte si le joueur est dans la zone de frappe (devant l'ennemi)
         // On utilise le fire point comme centre de l'attaque s'il existe, sinon le centre de l'ennemi

@@ -4930,10 +4930,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3507862057726597587}
   - component: {fileID: 9087682446479883011}
-  - component: {fileID: 1656899726386707784}
   - component: {fileID: -6331466321129152172}
   - component: {fileID: 5930228685647784632}
-  - component: {fileID: -616576284027476987}
   - component: {fileID: -5369796207759539612}
   m_Layer: 0
   m_Name: Fireball
@@ -5018,19 +5016,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1656899726386707784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801827202018218392}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6efc0c712b042394b9a550fc9b6d7a23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LaserShot
-  _explosionEffect: {fileID: 2376449415813508878, guid: 025f706346e042440ad89d0a34768ce6, type: 3}
 --- !u!50 &-6331466321129152172
 Rigidbody2D:
   serializedVersion: 5
@@ -5104,21 +5089,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.19, y: 0.4}
   m_EdgeRadius: 0
---- !u!114 &-616576284027476987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801827202018218392}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76eb43e50049e2f4abd261e0b4d53632, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  _speed: 4
-  _damage: 10
-  lifetime: 3
 --- !u!114 &-5369796207759539612
 MonoBehaviour:
   m_ObjectHideFlags: 0
