@@ -21,3 +21,4 @@ MonoBehaviour:
   regularBatchSize: 5
   timeBetweenWaves: 10
   spawnIntervalWithinBatch: 0.3
+  maxActiveEnemies: 40
