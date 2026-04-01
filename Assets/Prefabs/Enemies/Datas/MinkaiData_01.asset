@@ -15,12 +15,13 @@ MonoBehaviour:
   enemyName: Minkai
   patrolRadius: 1
   moveSpeed: 3
-  maxHealth: 500
+  maxHealth: 200
   detectionRange: 10
   attackRange: 4
   stopDistance: 4
-  damage: 25
-  attackSpeed: 0.2
-  hitRadius: 4
-  repelForce: 45
-  stunDuration: 1
+  damage: 5
+  ultimateChargeOnHit: 1
+  attackSpeed: 1
+  hitRadius: 3
+  repelForce: 1000
+  stunDuration: 0.2

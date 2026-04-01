@@ -25,7 +25,7 @@ public class DestructibleEnv : MonoBehaviour, IHit
         {
             _Destroy();
         }
-        else if (_damageCounter >= _thresholdDamagedSound­)
+        else if (_damageCounter >= _thresholdDamagedSound)
         {
             AudioManager.Instance.PlaySound("SFX_Env_debris_damage");
             _damageCounter = 0;

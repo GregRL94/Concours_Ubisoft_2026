@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 1392904071871295899, guid: 3a8796c5371e24441864f55ec0c347aa, type: 3}
   initialBatchSize: 3
-  regularBatchSize: 2
+  regularBatchSize: 3
   timeBetweenWaves: 10
   spawnIntervalWithinBatch: 0.4
   maxActiveEnemies: 15
