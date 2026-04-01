@@ -4,6 +4,8 @@ using UnityEngine.Rendering.Universal;
 
 public class Missile : MonoBehaviour
 {
+    [SerializeField] private bool _activeHoming = true;
+    [SerializeField, Range(1f, 10f)] private float _targetReacquisitionRange = 5f;
     [SerializeField] private GameObject _explosionEffect;
     private TrailRenderer _trailRenderer;
     private ParticleSystem _particleSystem;    
@@ -48,6 +50,10 @@ public class Missile : MonoBehaviour
         if (!_effectsActive && _rotationActive && _movementActive)
         {
             ActivateMissileEffects();
+        }
+        if (_target == null && _activeHoming)
+        {
+            _target = ReAcquireTarget();
         }
         if (_rotationActive)
         {
@@ -104,6 +110,30 @@ public class Missile : MonoBehaviour
             AudioManager.Instance.PlaySound("SFX_ulti_missile_fusee");
             _hasPlayedMissileSound = true;
         }
+    }
+
+    private GameObject ReAcquireTarget()
+    {
+        GameObject newTarget = null;
+
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, _targetReacquisitionRange, _impactLayerMask))
+        {
+            if (newTarget == null)
+            {
+                newTarget = collider.gameObject;
+            }
+            else
+            {
+                float currentTargetDistance = Vector2.Distance(transform.position, newTarget.transform.position);
+                float potentialTargetDistance = Vector2.Distance(transform.position, collider.transform.position);
+                if (potentialTargetDistance < currentTargetDistance)
+                {
+                    newTarget = collider.gameObject;
+                }
+            }
+        }
+
+        return newTarget;
     }
 
     private void _Destroy()
