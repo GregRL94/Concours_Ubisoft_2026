@@ -8,8 +8,10 @@ public class AttackState : EnemyState
     private float _shootTimer;
     private float _meleeTimer;
     private bool _isExploding = false;
+    private bool _hasExploded = false; //Nouveau flag de securite
+    //private int attackcounter;
     private int attackcounter = 1;
-    private bool _hasExploded = false;
+   
 
     private Coroutine _explosionRoutine;//On stock la coroutine pour pouvoir l'arreter
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,10 +27,13 @@ public class AttackState : EnemyState
 
     public override void Update()
     {
-        float dist = Vector2.Distance(enemy.transform.position, enemy.Player.position);
-    
-        if (dist <= enemy.data.attackRange)
+        if (enemy.DistanceToPlayer <= enemy.data.attackRange)
         {
+            if (enemy.Player != null)
+            {
+                Vector2 dirToPlayer = (enemy.Player.position - enemy.transform.position).normalized;
+                RotateEnemyTowardsPlayer(dirToPlayer);
+            }
             //-- CAS KAMIKAZE --//
             if (enemy.data is KamikazeData kData)
             {
@@ -43,8 +48,19 @@ public class AttackState : EnemyState
             //-- CAS SNIPER --//
             else if (enemy.data is SniperData sData)
             {
-                // enemy.Anim.SetTrigger("Shoot"); // Declenche l'animation de tir
-                //Shoot(sData);
+                if (enemy.Player != null)
+                {
+                    // 1. Calculer le vecteur direction
+                    Vector2 direction = (enemy.Player.position - enemy.firePoint.position).normalized;
+
+                    // 2. Calculer l'angle (Atan2 donne l'angle pour l'axe X)
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+                    // 3. Appliquer la rotation au firePoint
+                    // Si tes balles tirent de côté, utilise (0, 0, angle)
+                    // Si elles tirent vers le "haut" du sprite, utilise (0, 0, angle - 90)
+                    enemy.firePoint.rotation = Quaternion.Euler(0, 0, angle -90f);
+                }
                 if (_shootTimer >= 1 / sData._fireRate)
                 {
                     Shoot(sData);
@@ -74,6 +90,11 @@ public class AttackState : EnemyState
         
     }
 
+    private void RotateEnemyTowardsPlayer(Vector2 direction)
+    {
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        enemy.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+    }
     private void CancelExplosion()
     {
         if (_explosionRoutine != null)
@@ -93,9 +114,10 @@ public class AttackState : EnemyState
     }
     public void Explode(KamikazeData kData)
     {
-	if (_hasExploded) return;
-	_hasExploded = true;
-        Debug.Log("BOOOOM");
+
+        if (_hasExploded) return;
+        _hasExploded = true;
+        AudioManager.Instance.PlaySound(kData.soundExplode);
         if(kData.explosionEffect != null)
             Object.Instantiate(kData.explosionEffect, enemy.transform.position, Quaternion.identity);
        
@@ -104,7 +126,9 @@ public class AttackState : EnemyState
     
         foreach (var hit in hits)
         {
-	    if (hit.gameObject == enemy.gameObject) continue;
+            //Protection : On ne s'inflige pas de degats a soi-meme ici
+            //car on va de toute facon se detruire a la fin
+            if(hit.gameObject == enemy.gameObject) continue;
             // Utilisation de IHit pour infliger des dégâts
             if (hit.TryGetComponent(out IHit hitComponent))
             {
@@ -123,20 +147,26 @@ public class AttackState : EnemyState
     {
         if (sData._projectilePrefab != null && enemy.firePoint != null)
         {
-            Debug.Log(enemy.data.enemyName + " tire une balle !");
+           
+            
+            // On utilise la rotation du firePoint qui "track" déjà le joueur grâce à l'Update
             GameObject proj = Object.Instantiate(sData._projectilePrefab, enemy.firePoint.position, enemy.firePoint.rotation);
-            LaserShot projSetup = proj.GetComponent<LaserShot>();
+        
+            LaserShotEnnemy projSetup = proj.GetComponent<LaserShotEnnemy>();
             projSetup.SetupLaserShoot(sData._speed, sData.damage, sData._lifetime, sData._impactLayerMask);
             enemy.animator.SetTrigger("attack");
+            AudioManager.Instance.PlaySound(sData.soundShoot);
             _shootTimer = 0f; // Reset du timer de tir
         }
     }
 
     void PerformMeleeAttack(MeleeData mData)
     {
+        AudioManager.Instance.PlaySound(mData.soundAttack);
+
         Debug.Log(enemy.data.enemyName + "donne un coup !");
-        if (attackcounter >= 0) { enemy.animator.SetTrigger("attack0"); Debug.Log("Attack 0"); }
-        else { enemy.animator.SetTrigger("attack1"); Debug.Log("Attack 1"); }
+        if (attackcounter >= 0) { enemy.animator.SetTrigger("attack0"); }
+        else { enemy.animator.SetTrigger("attack1"); }
         attackcounter *= -1;
         // On detecte si le joueur est dans la zone de frappe (devant l'ennemi)
         // On utilise le fire point comme centre de l'attaque s'il existe, sinon le centre de l'ennemi
@@ -149,8 +179,9 @@ public class AttackState : EnemyState
             {
                 // On peut meme ajouter un recul 
                 Vector2 knockBackDir = (hit.transform.position - enemy.transform.position).normalized;
-                target.OnHitRepel(mData.damage, mData.repelForce, knockBackDir);
-                target.OnHitStun(0f, mData.stunDuration);
+                target.OnHit(mData.damage);
+                target.OnHitRepel(mData.repelForce, knockBackDir);
+                target.OnHitStun(mData.stunDuration);
                 Debug.Log("Joueur touche par le corps a corps");
             }
         }

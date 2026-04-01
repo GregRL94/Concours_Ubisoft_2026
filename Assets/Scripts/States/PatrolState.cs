@@ -40,7 +40,7 @@ public class PatrolState : EnemyState
     public override void Update()
     {
        //1. Detection du joueur (Transition vers Chase) 
-       if (Vector2.Distance(enemy.transform.position, enemy.Player.position) < enemy.data.detectionRange)
+       if (enemy.DistanceToPlayer < enemy.data.detectionRange)
        {
            stateMachine.ChangeState(enemy.ChaseState);
            return;

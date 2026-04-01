@@ -3,7 +3,9 @@ using UnityEngine;
 public class DestructibleEnv : MonoBehaviour, IHit
 {
     [SerializeField] private float _maxHealth = 100f;
+    [SerializeField] private int _thresholdDamagedSound = 15;
     private float _currentHealth;
+    private float _damageCounter = 0f;
 
     private void Start()
     {
@@ -13,10 +15,20 @@ public class DestructibleEnv : MonoBehaviour, IHit
     private void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+        foreach (var childFlashEffect in GetComponentsInChildren<FlashEffect>())
+        {
+            childFlashEffect.Flash();
+        }
         _currentHealth -= damage;
+        _damageCounter += damage;
         if (_currentHealth <= 0)
         {
             _Destroy();
+        }
+        else if (_damageCounter >= _thresholdDamagedSound)
+        {
+            AudioManager.Instance.PlaySound("SFX_Env_debris_damage");
+            _damageCounter = 0;
         }
     }
 
@@ -26,19 +38,14 @@ public class DestructibleEnv : MonoBehaviour, IHit
         TakeDamage(damage);
     }
 
-    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
-    {
-        TakeDamage(damage);
-    }
-    public void OnHitStun(float damage, float stunDuration)
-    {
-        TakeDamage(damage);
-    }
+    public void OnHitRepel(float repelForce, Vector2 repelDirection) { }
+    public void OnHitStun(float stunDuration) { }
     #endregion IHit Implementation
 
     private void _Destroy()
     {
         // Add destruction effects here (e.g., particle effects, sound, etc.)
+        AudioManager.Instance.PlaySound("SFX_Env_debris_destroy");
         Destroy(gameObject);
     }
 }

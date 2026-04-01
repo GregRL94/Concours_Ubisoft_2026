@@ -13,6 +13,9 @@ public class EnemyManager : MonoBehaviour
     [Header("Suivis des spawners")] 
     public List<EnemySpawner> activeSpawners = new List<EnemySpawner>();
 
+    [Header("Suivis des tutorial triggers")]
+    public List<TutorialTrigger> activeTutorialTriggers = new List<TutorialTrigger>();
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -67,12 +70,37 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    //Appelé par le trigger au Start
+    public void RegisterTrigger(TutorialTrigger trigger)
+    {
+        if (!activeTutorialTriggers.Contains(trigger))
+        {
+            activeTutorialTriggers.Add(trigger);
+            Debug.Log($"Trigger ajouté. Total: {activeTutorialTriggers.Count}");
+        }
+    }
+
+    //Appelé quand le trigger est détruit
+    public void UnRegisterTrigger(TutorialTrigger trigger)
+    {
+        if (activeTutorialTriggers.Contains(trigger))
+        {
+            activeTutorialTriggers.Remove(trigger);
+            Debug.Log($"Trigger détruit. Restants: {activeTutorialTriggers.Count}");
+        }
+    }
+
+
+
     private void OnAllEnemiesCleared()
     {
         //On peut appeler la gestion du niveau
-        if (activeEnnemis.Count == 0 && activeSpawners.Count == 0)
+        if (activeEnnemis.Count == 0 &&
+            activeSpawners.Count == 0 &&
+            activeTutorialTriggers.Count == 0)
         {
-            Debug.Log("All enemies and spawners cleared\n Level Completed !");
+            Debug.Log("ALL CLEAR Enemies + Spawners + Triggers -> LEVEL COMPLETE");
+
             GameManager.Instance.CompleteObjective();
         }
 

@@ -1,9 +1,15 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
+
+using System.Collections.Generic;
+using System.Collections;
+using System;
+
 
 public class GameManager : MonoBehaviour
 {
+    public static Action<float> OnUltimateJaugeIncrease; // event pour augmenter la jauge ultimate, float = amount
     public static GameManager Instance;
 
     [Header("Transition Prefabs")]
@@ -11,10 +17,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FadeTransition nextLevelTransition;
     [SerializeField] private FadeTransition mission2Transition;
     [SerializeField] private FadeTransition mission3Transition;
+    [SerializeField] private FadeTransition mission4Transition;
+    [SerializeField] private FadeTransition mission5Transition;
     [SerializeField] private FadeTransition winTransition;
 
     [Header("Scenes")]
-    [SerializeField] private string[] levelScenes;
+    [SerializeField] private List<string> levelScenes;
 
     [Header("Objectives Texts")]
     [SerializeField] private string[] objectiveTexts; // index correspond à levelScenes
@@ -125,22 +133,46 @@ public class GameManager : MonoBehaviour
     {
         if (CurrentState != GameplayState.Playing) return;
 
+        StartCoroutine(CompleteObjectiveRoutine());
+        //CompleteObjectiveRoutine();
+    }
+
+    private IEnumerator CompleteObjectiveRoutine()
+    {
+        // Bloque direct le state
         CurrentState = GameplayState.Transition;
+
+        // Attend que l'anim soit completement fini
+        yield return StartCoroutine(ObjectiveAnimRoutine());
+
         currentObjectiveIndex++;
 
-        if (currentObjectiveIndex >= levelScenes.Length)
+        if (currentObjectiveIndex >= levelScenes.Count)
         {
             WinGame();
         }
         else
         {
-            // Pour missions 2+, on sauvegarde le checkpoint au début de la mission
             if (currentObjectiveIndex > 0)
                 checkpointTime = timer;
 
             MissionAccomplished();
         }
     }
+
+    private IEnumerator ObjectiveAnimRoutine()
+    {
+        // UI + SFX
+        objectiveText.text = "OBJECTIVE COMPLETED";
+        AudioManager.Instance.PlaySound("SFX_ObjectiveCompleted");
+
+        // Petite anim - scale punch 
+        yield return StartCoroutine(AnimateObjectiveText());
+
+        // Attente 2 secondes
+        yield return new WaitForSeconds(1.5f);
+    }
+
     #endregion
 
     #region TRANSITIONS
@@ -166,19 +198,30 @@ public class GameManager : MonoBehaviour
     #region LEVEL MANAGEMENT
     public void LoadNextLevel()
     {
-        if (currentObjectiveIndex >= levelScenes.Length) return;
+        if (currentObjectiveIndex >= levelScenes.Count) return;
 
+        //string nextScene = levelScenes[currentObjectiveIndex];
         string nextScene = levelScenes[currentObjectiveIndex];
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        if (nextScene == "Mission2")
+        if (nextScene == levelScenes[1]) // mission 2 transition
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission2Transition, 0f);
         }
-        else if (nextScene == "Mission3")
+        else if (nextScene == levelScenes[2]) // mission 3 transition
         {
             TransitionManager.Instance.TransitionToScene(nextScene, mission3Transition, 0f);
         }
+        else if (nextScene == levelScenes[3]) // mission 4 transition
+        {
+            TransitionManager.Instance.TransitionToScene(nextScene, mission4Transition, 0f);
+        }
+        else if (nextScene == levelScenes[levelScenes.Count - 1]) // mission 4 transition
+        {
+            TransitionManager.Instance.TransitionToScene(nextScene, mission5Transition, 0f);
+        }
+
+        // todo: faudra plus de scenestranstion different si les designers decident d'avoir plus de niveaux
 
         hasWon = false;
         CurrentState = GameplayState.Playing;
@@ -222,5 +265,42 @@ public class GameManager : MonoBehaviour
     //    }
     //    return 0; // défaut = mission 1
     //}
+
+    private IEnumerator AnimateObjectiveText()
+    {
+        Vector3 startScale = Vector3.zero;
+        Vector3 targetScale = Vector3.one;
+
+        float duration = 0.25f;
+        float time = 0f;
+
+        objectiveText.transform.localScale = startScale;
+
+        // Scale up rapide
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            objectiveText.transform.localScale = Vector3.Lerp(startScale, targetScale * 1.2f, t);
+            yield return null;
+        }
+
+        // Petit bounce retour
+        time = 0f;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            objectiveText.transform.localScale = Vector3.Lerp(targetScale * 1.2f, targetScale, t);
+            yield return null;
+        }
+    }
+    #endregion
+
+    #region INGAME EVENTS BINDINGS
+    public void IncreaseUltimateJauge(float amount)
+    {
+        OnUltimateJaugeIncrease?.Invoke(amount);
+    }
     #endregion
 }
