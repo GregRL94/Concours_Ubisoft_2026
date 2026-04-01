@@ -18,3 +18,5 @@ MonoBehaviour:
   regularBatchSize: 1
   timeBetweenWaves: 1
   spawnIntervalWithinBatch: 1
+  maxActiveEnemies: 0
+  soundToPlay: '-'

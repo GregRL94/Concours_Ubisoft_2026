@@ -18,4 +18,5 @@ MonoBehaviour:
   regularBatchSize: 3
   timeBetweenWaves: 10
   spawnIntervalWithinBatch: 0.4
-  maxActiveEnemies: 40
+  maxActiveEnemies: 15
+  soundToPlay: SFX_Ennemi_spawner_boltbat

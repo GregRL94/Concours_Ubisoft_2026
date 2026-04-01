@@ -21,4 +21,5 @@ MonoBehaviour:
   regularBatchSize: 5
   timeBetweenWaves: 10
   spawnIntervalWithinBatch: 0.3
-  maxActiveEnemies: 40
+  maxActiveEnemies: 30
+  soundToPlay: SFX_Ennemi_spawner_mikpin

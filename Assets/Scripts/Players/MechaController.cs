@@ -210,6 +210,7 @@ public class MechaController : MonoBehaviour, IHit
     private float _currentAngularDispersion;
     private float _currentLinearDispersion;
     private bool _isPlayingMvtSound = false;
+    private bool _hasPlayedUltimateReadySound = false;
     private bool _hasPlayedUltiSound1 = false;
     private bool _hasPlayedUltiSound2 = false;
     private bool _isStun;
@@ -409,6 +410,11 @@ public class MechaController : MonoBehaviour, IHit
             _ultimateCharge = _ultimateMax;
             _ultimateReady = true;
             animIsReadyUltimate.SetBool("isReady", _ultimateReady);
+            if (!_hasPlayedUltimateReadySound)
+            {
+                AudioManager.Instance.PlaySound("UI_ulti_pret");
+                _hasPlayedUltimateReadySound = true;
+            }
         }
 
         // -------- SI ULTIMATE PAS READY STOP ICI --------
@@ -432,23 +438,35 @@ public class MechaController : MonoBehaviour, IHit
         {
             animIsPressedMelee.SetBool("isPressed", true);
             _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
+            if (!_hasPlayedUltiSound1 && _isAttemptingUltimate)
+            {
+                AudioManager.Instance.PlaySound("UI_ulti_playerready");
+                _hasPlayedUltiSound1 = true;
+            }
         }
         else
         {
             animIsPressedMelee.SetBool("isPressed", false);
             _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
-        }            
-        
+            _hasPlayedUltiSound1 = false;
+        }
+
         if (shootHold)
         {
             animIsPressedAOE.SetBool("isPressed", true);
             _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
+            if (!_hasPlayedUltiSound2 && _isAttemptingUltimate)
+            {
+                AudioManager.Instance.PlaySound("UI_ulti_playerready");
+                _hasPlayedUltiSound2 = true;
+            }
         }
         else
         {
             animIsPressedAOE.SetBool("isPressed", false);
             _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
-        }            
+            _hasPlayedUltiSound2 = false;
+        }
 
         if (laserHold)
             animIsPressedGun.SetBool("isPressed", true);
@@ -493,29 +511,11 @@ public class MechaController : MonoBehaviour, IHit
         if (_movementHoldTimer >= _ultimateHoldDuration)
         {
             _movementCharged = true;
-            if (!_hasPlayedUltiSound1)
-            {
-                AudioManager.Instance.PlaySound("UI_ulti_playerready");
-                _hasPlayedUltiSound1 = true;
-            }
-        }
-        else
-        {
-            _hasPlayedUltiSound1 = false;
         }
 
         if (_shootHoldTimer >= _ultimateHoldDuration)
         {
             _shootCharged = true;
-            if (!_hasPlayedUltiSound2)
-            {
-                AudioManager.Instance.PlaySound("UI_ulti_playerready");
-                _hasPlayedUltiSound2 = true;
-            }
-        }
-        else
-        {
-            _hasPlayedUltiSound2 = false;
         }
 
         float sync = 0f;
@@ -536,11 +536,11 @@ public class MechaController : MonoBehaviour, IHit
         {
             if (_currentUltimateCoroutine != null) { StopCoroutine(_currentUltimateCoroutine); }
             _currentUltimateCoroutine = StartCoroutine(MissileSwarm(targets));
-            AudioManager.Instance.PlaySound("UI_ulti_declenche");
             Debug.Log("ULTIMATE TEAM ATTACK UNLEASHED !!!");
         }        
 
         _ultimateReady = false;
+        _hasPlayedUltimateReadySound = false;
         animIsReadyUltimate.SetBool("isReady", _ultimateReady);
         _ultimateCharge = 0;
 

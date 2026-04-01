@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour, IHit
     IEnumerator SpawnRoutine()
     {
         //Batch initiale
+        AudioManager.Instance.PlaySound(waveSettings.soundToPlay);
         yield return StartCoroutine(SpawnBatch(waveSettings.initialBatchSize));
         
         //Batches regulieres
@@ -37,6 +38,7 @@ public class EnemySpawner : MonoBehaviour, IHit
             //On ne lance un nouveau batch que si on n'a pas atteint le quota d'ennemie
             if (_myActiveEnemies.Count < waveSettings.maxActiveEnemies)
             {
+                AudioManager.Instance.PlaySound(waveSettings.soundToPlay);
                 yield return StartCoroutine(SpawnBatch(waveSettings.regularBatchSize));  
             }
             
