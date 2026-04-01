@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127e019230bca7f46a8b84a630f58b9b, type: 3}
   m_Name: WaveData
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
-  enemyPrefab: {fileID: 1392904071871295899, guid: dd8d03e1180c1974d925d46bf9cc41cd, type: 3}
+  enemyPrefabs:
+  - {fileID: 1392904071871295899, guid: 3a8796c5371e24441864f55ec0c347aa, type: 3}
   initialBatchSize: 1
   regularBatchSize: 1
   timeBetweenWaves: 1
