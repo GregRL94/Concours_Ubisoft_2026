@@ -45,7 +45,6 @@ public class LaserShot : MonoBehaviour
         if (!(((1 << collider.gameObject.layer) & _impactLayerMask) != 0)) { return; }
         if (collider.TryGetComponent(out IHit hitComponent))
         {
-            Debug.Log($"Laser hit {collider.gameObject.name} for {_damage} damage.");
             hitComponent.OnHit(_damage);
         }
         _Destroy();

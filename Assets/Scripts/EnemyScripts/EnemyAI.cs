@@ -127,8 +127,6 @@ public class EnemyAI : MonoBehaviour, IHit
         {
             AudioManager.Instance.PlaySound(sData.soundDeath);
         }
-
-        Debug.Log("ENEMY DIEEED!!!");
         animator.SetTrigger("Die");
         _isDead = true;
     }
@@ -164,7 +162,6 @@ public class EnemyAI : MonoBehaviour, IHit
     public void OnHitStun(float stunDuration)
     {
         // Implémenter la logique de stun ici (par exemple, désactiver les mouvements et les attaques pendant stunDuration)
-        //TakeDamage(damage);
         Debug.Log("On ma stunned");
         StunState stunState = new StunState(this, StateMachine, stunDuration);
         StateMachine.ChangeState(stunState);

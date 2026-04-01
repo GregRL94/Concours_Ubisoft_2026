@@ -536,7 +536,6 @@ public class MechaController : MonoBehaviour, IHit
         {
             if (_currentUltimateCoroutine != null) { StopCoroutine(_currentUltimateCoroutine); }
             _currentUltimateCoroutine = StartCoroutine(MissileSwarm(targets));
-            Debug.Log("ULTIMATE TEAM ATTACK UNLEASHED !!!");
         }        
 
         _ultimateReady = false;
@@ -906,7 +905,6 @@ public class MechaController : MonoBehaviour, IHit
             if (collision.collider.TryGetComponent(out IHit hitComponent))
             {
                 hitComponent.OnHit(_dashDamage); // Inflige des degats de dash
-                Debug.Log("DASH HIT");
             }
         }
     }
