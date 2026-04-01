@@ -13,6 +13,9 @@ public class EnemySpawner : MonoBehaviour, IHit
     // Flag pour ne pas relancer l'animation de mort
     private bool _isDead = false;
 
+    
+    private List<GameObject> _myActiveEnemies = new List<GameObject>();
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,7 +35,15 @@ public class EnemySpawner : MonoBehaviour, IHit
         while (health > 0)
         {
             yield return new WaitForSeconds(waveSettings.timeBetweenWaves);
-            yield return StartCoroutine(SpawnBatch(waveSettings.regularBatchSize));
+            //On nettoie les references mortes avant de verifier la limite
+            CleanEnemyList();
+            
+            //On ne lance un nouveau batch que si on n'a pas atteint le quota d'ennemie
+            if (_myActiveEnemies.Count < waveSettings.maxActiveEnemies)
+            {
+                yield return StartCoroutine(SpawnBatch(waveSettings.regularBatchSize));  
+            }
+            
             
         }
     }
@@ -40,9 +51,19 @@ public class EnemySpawner : MonoBehaviour, IHit
 
     IEnumerator SpawnBatch(int batchSize)
     {
+        
         for (int i = 0; i < batchSize; i++)
         {
-            SpawnEnemy();
+            CleanEnemyList();
+            if (_myActiveEnemies.Count < waveSettings.maxActiveEnemies)
+            {
+                SpawnEnemy();
+            }
+            else
+            {
+                break;
+            }
+            
             yield return new WaitForSeconds(waveSettings.spawnIntervalWithinBatch);
         }
     }
@@ -55,6 +76,10 @@ public class EnemySpawner : MonoBehaviour, IHit
 
         //Spawn a la position du spawner
         GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        
+        
+        //On enregistre l'ennemi dans la liste locale du spawner
+        _myActiveEnemies.Add(enemy);
         
         //Repartition pour ne pas clump
         Vector2 randomOffset = Random.insideUnitCircle * spreadRadius;
@@ -71,7 +96,11 @@ public class EnemySpawner : MonoBehaviour, IHit
         } 
         
     }
-
+    //Methode utilitaire pour nettoyer les ennemis detruits
+    private void CleanEnemyList()
+    {
+        _myActiveEnemies.RemoveAll(e=>e == null);
+    }
     private void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
@@ -98,5 +127,5 @@ public class EnemySpawner : MonoBehaviour, IHit
     public void OnHitStun(float ff) {}
     
     //BoltBat ne change pas de direction lorsqu'il commence a shoot l'ennemi. Le boltbat continue de shoot vers la derniere direction du joueur
-    //Si le mikpin se fait shoot/attack de melee, il doit exploser et il fait ses degats
+   //Cap le nombre d'ennemis que les spawner vont spawn
 }
