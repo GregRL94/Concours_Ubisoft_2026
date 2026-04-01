@@ -438,7 +438,7 @@ public class MechaController : MonoBehaviour, IHit
         {
             animIsPressedMelee.SetBool("isPressed", true);
             _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
-            if (!_hasPlayedUltiSound1)
+            if (!_hasPlayedUltiSound1 && _isAttemptingUltimate)
             {
                 AudioManager.Instance.PlaySound("UI_ulti_playerready");
                 _hasPlayedUltiSound1 = true;
@@ -448,7 +448,6 @@ public class MechaController : MonoBehaviour, IHit
         {
             animIsPressedMelee.SetBool("isPressed", false);
             _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
-            AudioManager.Instance.StopSound("UI_ulti_playerready");
             _hasPlayedUltiSound1 = false;
         }
 
@@ -456,7 +455,7 @@ public class MechaController : MonoBehaviour, IHit
         {
             animIsPressedAOE.SetBool("isPressed", true);
             _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
-            if (!_hasPlayedUltiSound2)
+            if (!_hasPlayedUltiSound2 && _isAttemptingUltimate)
             {
                 AudioManager.Instance.PlaySound("UI_ulti_playerready");
                 _hasPlayedUltiSound2 = true;
@@ -512,7 +511,6 @@ public class MechaController : MonoBehaviour, IHit
         if (_movementHoldTimer >= _ultimateHoldDuration)
         {
             _movementCharged = true;
-            
         }
 
         if (_shootHoldTimer >= _ultimateHoldDuration)
