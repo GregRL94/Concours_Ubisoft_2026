@@ -46,7 +46,7 @@ public class LaserShotEnnemy : MonoBehaviour
         if (collider.TryGetComponent(out IHit hitComponent))
         {
             Debug.Log($"Laser hit {collider.gameObject.name} for {_damage} damage.");
-            AudioManager.Instance.PlaySound("SFX_Ennemi_boltbat_fireball_hit");
+            //AudioManager.Instance.PlaySound("SFX_Ennemi_boltbat_fireball_hit");
             hitComponent.OnHit(_damage);
         }
         _Destroy();
