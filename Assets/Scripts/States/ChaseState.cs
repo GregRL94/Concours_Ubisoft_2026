@@ -16,7 +16,7 @@ public class ChaseState : EnemyState
         base.Enter();
         enemy.animator.SetBool("isWalking", true);
         // enemy.animator.SetBool("isRunning",true);
-        _agent.speed = enemy.data.moveSpeed * 20f;
+        _agent.speed = enemy.data.moveSpeed;
     }
 
     public override void Update()
