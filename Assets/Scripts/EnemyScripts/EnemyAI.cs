@@ -25,6 +25,8 @@ public class EnemyAI : MonoBehaviour, IHit
     public AttackState AttackState { get; private set; }
     public StunState StunState { get; private set; }
 
+    private int _minkaiDamageCounter = 0;
+
     // Flag pour ne pas relancer l'animation de mort
     private bool _isDead;
 
@@ -88,6 +90,18 @@ public class EnemyAI : MonoBehaviour, IHit
         if (currentHealth <= 0 && !_isDead)
         {
             Die();
+            return;
+        }
+
+        // Jouer son de damage du minkai
+        if (data is MeleeData mData)
+        {
+            _minkaiDamageCounter++;
+            if (_minkaiDamageCounter­­>=mData.thresholdDamagedSound) {
+                AudioManager.Instance.PlaySound(mData.soundDamaged);
+                _minkaiDamageCounter = 0;
+            }
+            
         }
     }
     private void FixedUpdate()
@@ -104,9 +118,18 @@ public class EnemyAI : MonoBehaviour, IHit
         }
     
     	if (data is KamikazeData kdata) 
-	{
-		AttackState.Explode(kdata);
-	}	
+	    {
+		    AttackState.Explode(kdata);
+	    }
+        else if (data is MeleeData mData)
+        {
+            AudioManager.Instance.PlaySound(mData.soundDeath);
+        }
+        else if (data is SniperData sData)
+        {
+            AudioManager.Instance.PlaySound(sData.soundDeath);
+        }
+
         Debug.Log("ENEMY DIEEED!!!");
         animator.SetTrigger("Die");
         _isDead = true;

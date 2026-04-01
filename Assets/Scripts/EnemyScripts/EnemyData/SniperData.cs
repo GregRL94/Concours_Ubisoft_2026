@@ -9,4 +9,8 @@ public class SniperData: EnemyData
     public float _speed;
     public float _lifetime;
     public LayerMask _impactLayerMask;
+
+    [Header("Parametres de son")]
+    public string soundShoot = "SFX_Ennemi_boltbat_tir";
+    public string soundDeath = "SFX_Ennemi_boltbat_mort";
 }

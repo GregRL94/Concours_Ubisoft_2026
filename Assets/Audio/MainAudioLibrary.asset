@@ -256,7 +256,7 @@ MonoBehaviour:
   - id: SFX_Ennemi_minkai_damaged
     clip: {fileID: 8300000, guid: fc51369eec1f3724597c4b55e4f96d63, type: 3}
     type: 1
-    volume: 0.314
+    volume: 0.697
     pitch: 1
     loop: 0
     randomizePitch: 1
