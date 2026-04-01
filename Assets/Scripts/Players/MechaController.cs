@@ -215,6 +215,9 @@ public class MechaController : MonoBehaviour, IHit
     private bool _hasPlayedUltiSound2 = false;
     private bool _isStun;
     private float _stunTimer;
+    private bool _canRechargeUltimate = true;
+    private float _rechargeUltimateDelay = 5f;
+    private float _rechargeUltimateTimer;
     #endregion Attributes & Properties
 
     #region MonoBehaviour Methods
@@ -665,6 +668,10 @@ public class MechaController : MonoBehaviour, IHit
 
     IEnumerator MissileSwarm(Collider2D[] targets)
     {
+        // Séparé de la logique propre de l'ultimate pour permettre de mettre un délai avant de pouvoir recharger l'ultimate après son utilisation
+        _rechargeUltimateTimer = _rechargeUltimateDelay;
+        _canRechargeUltimate = false;
+
         int currentLauncherIndex = 0;
         int missilesSpawned = 0;
         
@@ -704,7 +711,7 @@ public class MechaController : MonoBehaviour, IHit
 
     private void IncreaseUltimateCharge(float amount)
     {
-        _ultimateCharge += amount;
+        if (_canRechargeUltimate) { _ultimateCharge += amount; }
     }
 
     private void UpdateTimers()
@@ -714,9 +721,6 @@ public class MechaController : MonoBehaviour, IHit
         _meleeTimer += Time.deltaTime;
         _aoeTimer += Time.deltaTime;
 
-        // Cooldown de l'Ultimate
-        //_ultimateCharge += Time.deltaTime * 35f;
-
         // Movement hold during melee attack timer
         if (_meleeHoldMovementTimer > 0f) { _meleeHoldMovementTimer -= Time.deltaTime; }
         else if (_meleeHoldMovement) { _meleeHoldMovement = false; }
@@ -725,6 +729,10 @@ public class MechaController : MonoBehaviour, IHit
         // Dash collision disable timer
         if (_dashCollisionDisableTimer > 0f) { _dashCollisionDisableTimer -= Time.deltaTime; }
         else if (_dashCollisionsDisabled) { _dashCollisionsDisabled = false; } // Reactive les collisions de dash apres la durée de désactivation
+
+        // Ultimate recharge delay timer
+        if (_rechargeUltimateTimer > 0f) { _rechargeUltimateTimer -= Time.deltaTime; }
+        else if (!_canRechargeUltimate) { _canRechargeUltimate = true; }
 
         // Stun timer
         if (_isStun)
