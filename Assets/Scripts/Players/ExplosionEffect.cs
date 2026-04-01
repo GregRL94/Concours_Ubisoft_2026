@@ -22,7 +22,6 @@ public class ExplosionEffect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) { return; }
         if (((1 << collision.gameObject.layer) & _explosionHitsWhat) != 0)
         {
             if (collision.TryGetComponent<IHit>(out IHit hit))
