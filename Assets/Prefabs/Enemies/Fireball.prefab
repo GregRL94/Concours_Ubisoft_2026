@@ -4934,6 +4934,7 @@ GameObject:
   - component: {fileID: -6331466321129152172}
   - component: {fileID: 5930228685647784632}
   - component: {fileID: -616576284027476987}
+  - component: {fileID: -5369796207759539612}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
@@ -5024,7 +5025,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7801827202018218392}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6efc0c712b042394b9a550fc9b6d7a23, type: 3}
   m_Name: 
@@ -5118,3 +5119,16 @@ MonoBehaviour:
   _speed: 4
   _damage: 10
   lifetime: 3
+--- !u!114 &-5369796207759539612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801827202018218392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d592d219856b3f45929588ade45f577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaserShotEnnemy
+  _explosionEffect: {fileID: 2376449415813508878, guid: 025f706346e042440ad89d0a34768ce6, type: 3}

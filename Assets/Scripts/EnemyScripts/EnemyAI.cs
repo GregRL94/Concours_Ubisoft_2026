@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour, IHit
     public Transform firePoint;
     public EnemyState.EnemyStateMachine StateMachine { get; set; }
     
-    
+    public float DistanceToPlayer { get;private set; }
     //Variables privees synchronisees avec Data
     private float currentHealth;
     public NavMeshAgent Agent { get; set; } 
@@ -23,6 +23,9 @@ public class EnemyAI : MonoBehaviour, IHit
     public PatrolState PatrolState { get; private set; }
     public ChaseState ChaseState { get; private set; }
     public AttackState AttackState { get; private set; }
+    public StunState StunState { get; private set; }
+
+    private float _minkaiDamageCounter = 0f;
 
     // Flag pour ne pas relancer l'animation de mort
     private bool _isDead;
@@ -65,6 +68,10 @@ public class EnemyAI : MonoBehaviour, IHit
     // Update is called once per frame
     void Update()
     {
+        if (Player != null)
+        {
+            DistanceToPlayer = Vector2.Distance(transform.position, Player.position);
+        }
         StateMachine.CurrentState.Update();
     }
 
@@ -84,6 +91,16 @@ public class EnemyAI : MonoBehaviour, IHit
         {
             Die();
         }
+        // Jouer son de damage du minkai
+        else if (data is MeleeData mData)
+        {
+            _minkaiDamageCounter += damage;
+            if (_minkaiDamageCounter­­>=mData.thresholdDamagedSound) {
+                AudioManager.Instance.PlaySound(mData.soundDamaged);
+                _minkaiDamageCounter = 0;
+            }
+            
+        }
     }
     private void FixedUpdate()
     {
@@ -99,9 +116,18 @@ public class EnemyAI : MonoBehaviour, IHit
         }
     
     	if (data is KamikazeData kdata) 
-	{
-		AttackState.Explode(kdata);
-	}	
+	    {
+		    AttackState.Explode(kdata);
+	    }
+        else if (data is MeleeData mData)
+        {
+            AudioManager.Instance.PlaySound(mData.soundDeath);
+        }
+        else if (data is SniperData sData)
+        {
+            AudioManager.Instance.PlaySound(sData.soundDeath);
+        }
+
         Debug.Log("ENEMY DIEEED!!!");
         animator.SetTrigger("Die");
         _isDead = true;
@@ -139,5 +165,9 @@ public class EnemyAI : MonoBehaviour, IHit
     public void OnHitStun(float stunDuration)
     {
         // Implémenter la logique de stun ici (par exemple, désactiver les mouvements et les attaques pendant stunDuration)
+        //TakeDamage(damage);
+        Debug.Log("On ma stunned");
+        StunState stunState = new StunState(this, StateMachine, stunDuration);
+        StateMachine.ChangeState(stunState);
     }
 }

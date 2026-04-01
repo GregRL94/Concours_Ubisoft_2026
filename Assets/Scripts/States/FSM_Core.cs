@@ -13,6 +13,7 @@ public abstract class EnemyState
 
     public virtual void Enter(){}
     public virtual void Update(){}
+    public virtual void LogicUpdate(){}
     public virtual void FixedUpdate(){}
     public virtual void Exit(){}
     
