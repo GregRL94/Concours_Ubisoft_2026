@@ -9,7 +9,10 @@ public class EnemySpawner : MonoBehaviour, IHit
     public float health = 100f;
 
     public float spreadRadius = 2f; //Rayon de repartition
-    
+
+    // Flag pour ne pas relancer l'animation de mort
+    private bool _isDead = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -74,14 +77,14 @@ public class EnemySpawner : MonoBehaviour, IHit
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
         health -= damage;
         Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
-        Debug.Log("Spawner got hit!");
-        if (health <= 0)
+        if (health <= 0 && !_isDead)
         {
             if (EnemyManager.Instance != null)
             {
                 EnemyManager.Instance.UnRegisterSpawner(this);
             }
             GetComponent<Animator>()?.SetTrigger("Die");
+            _isDead = true;
         }
     }
 

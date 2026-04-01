@@ -99,10 +99,9 @@ public class EnemyAI : MonoBehaviour, IHit
         }
     
     	if (data is KamikazeData kdata) 
-	{
-		AttackState.Explode(kdata);
-	}	
-        Debug.Log("ENEMY DIEEED!!!");
+	    {
+		    AttackState.Explode(kdata);
+	    }	
         animator.SetTrigger("Die");
         _isDead = true;
     }
@@ -110,7 +109,6 @@ public class EnemyAI : MonoBehaviour, IHit
     // Si les ennemis ne passe pas par Die() -> on le unregistre
     private void OnDestroy()
     {
-        Debug.Log("ENEMY DIEEED WITHOUT GOING ON DIE METHOD!!!");
         if (!_isDead && EnemyManager.Instance != null)
         {
             EnemyManager.Instance.UnRegisterEnemy(this);
