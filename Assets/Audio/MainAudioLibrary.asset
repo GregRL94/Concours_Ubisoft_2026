@@ -232,7 +232,7 @@ MonoBehaviour:
   - id: SFX_Env_debris_damage
     clip: {fileID: 8300000, guid: 32b15f44157e2ea4787880cc6f57388d, type: 3}
     type: 1
-    volume: 0.314
+    volume: 0.538
     pitch: 1
     loop: 0
     randomizePitch: 1
@@ -240,7 +240,7 @@ MonoBehaviour:
   - id: SFX_Env_debris_destroy
     clip: {fileID: 8300000, guid: 5ab34aeb62cb56043aa9b10364786e6c, type: 3}
     type: 1
-    volume: 0.314
+    volume: 0.613
     pitch: 1
     loop: 0
     randomizePitch: 1
