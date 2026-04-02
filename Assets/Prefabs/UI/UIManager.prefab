@@ -1016,7 +1016,6 @@ GameObject:
   m_Component:
   - component: {fileID: 713939836727299956}
   - component: {fileID: 3180920513388246703}
-  - component: {fileID: 4684720171978458455}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1055,18 +1054,6 @@ MonoBehaviour:
   missionText: {fileID: 3864132431772637675}
   objectiveText: {fileID: 2339886492091767286}
   timerText: {fileID: 5661028529971654725}
---- !u!114 &4684720171978458455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762880493503413285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d7014dfd73b2e4489e6526335025f17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameplayUIFeedback
 --- !u!1 &3139561856760221455
 GameObject:
   m_ObjectHideFlags: 0

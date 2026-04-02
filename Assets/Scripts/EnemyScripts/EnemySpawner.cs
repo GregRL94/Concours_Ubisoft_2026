@@ -100,6 +100,11 @@ public class EnemySpawner : MonoBehaviour, IHit
     private void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+
+        if (AccessibilityManager.Instance != null)
+            damage = AccessibilityManager.Instance.ModifyPlayerDamageDealt(damage);
+
+
         health -= damage;
         Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
         Debug.Log("Spawner got hit!");

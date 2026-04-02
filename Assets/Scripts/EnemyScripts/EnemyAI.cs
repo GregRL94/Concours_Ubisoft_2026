@@ -84,6 +84,11 @@ public class EnemyAI : MonoBehaviour, IHit
             Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
             Instantiate(bloodSplashPrefab, transform.position, Quaternion.identity);
         }
+
+        if(AccessibilityManager.Instance != null)
+            damage = AccessibilityManager.Instance.ModifyPlayerDamageDealt(damage);
+
+
         currentHealth -= damage;
         if (currentHealth <= 0 && !_isDead)
         {
@@ -115,7 +120,7 @@ public class EnemyAI : MonoBehaviour, IHit
     // Si les ennemis ne passe pas par Die() -> on le unregistre
     private void OnDestroy()
     {
-        Debug.Log("ENEMY DIEEED WITHOUT GOING ON DIE METHOD!!!");
+        //Debug.Log("ENEMY DIEEED WITHOUT GOING ON DIE METHOD!!!");
         if (!_isDead && EnemyManager.Instance != null)
         {
             EnemyManager.Instance.UnRegisterEnemy(this);

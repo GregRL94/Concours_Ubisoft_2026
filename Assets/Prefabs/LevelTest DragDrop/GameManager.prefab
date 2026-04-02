@@ -77,10 +77,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3250999234463627271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 1784.6687, y: 450.2013}
-  m_SizeDelta: {x: 257.3884, y: 172.48}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -128.69421, y: -86.23999}
+  m_SizeDelta: {x: 257.38843, y: 172.47998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6534238416797002199
 CanvasRenderer:
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.8
-  m_fontSizeBase: 41.8
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -388,6 +388,9 @@ MonoBehaviour:
   missionText: {fileID: 5450592457429672380}
   objectiveText: {fileID: 6001591296729202935}
   timerText: {fileID: 311988840212910313}
+  enemyCountText: {fileID: 6975752323312581147}
+  maxScale: 1.2
+  durationEnemyCount: 0.1
   playlistMusic:
   - Music_MainMenu
   - Music_Gameplay
@@ -546,7 +549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6006055626120970
 RectTransform:
   m_ObjectHideFlags: 0
@@ -561,10 +564,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3250999234463627271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 1697.5, y: 400.64}
-  m_SizeDelta: {x: 289.4403, y: 172.48}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -261, y: -134.4}
+  m_SizeDelta: {x: 325.86572, y: 172.47998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5802246246840330344
 CanvasRenderer:
@@ -594,7 +597,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Enemy : 000'
+  m_text: 'Enemies : 000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -621,8 +624,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.8
-  m_fontSizeBase: 41.8
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

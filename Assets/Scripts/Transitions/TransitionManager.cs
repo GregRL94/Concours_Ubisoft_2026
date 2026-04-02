@@ -111,4 +111,7 @@ public class TransitionManager : MonoBehaviour
 
         InputManager.Instance.EnableAll();
     }
+
+
+
 }

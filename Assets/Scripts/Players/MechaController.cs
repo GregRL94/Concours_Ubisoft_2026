@@ -166,21 +166,33 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _ultimateHoldDuration = 3f;
     [SerializeField] private float _ultimateMax = 100f;
     [SerializeField] private Animator animIsReadyUltimate;
+    [SerializeField] private float _ultimateHoldThreshold = 0.25f;
     private float _ultimateCharge = 0f;
-    private bool _isAttemptingUltimate = false;
     private bool _ultimateReady = false;
+    
     private bool _movementCharged = false;
     private bool _shootCharged = false;
+
     private float _movementHoldTimer = 0f;
     private float _shootHoldTimer = 0f;
-    [SerializeField] private float _ultimateHoldThreshold = 0.25f;
+
     private bool _movementHoldWasShort = true;
     private bool _shootHoldWasShort = true;
 
+    private bool _movementAttemptingUltimate = false;
+    private bool _shootAttemptingUltimate = false;
+
+    private bool meleeHold;
+    private bool aoeHold;
+    private bool dashHold;
+    private bool laserHold;
+
+    private float _inputBlockTimer;
 
     [Header("Mecha Ability Ref")]
     [SerializeField] private MechaAbilityUI abilityUI;
     [SerializeField] private MechaUltimateUI ultimateUI;
+    [SerializeField] private AfterImageEffect afterImageEffect;
 
     private PlayerInputHandler movementPlayer;
     private PlayerInputHandler shootPlayer;
@@ -241,15 +253,30 @@ public class MechaController : MonoBehaviour, IHit
 
     }
 
+    public void BlockInputs(float duration = 0.25f)
+    {
+        _inputBlockTimer = duration;
+    }
+
     // Mise à jour des timers de cooldowns, gestion des abilités actives et des collisions de dash
     private void Update()
     {
         if (Time.timeScale == 0f) return;
 
+        // Bloque les inputs pour éviter d’activer des capacités en quittant le menu pause
+        if (_inputBlockTimer > 0f)
+        {
+            _inputBlockTimer -= Time.unscaledDeltaTime;
+            return;
+        }
+
         UpdateTimers();
+
+        HoldInput();
 
         if (movementPlayer != null && shootPlayer != null)
             HandleUltimate();
+        AnimButtonAbilities();
 
         if (movementPlayer != null)
             HandleMovement();
@@ -259,6 +286,51 @@ public class MechaController : MonoBehaviour, IHit
 
         if (_dashCollisionsDisabled && (_bc2D.excludeLayers & _dashIgnoresWhat) == 0) { _bc2D.excludeLayers |= _dashIgnoresWhat; } // Ignore les collisions avec les layers ignores pendant le dash
         else if (!_dashCollisionsDisabled && (_bc2D.excludeLayers & _dashIgnoresWhat) != 0) { _bc2D.excludeLayers &= ~_dashIgnoresWhat; } // Reactive les collisions avec les layers ignores apres le dash
+    }
+
+    private void HoldInput()
+    {
+        // HOLD INPUT
+        meleeHold = movementPlayer.MeleeHold();
+        aoeHold = shootPlayer.AOEHold();
+        dashHold = movementPlayer.DashHold();
+        laserHold = shootPlayer.ShootHold();
+    }
+
+    private void AnimButtonAbilities()
+    {
+        // ABILITIES UI ANIM SYNC
+        if (meleeHold)
+        {
+            animIsPressedMelee.SetBool("isPressed", true);
+            _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
+        }
+        else
+        {
+            animIsPressedMelee.SetBool("isPressed", false);
+            _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
+        }
+
+        if (aoeHold)
+        {
+            animIsPressedAOE.SetBool("isPressed", true);
+            _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
+        }
+        else
+        {
+            animIsPressedAOE.SetBool("isPressed", false);
+            _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
+        }
+
+        if (laserHold)
+            animIsPressedGun.SetBool("isPressed", true);
+        else
+            animIsPressedGun.SetBool("isPressed", false);
+
+        if (dashHold)
+            animIsPressedDash.SetBool("isPressed", true);
+        else
+            animIsPressedDash.SetBool("isPressed", false);
     }
 
     private void LateUpdate()
@@ -324,9 +396,10 @@ public class MechaController : MonoBehaviour, IHit
             _isPlayingMvtSound = false;
         }
 
+
         if (movementPlayer.MeleeReleased()
             && _movementHoldWasShort
-            && !_isAttemptingUltimate
+            && !_movementAttemptingUltimate
             && _meleeTimer >= _meleeAttackCooldown)
         {
             MeleeAttack(move, _meleeAttackHitBox.x, _meleeAttackHitBox.y, _meleeAttackImpactsWhat);
@@ -379,7 +452,7 @@ public class MechaController : MonoBehaviour, IHit
 
         if (shootPlayer.AOEReleased()
             && _shootHoldWasShort
-            && !_isAttemptingUltimate
+            && !_shootAttemptingUltimate
             && _aoeTimer >= _aoeCooldown)
         {
             Shockwave(_aoeRadius, _aoeDamage, _aoeRepelForce);
@@ -397,10 +470,10 @@ public class MechaController : MonoBehaviour, IHit
 
     private void HandleUltimate()
     {
-        // UPDATE ULTIMATE
+        // UPDATE ULTIMATE UI FILL
         ultimateUI?.UpdateCharge(_ultimateCharge);
 
-        // --------------- SI STUN STOP ICI ---------------
+        // SI STUN STOP ICI 
         if (_isStun && _stunStopsAbilities)
             return;
 
@@ -411,62 +484,21 @@ public class MechaController : MonoBehaviour, IHit
             animIsReadyUltimate.SetBool("isReady", _ultimateReady);
         }
 
-        // -------- SI ULTIMATE PAS READY STOP ICI --------
-        if (!_ultimateReady)
-            return;
+        // SI ULTIMATE PAS READY STOP ICI 
+        if (!_ultimateReady) return;
 
-        bool movementHold = movementPlayer.MeleeHold();
-        bool shootHold = shootPlayer.AOEHold();
-        bool dashHold = movementPlayer.DashHold();
-        bool laserHold = shootPlayer.ShootHold();
+        _movementAttemptingUltimate = _ultimateReady &&
+                             meleeHold &&
+                             _movementHoldTimer > _ultimateHoldThreshold;
 
-        _isAttemptingUltimate = _ultimateReady &&
-                               (movementHold && _movementHoldTimer > _ultimateHoldThreshold
-                                || shootHold && _shootHoldTimer > _ultimateHoldThreshold);
+        _shootAttemptingUltimate = _ultimateReady &&
+                                  aoeHold &&
+                                  _shootHoldTimer > _ultimateHoldThreshold;
 
-        /////////////////////////////////////////////////////
-        // ABILITIES UI SYNC
-        // Si on est en train de tenter un ultimate → on coupe l'anim ability
-        // Sinon comportement normal (hold dash)
-        if (movementHold)
-        {
-            animIsPressedMelee.SetBool("isPressed", true);
-            _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
-        }
-        else
-        {
-            animIsPressedMelee.SetBool("isPressed", false);
-            _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
-        }            
-        
-        if (shootHold)
-        {
-            animIsPressedAOE.SetBool("isPressed", true);
-            _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
-        }
-        else
-        {
-            animIsPressedAOE.SetBool("isPressed", false);
-            _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
-        }            
-
-        if (laserHold)
-            animIsPressedGun.SetBool("isPressed", true);
-        else
-            animIsPressedGun.SetBool("isPressed", false);
-
-        if (dashHold)
-            animIsPressedDash.SetBool("isPressed", true);
-        else
-            animIsPressedDash.SetBool("isPressed", false);
-        /////////////////////////////////////////////////////////
-
-
-        // HOLD DETECTION 
-        if (movementHold)
+        // ULTIMATE ABILITY HOLD DETECTION 
+        if (meleeHold)
         {
             _movementHoldTimer += Time.deltaTime;
-            // anim ispressed
             animIsPressedMovement.SetBool("isPressed", true);
         }
         else
@@ -476,7 +508,7 @@ public class MechaController : MonoBehaviour, IHit
             animIsPressedMovement.SetBool("isPressed", false);
         }
 
-        if (shootHold)
+        if (aoeHold)
         {
             _shootHoldTimer += Time.deltaTime;
             animIsPressedShot.SetBool("isPressed", true);
@@ -489,7 +521,6 @@ public class MechaController : MonoBehaviour, IHit
         }
 
         // CHARGED ULTIMATE 
-
         if (_movementHoldTimer >= _ultimateHoldDuration)
         {
             _movementCharged = true;
@@ -518,15 +549,18 @@ public class MechaController : MonoBehaviour, IHit
             _hasPlayedUltiSound2 = false;
         }
 
+        // FILL ULTIMATE BAR
         float sync = 0f;
         sync += Mathf.Clamp01(_movementHoldTimer / _ultimateHoldDuration) * 0.5f;
         sync += Mathf.Clamp01(_shootHoldTimer / _ultimateHoldDuration) * 0.5f;
 
         ultimateUI?.UpdateCoopHold(sync);
 
+
+        // ACTIVATE ULTIMATE
         Collider2D[] targets;
         bool targetsInArea = CheckAreaForTargets(transform.position, ScreenSizeToWorldBox(), 0f, _ultimateTargetsWhat, out targets);
-        if (_movementCharged && _shootCharged && movementHold && shootHold && targetsInArea)
+        if (_movementCharged && _shootCharged && meleeHold && aoeHold && targetsInArea)
             ActivateUltimate(targets);
     }
 
@@ -550,7 +584,6 @@ public class MechaController : MonoBehaviour, IHit
         _movementHoldWasShort = true;
         _shootHoldWasShort = true;
 
-        _isAttemptingUltimate = false;
 
         _movementHoldTimer = 0f;
         _shootHoldTimer = 0f;
@@ -584,12 +617,16 @@ public class MechaController : MonoBehaviour, IHit
         abilityUI?.TriggerAbility("Melee", _meleeAttackCooldown);
     }
 
+
     IEnumerator Dash()
     {
         float startTime = Time.time;
         _isDashing = true;
         _boost0.SetActive(true);
         _boost1.SetActive(true);
+
+        // AfterImageEffect
+        afterImageEffect?.PlayDashEffect(_dashDuration);
 
         // Génère une impulsion de caméra au début du dash si un CinemachineImpulseSource est attaché à la base du mecha
         if (_mechaBase.TryGetComponent<CinemachineImpulseSource>(out CinemachineImpulseSource impulseSource))
