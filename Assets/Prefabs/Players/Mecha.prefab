@@ -1313,6 +1313,7 @@ MonoBehaviour:
   animIsPressedDash: {fileID: 0}
   _meleeAttackPoint: {fileID: 4551997135442846276}
   _meleeAttackHitBox: {x: 6, y: 3}
+  _meleeAttackRadius: 2.5
   _meleeAttackImpactsWhat:
     serializedVersion: 2
     m_Bits: 2176
