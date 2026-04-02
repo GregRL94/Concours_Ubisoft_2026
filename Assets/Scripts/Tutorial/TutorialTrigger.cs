@@ -38,13 +38,16 @@ public class TutorialTrigger : MonoBehaviour
 
             ExecuteTrigger();
 
-            //unregistre le trigger 
-            if (EnemyManager.Instance != null)
-            {
-                EnemyManager.Instance.UnRegisterTrigger(this);
-            }
-
             Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        //unregistre le trigger 
+        if (EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.UnRegisterTrigger(this);
         }
     }
 

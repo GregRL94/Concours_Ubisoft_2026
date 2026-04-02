@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-
 
 public class PauseMenu : Menu
 {
@@ -8,20 +6,25 @@ public class PauseMenu : Menu
     public void OnResumePressed()
     {
         AudioManager.Instance.PlaySound("UI_Submit");
+
         MenuManager.Instance.ClearMenu();
         MenuManager.Instance.CloseMenu();
+
+        //FindAnyObjectByType<MechaController>(FindObjectsInactive.Include)?.IgnoreInputsForFrames();
+        FindAnyObjectByType<MechaController>(FindObjectsInactive.Include)?.BlockInputs();
     }
 
     public void OnRestartPressed()
     {
         GameManager.Instance.RestartLevel();
-
     }
+
     public void OnSettingsPressed()
     {
         AudioManager.Instance.PlaySound("UI_Submit");
         MenuManager.Instance.OpenMenu(MenuManager.Instance.GetSettingsMenu());
     }
+
     public void OnAccessibilityPressed()
     {
         AudioManager.Instance.PlaySound("UI_Submit");
@@ -48,6 +51,7 @@ public class PauseMenu : Menu
                     UnityEditor.EditorApplication.isPlaying = false; // Exit option for editor 
         #endif
     }
+
     private void OnEnable()
     {
         Time.timeScale = 0f;

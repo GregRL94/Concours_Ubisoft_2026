@@ -34,16 +34,16 @@ public class AccessibilityMenu : Menu
         SetupSlider(enemyDamageSlider);
 
         // Init valeurs
-        playerDamageSlider.value = AccessibilityManager.Instance.playerDamageMultiplier;
-        enemyDamageSlider.value = AccessibilityManager.Instance.enemyDamageMultiplier;
+        playerDamageSlider.value = AccessibilityManager.Instance.playerDamageDealtMultiplier;
+        enemyDamageSlider.value = AccessibilityManager.Instance.enemyDamageDealtMultiplier;
 
         // Listeners
         playerDamageSlider.onValueChanged.AddListener(OnPlayerDamageChanged);
         enemyDamageSlider.onValueChanged.AddListener(OnEnemyDamageChanged);
 
         // Text multiplier 
-        UpdatePlayerText(AccessibilityManager.Instance.playerDamageMultiplier);
-        UpdateEnemyText(AccessibilityManager.Instance.enemyDamageMultiplier);
+        UpdatePlayerText(AccessibilityManager.Instance.playerDamageDealtMultiplier);
+        UpdateEnemyText(AccessibilityManager.Instance.enemyDamageDealtMultiplier);
     }
 
 
@@ -114,7 +114,7 @@ public class AccessibilityMenu : Menu
         if (playerDamageSlider.value != snapped)
             playerDamageSlider.value = snapped;
 
-        AccessibilityManager.Instance.playerDamageMultiplier = snapped;
+        AccessibilityManager.Instance.playerDamageDealtMultiplier = snapped;
 
         UpdatePlayerText(snapped);
     }
@@ -126,7 +126,7 @@ public class AccessibilityMenu : Menu
         if (enemyDamageSlider.value != snapped)
             enemyDamageSlider.value = snapped;
 
-        AccessibilityManager.Instance.enemyDamageMultiplier = snapped;
+        AccessibilityManager.Instance.enemyDamageDealtMultiplier = snapped;
 
         UpdateEnemyText(snapped);
     }

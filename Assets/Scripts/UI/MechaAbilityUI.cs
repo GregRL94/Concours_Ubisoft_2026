@@ -9,41 +9,59 @@ public class MechaAbilityUI : MonoBehaviour
     [System.Serializable]
     public class AbilityUI
     {
-        public string abilityName;              // Nom de l'ability
-        public Image abilityImage;              // Image à remplir pour le cooldown
-        public TextMeshProUGUI abilityLabel;   // Label qui affiche le nom + timer
+        public string abilityName;           // Nom ability
+        public Image abilityImage;           // Image
+        public TextMeshProUGUI abilityLabel; // Txt nom + temps
         [HideInInspector] public Coroutine currentCoroutine;
     }
 
     [Header("Configure your abilities in the Inspector")]
     public List<AbilityUI> abilities = new List<AbilityUI>();
 
+    [Header("Punch Animation Settings")]
+    [SerializeField] private float punchDuration = 0.08f;
+    [SerializeField] private float punchStrength = 0.15f;
+    [SerializeField] private float punchFrequency = 1f; // optionnel pour modif la courbe
+
+
     private void Start()
     {
-        // Initialisation visuelle
         foreach (var ability in abilities)
         {
-            if (ability.abilityImage != null) ability.abilityImage.fillAmount = 0f;
-            if (ability.abilityLabel != null) ability.abilityLabel.text = $"{ability.abilityName}";
+            if (ability.abilityImage != null)
+            {
+                ability.abilityImage.fillAmount = 0f;
+                ability.abilityImage.transform.localScale = Vector3.one;
+            }
+
+            if (ability.abilityLabel != null)
+                ability.abilityLabel.text = ability.abilityName;
         }
     }
 
-    // Déclenche le cooldown d'une ability en passant le cooldown en paramètre
     public void TriggerAbility(string abilityName, float cooldownDuration)
     {
         var ability = abilities.Find(a => a.abilityName == abilityName);
+
         if (ability != null)
         {
-            // Stop la coroutine si elle existe déjà
             if (ability.currentCoroutine != null)
                 StopCoroutine(ability.currentCoroutine);
 
-            // Lancer la coroutine
+            if (ability.abilityImage != null)
+            {
+                // Instant feedback
+                ability.abilityImage.fillAmount = 1f;
+
+                // Punch animation
+                StartCoroutine(PunchAnimation(ability.abilityImage.transform));
+            }
+
             ability.currentCoroutine = StartCoroutine(CooldownRoutine(ability, cooldownDuration));
         }
         else
         {
-            Debug.LogWarning($"Ability {abilityName} non trouvée dans UI !");
+            Debug.LogWarning($"Ability {abilityName} not found in UI!");
         }
     }
 
@@ -51,18 +69,15 @@ public class MechaAbilityUI : MonoBehaviour
     {
         float timer = 0f;
 
-        // Commence avec fillAmount à 0 pour signaler que l'ability vient d'être utilisée
-        if (ability.abilityImage != null) ability.abilityImage.fillAmount = 1f;
-
         while (timer < cooldownDuration)
         {
             timer += Time.deltaTime;
 
-            // FillAmount : 0 -> 1 sur toute la durée du cooldown
-            if (ability.abilityImage != null)
-                ability.abilityImage.fillAmount = Mathf.Clamp01(timer / cooldownDuration);
+            float t = Mathf.Clamp01(timer / cooldownDuration);
 
-            // Texte : nom + secondes restantes
+            if (ability.abilityImage != null)
+                ability.abilityImage.fillAmount = 1f - t;
+
             if (ability.abilityLabel != null)
             {
                 float remaining = Mathf.Ceil(cooldownDuration - timer);
@@ -72,10 +87,36 @@ public class MechaAbilityUI : MonoBehaviour
             yield return null;
         }
 
-        // Cooldown terminé
-        if (ability.abilityImage != null) ability.abilityImage.fillAmount = 0f;
-        if (ability.abilityLabel != null) ability.abilityLabel.text = $"{ability.abilityName}";
+        // Cooldown finished
+        if (ability.abilityImage != null)
+        {
+            ability.abilityImage.fillAmount = 0f;
+        }
+
+        if (ability.abilityLabel != null)
+            ability.abilityLabel.text = ability.abilityName;
 
         ability.currentCoroutine = null;
+    }
+
+    private IEnumerator PunchAnimation(Transform target)
+    {
+        float t = 0f;
+        Vector3 originalScale = Vector3.one;
+
+        while (t < punchDuration)
+        {
+            t += Time.deltaTime;
+
+            float normalizedTime = t / punchDuration;
+
+            float punch = 1f + Mathf.Sin(normalizedTime * Mathf.PI * punchFrequency) * punchStrength;
+
+            target.localScale = originalScale * punch;
+
+            yield return null;
+        }
+
+        target.localScale = originalScale;
     }
 }
