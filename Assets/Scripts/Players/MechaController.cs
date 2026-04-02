@@ -112,6 +112,7 @@ public class MechaController : MonoBehaviour, IHit
     [Header("Melee attack parameters")]
     [SerializeField] private Transform _meleeAttackPoint;
     [SerializeField] private Vector2 _meleeAttackHitBox;
+    [SerializeField] private float _meleeAttackRadius = 5f;
     [SerializeField] private LayerMask _meleeAttackImpactsWhat;
     [SerializeField] private bool _meleeAttackStuns = true;
     [SerializeField] private bool _meleeAttackRepels = true;
@@ -592,7 +593,7 @@ public class MechaController : MonoBehaviour, IHit
 
         _slash.GetComponent<Animator>().SetTrigger("Slash");
         float angleRad = MathUtils.DirToAngleRad(attackWidth, attackHeight, _offsetAngleDeg);
-        foreach (Collider2D hitObject in Physics2D.OverlapBoxAll(_meleeAttackPoint.position, new Vector2(attackWidth, attackHeight), angleRad, layerMask))
+        foreach (Collider2D hitObject in Physics2D.OverlapCircleAll(_meleeAttackPoint.position, _meleeAttackRadius, layerMask))
         {
             if (hitObject.TryGetComponent(out IHit hitComponent))
             {

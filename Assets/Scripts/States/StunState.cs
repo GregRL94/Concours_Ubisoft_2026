@@ -24,9 +24,8 @@ public class StunState : EnemyState
 
     }
 
-    public override void LogicUpdate()
+    public override void Update()
     {
-        base.LogicUpdate();
         stunTimer -= Time.deltaTime;
         if (stunTimer <= 0f)
         {
@@ -38,7 +37,6 @@ public class StunState : EnemyState
             {
                 stateMachine.ChangeState(enemy.PatrolState);
             }
-            
         }
     }
 
