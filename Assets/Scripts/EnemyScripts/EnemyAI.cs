@@ -6,8 +6,9 @@ public class EnemyAI : MonoBehaviour, IHit
     [Header("Donnees de l'ennemi")] 
     public EnemyData data; //Nouvellle fiche de stats ScriptableObj
     public Animator animator {get; private set;}
-    [Header("BloodSplash Particles")]
+    [Header("Effects")]
     public GameObject bloodSplashPrefab;
+    public ParticleSystem stunEffect;
     [Header("Références de combat")]
     public Transform firePoint;
     public EnemyState.EnemyStateMachine StateMachine { get; set; }
@@ -167,9 +168,11 @@ public class EnemyAI : MonoBehaviour, IHit
 
     public void OnHitStun(float stunDuration)
     {
-        // Implémenter la logique de stun ici (par exemple, désactiver les mouvements et les attaques pendant stunDuration)
-        Debug.Log("On ma stunned");
-        StunState stunState = new StunState(this, StateMachine, stunDuration);
-        StateMachine.ChangeState(stunState);
+        if (!_isDead)
+        {
+            Debug.Log("On ma stunned");
+            StunState stunState = new StunState(this, StateMachine, stunDuration);
+            StateMachine.ChangeState(stunState);
+        }
     }
 }
