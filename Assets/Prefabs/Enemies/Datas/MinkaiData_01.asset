@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Minkai
   patrolRadius: 1
   moveSpeed: 3
-  maxHealth: 200
+  maxHealth: 300
   detectionRange: 10
   attackRange: 4
   stopDistance: 4
@@ -25,3 +25,7 @@ MonoBehaviour:
   hitRadius: 3
   repelForce: 1000
   stunDuration: 0.2
+  thresholdDamagedSound: 75
+  soundAttack: SFX_Ennemi_minkai_attack
+  soundDamaged: SFX_Ennemi_minkai_damaged
+  soundDeath: SFX_Ennemi_minkai_dead
