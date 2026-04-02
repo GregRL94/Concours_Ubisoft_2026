@@ -27,10 +27,17 @@ public class GameManager : MonoBehaviour
     [Header("Objectives Texts")]
     [SerializeField] private string[] objectiveTexts; // index correspond à levelScenes
 
-    [Header("UI References")]
+    [Header("UI Text References")]
     [SerializeField] private TextMeshProUGUI missionText;
     [SerializeField] private TextMeshProUGUI objectiveText;
     [SerializeField] private TextMeshProUGUI timerText;
+
+
+    [Header("Enemy Count Text")]
+    [SerializeField] private TextMeshProUGUI enemyCountText;
+    [SerializeField] private float maxScale = 1.1f;
+    [SerializeField] private float durationEnemyCount = 0.1f;
+    private Coroutine enemyAnimRoutine;
 
     [Header("Music Playlist")]
     public string[] playlistMusic;
@@ -44,6 +51,8 @@ public class GameManager : MonoBehaviour
 
     public enum GameplayState { Playing, Transition, Win, Lose }
     public GameplayState CurrentState { get; private set; }
+
+    public int EnemyCount { get; private set; }
 
     void Awake()
     {
@@ -117,6 +126,23 @@ public class GameManager : MonoBehaviour
         int seconds = (int)(timer % 60);
         int ms = (int)((timer * 100) % 100);
         timerText.text = $"{minutes:D2}:{seconds:D2}:{ms:D2}";
+    }
+
+
+
+    public void UpdateEnemyCountUI(int count)
+    {
+        EnemyCount = count;
+
+        if (enemyCountText != null)
+            enemyCountText.text = $"Enemies: {EnemyCount}";
+
+        // todo: add sound cue for enemy count
+
+        if (enemyAnimRoutine != null)
+            StopCoroutine(enemyAnimRoutine);
+
+        enemyAnimRoutine = StartCoroutine(AnimateEnemyCount());
     }
     #endregion
 
@@ -221,8 +247,6 @@ public class GameManager : MonoBehaviour
             TransitionManager.Instance.TransitionToScene(nextScene, mission5Transition, 0f);
         }
 
-        // todo: faudra plus de scenestranstion different si les designers decident d'avoir plus de niveaux
-
         hasWon = false;
         CurrentState = GameplayState.Playing;
     }
@@ -302,5 +326,51 @@ public class GameManager : MonoBehaviour
     {
         OnUltimateJaugeIncrease?.Invoke(amount);
     }
+
+    void OnEnable()
+    {
+        EnemyManager.OnEnemyCountChanged += UpdateEnemyCountUI;
+    }
+
+    void OnDisable()
+    {
+        EnemyManager.OnEnemyCountChanged -= UpdateEnemyCountUI;
+    }
     #endregion
+
+    #region ANIMATION UI
+    private IEnumerator AnimateEnemyCount()
+    {
+        Transform t = enemyCountText.transform;
+
+        Vector3 baseScale = Vector3.one;
+        Vector3 targetScale = Vector3.one * maxScale;
+
+        float duration = durationEnemyCount;
+        float time = 0f;
+
+        // Scale up
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float tLerp = time / duration;
+            t.localScale = Vector3.Lerp(baseScale, targetScale, tLerp);
+            yield return null;
+        }
+
+        time = 0f;
+
+        // Scale down
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float tLerp = time / duration;
+            t.localScale = Vector3.Lerp(targetScale, baseScale, tLerp);
+            yield return null;
+        }
+
+        t.localScale = baseScale;
+    }
+    #endregion
+
 }
