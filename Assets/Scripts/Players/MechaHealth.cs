@@ -34,6 +34,9 @@ public class MechaHealth : MonoBehaviour
     {
         if (isInIFrame) return; // ignore damage si en iframe
 
+        if(AccessibilityManager.Instance != null)
+            damage = AccessibilityManager.Instance.ModifyEnemyDamageDealt(damage);
+
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 

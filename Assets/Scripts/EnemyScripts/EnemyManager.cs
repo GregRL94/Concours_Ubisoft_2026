@@ -7,6 +7,9 @@ public class EnemyManager : MonoBehaviour
     //Instance statique pour y acceder via EnemyManager.Instance
     public static EnemyManager Instance { get; private set; }
 
+    public static event Action<int> OnEnemyCountChanged;
+
+
     [Header("Suivis des ennemis")] 
     public List<EnemyAI> activeEnnemis = new List<EnemyAI>();
 
@@ -15,6 +18,8 @@ public class EnemyManager : MonoBehaviour
 
     [Header("Suivis des tutorial triggers")]
     public List<TutorialTrigger> activeTutorialTriggers = new List<TutorialTrigger>();
+
+    private bool _levelCompleted = false;
 
     private void Awake()
     {
@@ -27,7 +32,8 @@ public class EnemyManager : MonoBehaviour
         if (!activeEnnemis.Contains(enemyAI))
         {
             activeEnnemis.Add(enemyAI);
-            Debug.Log($"Ennemi ajoute. Total: {activeEnnemis.Count}");
+            //Debug.Log($"Ennemi ajoute. Total: {activeEnnemis.Count}");
+            NotifyEnemyCountChanged();
         }
     }
     //appelr par l'ennemi quand il meurt
@@ -36,12 +42,12 @@ public class EnemyManager : MonoBehaviour
         if (activeEnnemis.Contains(enemyAI))
         {
             activeEnnemis.Remove(enemyAI);
-            Debug.Log($"Ennemi retiré. Restants : {activeEnnemis.Count}");
-
+            //Debug.Log($"Ennemi retiré. Restants : {activeEnnemis.Count}");
             //if (activeEnnemis.Count == 0)
             //{
             //    OnAllEnemiesCleared();
             //}
+            NotifyEnemyCountChanged();
             OnAllEnemiesCleared();
         }
 
@@ -76,7 +82,7 @@ public class EnemyManager : MonoBehaviour
         if (!activeTutorialTriggers.Contains(trigger))
         {
             activeTutorialTriggers.Add(trigger);
-            Debug.Log($"Trigger ajouté. Total: {activeTutorialTriggers.Count}");
+            //Debug.Log($"Trigger ajouté. Total: {activeTutorialTriggers.Count}");
         }
     }
 
@@ -86,23 +92,39 @@ public class EnemyManager : MonoBehaviour
         if (activeTutorialTriggers.Contains(trigger))
         {
             activeTutorialTriggers.Remove(trigger);
-            Debug.Log($"Trigger détruit. Restants: {activeTutorialTriggers.Count}");
+            //Debug.Log($"Trigger détruit. Restants: {activeTutorialTriggers.Count}");
+
+            //OnAllEnemiesCleared();
         }
+    }
+
+    // Notify event for enemy count 
+    private void NotifyEnemyCountChanged()
+    {
+        OnEnemyCountChanged?.Invoke(activeEnnemis.Count);
     }
 
 
 
     private void OnAllEnemiesCleared()
     {
-        //On peut appeler la gestion du niveau
+        if (_levelCompleted) return;
+
+        activeEnnemis.RemoveAll(e => e == null);
+        activeSpawners.RemoveAll(s => s == null);
+        activeTutorialTriggers.RemoveAll(t => t == null);
+
         if (activeEnnemis.Count == 0 &&
             activeSpawners.Count == 0 &&
             activeTutorialTriggers.Count == 0)
         {
-            Debug.Log("ALL CLEAR Enemies + Spawners + Triggers -> LEVEL COMPLETE");
+            _levelCompleted = true;
+
+            Debug.Log("ALL CLEAR -> LEVEL COMPLETE");
 
             GameManager.Instance.CompleteObjective();
         }
-
     }
+
+
 }
