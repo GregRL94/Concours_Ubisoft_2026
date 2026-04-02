@@ -9,6 +9,10 @@ public class EnemySpawner : MonoBehaviour, IHit
     public float health = 100f;
 
     public float spreadRadius = 2f; //Rayon de repartition
+
+    // Flag pour ne pas relancer l'animation de mort
+    private bool _isDead = false;
+
     
     private List<GameObject> _myActiveEnemies = new List<GameObject>();
     
@@ -25,6 +29,7 @@ public class EnemySpawner : MonoBehaviour, IHit
     IEnumerator SpawnRoutine()
     {
         //Batch initiale
+        AudioManager.Instance.PlaySound(waveSettings.soundToPlay);
         yield return StartCoroutine(SpawnBatch(waveSettings.initialBatchSize));
         
         //Batches regulieres
@@ -37,6 +42,7 @@ public class EnemySpawner : MonoBehaviour, IHit
             //On ne lance un nouveau batch que si on n'a pas atteint le quota d'ennemie
             if (_myActiveEnemies.Count < waveSettings.maxActiveEnemies)
             {
+                AudioManager.Instance.PlaySound(waveSettings.soundToPlay);
                 yield return StartCoroutine(SpawnBatch(waveSettings.regularBatchSize));  
             }
             
@@ -105,16 +111,17 @@ public class EnemySpawner : MonoBehaviour, IHit
             damage = AccessibilityManager.Instance.ModifyPlayerDamageDealt(damage);
 
 
+        if (TryGetComponent<EnemyHealthBar>(out var healthBar)) { healthBar.TakeDamage(damage); }
         health -= damage;
         Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
-        Debug.Log("Spawner got hit!");
-        if (health <= 0)
+        if (health <= 0 && !_isDead)
         {
             if (EnemyManager.Instance != null)
             {
                 EnemyManager.Instance.UnRegisterSpawner(this);
             }
             GetComponent<Animator>()?.SetTrigger("Die");
+            _isDead = true;
         }
     }
 
@@ -126,7 +133,4 @@ public class EnemySpawner : MonoBehaviour, IHit
     public void OnHitRepel(float ff, Vector2 V) {}
 
     public void OnHitStun(float ff) {}
-    
-    //BoltBat ne change pas de direction lorsqu'il commence a shoot l'ennemi. Le boltbat continue de shoot vers la derniere direction du joueur
-   //Cap le nombre d'ennemis que les spawner vont spawn
 }

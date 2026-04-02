@@ -117,7 +117,7 @@ public class AttackState : EnemyState
 
         if (_hasExploded) return;
         _hasExploded = true;
-        Debug.Log("BOOOOM");
+        AudioManager.Instance.PlaySound(kData.soundExplode);
         if(kData.explosionEffect != null)
             Object.Instantiate(kData.explosionEffect, enemy.transform.position, Quaternion.identity);
        
@@ -155,15 +155,18 @@ public class AttackState : EnemyState
             LaserShotEnnemy projSetup = proj.GetComponent<LaserShotEnnemy>();
             projSetup.SetupLaserShoot(sData._speed, sData.damage, sData._lifetime, sData._impactLayerMask);
             enemy.animator.SetTrigger("attack");
+            AudioManager.Instance.PlaySound(sData.soundShoot);
             _shootTimer = 0f; // Reset du timer de tir
         }
     }
 
     void PerformMeleeAttack(MeleeData mData)
     {
+        AudioManager.Instance.PlaySound(mData.soundAttack);
+
         Debug.Log(enemy.data.enemyName + "donne un coup !");
-        if (attackcounter >= 0) { enemy.animator.SetTrigger("attack0"); Debug.Log("Attack 0"); }
-        else { enemy.animator.SetTrigger("attack1"); Debug.Log("Attack 1"); }
+        if (attackcounter >= 0) { enemy.animator.SetTrigger("attack0"); }
+        else { enemy.animator.SetTrigger("attack1"); }
         attackcounter *= -1;
         // On detecte si le joueur est dans la zone de frappe (devant l'ennemi)
         // On utilise le fire point comme centre de l'attaque s'il existe, sinon le centre de l'ennemi

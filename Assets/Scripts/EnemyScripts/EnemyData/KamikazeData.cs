@@ -8,4 +8,7 @@ public class KamikazeData : EnemyData
     public float explosionRadius = 3f;
     public GameObject explosionEffect;
     public float explosionDelay = 1f; //Petit temps avant de sauter
+
+    [Header("Parametres de son")]
+    public string soundExplode = "SFX_Ennemi_mikpin_explosion";
 }

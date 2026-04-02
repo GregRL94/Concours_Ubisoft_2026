@@ -1186,16 +1186,16 @@ MonoBehaviour:
     <LinearDispersionResetSpeed>k__BackingField: 0.05
   MissileParameters:
     <MissilePrefab>k__BackingField: {fileID: 5773359375257919300, guid: 1b0d5d5f33e350944a07527e3f4c6679, type: 3}
-    <Speed>k__BackingField: 10
-    <RotationSpeed>k__BackingField: 90
+    <Speed>k__BackingField: 15
+    <RotationSpeed>k__BackingField: 225
     <Damage>k__BackingField: 30
     <AOEDamage>k__BackingField: 10
-    <HoldRotationTimer>k__BackingField: 0.5
-    <HoldMovementTimer>k__BackingField: 1.5
+    <HoldRotationTimer>k__BackingField: 0.25
+    <HoldMovementTimer>k__BackingField: 0.75
     <Lifetime>k__BackingField: 5
     <MissileImpactLayerMask>k__BackingField:
       serializedVersion: 2
-      m_Bits: 640
+      m_Bits: 128
   _mechaBase: {fileID: 4838196248118909920}
   _mechaTop: {fileID: 4235779837525528367}
   _slash: {fileID: 5020804249824242362}
@@ -1269,11 +1269,11 @@ MonoBehaviour:
   _maxTargetingRange: 15
   _maxNumberOfMissiles: 12
   _minReleaseForce: 1
-  _maxReleaseForce: 5
-  _missileSpawnInterval: 0.2
+  _maxReleaseForce: 8
+  _missileSpawnInterval: 0.3
   animIsPressedMovement: {fileID: 0}
   animIsPressedShot: {fileID: 0}
-  _ultimateHoldDuration: 2
+  _ultimateHoldDuration: 1.5
   _ultimateMax: 100
   animIsReadyUltimate: {fileID: 0}
   _ultimateHoldThreshold: 0.25
@@ -1427,7 +1427,7 @@ Transform:
   m_GameObject: {fileID: 7682065259496983473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.63134813, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63134843, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

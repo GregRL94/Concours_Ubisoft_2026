@@ -392,8 +392,13 @@ MonoBehaviour:
   maxScale: 1.2
   durationEnemyCount: 0.1
   playlistMusic:
-  - Music_MainMenu
-  - Music_Gameplay
+  - MUS_8-bit-takeover
+  - MUS_arcade-party
+  - MUS_battle-time
+  - MUS_bitwise
+  - MUS_epic-battle
+  - MUS_i-dream-in-keygen
+  - MUS_pixify
 --- !u!1 &4666667638042560060
 GameObject:
   m_ObjectHideFlags: 0

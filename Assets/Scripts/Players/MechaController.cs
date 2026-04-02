@@ -222,10 +222,14 @@ public class MechaController : MonoBehaviour, IHit
     private float _currentAngularDispersion;
     private float _currentLinearDispersion;
     private bool _isPlayingMvtSound = false;
+    private bool _hasPlayedUltimateReadySound = false;
     private bool _hasPlayedUltiSound1 = false;
     private bool _hasPlayedUltiSound2 = false;
     private bool _isStun;
     private float _stunTimer;
+    private bool _canRechargeUltimate = true;
+    private float _rechargeUltimateDelay = 5f;
+    private float _rechargeUltimateTimer;
     #endregion Attributes & Properties
 
     #region MonoBehaviour Methods
@@ -482,6 +486,11 @@ public class MechaController : MonoBehaviour, IHit
             _ultimateCharge = _ultimateMax;
             _ultimateReady = true;
             animIsReadyUltimate.SetBool("isReady", _ultimateReady);
+            if (!_hasPlayedUltimateReadySound)
+            {
+                AudioManager.Instance.PlaySound("UI_ulti_pret");
+                _hasPlayedUltimateReadySound = true;
+            }
         }
 
         // SI ULTIMATE PAS READY STOP ICI 
@@ -524,29 +533,11 @@ public class MechaController : MonoBehaviour, IHit
         if (_movementHoldTimer >= _ultimateHoldDuration)
         {
             _movementCharged = true;
-            if (!_hasPlayedUltiSound1)
-            {
-                AudioManager.Instance.PlaySound("UI_ulti_playerready");
-                _hasPlayedUltiSound1 = true;
-            }
-        }
-        else
-        {
-            _hasPlayedUltiSound1 = false;
         }
 
         if (_shootHoldTimer >= _ultimateHoldDuration)
         {
             _shootCharged = true;
-            if (!_hasPlayedUltiSound2)
-            {
-                AudioManager.Instance.PlaySound("UI_ulti_playerready");
-                _hasPlayedUltiSound2 = true;
-            }
-        }
-        else
-        {
-            _hasPlayedUltiSound2 = false;
         }
 
         // FILL ULTIMATE BAR
@@ -570,11 +561,10 @@ public class MechaController : MonoBehaviour, IHit
         {
             if (_currentUltimateCoroutine != null) { StopCoroutine(_currentUltimateCoroutine); }
             _currentUltimateCoroutine = StartCoroutine(MissileSwarm(targets));
-            AudioManager.Instance.PlaySound("UI_ulti_declenche");
-            Debug.Log("ULTIMATE TEAM ATTACK UNLEASHED !!!");
         }        
 
         _ultimateReady = false;
+        _hasPlayedUltimateReadySound = false;
         animIsReadyUltimate.SetBool("isReady", _ultimateReady);
         _ultimateCharge = 0;
 
@@ -703,6 +693,10 @@ public class MechaController : MonoBehaviour, IHit
 
     IEnumerator MissileSwarm(Collider2D[] targets)
     {
+        // Séparé de la logique propre de l'ultimate pour permettre de mettre un délai avant de pouvoir recharger l'ultimate après son utilisation
+        _rechargeUltimateTimer = _rechargeUltimateDelay;
+        _canRechargeUltimate = false;
+
         int currentLauncherIndex = 0;
         int missilesSpawned = 0;
         
@@ -742,7 +736,7 @@ public class MechaController : MonoBehaviour, IHit
 
     private void IncreaseUltimateCharge(float amount)
     {
-        _ultimateCharge += amount;
+        if (_canRechargeUltimate) { _ultimateCharge += amount; }
     }
 
     private void UpdateTimers()
@@ -752,9 +746,6 @@ public class MechaController : MonoBehaviour, IHit
         _meleeTimer += Time.deltaTime;
         _aoeTimer += Time.deltaTime;
 
-        // Cooldown de l'Ultimate
-        //_ultimateCharge += Time.deltaTime * 35f;
-
         // Movement hold during melee attack timer
         if (_meleeHoldMovementTimer > 0f) { _meleeHoldMovementTimer -= Time.deltaTime; }
         else if (_meleeHoldMovement) { _meleeHoldMovement = false; }
@@ -763,6 +754,10 @@ public class MechaController : MonoBehaviour, IHit
         // Dash collision disable timer
         if (_dashCollisionDisableTimer > 0f) { _dashCollisionDisableTimer -= Time.deltaTime; }
         else if (_dashCollisionsDisabled) { _dashCollisionsDisabled = false; } // Reactive les collisions de dash apres la durée de désactivation
+
+        // Ultimate recharge delay timer
+        if (_rechargeUltimateTimer > 0f) { _rechargeUltimateTimer -= Time.deltaTime; }
+        else if (!_canRechargeUltimate) { _canRechargeUltimate = true; }
 
         // Stun timer
         if (_isStun)
@@ -943,7 +938,6 @@ public class MechaController : MonoBehaviour, IHit
             if (collision.collider.TryGetComponent(out IHit hitComponent))
             {
                 hitComponent.OnHit(_dashDamage); // Inflige des degats de dash
-                Debug.Log("DASH HIT");
             }
         }
     }
