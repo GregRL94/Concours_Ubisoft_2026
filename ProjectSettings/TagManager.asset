@@ -18,7 +18,7 @@ TagManager:
   - Env_Soft_Wall
   - Env_Rubbles
   - Deco
-  - 
+  - Toit
   - 
   - 
   - 
@@ -55,6 +55,9 @@ TagManager:
     locked: 0
   - name: Screen
     uniqueID: 2142730279
+    locked: 0
+  - name: toit
+    uniqueID: 1203872617
     locked: 0
   m_RenderingLayers:
   - Default
