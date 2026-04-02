@@ -24,8 +24,10 @@ MonoBehaviour:
   _fireRate: 0.7
   _projectilePrefab: {fileID: 7801827202018218392, guid: 15a8ad04223affe498d98408576ff993, type: 3}
   _explosionEffect: {fileID: 2376449415813508878, guid: 025f706346e042440ad89d0a34768ce6, type: 3}
-  _speed: 15
+  _speed: 10
   _lifetime: 3
   _impactLayerMask:
     serializedVersion: 2
     m_Bits: 576
+  soundShoot: SFX_Ennemi_boltbat_tir
+  soundDeath: SFX_Ennemi_boltbat_mort
