@@ -1397,10 +1397,10 @@ MonoBehaviour:
   afterImagePrefabs:
   - {fileID: 8562301570506997604, guid: a8358375ff4238041aaca76f6ed4d019, type: 3}
   - {fileID: 4290057929949501296, guid: 47efbc18773501e4eb5cc99a252de48a, type: 3}
-  timeBetweenImages: 0.03
+  timeBetweenImages: 0.02
   imageLifetime: 0.25
   activePercentOfDash: 1
-  afterImageColor: {r: 1, g: 1, b: 1, a: 0.011764706}
+  afterImageColor: {r: 1, g: 1, b: 1, a: 0.101960786}
 --- !u!1 &7682065259496983473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,7 +1534,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 2142730279
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 40
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: ffbce8e6067160c42acc3f55563ba75d, type: 3}

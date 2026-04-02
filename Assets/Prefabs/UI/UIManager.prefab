@@ -770,16 +770,16 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3858759680
-  m_fontColor: {r: 0, g: 0, b: 0, a: 0.9019608}
+    rgba: 3875536895
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.9019608}
   m_enableVertexGradient: 0
-  m_colorMode: 3
+  m_colorMode: 1
   m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
+    topLeft: {r: 0.9960785, g: 0.9960785, b: 0.06666667, a: 1}
+    topRight: {r: 0.098039225, g: 0.8980393, b: 0.43529415, a: 1}
+    bottomLeft: {r: 0.9960785, g: 0.9960785, b: 0.06666667, a: 1}
+    bottomRight: {r: 0.098039225, g: 0.8980393, b: 0.43529415, a: 1}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 67f93e6a68190c844a9a577d69dd92a4, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -2384,7 +2384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1934245793980317053, guid: 30b25d8388b838149ab681e9d6c14dcd, type: 3}
       propertyPath: m_FillClockwise
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3304552596289171063, guid: 30b25d8388b838149ab681e9d6c14dcd, type: 3}
       propertyPath: m_text
@@ -2508,7 +2508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1934245793980317053, guid: 30b25d8388b838149ab681e9d6c14dcd, type: 3}
       propertyPath: m_FillClockwise
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3304552596289171063, guid: 30b25d8388b838149ab681e9d6c14dcd, type: 3}
       propertyPath: m_text
@@ -2674,7 +2674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1934245793980317053, guid: 30b25d8388b838149ab681e9d6c14dcd, type: 3}
       propertyPath: m_FillClockwise
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3798098830976116267, guid: 30b25d8388b838149ab681e9d6c14dcd, type: 3}
       propertyPath: m_Name
@@ -2852,7 +2852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1934245793980317053, guid: 30b25d8388b838149ab681e9d6c14dcd, type: 3}
       propertyPath: m_FillClockwise
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3304552596289171063, guid: 30b25d8388b838149ab681e9d6c14dcd, type: 3}
       propertyPath: m_text
