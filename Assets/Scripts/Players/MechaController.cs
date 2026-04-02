@@ -94,6 +94,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private bool _advancedShootingControls = true;
     [SerializeField] private float _mechaTopRotSpeed = 180f;
     [Header("Stun parameters")]
+    [SerializeField] private ParticleSystem _stunEffect;
     [SerializeField] private bool _stunStopsAbilities = true;
     [SerializeField] private bool _stunStopsMovement = true;
     [Space]
@@ -407,7 +408,7 @@ public class MechaController : MonoBehaviour, IHit
             && !_movementAttemptingUltimate
             && _meleeTimer >= _meleeAttackCooldown)
         {
-            MeleeAttack(move, _meleeAttackHitBox.x, _meleeAttackHitBox.y, _meleeAttackImpactsWhat);
+            MeleeAttack(move);
         }
 
 
@@ -585,15 +586,14 @@ public class MechaController : MonoBehaviour, IHit
     #endregion Input Bindings
 
     #region Abilities Logic
-    private void MeleeAttack(Vector2 attackDir, float attackWidth, float attackHeight, LayerMask layerMask)
+    private void MeleeAttack(Vector2 attackDir)
     {
         // Séparé de la logique propre de la melee attack, permet de hold le mouvement pendant une courte durée après le lancement de l'attaque
         _meleeHoldMovementTimer = _meleeHoldMovementDuration;
         _meleeHoldMovement = true;
 
         _slash.GetComponent<Animator>().SetTrigger("Slash");
-        float angleRad = MathUtils.DirToAngleRad(attackWidth, attackHeight, _offsetAngleDeg);
-        foreach (Collider2D hitObject in Physics2D.OverlapCircleAll(_meleeAttackPoint.position, _meleeAttackRadius, layerMask))
+        foreach (Collider2D hitObject in Physics2D.OverlapCircleAll(_meleeAttackPoint.position, _meleeAttackRadius, _meleeAttackImpactsWhat))
         {
             if (hitObject.TryGetComponent(out IHit hitComponent))
             {
@@ -768,6 +768,8 @@ public class MechaController : MonoBehaviour, IHit
             {
                 _isStun = false;
                 _stunTimer = 0f;
+                _stunEffect?.Stop();
+                _stunEffect?.Clear();
             }
         }
     }
@@ -776,8 +778,10 @@ public class MechaController : MonoBehaviour, IHit
     #region Damage & Health Logic
     private void Stun(float stunDuration)
     {
+        if (stunDuration <= 0f) return;
         _isStun = true;
         _stunTimer = stunDuration;
+        _stunEffect.Play();
     }
 
     private void TakeDamage(float damage)
