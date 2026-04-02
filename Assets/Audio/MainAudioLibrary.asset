@@ -53,50 +53,98 @@ MonoBehaviour:
     loop: 0
     randomizePitch: 0
     pitchRange: 0
+  - id: MUS_pixel-perfect
+    clip: {fileID: 8300000, guid: f02e1701262daa242b71b9434190440a, type: 3}
+    type: 0
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_pixify
+    clip: {fileID: 8300000, guid: 446e0f59e4b56c746bed25fab1696287, type: 3}
+    type: 0
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_8-bit-takeover
+    clip: {fileID: 8300000, guid: 503acbb0708ac6f4590d4a422f99768c, type: 3}
+    type: 0
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_battle-time
+    clip: {fileID: 8300000, guid: 6912cc4caa0dbf8459f449f6503cc76c, type: 3}
+    type: 0
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_arcade-party
+    clip: {fileID: 8300000, guid: 37e5c4a3700077d498144c3c40c7563b, type: 3}
+    type: 0
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_bitwise
+    clip: {fileID: 8300000, guid: 7be98c9c23754924d91f1837192db20a, type: 3}
+    type: 0
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_i-dream-in-keygen
+    clip: {fileID: 8300000, guid: 86f3a86e9b51e574893a2f468278cead, type: 3}
+    type: 0
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: MUS_epic-battle
+    clip: {fileID: 8300000, guid: 4d132d1aa0b81314ba42b6437842404c, type: 3}
+    type: 0
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
   - id: SFX_Player_movement
     clip: {fileID: 8300000, guid: 3f07ff8572bc3004a834f525c4020b0a, type: 3}
     type: 1
-    volume: 0.305
-    pitch: 1.08
+    volume: 0.546
+    pitch: 1.94
     loop: 1
     randomizePitch: 0
     pitchRange: 0.5
   - id: SFX_Player_laser_tir
-    clip: {fileID: 8300000, guid: f3c13c02109b00e4c829ea78a531f779, type: 3}
+    clip: {fileID: 8300000, guid: abff2eb481986cd4694fbb969dacd3e0, type: 3}
     type: 1
-    volume: 0.407
-    pitch: 0.98
+    volume: 0.916
+    pitch: 1.89
     loop: 0
     randomizePitch: 1
-    pitchRange: 0.144
-  - id: SFX_Ennemi_attackhit_light
-    clip: {fileID: 8300000, guid: af33905c307818b4d8e629759abab9a4, type: 3}
-    type: 1
-    volume: 0.644
-    pitch: 1
-    loop: 0
-    randomizePitch: 1
-    pitchRange: 0.2
-  - id: SFX_Ennemi_attackhit_heavy
-    clip: {fileID: 8300000, guid: f3eea7ae60a10d54da1f914b8e6e3891, type: 3}
-    type: 1
-    volume: 0.644
-    pitch: 1
-    loop: 0
-    randomizePitch: 1
-    pitchRange: 0.2
+    pitchRange: 0.164
   - id: SFX_Player_aoe
     clip: {fileID: 8300000, guid: 939ec4c7d4174244399ac12648bb9d2c, type: 3}
     type: 1
-    volume: 0.644
+    volume: 1
     pitch: 1
     loop: 0
     randomizePitch: 1
     pitchRange: 0.162
   - id: SFX_Ennemi_mikpin_explosion
-    clip: {fileID: 8300000, guid: 9e745b1a53378564faf6677d2a72fce9, type: 3}
+    clip: {fileID: 8300000, guid: 74f64e080722a42458512a7143a20303, type: 3}
     type: 1
-    volume: 0.644
+    volume: 0.882
     pitch: 1
     loop: 0
     randomizePitch: 1
@@ -104,7 +152,15 @@ MonoBehaviour:
   - id: SFX_Ennemi_boltbat_tir
     clip: {fileID: 8300000, guid: 665f8caf96a4bff4d93e96e90122c9c7, type: 3}
     type: 1
-    volume: 0.644
+    volume: 0.815
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: SFX_Ennemi_boltbat_fireball_hit
+    clip: {fileID: 8300000, guid: af33905c307818b4d8e629759abab9a4, type: 3}
+    type: 1
+    volume: 0.42
     pitch: 1
     loop: 0
     randomizePitch: 1
@@ -112,7 +168,7 @@ MonoBehaviour:
   - id: SFX_Ennemi_boltbat_mort
     clip: {fileID: 8300000, guid: 460a12e67d56bd348be1ab73836c4272, type: 3}
     type: 1
-    volume: 0.644
+    volume: 0.622
     pitch: 1
     loop: 0
     randomizePitch: 1
@@ -133,19 +189,19 @@ MonoBehaviour:
     loop: 0
     randomizePitch: 0
     pitchRange: 0.2
-  - id: UI_ulti_declenche
+  - id: UI_ulti_pret
     clip: {fileID: 8300000, guid: 7573a522f6ccf0c4dba5d88ab438556e, type: 3}
     type: 2
-    volume: 0.427
+    volume: 0.529
     pitch: 1
     loop: 0
     randomizePitch: 0
     pitchRange: 0.2
   - id: SFX_Player_melee
-    clip: {fileID: 8300000, guid: 1086629e9e857f942b03d073daabe953, type: 3}
+    clip: {fileID: 8300000, guid: f3eea7ae60a10d54da1f914b8e6e3891, type: 3}
     type: 1
-    volume: 0.427
-    pitch: 1
+    volume: 1
+    pitch: 2.45
     loop: 0
     randomizePitch: 1
     pitchRange: 0.2
@@ -158,9 +214,9 @@ MonoBehaviour:
     randomizePitch: 1
     pitchRange: 0.2
   - id: SFX_ulti_missile_fusee
-    clip: {fileID: 8300000, guid: 5a0494b7591fd62439256309e13a1b36, type: 3}
+    clip: {fileID: 8300000, guid: 7cb771d35d7af2948843ec4443a9ad4e, type: 3}
     type: 1
-    volume: 0.427
+    volume: 0.496
     pitch: 1
     loop: 0
     randomizePitch: 1
@@ -173,65 +229,65 @@ MonoBehaviour:
     loop: 0
     randomizePitch: 1
     pitchRange: 0.2
-  - id: MUS_8-bit-takeover
-    clip: {fileID: 8300000, guid: 503acbb0708ac6f4590d4a422f99768c, type: 3}
-    type: 0
+  - id: SFX_Env_debris_damage
+    clip: {fileID: 8300000, guid: 32b15f44157e2ea4787880cc6f57388d, type: 3}
+    type: 1
+    volume: 0.294
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: SFX_Env_debris_destroy
+    clip: {fileID: 8300000, guid: 5ab34aeb62cb56043aa9b10364786e6c, type: 3}
+    type: 1
+    volume: 0.571
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: SFX_Ennemi_minkai_attack
+    clip: {fileID: 8300000, guid: 94c165191519a994ea8fa5b93f21e087, type: 3}
+    type: 1
     volume: 0.314
     pitch: 1
     loop: 0
-    randomizePitch: 0
+    randomizePitch: 1
     pitchRange: 0.2
-  - id: MUS_arcade-party
-    clip: {fileID: 8300000, guid: 37e5c4a3700077d498144c3c40c7563b, type: 3}
-    type: 0
-    volume: 0.288
+  - id: SFX_Ennemi_minkai_damaged
+    clip: {fileID: 8300000, guid: fc51369eec1f3724597c4b55e4f96d63, type: 3}
+    type: 1
+    volume: 0.605
     pitch: 1
     loop: 0
-    randomizePitch: 0
+    randomizePitch: 1
     pitchRange: 0.2
-  - id: MUS_battle-time
-    clip: {fileID: 8300000, guid: 6912cc4caa0dbf8459f449f6503cc76c, type: 3}
-    type: 0
-    volume: 0.305
+  - id: SFX_Ennemi_minkai_dead
+    clip: {fileID: 8300000, guid: 955d18d98da226e469aef9af2b2cda22, type: 3}
+    type: 1
+    volume: 0.314
     pitch: 1
     loop: 0
-    randomizePitch: 0
+    randomizePitch: 1
     pitchRange: 0.2
-  - id: MUS_bitwise
-    clip: {fileID: 8300000, guid: 7be98c9c23754924d91f1837192db20a, type: 3}
-    type: 0
-    volume: 0.364
+  - id: SFX_Ennemi_spawner_mikpin
+    clip: {fileID: 8300000, guid: 20a06ac2458503f40a1deef9713761c2, type: 3}
+    type: 1
+    volume: 0.639
     pitch: 1
     loop: 0
-    randomizePitch: 0
+    randomizePitch: 1
     pitchRange: 0.2
-  - id: MUS_epic-battle
-    clip: {fileID: 8300000, guid: 4d132d1aa0b81314ba42b6437842404c, type: 3}
-    type: 0
-    volume: 0.339
+  - id: SFX_Ennemi_spawner_boltbat
+    clip: {fileID: 8300000, guid: 9dd2441e4291b4a4195f5f13cc6b7f74, type: 3}
+    type: 1
+    volume: 0.521
     pitch: 1
     loop: 0
-    randomizePitch: 0
+    randomizePitch: 1
     pitchRange: 0.2
-  - id: MUS_i-dream-in-keygen
-    clip: {fileID: 8300000, guid: 86f3a86e9b51e574893a2f468278cead, type: 3}
-    type: 0
-    volume: 0.322
-    pitch: 1
-    loop: 0
-    randomizePitch: 0
-    pitchRange: 0.2
-  - id: MUS_pixel-perfect
-    clip: {fileID: 8300000, guid: f02e1701262daa242b71b9434190440a, type: 3}
-    type: 0
-    volume: 0.322
-    pitch: 1
-    loop: 0
-    randomizePitch: 0
-    pitchRange: 0.2
-  - id: MUS_pixify
-    clip: {fileID: 8300000, guid: 446e0f59e4b56c746bed25fab1696287, type: 3}
-    type: 0
+  - id: son_bidon
+    clip: {fileID: 0}
+    type: 1
     volume: 0.314
     pitch: 1
     loop: 0

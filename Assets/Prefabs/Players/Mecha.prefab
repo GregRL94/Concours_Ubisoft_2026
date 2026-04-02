@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 2537720267561633478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.44085884, z: -10}
+  m_LocalPosition: {x: 0, y: -0.63134766, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -651,7 +651,7 @@ Transform:
   m_GameObject: {fileID: 4503489397842482685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.544, y: 1.808, z: 0}
+  m_LocalPosition: {x: -0.5, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1017,7 +1017,7 @@ Transform:
   m_GameObject: {fileID: 5281835591307895253}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.547, y: 1.773, z: 0}
+  m_LocalPosition: {x: 0.5, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1185,16 +1185,16 @@ MonoBehaviour:
     <LinearDispersionResetSpeed>k__BackingField: 0.05
   MissileParameters:
     <MissilePrefab>k__BackingField: {fileID: 5773359375257919300, guid: 1b0d5d5f33e350944a07527e3f4c6679, type: 3}
-    <Speed>k__BackingField: 10
-    <RotationSpeed>k__BackingField: 90
+    <Speed>k__BackingField: 15
+    <RotationSpeed>k__BackingField: 225
     <Damage>k__BackingField: 30
-    <AOEDamage>k__BackingField: 15
-    <HoldRotationTimer>k__BackingField: 0.5
-    <HoldMovementTimer>k__BackingField: 1.5
+    <AOEDamage>k__BackingField: 10
+    <HoldRotationTimer>k__BackingField: 0.25
+    <HoldMovementTimer>k__BackingField: 0.75
     <Lifetime>k__BackingField: 5
     <MissileImpactLayerMask>k__BackingField:
       serializedVersion: 2
-      m_Bits: 640
+      m_Bits: 128
   _mechaBase: {fileID: 4838196248118909920}
   _mechaTop: {fileID: 4235779837525528367}
   _slash: {fileID: 5020804249824242362}
@@ -1225,7 +1225,7 @@ MonoBehaviour:
     m_Bits: 2176
   _meleeAttackStuns: 1
   _meleeAttackRepels: 1
-  _meleeDamage: 75
+  _meleeDamage: 100
   _meleeAttackStunDuration: 1.5
   _meleeAttackRepelForce: 100
   _meleeAttackCooldown: 5
@@ -1268,11 +1268,11 @@ MonoBehaviour:
   _maxTargetingRange: 15
   _maxNumberOfMissiles: 12
   _minReleaseForce: 1
-  _maxReleaseForce: 5
-  _missileSpawnInterval: 0.2
+  _maxReleaseForce: 8
+  _missileSpawnInterval: 0.3
   animIsPressedMovement: {fileID: 0}
   animIsPressedShot: {fileID: 0}
-  _ultimateHoldDuration: 2
+  _ultimateHoldDuration: 1.5
   _ultimateMax: 100
   animIsReadyUltimate: {fileID: 0}
   _ultimateHoldThreshold: 0.25
@@ -1400,7 +1400,7 @@ Transform:
   m_GameObject: {fileID: 7682065259496983473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4408598, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63134843, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1455,7 +1455,7 @@ Transform:
   m_GameObject: {fileID: 7688457587450742652}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: -3.88, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2489,7 +2489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4715727468993008621, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Composition.DeadZone.Size.y
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4715727468993008621, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Composition.ScreenPosition.x
@@ -2517,7 +2517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.44085884
+      value: -0.63134766
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.z
