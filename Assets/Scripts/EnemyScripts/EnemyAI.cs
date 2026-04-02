@@ -78,6 +78,7 @@ public class EnemyAI : MonoBehaviour, IHit
     public void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+        if (TryGetComponent<EnemyHealthBar>(out var healthBar)) { healthBar.TakeDamage(damage); }
         GameManager.Instance.IncreaseUltimateJauge(data.ultimateChargeOnHit);
 
         float randBloodChance = UnityEngine.Random.Range(0f, 1f);
