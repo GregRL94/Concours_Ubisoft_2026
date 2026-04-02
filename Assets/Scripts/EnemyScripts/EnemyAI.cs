@@ -78,6 +78,7 @@ public class EnemyAI : MonoBehaviour, IHit
     public void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+        if (TryGetComponent<EnemyHealthBar>(out var healthBar)) { healthBar.TakeDamage(damage); }
         GameManager.Instance.IncreaseUltimateJauge(data.ultimateChargeOnHit);
 
         float randBloodChance = UnityEngine.Random.Range(0f, 1f);
@@ -86,6 +87,11 @@ public class EnemyAI : MonoBehaviour, IHit
             Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
             Instantiate(bloodSplashPrefab, transform.position, Quaternion.identity);
         }
+
+        if(AccessibilityManager.Instance != null)
+            damage = AccessibilityManager.Instance.ModifyPlayerDamageDealt(damage);
+
+
         currentHealth -= damage;
         if (currentHealth <= 0 && !_isDead)
         {
