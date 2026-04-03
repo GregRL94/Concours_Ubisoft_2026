@@ -1265,7 +1265,7 @@ MonoBehaviour:
   LaserShotParameters:
     <LaserShotPrefab>k__BackingField: {fileID: 7801827202018218392, guid: feff21240f8dc67438716ba915efda8f, type: 3}
     <Speed>k__BackingField: 20
-    <Damage>k__BackingField: 5
+    <Damage>k__BackingField: 4
     <Lifetime>k__BackingField: 0.7
     <LaserImpactLayerMask>k__BackingField:
       serializedVersion: 2
@@ -1304,14 +1304,14 @@ MonoBehaviour:
   _dashSpeedFactor: 8
   _dashDuration: 0.1
   _dashCooldown: 1
-  _dashDoesDamage: 0
+  _dashDoesDamage: 1
   _dashImpactsWhat:
     serializedVersion: 2
     m_Bits: 2176
   _dashIgnoresWhat:
     serializedVersion: 2
     m_Bits: 1024
-  _dashDamage: 5
+  _dashDamage: 10
   animIsPressedDash: {fileID: 0}
   _meleeAttackPoint: {fileID: 4551997135442846276}
   _meleeAttackHitBox: {x: 6, y: 3}
@@ -1324,7 +1324,7 @@ MonoBehaviour:
   _meleeDamage: 100
   _meleeAttackStunDuration: 1.5
   _meleeAttackRepelForce: 100
-  _meleeAttackCooldown: 5
+  _meleeAttackCooldown: 3
   animIsPressedMelee: {fileID: 0}
   _shootingPoints:
   - {fileID: 1203288601306859973}
@@ -1522,7 +1522,7 @@ Transform:
   m_GameObject: {fileID: 7682065259496983473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6313484, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63134843, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
