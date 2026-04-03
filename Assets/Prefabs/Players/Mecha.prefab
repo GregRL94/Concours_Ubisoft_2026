@@ -1265,7 +1265,7 @@ MonoBehaviour:
   LaserShotParameters:
     <LaserShotPrefab>k__BackingField: {fileID: 7801827202018218392, guid: feff21240f8dc67438716ba915efda8f, type: 3}
     <Speed>k__BackingField: 20
-    <Damage>k__BackingField: 5
+    <Damage>k__BackingField: 4
     <Lifetime>k__BackingField: 0.7
     <LaserImpactLayerMask>k__BackingField:
       serializedVersion: 2
