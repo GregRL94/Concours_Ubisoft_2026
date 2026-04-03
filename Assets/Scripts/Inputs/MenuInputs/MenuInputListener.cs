@@ -159,12 +159,15 @@ public class MenuInputListener : MonoBehaviour
             MenuManager.Instance.CloseMenu();
             audioManager.PlaySound("UI_Back");
         }
-        //else if (MenuManager.Instance.IsPauseMenuActive())
-        //{
-        //    MenuManager.Instance.ClearMenu();
-        //    MenuManager.Instance.CloseMenu();
-        //}
-            
+        else if (MenuManager.Instance.IsPauseMenuActive())
+        {
+            audioManager.PlaySound("UI_Back");
+            MenuManager.Instance.ClearMenu();
+            MenuManager.Instance.CloseMenu();
+            //FindAnyObjectByType<MechaController>(FindObjectsInactive.Include)?.IgnoreInputsForFrames();
+            FindAnyObjectByType<MechaController>(FindObjectsInactive.Include)?.BlockInputs();
+        }
+
 
     }
 

@@ -19,6 +19,10 @@ public class DestructibleEnv : MonoBehaviour, IHit
         {
             childFlashEffect.Flash();
         }
+
+        if (AccessibilityManager.Instance != null)
+            damage = AccessibilityManager.Instance.ModifyPlayerDamageDealt(damage);
+
         _currentHealth -= damage;
         _damageCounter += damage;
         if (_currentHealth <= 0)

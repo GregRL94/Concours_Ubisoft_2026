@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerChoiceMenu : Menu
@@ -390,9 +389,3 @@ public class PlayerChoiceMenu : Menu
         };
     }
 }
-
-// si meme chose role reset aussi position de depart pr p1 et p2
-// et aussi si mon playerolemenu est ondisable on reset aussi 
-// si nest pas ds scene menu et pause menu hierarchy est true et aussi le holding et est fait avec couleur et on fait back sa va reassigné les
-//          controlles selon ce que on choisi
-// 

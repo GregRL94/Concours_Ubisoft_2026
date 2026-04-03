@@ -17,16 +17,16 @@ public class StunState : EnemyState
         base.Enter();
         stunTimer = duration;
         //Arreter le mouvement du NavMeshAgent ou de la velocity
-        if (enemy.Agent != null) enemy.Agent.isStopped = true;
-
-        //Lancer une animation de stun
-        //enemy.animator.SetBool("isStunned",true);
-
+        if (enemy.Agent != null)
+        {
+            enemy.stunEffect?.Play();
+            enemy.Agent.ResetPath();
+            enemy.Agent.velocity = Vector3.zero;
+        }
     }
 
-    public override void LogicUpdate()
+    public override void Update()
     {
-        base.LogicUpdate();
         stunTimer -= Time.deltaTime;
         if (stunTimer <= 0f)
         {
@@ -38,15 +38,16 @@ public class StunState : EnemyState
             {
                 stateMachine.ChangeState(enemy.PatrolState);
             }
-            
         }
     }
 
     public override void Exit()
     {
         base.Exit();
-        if(enemy.Agent != null)enemy.Agent.isStopped = false;
-        //enemy.animator.SetBool("isStunned",false);
+        if(enemy.Agent != null)
+        { 
+            enemy.stunEffect?.Stop();
+            enemy.stunEffect?.Clear();
+        }
     }
-
 }
