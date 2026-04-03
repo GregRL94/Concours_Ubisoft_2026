@@ -57,7 +57,7 @@ public class MechaUltimateUI : MonoBehaviour
         if (ultimateLabel != null)
         {
             if (percent >= 1f)
-                ultimateLabel.text = "ULTIMATE READY";
+                ultimateLabel.text = "HOLD B";
             else
                 ultimateLabel.text = $"ULTIMATE {(int)(percent * 100)}%";
         }

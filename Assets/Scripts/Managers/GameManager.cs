@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     public enum GameplayState { Playing, Transition, Win, Lose }
     public GameplayState CurrentState { get; private set; }
 
-    public int EnemyCount { get; private set; }
+    public int AliensCount { get; private set; }
 
     void Awake()
     {
@@ -130,12 +130,12 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void UpdateEnemyCountUI(int count)
+    public void UpdateCountsUI(int enemyCount, int spawnerCount)
     {
-        EnemyCount = count;
+        AliensCount = enemyCount + spawnerCount;
 
         if (enemyCountText != null)
-            enemyCountText.text = $"Enemies: {EnemyCount}";
+            enemyCountText.text = $"Aliens left: {AliensCount}";
 
         // todo: add sound cue for enemy count
 
@@ -144,6 +144,8 @@ public class GameManager : MonoBehaviour
 
         enemyAnimRoutine = StartCoroutine(AnimateEnemyCount());
     }
+
+
     #endregion
 
     #region MUSIC
@@ -329,12 +331,12 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        EnemyManager.OnEnemyCountChanged += UpdateEnemyCountUI;
+        EnemyManager.OnCountsChanged += UpdateCountsUI;
     }
 
     void OnDisable()
     {
-        EnemyManager.OnEnemyCountChanged -= UpdateEnemyCountUI;
+        EnemyManager.OnCountsChanged -= UpdateCountsUI;
     }
     #endregion
 

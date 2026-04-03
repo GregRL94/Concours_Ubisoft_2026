@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using Unity.VectorGraphics;
+using UnityEngine;
 
 public class PauseMenu : Menu
 {
+    [SerializeField] private FadeTransition restartTransition;
+    [SerializeField] private FadeTransition mainMenuTransition;
 
     public void OnResumePressed()
     {
@@ -16,7 +19,7 @@ public class PauseMenu : Menu
 
     public void OnRestartPressed()
     {
-        GameManager.Instance.RestartLevel();
+        TransitionManager.Instance.TransitionRestartScene(restartTransition);
     }
 
     public void OnSettingsPressed()
@@ -41,15 +44,16 @@ public class PauseMenu : Menu
     {
         MenuManager.Instance.CloseMenu();
         OnReturnToMainMenu();
-        LevelLoader.LoadMainMenuLevel();
+        TransitionManager.Instance.TransitionToScene("MainMenu", mainMenuTransition, 0f);
+        //LevelLoader.LoadMainMenuLevel();
     }
 
     public void OnQuitPressed()
     {
         Application.Quit();
-        #if UNITY_EDITOR
-                    UnityEditor.EditorApplication.isPlaying = false; // Exit option for editor 
-        #endif
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // Exit option for editor 
+#endif
     }
 
     private void OnEnable()

@@ -7,8 +7,7 @@ public class EnemyManager : MonoBehaviour
     //Instance statique pour y acceder via EnemyManager.Instance
     public static EnemyManager Instance { get; private set; }
 
-    public static event Action<int> OnEnemyCountChanged;
-
+    public static event Action<int, int> OnCountsChanged;
 
     [Header("Suivis des ennemis")] 
     public List<EnemyAI> activeEnnemis = new List<EnemyAI>();
@@ -33,7 +32,7 @@ public class EnemyManager : MonoBehaviour
         {
             activeEnnemis.Add(enemyAI);
             //Debug.Log($"Ennemi ajoute. Total: {activeEnnemis.Count}");
-            NotifyEnemyCountChanged();
+            NotifyCountsChanged();
         }
     }
     //appelr par l'ennemi quand il meurt
@@ -47,7 +46,7 @@ public class EnemyManager : MonoBehaviour
             //{
             //    OnAllEnemiesCleared();
             //}
-            NotifyEnemyCountChanged();
+            NotifyCountsChanged();
             OnAllEnemiesCleared();
         }
 
@@ -61,6 +60,7 @@ public class EnemyManager : MonoBehaviour
         {
             activeSpawners.Add(spawner);
             Debug.Log($"Spawner ajouté. Total: {activeSpawners.Count}");
+            NotifyCountsChanged();
         }
     }
 
@@ -71,7 +71,7 @@ public class EnemyManager : MonoBehaviour
         {
             activeSpawners.Remove(spawner);
             Debug.Log($"Spawner détruit. Restants: {activeSpawners.Count}");
-
+            NotifyCountsChanged();
             OnAllEnemiesCleared();
         }
     }
@@ -93,15 +93,14 @@ public class EnemyManager : MonoBehaviour
         {
             activeTutorialTriggers.Remove(trigger);
             //Debug.Log($"Trigger détruit. Restants: {activeTutorialTriggers.Count}");
-
             //OnAllEnemiesCleared();
         }
     }
 
-    // Notify event for enemy count 
-    private void NotifyEnemyCountChanged()
+    // Notify event for enemy + spawner count 
+    private void NotifyCountsChanged()
     {
-        OnEnemyCountChanged?.Invoke(activeEnnemis.Count);
+        OnCountsChanged?.Invoke(activeEnnemis.Count, activeSpawners.Count);
     }
 
 
@@ -110,9 +109,10 @@ public class EnemyManager : MonoBehaviour
     {
         if (_levelCompleted) return;
 
-        activeEnnemis.RemoveAll(e => e == null);
-        activeSpawners.RemoveAll(s => s == null);
-        activeTutorialTriggers.RemoveAll(t => t == null);
+        // enleve les nulls refs
+        //activeEnnemis.RemoveAll(e => e == null);
+        //activeSpawners.RemoveAll(s => s == null);
+        //activeTutorialTriggers.RemoveAll(t => t == null);
 
         if (activeEnnemis.Count == 0 &&
             activeSpawners.Count == 0 &&
