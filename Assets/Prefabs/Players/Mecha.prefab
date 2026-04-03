@@ -1304,14 +1304,14 @@ MonoBehaviour:
   _dashSpeedFactor: 8
   _dashDuration: 0.1
   _dashCooldown: 1
-  _dashDoesDamage: 0
+  _dashDoesDamage: 1
   _dashImpactsWhat:
     serializedVersion: 2
     m_Bits: 2176
   _dashIgnoresWhat:
     serializedVersion: 2
     m_Bits: 1024
-  _dashDamage: 5
+  _dashDamage: 10
   animIsPressedDash: {fileID: 0}
   _meleeAttackPoint: {fileID: 4551997135442846276}
   _meleeAttackHitBox: {x: 6, y: 3}
