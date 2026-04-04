@@ -576,6 +576,8 @@ public class MechaController : MonoBehaviour, IHit
         _movementHoldWasShort = true;
         _shootHoldWasShort = true;
 
+        _movementAttemptingUltimate = false;
+        _shootAttemptingUltimate = false;
 
         _movementHoldTimer = 0f;
         _shootHoldTimer = 0f;
