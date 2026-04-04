@@ -120,6 +120,7 @@ public class EnemySpawner : MonoBehaviour, IHit
             {
                 EnemyManager.Instance.UnRegisterSpawner(this);
             }
+            AudioManager.Instance.PlaySound(waveSettings.soundDeath);
             GetComponent<Animator>()?.SetTrigger("Die");
             _isDead = true;
         }

@@ -11,4 +11,5 @@ public class WaveData : ScriptableObject
     public float spawnIntervalWithinBatch = 0.2f;
     public int maxActiveEnemies;
     public string soundToPlay;
+    public string soundDeath;
 }
