@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8998483324172326142}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5788366, y: 0.4061382, z: -0.4061382, w: 0.5788366}
-  m_LocalPosition: {x: 12.89, y: -0, z: -33.196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -70.111}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7010538570279612892
 SpriteRenderer:
   serializedVersion: 2
@@ -85,12 +85,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1438806315979937713, guid: 84fcb4d1dbfcc5146bc0255817385364, type: 3}
-  m_Color: {r: 0.84016675, g: 0.7688679, b: 1, a: 1}
+  m_Sprite: {fileID: -4669205345826364903, guid: d21f4525ba10be74ebbc8745fb82f1aa, type: 3}
+  m_Color: {r: 0.7735849, g: 0.5788346, b: 0.53640085, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.6086957, y: 2.7826087}
+  m_Size: {x: 2.53125, y: 1.8125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,8 +133,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 2}
-    newSize: {x: 2.6086957, y: 2.7826087}
+    oldSize: {x: 2.53125, y: 1.8125}
+    newSize: {x: 2.53125, y: 1.8125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -170,6 +170,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleEnv
   _maxHealth: 50
+  _thresholdDamagedSound: 15
+  _hitEffect: {fileID: 3015472318778711838, guid: b08a0510be9c34444a8a2324107e1583, type: 3}
+  _destroyedEffect: {fileID: 3885693538988036005, guid: 5e08f76a0d013164397ace0fb1e575bd, type: 3}
+  _destroyedSprite:
+  - {fileID: -4923020649712579799, guid: 7b3f1665e676da441b5323b8a704a7d1, type: 3}
+  - {fileID: -1374976475399793820, guid: 64cfc7a701d073f4ba3a747d40c6f4ac, type: 3}
+  - {fileID: -2317763111490286005, guid: 5573e26f5b5fae34ca38e4f7ad15cb77, type: 3}
 --- !u!114 &8022898196125891892
 MonoBehaviour:
   m_ObjectHideFlags: 0

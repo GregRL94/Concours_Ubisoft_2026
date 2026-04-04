@@ -172,6 +172,10 @@ MonoBehaviour:
   _maxHealth: 50
   _thresholdDamagedSound: 15
   _hitEffect: {fileID: 3015472318778711838, guid: b08a0510be9c34444a8a2324107e1583, type: 3}
+  _destroyedEffect: {fileID: 3885693538988036005, guid: caf965e9922864b47a0ac269bdcc13b0, type: 3}
+  _destroyedSprite:
+  - {fileID: 21300000, guid: 89a09eb5230ef754497206634db89c3b, type: 3}
+  - {fileID: 21300000, guid: ff025d043c81813488be66062c075bfb, type: 3}
 --- !u!114 &-2893208819843461177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,5 +188,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce17cd625f00a54f8de64d4d2d33068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashEffect
-  flashMaterial: {fileID: 2100000, guid: 5e1bbd03d91fe6548bddd276da54c513, type: 2}
+  flashMaterial: {fileID: 2100000, guid: 92c2858b3d88b4c4c8e685928270d2b7, type: 2}
   duration: 0.05
