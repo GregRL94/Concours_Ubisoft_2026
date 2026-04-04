@@ -38,26 +38,6 @@ public class GameOverMenu : Menu
         overStartInitial = overStart.position;
     }
 
-    //private void Start()
-    //{
-    //    gameStart.position = gameStartInitial;
-    //    overStart.position = overStartInitial;
-
-    //    // save ds memoire
-    //    gameStartInitial = gameStart.position;
-    //    overStartInitial = overStart.position;
-
-
-    //}
-
-    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    //{
-    //    // save ds memoire
-    //    gameStartInitial = gameStart.position;
-    //    overStartInitial = overStart.position;
-    //}
-
-
     private void OnEnable()
     {
         Time.timeScale = 0f;
@@ -84,7 +64,9 @@ public class GameOverMenu : Menu
 
     IEnumerator AnimationRoutine()
     {
-      
+        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlaySound("SFX_GameOver");
+
         yield return StartCoroutine(Slide(gameText, gameCenter.position, slideDuration));
 
         yield return new WaitForSecondsRealtime(delayBetweenTexts);

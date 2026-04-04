@@ -193,7 +193,7 @@ public class GameManager : MonoBehaviour
         // UI + SFX
         objectiveText.text = "OBJECTIVE COMPLETED";
         AudioManager.Instance.PlaySound("SFX_ObjectiveCompleted");
-
+        
         // Petite anim - scale punch 
         yield return StartCoroutine(AnimateObjectiveText());
 
@@ -206,7 +206,7 @@ public class GameManager : MonoBehaviour
     #region TRANSITIONS
     public void MissionAccomplished()
     {
-        Debug.Log("Objective Completed");
+        //Debug.Log("Objective Completed");
         TransitionManager.Instance.FadeInCurrentScene(nextLevelTransition, MenuManager.Instance.GetNextLevelMenu(), 0f);
     }
 

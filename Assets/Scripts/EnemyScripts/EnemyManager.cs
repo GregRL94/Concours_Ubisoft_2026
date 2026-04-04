@@ -122,7 +122,10 @@ public class EnemyManager : MonoBehaviour
 
             Debug.Log("ALL CLEAR -> LEVEL COMPLETE");
 
-            GameManager.Instance.CompleteObjective();
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.CompleteObjective();
+            }
         }
     }
 
