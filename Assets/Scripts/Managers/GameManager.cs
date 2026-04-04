@@ -10,6 +10,7 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static Action<float> OnUltimateJaugeIncrease; // event pour augmenter la jauge ultimate, float = amount
+    public static Action<bool> OnSetAdvancedShooting; // event pour activer/désactiver le tir avancé, bool = enabled/disabled
     public static GameManager Instance;
 
     [Header("Transition Prefabs")]
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
     public enum GameplayState { Playing, Transition, Win, Lose }
     public GameplayState CurrentState { get; private set; }
 
-    public int EnemyCount { get; private set; }
+    public int AliensCount { get; private set; }
 
     void Awake()
     {
@@ -130,12 +131,12 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void UpdateEnemyCountUI(int count)
+    public void UpdateCountsUI(int enemyCount, int spawnerCount)
     {
-        EnemyCount = count;
+        AliensCount = enemyCount + spawnerCount;
 
         if (enemyCountText != null)
-            enemyCountText.text = $"Enemies: {EnemyCount}";
+            enemyCountText.text = $"Aliens left: {AliensCount}";
 
         // todo: add sound cue for enemy count
 
@@ -144,6 +145,12 @@ public class GameManager : MonoBehaviour
 
         enemyAnimRoutine = StartCoroutine(AnimateEnemyCount());
     }
+
+    public void SetAdvancedShooting(bool enabled)
+    {
+        OnSetAdvancedShooting?.Invoke(enabled);
+    }
+
     #endregion
 
     #region MUSIC
@@ -191,7 +198,7 @@ public class GameManager : MonoBehaviour
         // UI + SFX
         objectiveText.text = "OBJECTIVE COMPLETED";
         AudioManager.Instance.PlaySound("SFX_ObjectiveCompleted");
-
+        
         // Petite anim - scale punch 
         yield return StartCoroutine(AnimateObjectiveText());
 
@@ -204,7 +211,7 @@ public class GameManager : MonoBehaviour
     #region TRANSITIONS
     public void MissionAccomplished()
     {
-        Debug.Log("Objective Completed");
+        //Debug.Log("Objective Completed");
         TransitionManager.Instance.FadeInCurrentScene(nextLevelTransition, MenuManager.Instance.GetNextLevelMenu(), 0f);
     }
 
@@ -329,12 +336,12 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        EnemyManager.OnEnemyCountChanged += UpdateEnemyCountUI;
+        EnemyManager.OnCountsChanged += UpdateCountsUI;
     }
 
     void OnDisable()
     {
-        EnemyManager.OnEnemyCountChanged -= UpdateEnemyCountUI;
+        EnemyManager.OnCountsChanged -= UpdateCountsUI;
     }
     #endregion
 

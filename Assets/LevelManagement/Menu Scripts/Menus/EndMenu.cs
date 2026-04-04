@@ -72,6 +72,9 @@ public class EndMenu : Menu
 
     IEnumerator AnimationRoutine()
     {
+        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlaySound("SFX_WinGame");
+
         // titre punch + shake
         yield return StartCoroutine(ScalePunch(titleText));
         yield return StartCoroutine(Shake());
