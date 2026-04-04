@@ -175,9 +175,9 @@ public class MenuInputListener : MonoBehaviour
     {
         if (!context.performed) return;
 
-        if (menuManager.HasOpenMenu)
-        {
-        }
+        //if (menuManager.HasOpenMenu)
+        //{
+        //}
     }
 
     private void OnPause(InputAction.CallbackContext context)

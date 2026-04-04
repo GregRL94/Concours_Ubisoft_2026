@@ -112,6 +112,72 @@ public class TransitionManager : MonoBehaviour
         InputManager.Instance.EnableAll();
     }
 
+    public void SplashToScene(string sceneName, FadeTransition transitionPrefab)
+    {
+        StartCoroutine(SplashToSceneRoutine(sceneName, transitionPrefab));
+    }
 
+    private IEnumerator SplashToSceneRoutine(string sceneName, FadeTransition transitionPrefab)
+    {
+        FadeTransition transition = Instantiate(transitionPrefab);
+
+        yield return transition.PlayIn().SetUpdate(true).WaitForCompletion();
+
+        // Désactiver le splash ICI (quand écran est noir)
+        if (FindAnyObjectByType<SplashMenu>() != null)
+            FindAnyObjectByType<SplashMenu>().gameObject.SetActive(false);
+
+        yield return new WaitForSecondsRealtime(0.15f);
+
+        yield return SceneManager.LoadSceneAsync(sceneName);
+
+        yield return null;
+
+        yield return transition.PlayOut().SetUpdate(true).WaitForCompletion();
+    }
+
+    public void TransitionRestartScene(FadeTransition transitionPrefab)
+    {
+        StartCoroutine(RestartSceneRoutine(transitionPrefab));
+    }
+
+    private IEnumerator RestartSceneRoutine(FadeTransition transitionPrefab)
+    {
+        InputManager.Instance.DisableAll();
+
+        FadeTransition transition = Instantiate(transitionPrefab);
+
+        yield return transition.PlayIn()
+            .SetUpdate(true)   // Permet d’ignorer Time.timeScale
+            .WaitForCompletion();
+
+        GameManager.Instance.RestartLevel();
+
+        yield return transition.PlayOut().WaitForCompletion();
+
+        InputManager.Instance.EnableAll();
+    }
+
+    //public void TransitionToMainMenuScene(string sceneName, FadeTransition transitionPrefab)
+    //{
+    //    StartCoroutine(MainMenuSceneRoutine(sceneName, transitionPrefab));
+    //}
+
+    //private IEnumerator MainMenuSceneRoutine(string sceneName, FadeTransition transitionPrefab)
+    //{
+    //    InputManager.Instance.DisableAll();
+
+    //    FadeTransition transition = Instantiate(transitionPrefab);
+
+    //    yield return transition.PlayIn()
+    //        .SetUpdate(true)   // Permet d’ignorer Time.timeScale
+    //        .WaitForCompletion();
+
+    //    GameManager.Instance.RestartLevel();
+
+    //    yield return transition.PlayOut().WaitForCompletion();
+
+    //    InputManager.Instance.EnableAll();
+    //}
 
 }

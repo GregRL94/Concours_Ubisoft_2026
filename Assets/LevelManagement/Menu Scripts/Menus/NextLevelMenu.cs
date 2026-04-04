@@ -55,6 +55,8 @@ public class NextLevelMenu : Menu
 
     IEnumerator AnimationRoutine()
     {
+        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlaySound("SFX_LevelCompleted");
         // Slide 
         yield return StartCoroutine(Slide(missionCompleteTitle, centerPos.position, slideDuration));
 
