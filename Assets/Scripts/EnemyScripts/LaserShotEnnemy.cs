@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class LaserShotEnnemy : MonoBehaviour
+public class LaserShotEnnemy : MonoBehaviour, IHit
 {
     [SerializeField] private GameObject _explosionEffect;
+    private float _hp = 1f;
     private float _speed;
     private float _damage;
     private float _lifetime;
@@ -50,4 +51,16 @@ public class LaserShotEnnemy : MonoBehaviour
         }
         _Destroy();
     }
+
+    public void OnHit(float damage)
+    {
+        _hp -= damage;
+        if (_hp <= 0)
+        {
+            _Destroy();
+        }
+    }
+
+    public void OnHitRepel(float f, Vector2 v2) { }
+    public void OnHitStun(float f) { }
 }
