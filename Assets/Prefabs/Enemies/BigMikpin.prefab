@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa5de6b71b0cb449bd90e852f528576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  data: {fileID: 11400000, guid: 7c9c269493edb5547b1cd6edda99f24e, type: 2}
+  data: {fileID: 11400000, guid: e2718c394e64f91428cdcfac362924ac, type: 2}
   bloodSplashPrefab: {fileID: 3015472318778711838, guid: 896da33545a96f944a0ac1e398d57a01, type: 3}
   stunEffect: {fileID: 2528947064540104609}
   firePoint: {fileID: 4901014329125216784}
@@ -181,7 +181,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4901014329125216784}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: firePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24dc40b1e764584f963b1304e21a54a, type: 3}
+  m_Name: Big_Mikpin
+  m_EditorClassIdentifier: Assembly-CSharp::KamikazeData
+  enemyName: Big_Mikpin
+  patrolRadius: 30
+  moveSpeed: 5.5
+  maxHealth: 8
+  detectionRange: 75
+  attackRange: 2
+  stopDistance: 0
+  damage: 3
+  ultimateChargeOnHit: 1
+  _explosionImpactsWhat:
+    serializedVersion: 2
+    m_Bits: 192
+  explosionRadius: 3.5
+  explosionEffect: {fileID: 3392167224638232088, guid: 7d2fbc055fb51c849b8aa2d7cffe27f8, type: 3}
+  explosionDelay: 0.2
+  soundExplode: SFX_Ennemi_mikpin_explosion
