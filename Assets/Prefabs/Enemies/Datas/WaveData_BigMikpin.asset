@@ -18,9 +18,9 @@ MonoBehaviour:
   - {fileID: 1392904071871295899, guid: 07fd88637fa19a642813f1a408becfd7, type: 3}
   - {fileID: 1392904071871295899, guid: ce0fd2b8632f6dd4c94d60909985d741, type: 3}
   - {fileID: 1392904071871295899, guid: b9aad5273d6469248b83a26334cac611, type: 3}
-  initialBatchSize: 4
-  regularBatchSize: 4
+  initialBatchSize: 5
+  regularBatchSize: 5
   timeBetweenWaves: 10
   spawnIntervalWithinBatch: 0.3
-  maxActiveEnemies: 40
+  maxActiveEnemies: 24
   soundToPlay: SFX_Ennemi_spawner_mikpin

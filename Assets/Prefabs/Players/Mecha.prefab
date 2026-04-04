@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 2537720267561633478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.63134867, z: -10}
+  m_LocalPosition: {x: 0, y: 0.3735857, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -156,7 +156,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 5.484375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -742,7 +742,7 @@ Transform:
   m_GameObject: {fileID: 4503489397842482685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 1.8, z: 0}
+  m_LocalPosition: {x: -0.544, y: 1.808, z: 0}
   m_LocalScale: {x: 1, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1109,7 +1109,7 @@ Transform:
   m_GameObject: {fileID: 5281835591307895253}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1.8, z: 0}
+  m_LocalPosition: {x: 0.547, y: 1.773, z: 0}
   m_LocalScale: {x: 1, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1279,13 +1279,13 @@ MonoBehaviour:
     <LinearDispersionResetSpeed>k__BackingField: 0.05
   MissileParameters:
     <MissilePrefab>k__BackingField: {fileID: 5773359375257919300, guid: 1b0d5d5f33e350944a07527e3f4c6679, type: 3}
-    <Speed>k__BackingField: 15
-    <RotationSpeed>k__BackingField: 225
+    <Speed>k__BackingField: 12.8
+    <RotationSpeed>k__BackingField: 278
     <Damage>k__BackingField: 30
     <AOEDamage>k__BackingField: 10
     <HoldRotationTimer>k__BackingField: 0.25
-    <HoldMovementTimer>k__BackingField: 0.75
-    <Lifetime>k__BackingField: 5
+    <HoldMovementTimer>k__BackingField: 0.43
+    <Lifetime>k__BackingField: 4.2
     <MissileImpactLayerMask>k__BackingField:
       serializedVersion: 2
       m_Bits: 384
@@ -1301,7 +1301,7 @@ MonoBehaviour:
   _stunStopsAbilities: 1
   _stunStopsMovement: 1
   _movementSpeed: 6
-  _dashSpeedFactor: 8
+  _dashSpeedFactor: 10
   _dashDuration: 0.1
   _dashCooldown: 1
   _dashDoesDamage: 1
@@ -1345,7 +1345,7 @@ MonoBehaviour:
   _aoeImpactsWhat:
     serializedVersion: 2
     m_Bits: 35200
-  _aoeStuns: 1
+  _aoeStuns: 0
   _aoeRepels: 1
   _aoeRadius: 9
   _aoeDamage: 1
@@ -1361,14 +1361,14 @@ MonoBehaviour:
   _missilePoints:
   - {fileID: 3013489770942693113}
   - {fileID: 976736478384787416}
-  _maxTargetingRange: 15
-  _maxNumberOfMissiles: 12
-  _minReleaseForce: 1
-  _maxReleaseForce: 8
-  _missileSpawnInterval: 0.3
+  _maxTargetingRange: 20
+  _maxNumberOfMissiles: 21
+  _minReleaseForce: 2.8
+  _maxReleaseForce: 7.6
+  _missileSpawnInterval: 0.136
   animIsPressedMovement: {fileID: 0}
   animIsPressedShot: {fileID: 0}
-  _ultimateHoldDuration: 1.5
+  _ultimateHoldDuration: 1.2
   _ultimateMax: 100
   animIsReadyUltimate: {fileID: 0}
   _ultimateHoldThreshold: 0.25
@@ -1522,7 +1522,7 @@ Transform:
   m_GameObject: {fileID: 7682065259496983473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.63134843, z: 0}
+  m_LocalPosition: {x: 0, y: -0.6313486, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2662,12 +2662,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Lens.OrthographicSize
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 8912567188512261498}
+      objectReference: {fileID: 0}
     - target: {fileID: 4715727468993008621, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Damping.x
       value: 1
@@ -2714,7 +2714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.63134766
+      value: 0.3735857
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.z
