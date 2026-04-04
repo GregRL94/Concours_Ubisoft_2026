@@ -20,3 +20,4 @@ MonoBehaviour:
   spawnIntervalWithinBatch: 0.4
   maxActiveEnemies: 12
   soundToPlay: SFX_Ennemi_spawner_boltbat
+  soundDeath: SFX_Ennemi_spawnerBoltbat_mort
