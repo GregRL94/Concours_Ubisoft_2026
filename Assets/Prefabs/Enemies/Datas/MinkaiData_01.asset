@@ -23,7 +23,7 @@ MonoBehaviour:
   ultimateChargeOnHit: 1
   attackSpeed: 1
   hitRadius: 3
-  repelForce: 1000
+  repelForce: 1600
   stunDuration: 0.2
   thresholdDamagedSound: 75
   soundAttack: SFX_Ennemi_minkai_attack
