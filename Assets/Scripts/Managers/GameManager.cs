@@ -10,6 +10,7 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static Action<float> OnUltimateJaugeIncrease; // event pour augmenter la jauge ultimate, float = amount
+    public static Action<bool> OnSetAdvancedShooting; // event pour activer/désactiver le tir avancé, bool = enabled/disabled
     public static GameManager Instance;
 
     [Header("Transition Prefabs")]
@@ -145,6 +146,10 @@ public class GameManager : MonoBehaviour
         enemyAnimRoutine = StartCoroutine(AnimateEnemyCount());
     }
 
+    public void SetAdvancedShooting(bool enabled)
+    {
+        OnSetAdvancedShooting?.Invoke(enabled);
+    }
 
     #endregion
 
