@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5140963535343189299}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -17.441, y: -0, z: -17.745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,12 +85,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2381550659406160278, guid: 0df9d37228d26d442a611b8447bdb3e5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -4196433093772147964, guid: 3312b779435b29e458d422fecbad6785, type: 3}
+  m_Color: {r: 0.46440154, g: 0.5754717, b: 0.3555981, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.6086957, y: 2.7826087}
+  m_Size: {x: 2, y: 1.4375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,8 +133,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 2}
-    newSize: {x: 2.6086957, y: 2.7826087}
+    oldSize: {x: 2, y: 1.4375}
+    newSize: {x: 2, y: 1.4375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleEnv
   _maxHealth: 50
+  _thresholdDamagedSound: 15
+  _hitEffect: {fileID: 0}
 --- !u!114 &8275264900313976799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,5 +184,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce17cd625f00a54f8de64d4d2d33068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashEffect
-  flashMaterial: {fileID: 2100000, guid: 5e1bbd03d91fe6548bddd276da54c513, type: 2}
+  flashMaterial: {fileID: 2100000, guid: 92c2858b3d88b4c4c8e685928270d2b7, type: 2}
   duration: 0.05
