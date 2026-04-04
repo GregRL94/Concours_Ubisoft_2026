@@ -5,6 +5,8 @@ public class DestructibleEnv : MonoBehaviour, IHit
     [SerializeField] private float _maxHealth = 100f;
     [SerializeField] private int _thresholdDamagedSound = 15;
     [SerializeField] private GameObject _hitEffect;
+    //[SerializeField] private GameObject _destroyedEffect;
+    //[SerializeField] private Sprite _destroyedSprite;
     private float _currentHealth;
     private float _damageCounter = 0f;
 
@@ -55,6 +57,9 @@ public class DestructibleEnv : MonoBehaviour, IHit
     {
         // Add destruction effects here (e.g., particle effects, sound, etc.)
         AudioManager.Instance.PlaySound("SFX_Env_debris_destroy");
+        //Instantiate(_destroyedEffect, transform.position, Quaternion.identity);
+        //GetComponent<SpriteRenderer>().sprite = _destroyedSprite;
+        //GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject);
     }
 }
