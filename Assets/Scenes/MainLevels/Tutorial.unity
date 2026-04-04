@@ -5430,7 +5430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3680219207735809868, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
       propertyPath: orthographic size
-      value: 8.4375
+      value: 4.34375
       objectReference: {fileID: 0}
     - target: {fileID: 4235779837525528367, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
       propertyPath: m_IsActive
@@ -12399,7 +12399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4335791747554860473, guid: bc8520d0b764aaf908a55e0fb551a5a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.56683
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4335791747554860473, guid: bc8520d0b764aaf908a55e0fb551a5a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -88150,7 +88150,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 12643f5b9bb97154697e01660af534e4, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92393,11 +92393,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4335791747554860473, guid: bc8520d0b764aaf908a55e0fb551a5a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.74683
+      value: -14.65
       objectReference: {fileID: 0}
     - target: {fileID: 4335791747554860473, guid: bc8520d0b764aaf908a55e0fb551a5a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.02333
+      value: -30.24
       objectReference: {fileID: 0}
     - target: {fileID: 4335791747554860473, guid: bc8520d0b764aaf908a55e0fb551a5a0, type: 3}
       propertyPath: m_LocalPosition.z
