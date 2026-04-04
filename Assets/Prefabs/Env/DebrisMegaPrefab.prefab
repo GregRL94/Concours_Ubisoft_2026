@@ -80,7 +80,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4113190670139705425, guid: 774a6f14428910843a5a203002779893, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce17cd625f00a54f8de64d4d2d33068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashEffect
-  flashMaterial: {fileID: 2100000, guid: 5e1bbd03d91fe6548bddd276da54c513, type: 2}
+  flashMaterial: {fileID: 2100000, guid: fcfae60bdee0d3a479a11b02c6fcaf51, type: 2}
   duration: 0.05
 --- !u!1 &952909497736201518
 GameObject:
@@ -305,7 +305,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7749249889505534113, guid: a99c9dc74e6a6b5468dd107c7ed38f59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -329,5 +329,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce17cd625f00a54f8de64d4d2d33068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashEffect
-  flashMaterial: {fileID: 2100000, guid: 5e1bbd03d91fe6548bddd276da54c513, type: 2}
+  flashMaterial: {fileID: 2100000, guid: fcfae60bdee0d3a479a11b02c6fcaf51, type: 2}
   duration: 0.05
