@@ -4884,7 +4884,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.72966975, g: 1, b: 0.7122642, a: 1}
+  m_Color: {r: 1, g: 0.6556604, b: 0.74963546, a: 1}
   m_Intensity: 0.75
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
@@ -4934,7 +4934,7 @@ GameObject:
   - component: {fileID: 5930228685647784632}
   - component: {fileID: -5369796207759539612}
   - component: {fileID: 57777059676374131}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}

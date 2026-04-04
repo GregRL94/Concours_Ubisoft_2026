@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4785164686231308556}
   - component: {fileID: 6122921125859315420}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Spot Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 0.3
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: d9714dc2000000006d8c34e0b563c3c02778b77f
+  m_ApplyToSortingLayers: d9714dc2000000006d8c34e0b563c3c0e97d0bbb2778b77f69a3c147
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4003376892946467818}
   - component: {fileID: 6609156702940137940}
   - component: {fileID: 7508782040416512204}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnerBoltBat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
