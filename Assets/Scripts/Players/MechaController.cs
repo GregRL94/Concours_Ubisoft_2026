@@ -211,7 +211,7 @@ public class MechaController : MonoBehaviour, IHit
     private float _dashCooldownTimer;
     private bool _isDashing;
     private bool _dashCollisionsDisabled = false;
-    private float _dashCollisionDisableDuration = 0.75f;
+    private float _dashCollisionDisableDuration = 0f;
     private float _dashCollisionDisableTimer;
     private float _laserCoolDown;
     private float _meleeTimer;
@@ -225,8 +225,6 @@ public class MechaController : MonoBehaviour, IHit
     private float _currentLinearDispersion;
     private bool _isPlayingMvtSound = false;
     private bool _hasPlayedUltimateReadySound = false;
-    private bool _hasPlayedUltiSound1 = false;
-    private bool _hasPlayedUltiSound2 = false;
     private bool _isStun;
     private float _stunTimer;
     private bool _canRechargeUltimate = true;
@@ -792,6 +790,22 @@ public class MechaController : MonoBehaviour, IHit
 
     #region Aiming & Shooting Logic
     
+    public void SetAdvancedShootingControls(bool enabled)
+    {
+        if (enabled)
+        {  
+            _aimingReticle.SetActive(true);
+            _aimingReticle.transform.SetParent(null, false);
+            _advancedShootingControls = true;
+        }
+        else
+        {
+            _aimingReticle.transform.SetParent(gameObject.transform);
+            _aimingReticle.SetActive(false);
+            _advancedShootingControls = false;
+        }        
+    }
+
     private void RotateUpperMech(float rotDir)
     {
         _mechaTop.transform.Rotate(0f, 0f, -rotDir * _mechaTopRotSpeed * Time.deltaTime);
@@ -948,11 +962,19 @@ public class MechaController : MonoBehaviour, IHit
     }
     #endregion Collision Logic
 
-    #region Subscribtions
+    #region Subscriptions
     private void Subscribe(bool state)
     {
-        if (state) { GameManager.OnUltimateJaugeIncrease += IncreaseUltimateCharge; }
-        else { GameManager.OnUltimateJaugeIncrease -= IncreaseUltimateCharge; }
+        if (state)
+        {
+            GameManager.OnUltimateJaugeIncrease += IncreaseUltimateCharge;
+            GameManager.OnSetAdvancedShooting += SetAdvancedShootingControls;
+        }
+        else
+        {
+            GameManager.OnUltimateJaugeIncrease -= IncreaseUltimateCharge;
+            GameManager.OnSetAdvancedShooting -= SetAdvancedShootingControls;
+        }
     }
 
     private void OnDisable()

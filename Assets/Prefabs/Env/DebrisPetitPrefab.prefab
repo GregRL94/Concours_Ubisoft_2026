@@ -133,7 +133,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.6086957, y: 2.7826087}
+    oldSize: {x: 1.875, y: 2}
     newSize: {x: 2.6086957, y: 2.7826087}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleEnv
   _maxHealth: 50
+  _thresholdDamagedSound: 15
+  _hitEffect: {fileID: 3015472318778711838, guid: b08a0510be9c34444a8a2324107e1583, type: 3}
 --- !u!114 &-2893208819843461177
 MonoBehaviour:
   m_ObjectHideFlags: 0
