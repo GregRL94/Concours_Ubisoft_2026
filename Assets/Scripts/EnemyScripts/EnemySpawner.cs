@@ -10,6 +10,8 @@ public class EnemySpawner : MonoBehaviour, IHit
 
     public float spreadRadius = 2f; //Rayon de repartition
 
+    public GameObject _destroyedEffect;
+
     // Flag pour ne pas relancer l'animation de mort
     private bool _isDead = false;
 
@@ -116,14 +118,20 @@ public class EnemySpawner : MonoBehaviour, IHit
         Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
         if (health <= 0 && !_isDead)
         {
-            if (EnemyManager.Instance != null)
-            {
-                EnemyManager.Instance.UnRegisterSpawner(this);
-            }
-            AudioManager.Instance.PlaySound(waveSettings.soundDeath);
-            GetComponent<Animator>()?.SetTrigger("Die");
-            _isDead = true;
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        if (EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.UnRegisterSpawner(this);
+        }
+        Instantiate(_destroyedEffect, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlaySound(waveSettings.soundDeath);
+        GetComponent<Animator>()?.SetTrigger("Die");
+        _isDead = true;
     }
 
     public void OnHit(float damage)
