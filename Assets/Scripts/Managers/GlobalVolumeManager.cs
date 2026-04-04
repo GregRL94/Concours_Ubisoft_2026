@@ -10,8 +10,11 @@ public class GlobalVolumeManager : MonoBehaviour
 
     public Bloom Bloom { get; private set; }
     public Vignette Vignette { get; private set; }
-    public ChromaticAberration Chromatic { get; private set; }
     public ColorAdjustments ColorAdjustments { get; private set; }
+    public ChromaticAberration Chromatic { get; private set; }
+    public FilmGrain FilmGrain { get; private set; }
+    public LensDistortion LensDistortion { get; private set; }
+    public PaniniProjection PaniniProjection { get; private set; }
 
     void Awake()
     {
@@ -37,18 +40,25 @@ public class GlobalVolumeManager : MonoBehaviour
         Vignette vignette;
         ChromaticAberration chromatic;
         ColorAdjustments colorAdjustments;
+        FilmGrain filmGrain;
+        LensDistortion lensDistortion;
+        PaniniProjection paniniProjection;
 
         profile.TryGet(out bloom);
         profile.TryGet(out vignette);
         profile.TryGet(out chromatic);
         profile.TryGet(out colorAdjustments);
+        profile.TryGet(out filmGrain);
+        profile.TryGet(out lensDistortion);
+        profile.TryGet(out paniniProjection);
 
         Bloom = bloom;
         Vignette = vignette;
         Chromatic = chromatic;
         ColorAdjustments = colorAdjustments;
-        //Debug.Log("Bloom found: " + (Bloom != null));
-        //Debug.Log("Vignette found: " + (Vignette != null));
-        //Debug.Log("Chromatic found: " + (Chromatic != null));
+        FilmGrain = filmGrain;
+        LensDistortion = lensDistortion;
+        PaniniProjection = paniniProjection;
+
     }
 }

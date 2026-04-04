@@ -906,11 +906,23 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 4590515165980567109}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 183216409153235385}
+        m_TargetAssemblyTypeName: AccessibilityMenu, Assembly-CSharp
+        m_MethodName: SetOnCRTToggle
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_IsOn: 1
 --- !u!95 &8563213175208312961
 Animator:
@@ -2600,7 +2612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5803046286990752328
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2656,6 +2668,7 @@ MonoBehaviour:
   moveCooldown: 0.1
   playerDamageText: {fileID: 4918032479946216918}
   enemyDamageText: {fileID: 1207738289883993033}
+  crtToggle: {fileID: 0}
 --- !u!114 &8164312574217246973
 MonoBehaviour:
   m_ObjectHideFlags: 0

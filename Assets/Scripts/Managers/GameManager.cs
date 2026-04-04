@@ -284,18 +284,19 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        MusicPlaylistStart();
         UpdateUI();
     }
 
-    //private int GetSceneIndex(string sceneName)
-    //{
-    //    for (int i = 0; i < levelScenes.Length; i++)
-    //    {
-    //        if (levelScenes[i] == sceneName)
-    //            return i;
-    //    }
-    //    return 0; // défaut = mission 1
-    //}
+    private int GetSceneIndex(string sceneName)
+    {
+        for (int i = 0; i < levelScenes.Count; i++)
+        {
+            if (levelScenes[i] == sceneName)
+                return i;
+        }
+        return 0; // défaut = mission 1
+    }
 
     private IEnumerator AnimateObjectiveText()
     {

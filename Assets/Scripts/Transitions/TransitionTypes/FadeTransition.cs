@@ -35,7 +35,6 @@ public class FadeTransition : MonoBehaviour, ITransition
             .SetEase(config.ease)
             .OnComplete(() =>
             {
-                print("destroy");
                 canvasGroup.blocksRaycasts = false;
                 Destroy(gameObject); // destroys itself at the end of transition
             });

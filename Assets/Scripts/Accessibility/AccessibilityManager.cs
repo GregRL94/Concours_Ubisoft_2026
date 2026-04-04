@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class AccessibilityManager : MonoBehaviour
 {
@@ -7,11 +8,12 @@ public class AccessibilityManager : MonoBehaviour
     [Header("Damage Multipliers")]
 
     [Tooltip("Damage DEALT by the player to enemies (1 = default, >1 = stronger damage)")]
-    [Range(1f, 3f)] public float playerDamageDealtMultiplier = 1f;
+    [Range(0.5f, 2f)] public float playerDamageDealtMultiplier = 1f;
 
     [Tooltip("Damage DEALT by enemies to the player (1 = normal, >1 = stronger damage)")]
-    [Range(1f, 3f)] public float enemyDamageDealtMultiplier = 1f;
+    [Range(0.5f, 2f)] public float enemyDamageDealtMultiplier = 1f;
 
+    public bool crtEffectsEnabled = true; // par defaut active
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -24,32 +26,62 @@ public class AccessibilityManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // DAMAGE MODIFIERS
+    private void Start()
+    {
+        SetCRTEffects(crtEffectsEnabled);
+    }
 
+    // DAMAGE MODIFIERS
     // Modify damage dealt by the player (to enemies)
     public float ModifyPlayerDamageDealt(float damage)
     {
-        float customDamage = damage * playerDamageDealtMultiplier;
+        //float customDamage = damage * playerDamageDealtMultiplier;
         return damage * playerDamageDealtMultiplier;
     }
 
     // Modify damage dealt by enemies (to player)
     public float ModifyEnemyDamageDealt(float damage)
     {
-        float customDamage = damage * enemyDamageDealtMultiplier;
-        return customDamage;
+        //float customDamage = damage * enemyDamageDealtMultiplier;
+        return damage * enemyDamageDealtMultiplier;
     }
 
+    // CRT SCREEN EFFECTS
+    public void SetCRTEffects(bool enabled)
+    {
+        crtEffectsEnabled = enabled;
 
-    //public bool IsModified =>
-    //    playerDamageDealtMultiplier != 1f ||
-    //    enemyDamageDealtMultiplier != 1f;
+        var gvm = GlobalVolumeManager.Instance;
+
+        if (gvm == null)
+        {
+            Debug.LogWarning("GlobalVolumeManager not found!");
+            return;
+        }
+
+        SetEffectState(gvm.FilmGrain, enabled);
+        SetEffectState(gvm.LensDistortion, enabled);
+        SetEffectState(gvm.PaniniProjection, enabled);
+        SetEffectState(gvm.Chromatic, enabled);
+    }
+
+    void SetEffectState(VolumeComponent effect, bool enabled)
+    {
+        if (effect == null) return;
+
+        effect.active = true; // toujours actif côté volume pr performance
+        effect.SetAllOverridesTo(enabled); 
+    }
+
+    public bool IsCRTEffectsEnabled()
+    {
+        return crtEffectsEnabled;
+    }
+
+    // MODE VISEUR
+    //public void SetAimMode(bool enabled)
+    //{
+
+    //}
+
 }
-
-//if (AccessibilityManager.Instance.IsPlayerDamageModified())
-//{
-//    print("Avant: Player Damage " + damage);
-//    float customDamage = AccessibilityManager.Instance.ApplyPlayerDamage(damage);
-//    print("Apres: Player Damage " + customDamage);
-//    damage = customDamage;
-//}
