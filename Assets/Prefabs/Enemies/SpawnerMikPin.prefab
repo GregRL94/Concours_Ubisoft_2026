@@ -4852,7 +4852,7 @@ GameObject:
   - component: {fileID: 1819521848194805750}
   - component: {fileID: 8848816487221969159}
   - component: {fileID: 1574941957427712}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnerMikPin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5061,7 +5061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1345489684632348583}
   - component: {fileID: 4700139874580050089}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Spot Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

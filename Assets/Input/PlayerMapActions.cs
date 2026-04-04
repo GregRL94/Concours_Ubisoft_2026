@@ -598,6 +598,17 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ee4dfde2-902f-4409-b03c-6ec367f03937"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""0579c7a8-62b3-49ce-9e5b-7c17967e6b3c"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
