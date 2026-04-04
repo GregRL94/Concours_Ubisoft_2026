@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleEnv
   _maxHealth: 100
+  _thresholdDamagedSound: 15
+  _hitEffect: {fileID: 3015472318778711838, guid: b08a0510be9c34444a8a2324107e1583, type: 3}
 --- !u!114 &6371619343593868281
 MonoBehaviour:
   m_ObjectHideFlags: 0

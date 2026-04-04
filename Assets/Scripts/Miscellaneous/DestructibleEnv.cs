@@ -4,6 +4,7 @@ public class DestructibleEnv : MonoBehaviour, IHit
 {
     [SerializeField] private float _maxHealth = 100f;
     [SerializeField] private int _thresholdDamagedSound = 15;
+    [SerializeField] private GameObject _hitEffect;
     private float _currentHealth;
     private float _damageCounter = 0f;
 
@@ -15,6 +16,10 @@ public class DestructibleEnv : MonoBehaviour, IHit
     private void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+        Collider2D hitCollider = GetComponent<Collider2D>();
+        float randX = Random.Range(hitCollider.bounds.min.x, hitCollider.bounds.max.x);
+        float randY = Random.Range(hitCollider.bounds.min.y, hitCollider.bounds.max.y);
+        Instantiate(_hitEffect, new Vector2(randX, randY), Quaternion.identity);
         foreach (var childFlashEffect in GetComponentsInChildren<FlashEffect>())
         {
             childFlashEffect.Flash();
