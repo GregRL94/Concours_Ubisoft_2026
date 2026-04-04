@@ -12,15 +12,15 @@ TagManager:
   - Water
   - UI
   - Player
-  - Enemy
-  - Env_Half_Cover
+  - Enemy_Creatures
+  - Enemy_Structures
   - Env_Full_Cover
   - Env_Soft_Wall
   - Env_Rubbles
   - Deco
   - Toit
-  - 
-  - 
+  - Projectiles_Player
+  - Projectiles_Enemies
   - 
   - 
   - 
