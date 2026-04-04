@@ -29,7 +29,7 @@ MonoBehaviour:
     loop: 0
     randomizePitch: 0
     pitchRange: 0
-  - id: Music_BeforeEnemySpawn
+  - id: Music_SplashScreen
     clip: {fileID: 8300000, guid: 5d6f649b95cf74140a8d7f9dc7d505a6, type: 3}
     type: 0
     volume: 0.314
@@ -289,6 +289,54 @@ MonoBehaviour:
     clip: {fileID: 0}
     type: 1
     volume: 0.314
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: SFX_CooldownError
+    clip: {fileID: 8300000, guid: d519b526982e8ea4182ec3a066c65541, type: 3}
+    type: 1
+    volume: 0.314
+    pitch: 0.15
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: SFX_ObjectiveCompleted
+    clip: {fileID: 8300000, guid: 80ff9e777394b124d8b0cfa849cc6f99, type: 3}
+    type: 1
+    volume: 0.526
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: SFX_GameOver
+    clip: {fileID: 8300000, guid: 1dc4d2ae3dc7c2341bb16774a441d462, type: 3}
+    type: 1
+    volume: 0.851
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: SFX_WinGame
+    clip: {fileID: 8300000, guid: 18a079e1b7e9b434ca3cecc071e9cb23, type: 3}
+    type: 1
+    volume: 0.812
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: SFX_LevelCompleted
+    clip: {fileID: 8300000, guid: f82628ed40ff36e479db64d1865771b0, type: 3}
+    type: 1
+    volume: 0.823
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: SFX_CooldownError
+    clip: {fileID: 8300000, guid: d519b526982e8ea4182ec3a066c65541, type: 3}
+    type: 1
+    volume: 1
     pitch: 1
     loop: 0
     randomizePitch: 0
