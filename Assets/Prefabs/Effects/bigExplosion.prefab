@@ -242,7 +242,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1397912864811631792, guid: 3fe0a989c9ff23c45bf2fd04e455b8a2, type: 3}
       propertyPath: ShapeModule.radius.value
-      value: 0.6
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 1397912864811631792, guid: 3fe0a989c9ff23c45bf2fd04e455b8a2, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

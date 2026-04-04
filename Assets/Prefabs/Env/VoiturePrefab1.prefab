@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6498167038597421674}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.50000083, y: 0.49999914, z: -0.49999914, w: 0.50000083}
-  m_LocalPosition: {x: 10.76, y: -0, z: -12.207}
+  m_LocalRotation: {x: 0.7069834, y: 0, z: 0, w: 0.7072302}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 89.98, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 89.98, y: 0, z: 0}
 --- !u!212 &4900981915503872245
 SpriteRenderer:
   serializedVersion: 2
@@ -62,7 +62,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: f3726b2472da857459950563ac45ffb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,12 +85,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6632493770092485581, guid: ac9a0a77307149f46a016831fc65001f, type: 3}
-  m_Color: {r: 0.8167793, g: 0.740566, b: 1, a: 1}
+  m_Sprite: {fileID: -4473166372859343794, guid: 6dfdc03a77173654580bf14393309421, type: 3}
+  m_Color: {r: 0.8396226, g: 0.4712976, b: 0.5246991, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.6086957, y: 2.7826087}
+  m_Size: {x: 2.3125, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,8 +133,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 2}
-    newSize: {x: 2.6086957, y: 2.7826087}
+    oldSize: {x: 2.3125, y: 1.5}
+    newSize: {x: 2.3125, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleEnv
   _maxHealth: 50
+  _thresholdDamagedSound: 15
+  _hitEffect: {fileID: 0}
 --- !u!114 &217426870252193986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,5 +184,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce17cd625f00a54f8de64d4d2d33068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashEffect
-  flashMaterial: {fileID: 2100000, guid: 5e1bbd03d91fe6548bddd276da54c513, type: 2}
+  flashMaterial: {fileID: 2100000, guid: 92c2858b3d88b4c4c8e685928270d2b7, type: 2}
   duration: 0.05
