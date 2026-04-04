@@ -19,7 +19,7 @@ public class SplashMenu : Menu
 
     void Start()
     {
-        PlayPulseAnimation();
+        // PlayPulseAnimation();
     }
 
     void Update()
