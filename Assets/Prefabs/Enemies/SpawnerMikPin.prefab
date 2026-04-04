@@ -4987,6 +4987,7 @@ MonoBehaviour:
   waveSettings: {fileID: 11400000, guid: 86a3bc3418a18fc6bb910730bea844ba, type: 2}
   health: 100
   spreadRadius: 2
+  _destroyedEffect: {fileID: 8408373045989418421, guid: 596c01cfc4ac59b40a7fb2d1963504e4, type: 3}
 --- !u!95 &6215014966870971265
 Animator:
   serializedVersion: 7

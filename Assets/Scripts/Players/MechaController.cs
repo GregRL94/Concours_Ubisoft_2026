@@ -112,7 +112,6 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private Animator animIsPressedDash;
     [Header("Melee attack parameters")]
     [SerializeField] private Transform _meleeAttackPoint;
-    [SerializeField] private Vector2 _meleeAttackHitBox;
     [SerializeField] private float _meleeAttackRadius = 5f;
     [SerializeField] private LayerMask _meleeAttackImpactsWhat;
     [SerializeField] private bool _meleeAttackStuns = true;
@@ -158,7 +157,6 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private GameObject _rightMissileLauncher;
     [SerializeField] private LayerMask _ultimateTargetsWhat;
     [SerializeField] private Transform[] _missilePoints = new Transform[2];
-    [SerializeField] private float _maxTargetingRange = 10f;
     [SerializeField] private int _maxNumberOfMissiles = 12;
     [SerializeField] private float _minReleaseForce = 1f;
     [SerializeField] private float _maxReleaseForce = 5f;

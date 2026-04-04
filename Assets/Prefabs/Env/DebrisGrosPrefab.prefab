@@ -172,6 +172,10 @@ MonoBehaviour:
   _maxHealth: 100
   _thresholdDamagedSound: 15
   _hitEffect: {fileID: 3015472318778711838, guid: b08a0510be9c34444a8a2324107e1583, type: 3}
+  _destroyedEffect: {fileID: 3885693538988036005, guid: caf965e9922864b47a0ac269bdcc13b0, type: 3}
+  _destroyedSprite:
+  - {fileID: 21300000, guid: e041f14334e406b4c81f8c2ef670f35a, type: 3}
+  - {fileID: 21300000, guid: 791a51971cd6cbf41956bc48b61c9a56, type: 3}
 --- !u!114 &6371619343593868281
 MonoBehaviour:
   m_ObjectHideFlags: 0
