@@ -59,7 +59,7 @@ public class EnemyManager : MonoBehaviour
         if (!activeSpawners.Contains(spawner))
         {
             activeSpawners.Add(spawner);
-            Debug.Log($"Spawner ajouté. Total: {activeSpawners.Count}");
+            //Debug.Log($"Spawner ajouté. Total: {activeSpawners.Count}");
             NotifyCountsChanged();
         }
     }
@@ -70,7 +70,7 @@ public class EnemyManager : MonoBehaviour
         if (activeSpawners.Contains(spawner))
         {
             activeSpawners.Remove(spawner);
-            Debug.Log($"Spawner détruit. Restants: {activeSpawners.Count}");
+            //Debug.Log($"Spawner détruit. Restants: {activeSpawners.Count}");
             NotifyCountsChanged();
             OnAllEnemiesCleared();
         }

@@ -44,6 +44,9 @@ public class EndMenu : Menu
     [SerializeField] private float delayBeforePunch = 0.2f;
     [SerializeField] private float timerRevealDuration = 0.8f;
 
+    [SerializeField] private FadeTransition restartTransition;
+    [SerializeField] private FadeTransition mainMenuTransition;
+
     private Vector3 initialPosition;
 
     private void Awake()
@@ -309,13 +312,14 @@ public class EndMenu : Menu
     // BUTTONS
     public void OnRestartPressed()
     {
-        GameManager.Instance.RestartLevel();
+        TransitionManager.Instance.TransitionRestartScene(restartTransition);
     }
 
     public void OnMainMenuPressed()
     {
+        MenuManager.Instance.CloseMenu();
         OnReturnToMainMenu();
-        LevelLoader.LoadMainMenuLevel();
+        TransitionManager.Instance.TransitionToScene("MainMenu", mainMenuTransition, 0f);
     }
 
     public void OnQuitPressed()

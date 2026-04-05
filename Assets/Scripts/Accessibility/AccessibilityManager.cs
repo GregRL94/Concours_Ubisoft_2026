@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -13,7 +14,9 @@ public class AccessibilityManager : MonoBehaviour
     [Tooltip("Damage DEALT by enemies to the player (1 = normal, >1 = stronger damage)")]
     [Range(0.5f, 2f)] public float enemyDamageDealtMultiplier = 1f;
 
-    public bool crtEffectsEnabled = true; // par defaut active
+    public bool crtEffectsEnabled = true; // par defaut avec post processing
+    public bool aimReticuleMode = false; // par defaut sans reticule
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -79,9 +82,30 @@ public class AccessibilityManager : MonoBehaviour
     }
 
     // MODE VISEUR
-    //public void SetAimMode(bool enabled)
-    //{
+    public void SetAimMode(bool enabled)
+    {
+        aimReticuleMode = enabled;
+    }
+    public bool GetAimMode()
+    {
+        return aimReticuleMode;
+    }
 
+
+    //public void SetAdvancedShootingControls(bool enabled)
+    //{
+    //    if (enabled)
+    //    {
+    //        _aimingReticle.SetActive(true);
+    //        _aimingReticle.transform.SetParent(null, false);
+    //        _advancedShootingControls = true;
+    //    }
+    //    else
+    //    {
+    //        _aimingReticle.transform.SetParent(gameObject.transform);
+    //        _aimingReticle.SetActive(false);
+    //        _advancedShootingControls = false;
+    //    }
     //}
 
 }

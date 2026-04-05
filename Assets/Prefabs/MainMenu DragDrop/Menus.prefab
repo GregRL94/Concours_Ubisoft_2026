@@ -1877,6 +1877,8 @@ MonoBehaviour:
   punchDownDuration: 0.15
   delayBeforePunch: 0.25
   timerRevealDuration: 0.8
+  restartTransition: {fileID: 3666372629576033369, guid: 781c02029fd7bef45a1b0a91947b1b64, type: 3}
+  mainMenuTransition: {fileID: 3666372629576033369, guid: 781c02029fd7bef45a1b0a91947b1b64, type: 3}
 --- !u!114 &1560011596400643335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10620,6 +10622,8 @@ MonoBehaviour:
   glitchDuration: 0.25
   impactScale: 1.3
   shakeStrength: 15
+  restartTransition: {fileID: 3666372629576033369, guid: 781c02029fd7bef45a1b0a91947b1b64, type: 3}
+  mainMenuTransition: {fileID: 3666372629576033369, guid: 781c02029fd7bef45a1b0a91947b1b64, type: 3}
 --- !u!114 &3511244755273421878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18645,6 +18649,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -176.95743
       objectReference: {fileID: 0}
+    - target: {fileID: 1111451273795818611, guid: 69dd706488627fb4bbc7da528a412edc, type: 3}
+      propertyPath: restartTransition
+      value: 
+      objectReference: {fileID: 3666372629576033369, guid: 781c02029fd7bef45a1b0a91947b1b64, type: 3}
+    - target: {fileID: 1111451273795818611, guid: 69dd706488627fb4bbc7da528a412edc, type: 3}
+      propertyPath: mainMenuTransition
+      value: 
+      objectReference: {fileID: 3666372629576033369, guid: 781c02029fd7bef45a1b0a91947b1b64, type: 3}
     - target: {fileID: 1347845585604500414, guid: 69dd706488627fb4bbc7da528a412edc, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -19457,6 +19469,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6853727784883261085}
     - target: {fileID: 183216409153235385, guid: 28d6ac21eddf5a94dae386a0fa8d14d4, type: 3}
+      propertyPath: aimModeToggle
+      value: 
+      objectReference: {fileID: 7987500543303963064}
+    - target: {fileID: 183216409153235385, guid: 28d6ac21eddf5a94dae386a0fa8d14d4, type: 3}
       propertyPath: enemyDamageSlider
       value: 
       objectReference: {fileID: 7130907266883560290}
@@ -19499,6 +19515,10 @@ PrefabInstance:
     - target: {fileID: 1432140986171501609, guid: 28d6ac21eddf5a94dae386a0fa8d14d4, type: 3}
       propertyPath: m_UpdateMode
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2258264924127014907, guid: 28d6ac21eddf5a94dae386a0fa8d14d4, type: 3}
+      propertyPath: m_text
+      value: AIM MODE RETICLE
       objectReference: {fileID: 0}
     - target: {fileID: 2450897332951024972, guid: 28d6ac21eddf5a94dae386a0fa8d14d4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -19857,6 +19877,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7987500543303963064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1924492583125351139, guid: 28d6ac21eddf5a94dae386a0fa8d14d4, type: 3}
+  m_PrefabInstance: {fileID: 8389193053882035035}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8567690337903559394 stripped
