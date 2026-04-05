@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 2537720267561633478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3735857, z: -10}
+  m_LocalPosition: {x: 0.81, y: -1.9313483, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -157,7 +157,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 5.796875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1672,7 +1672,7 @@ Transform:
   m_GameObject: {fileID: 7682065259496983473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.63134766, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63134843, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2122,6 +2122,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 981076627514167658}
     m_Modifications:
+    - target: {fileID: 3887897296859511452, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+      propertyPath: _enemiesCountThreshold
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5465734750958683732, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
