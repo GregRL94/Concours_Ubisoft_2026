@@ -67,7 +67,7 @@ public class GameOverMenu : Menu
 
     IEnumerator AnimationRoutine()
     {
-        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.FadeOutMusic();
         AudioManager.Instance.PlaySound("SFX_GameOver");
 
         yield return StartCoroutine(Slide(gameText, gameCenter.position, slideDuration));

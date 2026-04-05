@@ -117,6 +117,22 @@ MonoBehaviour:
     loop: 0
     randomizePitch: 0
     pitchRange: 0
+  - id: UI_move_to_new_option
+    clip: {fileID: 8300000, guid: 59ed37f4bf9e39343af6b315490efdef, type: 3}
+    type: 2
+    volume: 1
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: UI_startgame
+    clip: {fileID: 8300000, guid: 7fc5dac29112960428ee44658306cca3, type: 3}
+    type: 2
+    volume: 0.79
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
   - id: SFX_Player_movement
     clip: {fileID: 8300000, guid: 3f07ff8572bc3004a834f525c4020b0a, type: 3}
     type: 1
@@ -269,10 +285,26 @@ MonoBehaviour:
     loop: 0
     randomizePitch: 1
     pitchRange: 0.2
+  - id: SFX_Ennemi_spawnerMikpin_mort
+    clip: {fileID: 8300000, guid: 780312b378a0aab4b990361f1a14717f, type: 3}
+    type: 1
+    volume: 1
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
   - id: SFX_Ennemi_spawner_boltbat
     clip: {fileID: 8300000, guid: 9dd2441e4291b4a4195f5f13cc6b7f74, type: 3}
     type: 1
     volume: 0.521
+    pitch: 1
+    loop: 0
+    randomizePitch: 1
+    pitchRange: 0.2
+  - id: SFX_Ennemi_spawnerBoltbat_mort
+    clip: {fileID: 8300000, guid: 2fcff55885ba5504099819203e2f0a49, type: 3}
+    type: 1
+    volume: 1
     pitch: 1
     loop: 0
     randomizePitch: 1
@@ -302,16 +334,16 @@ MonoBehaviour:
     randomizePitch: 0
     pitchRange: 0.2
   - id: SFX_CooldownError
-    clip: {fileID: 8300000, guid: d519b526982e8ea4182ec3a066c65541, type: 3}
-    type: 1
-    volume: 0.314
+    clip: {fileID: 8300000, guid: b33bc0eca8a343544ad47af966f20389, type: 3}
+    type: 2
+    volume: 0.555
     pitch: 0.15
     loop: 0
     randomizePitch: 0
     pitchRange: 0.2
   - id: SFX_ObjectiveCompleted
     clip: {fileID: 8300000, guid: 944b2bb38ebf87445aa872d2bae9c3ad, type: 3}
-    type: 1
+    type: 0
     volume: 0.706
     pitch: 1
     loop: 0
@@ -319,15 +351,15 @@ MonoBehaviour:
     pitchRange: 0.2
   - id: SFX_GameOver
     clip: {fileID: 8300000, guid: da701c8a98d6b844ab5b1f911a0c1324, type: 3}
-    type: 1
+    type: 0
     volume: 0.731
     pitch: 1
     loop: 0
     randomizePitch: 0
     pitchRange: 0.2
   - id: SFX_WinGame
-    clip: {fileID: 8300000, guid: 18a079e1b7e9b434ca3cecc071e9cb23, type: 3}
-    type: 1
+    clip: {fileID: 8300000, guid: 944b2bb38ebf87445aa872d2bae9c3ad, type: 3}
+    type: 0
     volume: 0.812
     pitch: 1
     loop: 0
@@ -335,7 +367,7 @@ MonoBehaviour:
     pitchRange: 0.2
   - id: SFX_LevelCompleted
     clip: {fileID: 8300000, guid: f82628ed40ff36e479db64d1865771b0, type: 3}
-    type: 1
+    type: 0
     volume: 0.823
     pitch: 1
     loop: 0
@@ -343,46 +375,6 @@ MonoBehaviour:
     pitchRange: 0.2
   - id: SFX_PressAnyButton
     clip: {fileID: 8300000, guid: 89a3eebb2ec15de4c8c06c7c92a90e24, type: 3}
-    type: 1
-    volume: 1
-    pitch: 1
-    loop: 0
-    randomizePitch: 0
-    pitchRange: 0.2
-  - id: SFX_CooldownError
-    clip: {fileID: 8300000, guid: d519b526982e8ea4182ec3a066c65541, type: 3}
-    type: 1
-    volume: 1
-    pitch: 1
-    loop: 0
-    randomizePitch: 0
-    pitchRange: 0.2
-  - id: SFX_Ennemi_spawnerMikpin_mort
-    clip: {fileID: 8300000, guid: 780312b378a0aab4b990361f1a14717f, type: 3}
-    type: 1
-    volume: 1
-    pitch: 1
-    loop: 0
-    randomizePitch: 1
-    pitchRange: 0.2
-  - id: SFX_Ennemi_spawnerBoltbat_mort
-    clip: {fileID: 8300000, guid: 2fcff55885ba5504099819203e2f0a49, type: 3}
-    type: 1
-    volume: 1
-    pitch: 1
-    loop: 0
-    randomizePitch: 1
-    pitchRange: 0.2
-  - id: UI_move_to_new_option
-    clip: {fileID: 8300000, guid: 59ed37f4bf9e39343af6b315490efdef, type: 3}
-    type: 2
-    volume: 1
-    pitch: 1
-    loop: 0
-    randomizePitch: 0
-    pitchRange: 0.2
-  - id: UI_move_to_new_option
-    clip: {fileID: 8300000, guid: 59ed37f4bf9e39343af6b315490efdef, type: 3}
     type: 2
     volume: 1
     pitch: 1
