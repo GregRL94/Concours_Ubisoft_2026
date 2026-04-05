@@ -1604,9 +1604,6 @@ MonoBehaviour:
   - abilityName: AOE
     abilityImage: {fileID: 0}
     abilityLabel: {fileID: 0}
-  - abilityName: Laser
-    abilityImage: {fileID: 0}
-    abilityLabel: {fileID: 0}
   punchDuration: 0.08
   punchStrength: 0.15
   punchFrequency: 1
@@ -1675,7 +1672,7 @@ Transform:
   m_GameObject: {fileID: 7682065259496983473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6313486, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63134766, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2966,8 +2963,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6935942004990717097, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8511788399440648915}
   m_SourcePrefab: {fileID: 100100000, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
+--- !u!1 &381816982233833731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6935942004990717097, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
+  m_PrefabInstance: {fileID: 7281500382812753322}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8511788399440648915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381816982233833731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineConfiner2D
+  BoundingShape2D: {fileID: 0}
+  Damping: 0.5
+  SlowingDistance: 2
+  OversizeWindow:
+    Enabled: 0
+    MaxWindowSize: 0
+    Padding: 0
+  m_LegacyMaxWindowSize: -2
 --- !u!4 &1326783961366681729 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
