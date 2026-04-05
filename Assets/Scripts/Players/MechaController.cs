@@ -110,6 +110,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private LayerMask _dashIgnoresWhat;
     [SerializeField] private float _dashDamage = 10f;
     [SerializeField] private Animator animIsPressedDash;
+    [SerializeField] private Animator animEffectDash;
     [Header("Melee attack parameters")]
     [SerializeField] private Transform _meleeAttackPoint;
     [SerializeField] private float _meleeAttackRadius = 5f;
@@ -121,6 +122,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _meleeAttackRepelForce = 100f;
     [SerializeField] private float _meleeAttackCooldown = 1f;
     [SerializeField] private Animator animIsPressedMelee;
+    [SerializeField] private Animator animEffectMelee;
     [Space]
 
     [Header("SHOOTING PLAYER PARAMETERS")]
@@ -138,6 +140,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private bool _angularDispersion = false;
     [SerializeField] private bool _linearDispersion = false;
     [SerializeField] private Animator animIsPressedGun;
+    [SerializeField] private Animator animEffectGun;
 
     [Header("AOE parameters")]
     [SerializeField] private GameObject _aoeEffectPrefab;
@@ -150,6 +153,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _aoeRepelForce = 100f;
     [SerializeField] private float _aoeCooldown = 5f;
     [SerializeField] private Animator animIsPressedAOE;
+    [SerializeField] private Animator animEffectAOE;
     [Space]
 
     [Header("ULTIMATE TEAM ATTACK PARAMETERS")]
@@ -539,11 +543,13 @@ public class MechaController : MonoBehaviour, IHit
         }
 
         // FILL ULTIMATE BAR
-        float sync = 0f;
-        sync += Mathf.Clamp01(_movementHoldTimer / _ultimateHoldDuration) * 0.5f;
-        sync += Mathf.Clamp01(_shootHoldTimer / _ultimateHoldDuration) * 0.5f;
+        float syncP1 = 0f;
+        float syncP2 = 0f;
+        syncP1 += Mathf.Clamp01(_movementHoldTimer / _ultimateHoldDuration) * 1f;
+        syncP2 += Mathf.Clamp01(_shootHoldTimer / _ultimateHoldDuration) * 1f;
 
-        ultimateUI?.UpdateCoopHold(sync);
+        ultimateUI?.UpdateCoopHoldP1(syncP1);
+        ultimateUI?.UpdateCoopHoldP2(syncP2);
 
 
         // ACTIVATE ULTIMATE
@@ -578,7 +584,8 @@ public class MechaController : MonoBehaviour, IHit
         _movementHoldTimer = 0f;
         _shootHoldTimer = 0f;
 
-        ultimateUI?.UpdateCoopHold(0f);
+        ultimateUI?.UpdateCoopHoldP1(0f);
+        ultimateUI?.UpdateCoopHoldP2(0f);
         ultimateUI?.ResetUltimate();
     }
     #endregion Input Bindings
@@ -586,6 +593,8 @@ public class MechaController : MonoBehaviour, IHit
     #region Abilities Logic
     private void MeleeAttack(Vector2 attackDir)
     {
+        animEffectMelee.SetTrigger("interact");
+
         // Séparé de la logique propre de la melee attack, permet de hold le mouvement pendant une courte durée après le lancement de l'attaque
         _meleeHoldMovementTimer = _meleeHoldMovementDuration;
         _meleeHoldMovement = true;
@@ -609,6 +618,7 @@ public class MechaController : MonoBehaviour, IHit
 
     IEnumerator Dash()
     {
+        animEffectDash.SetTrigger("interact");
         float startTime = Time.time;
         _isDashing = true;
         _boost0.SetActive(true);
@@ -643,6 +653,7 @@ public class MechaController : MonoBehaviour, IHit
 
     private void ShootLaser(GameObject _laserShotPrefab, bool synchFire = false, bool _advancedShooting = true)
     {
+        animEffectGun.SetTrigger("interact");
         if (!synchFire)
         {
             if (_currentGunIndex > _shootingPoints.Length - 1) { _currentGunIndex = 0; }
@@ -666,6 +677,8 @@ public class MechaController : MonoBehaviour, IHit
 
     private void Shockwave(float radius, float damage, float repelForce)
     {
+        animEffectAOE.SetTrigger("interact");
+
         // Instancie l'effet visuel de l'attaque AOE
         Instantiate(_aoeEffectPrefab, transform.position, Quaternion.identity);
 
@@ -745,6 +758,7 @@ public class MechaController : MonoBehaviour, IHit
         _meleeTimer += Time.deltaTime;
         _aoeTimer += Time.deltaTime;
 
+        //_ultimateCharge += 1;
         // Movement hold during melee attack timer
         if (_meleeHoldMovementTimer > 0f) { _meleeHoldMovementTimer -= Time.deltaTime; }
         else if (_meleeHoldMovement) { _meleeHoldMovement = false; }
