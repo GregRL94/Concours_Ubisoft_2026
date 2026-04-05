@@ -30,11 +30,11 @@ MonoBehaviour:
     randomizePitch: 0
     pitchRange: 0
   - id: Music_SplashScreen
-    clip: {fileID: 8300000, guid: 5d6f649b95cf74140a8d7f9dc7d505a6, type: 3}
+    clip: {fileID: 8300000, guid: e2152849409c98448957a50f2e5ef892, type: 3}
     type: 0
-    volume: 0.314
+    volume: 0.702
     pitch: 1
-    loop: 0
+    loop: 1
     randomizePitch: 0
     pitchRange: 0.2
   - id: MUS_pixel-perfect
@@ -337,6 +337,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f82628ed40ff36e479db64d1865771b0, type: 3}
     type: 1
     volume: 0.823
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: SFX_PressAnyButton
+    clip: {fileID: 8300000, guid: 89a3eebb2ec15de4c8c06c7c92a90e24, type: 3}
+    type: 1
+    volume: 1
     pitch: 1
     loop: 0
     randomizePitch: 0

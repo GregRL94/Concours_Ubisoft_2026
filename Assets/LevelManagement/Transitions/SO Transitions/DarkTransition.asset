@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7fbe0d88454564e932c3325374c07b, type: 3}
   m_Name: DarkTransition
   m_EditorClassIdentifier: 
-  duration: 0.3
-  ease: 10
+  duration: 0.25
+  ease: 7

@@ -45,7 +45,6 @@ public class PauseMenu : Menu
         MenuManager.Instance.CloseMenu();
         OnReturnToMainMenu();
         TransitionManager.Instance.TransitionToScene("MainMenu", mainMenuTransition, 0f);
-        //LevelLoader.LoadMainMenuLevel();
     }
 
     public void OnQuitPressed()
