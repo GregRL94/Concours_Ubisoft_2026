@@ -112,30 +112,72 @@ public class TransitionManager : MonoBehaviour
         InputManager.Instance.EnableAll();
     }
 
-    public void SplashToScene(string sceneName, FadeTransition transitionPrefab)
+
+
+    // Appelle cette méthode pour passer au MainMenu
+    public void SplashToScene(string sceneName, FadeTransition transitionPrefab, float duration = 1.5f)
     {
-        StartCoroutine(SplashToSceneRoutine(sceneName, transitionPrefab));
+        StartCoroutine(SplashToSceneRoutine(sceneName, transitionPrefab, duration));
     }
 
-    private IEnumerator SplashToSceneRoutine(string sceneName, FadeTransition transitionPrefab)
+    private IEnumerator SplashToSceneRoutine(string sceneName, FadeTransition transitionPrefab, float duration)
     {
+        // 1. Instantiate transition prefab
         FadeTransition transition = Instantiate(transitionPrefab);
+        DontDestroyOnLoad(transition.gameObject);
 
-        yield return transition.PlayIn().SetUpdate(true).WaitForCompletion();
+        CanvasGroup canvasGroup = transition.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+            canvasGroup = transition.gameObject.AddComponent<CanvasGroup>();
 
-        // Désactiver le splash ICI (quand écran est noir)
-        if (FindAnyObjectByType<SplashMenu>() != null)
-            FindAnyObjectByType<SplashMenu>().gameObject.SetActive(false);
+        // Ensure black screen starts fully transparent for fade IN
+        canvasGroup.alpha = 0f;
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.interactable = false;
 
-        yield return new WaitForSecondsRealtime(0.15f);
+        // 2. FADE IN (0 -> 1)
+        float time = 0f;
+        while (time < duration)
+        {
+            time += Time.unscaledDeltaTime;
+            float t = Mathf.Clamp01(time / duration);
+            canvasGroup.alpha = t; // fade IN
+            yield return null;
+        }
+        canvasGroup.alpha = 1f;
 
-        yield return SceneManager.LoadSceneAsync(sceneName);
+        // 3. LOAD SCENE ASYNC WITHOUT IMMEDIATE ACTIVATION
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        asyncLoad.allowSceneActivation = false;
 
+        // Wait 1 frame to ensure fade IN rendered
         yield return null;
 
-        yield return transition.PlayOut().SetUpdate(true).WaitForCompletion();
-    }
+        // Wait until the scene is fully loaded (progress >= 0.9)
+        while (asyncLoad.progress < 0.9f)
+            yield return null;
 
+        // Activate the scene
+        asyncLoad.allowSceneActivation = true;
+
+        // Wait 1 frame to ensure scene is active
+        yield return null;
+
+        // 4. FADE OUT (1 -> 0)
+        time = 0f;
+        while (time < duration)
+        {
+            time += Time.unscaledDeltaTime;
+            float t = Mathf.Clamp01(time / duration);
+            canvasGroup.alpha = 1f - t;
+            yield return null;
+        }
+        canvasGroup.alpha = 0f;
+
+        // 5. Cleanup
+        canvasGroup.blocksRaycasts = false;
+        Destroy(transition.gameObject);
+    }
     public void TransitionRestartScene(FadeTransition transitionPrefab)
     {
         StartCoroutine(RestartSceneRoutine(transitionPrefab));
