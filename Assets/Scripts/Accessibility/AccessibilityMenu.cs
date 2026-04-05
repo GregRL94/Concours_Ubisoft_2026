@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -26,10 +27,14 @@ public class AccessibilityMenu : Menu
     [SerializeField] private TextMeshProUGUI playerDamageText;
     [SerializeField] private TextMeshProUGUI enemyDamageText;
 
-    [Header("CRT Toggle")]
+    [Header("Toggles")]
     [SerializeField] private Toggle crtToggle;
+    [SerializeField] private Toggle aimModeToggle;
 
     private float lastMoveTime;
+
+    public static Action<bool> OnSetAdvancedShooting; // event pour activer/désactiver le tir avancé, bool = enabled/disabled
+
 
     void Start()
     {
@@ -43,9 +48,12 @@ public class AccessibilityMenu : Menu
         // Listeners
         playerDamageSlider.onValueChanged.AddListener(OnPlayerDamageChanged);
         enemyDamageSlider.onValueChanged.AddListener(OnEnemyDamageChanged);
+
         crtToggle.isOn = AccessibilityManager.Instance.IsCRTEffectsEnabled();
         crtToggle.onValueChanged.AddListener(SetOnCRTToggle);
 
+        aimModeToggle.isOn = AccessibilityManager.Instance.GetAimMode();
+        aimModeToggle.onValueChanged.AddListener(SetAdvancedShooting);
         // Text multiplier 
         UpdatePlayerText(AccessibilityManager.Instance.playerDamageDealtMultiplier);
         UpdateEnemyText(AccessibilityManager.Instance.enemyDamageDealtMultiplier);
@@ -182,10 +190,18 @@ public class AccessibilityMenu : Menu
     }
 
 
-    //BUTTON CLICK
+    //BUTTON CLICKS
     public void SetOnCRTToggle(bool value)
     {
         AccessibilityManager.Instance.SetCRTEffects(value);
         AudioManager.Instance.PlaySound("UI_Submit");
     }
+
+    public void SetAdvancedShooting(bool enabled)
+    {
+        AccessibilityManager.Instance.SetAimMode(enabled);
+        OnSetAdvancedShooting?.Invoke(enabled);
+    }
+
+
 }

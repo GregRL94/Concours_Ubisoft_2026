@@ -28,6 +28,9 @@ public class GameOverMenu : Menu
     [SerializeField] private float impactScale = 1.3f;
     [SerializeField] private float shakeStrength = 15f;
 
+    [SerializeField] private FadeTransition restartTransition;
+    [SerializeField] private FadeTransition mainMenuTransition;
+
     private Vector3 gameStartInitial;
     private Vector3 overStartInitial;
 
@@ -190,14 +193,16 @@ public class GameOverMenu : Menu
     // ---------------------------
     public void OnRestartPressed()
     {
-        GameManager.Instance.RestartLevel();
+        TransitionManager.Instance.TransitionRestartScene(restartTransition);
     }
 
     public void OnMainMenuPressed()
     {
+        MenuManager.Instance.CloseMenu();
         OnReturnToMainMenu();
-        LevelLoader.LoadMainMenuLevel();
+        TransitionManager.Instance.TransitionToScene("MainMenu", mainMenuTransition, 0f);
     }
+
 
     public void OnQuitPressed()
     {
