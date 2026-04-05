@@ -17,7 +17,7 @@ public class SplashMenu : Menu
 
     void Start()
     {
-
+        AudioManager.Instance.PlayMusic("Music_SplashScreen");
     }
 
     void Update()
@@ -29,18 +29,24 @@ public class SplashMenu : Menu
 
         // Gamepad buttons only (ignore joysticks)
         bool gamepadButtonPressed = false;
-        if (Gamepad.current != null)
-        {
-            // On check uniquement les boutons, pas les axes
-            gamepadButtonPressed = Gamepad.current.allControls
-                .OfType<ButtonControl>()
-                .Any(b => b.wasPressedThisFrame);
-        }
 
+        foreach (var gamepad in Gamepad.all)
+        {
+            if (gamepad == null) continue;
+
+            if (gamepad.allControls
+                .OfType<ButtonControl>()
+                .Any(b => b.wasPressedThisFrame))
+            {
+                gamepadButtonPressed = true;
+                break;
+            }
+        }
         // Si clavier ou bouton gamepad pressé
         if (keyboardPressed || gamepadButtonPressed)
         {
             hasPressed = true;
+            AudioManager.Instance.PlaySound("SFX_PressAnyButton");
             PlayPunchAnimationThenTransition();
         }
     }

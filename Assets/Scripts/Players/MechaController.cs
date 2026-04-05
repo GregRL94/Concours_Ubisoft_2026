@@ -545,8 +545,8 @@ public class MechaController : MonoBehaviour, IHit
         // FILL ULTIMATE BAR
         float syncP1 = 0f;
         float syncP2 = 0f;
-        syncP1 += Mathf.Clamp01(_movementHoldTimer / _ultimateHoldDuration) * 1f;
-        syncP2 += Mathf.Clamp01(_shootHoldTimer / _ultimateHoldDuration) * 1f;
+        syncP1 += Mathf.Clamp01(_movementHoldTimer / _ultimateHoldDuration);
+        syncP2 += Mathf.Clamp01(_shootHoldTimer / _ultimateHoldDuration);
 
         ultimateUI?.UpdateCoopHoldP1(syncP1);
         ultimateUI?.UpdateCoopHoldP2(syncP2);
@@ -581,8 +581,8 @@ public class MechaController : MonoBehaviour, IHit
         _movementAttemptingUltimate = false;
         _shootAttemptingUltimate = false;
 
-        _movementHoldTimer = 0f;
-        _shootHoldTimer = 0f;
+        //_movementHoldTimer = 0f;
+        //_shootHoldTimer = 0f;
 
         ultimateUI?.UpdateCoopHoldP1(0f);
         ultimateUI?.UpdateCoopHoldP2(0f);
@@ -806,6 +806,7 @@ public class MechaController : MonoBehaviour, IHit
     
     public void SetAdvancedShootingControls(bool enabled)
     {
+        //print("enabled aim mode " + enabled);
         if (enabled)
         {  
             _aimingReticle.SetActive(true);
@@ -982,12 +983,14 @@ public class MechaController : MonoBehaviour, IHit
         if (state)
         {
             GameManager.OnUltimateJaugeIncrease += IncreaseUltimateCharge;
-            GameManager.OnSetAdvancedShooting += SetAdvancedShootingControls;
+            AccessibilityMenu.OnSetAdvancedShooting += SetAdvancedShootingControls;
+            SetAdvancedShootingControls(AccessibilityManager.Instance.GetAimMode()); 
+
         }
         else
         {
             GameManager.OnUltimateJaugeIncrease -= IncreaseUltimateCharge;
-            GameManager.OnSetAdvancedShooting -= SetAdvancedShootingControls;
+            AccessibilityMenu.OnSetAdvancedShooting -= SetAdvancedShootingControls;
         }
     }
 
