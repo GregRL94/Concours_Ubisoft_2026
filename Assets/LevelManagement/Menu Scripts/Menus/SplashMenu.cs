@@ -11,62 +11,78 @@ public class SplashMenu : Menu
     [SerializeField] private string mainMenuSceneName = "MainMenu";
 
     [Header("UI")]
-    [SerializeField] private CanvasGroup splashCanvas;
     [SerializeField] private RectTransform pressAnyButtonText;
 
-    private Tween pulseTween;
     private bool hasPressed = false;
 
     void Start()
     {
-        // PlayPulseAnimation();
+
     }
 
     void Update()
     {
         if (hasPressed) return;
 
-        // debug keyboard
+        // Keyboard check
         bool keyboardPressed = Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame;
 
-        // controller
-        bool gamepadPressed = Gamepad.current != null &&
-                              Gamepad.current.allControls
-                              .Any(c => c is ButtonControl b && b.wasPressedThisFrame);
+        // Gamepad buttons only (ignore joysticks)
+        bool gamepadButtonPressed = false;
+        if (Gamepad.current != null)
+        {
+            // On check uniquement les boutons, pas les axes
+            gamepadButtonPressed = Gamepad.current.allControls
+                .OfType<ButtonControl>()
+                .Any(b => b.wasPressedThisFrame);
+        }
 
-        if (keyboardPressed || gamepadPressed)
+        // Si clavier ou bouton gamepad pressé
+        if (keyboardPressed || gamepadButtonPressed)
         {
             hasPressed = true;
+            PlayPunchAnimationThenTransition();
+        }
+    }
+
+    private void PlayPunchAnimationThenTransition()
+    {
+        if (pressAnyButtonText != null)
+        {
+            // Punch scale rapide pour feedback
+            pressAnyButtonText.DOPunchScale(
+                Vector3.one * 1.2f, // amplitude du punch
+                0.5f,               // durée
+                1,                  // vibrato
+                0.5f                // elasticité
+            ).OnComplete(() =>
+            {
+                // Une fois l'animation finie -> transition
+                OnAnyButtonPressed();
+            });
+        }
+        else
+        {
+            // fallback si pas de texte
             OnAnyButtonPressed();
         }
     }
 
-    private void PlayPulseAnimation()
-    {
-        // animation pulse text
-        pulseTween = pressAnyButtonText
-            .DOScale(1.1f, 1f)
-            .SetEase(Ease.InOutSine)
-            .SetLoops(-1, LoopType.Yoyo);
-    }
-
     private void OnAnyButtonPressed()
     {
-        pulseTween.Kill();
-
-        // Petit feedback scale
-        pressAnyButtonText
-            .DOScale(0.9f, 0.3f)
-            .SetEase(Ease.OutQuad);
-
-        // Fade OUT
-
         TransitionManager.Instance.SplashToScene(
             mainMenuSceneName,
-            mainMenuTransition
+            mainMenuTransition,
+            1f // durée fade, par exemple
         );
-
     }
 
-
+    // Optionnel : pulse continu du texte
+    //private void PlayPulseAnimation()
+    //{
+    //    pulseTween = pressAnyButtonText
+    //        .DOScale(1.1f, 1f)
+    //        .SetEase(Ease.InOutSine)
+    //        .SetLoops(-1, LoopType.Yoyo);
+    //}
 }
