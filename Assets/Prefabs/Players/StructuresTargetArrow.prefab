@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1041276817498846167, guid: 0dafd8a4b1b9a2c42a2847e0795db76a, type: 3}
       propertyPath: m_Name
-      value: TargetArrow Variant
+      value: StructuresTargetArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150120556560480353, guid: 0dafd8a4b1b9a2c42a2847e0795db76a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2417909608167542662, guid: 0dafd8a4b1b9a2c42a2847e0795db76a, type: 3}
       propertyPath: m_LocalPosition.x

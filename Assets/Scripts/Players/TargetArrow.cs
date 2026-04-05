@@ -29,8 +29,18 @@ public class TargetArrow : MonoBehaviour
     {
         try
         {
-            Vector2 targetDir = Target.transform.position - transform.position;
-            transform.eulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(targetDir.x, targetDir.y, _offsetAngleDeg));
+	    // Verify if the arrow isn't too close from the target. If it is too close, the arrow disapear.
+	    // 1.1f is a small offset
+	    if (Vector2.Distance(Target.transform.position, transform.position) > gameObject.transform.GetChild(0).transform.localPosition.y * 1.1f)
+	    {
+            	Vector2 targetDir = Target.transform.position - transform.position;
+            	transform.eulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(targetDir.x, targetDir.y, _offsetAngleDeg));
+            	gameObject.SetActive(true);  
+	    }
+	    else 
+	    {
+            	gameObject.SetActive(false);  
+	    }
         }
         catch (Exception)
         {
