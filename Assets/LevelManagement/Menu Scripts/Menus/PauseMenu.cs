@@ -19,6 +19,7 @@ public class PauseMenu : Menu
 
     public void OnRestartPressed()
     {
+        AudioManager.Instance.PlaySound("UI_startgame");
         TransitionManager.Instance.TransitionRestartScene(restartTransition);
     }
 
@@ -42,6 +43,7 @@ public class PauseMenu : Menu
 
     public void OnMainMenuPressed()
     {
+        AudioManager.Instance.PlaySound("UI_Back");
         MenuManager.Instance.CloseMenu();
         OnReturnToMainMenu();
         TransitionManager.Instance.TransitionToScene("MainMenu", mainMenuTransition, 0f);
