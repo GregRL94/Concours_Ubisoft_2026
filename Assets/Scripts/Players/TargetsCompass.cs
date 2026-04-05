@@ -3,56 +3,81 @@ using UnityEngine;
 
 public class TargetsCompass : MonoBehaviour
 {
-    [SerializeField] private GameObject _targetArrowPrefab;
-    [SerializeField] private int _numberOfEnnemiesThreshold;
-    [SerializeField] private int _numberOfSpawnersThreshold;
-    [SerializeField] private float _offsetAngleDeg;
+    [SerializeField] private GameObject _creaturesTargetArrowPrefab;
+    [SerializeField] private GameObject _structuresTargetArrowPrefab;
+    [SerializeField] private int _enemiesCountThreshold;
+    [SerializeField] private int _spawnersCountThreshold;
 
-    private Dictionary<GameObject, GameObject> _targetArrowDict;
-    private int _enemiesCount;
-    private int _spawnersCount;
-    private int _numberOftargetArrows;
-    private bool _allSpawnerArrowsGenerated;
-    
+    private List<TargetArrow> _enemiesTargetArrowsList = new List<TargetArrow>();
+    private List<TargetArrow> _spawnersTargetArrowsList = new List<TargetArrow>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _targetArrowDict = new Dictionary<GameObject, GameObject>();
-        Subscribe(true);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void LateUpdate()
-    {
-
+        for (int i = 0; i < _enemiesCountThreshold; i++) { _enemiesTargetArrowsList.Add(NewTargetArrow("creature")); }
+        for (int i = 0; i < _spawnersCountThreshold; i++) { _spawnersTargetArrowsList.Add(NewTargetArrow("structure")); }
     }
 
     private void HandleEnemyCountChanged(int newCountEnemies, int newCountSpawners)
     {
-        _enemiesCount = newCountEnemies;
-        _spawnersCount = newCountSpawners;
+        Debug.Log($"Enemy count changed: {newCountEnemies} enemies, {newCountSpawners} spawners");
+        if (newCountEnemies <= _enemiesCountThreshold)
+        {
+            for (int i = 0; i < _enemiesTargetArrowsList.Count; i++)
+            {
+                if (i < newCountEnemies)
+                {
+                    _enemiesTargetArrowsList[i].Target = EnemyManager.Instance.activeEnnemis[i].gameObject;
+                }
+                else
+                {
+                    _enemiesTargetArrowsList[i].Target = null;
+                }
+            }
+        }
+        else
+        {
+            foreach (var targetArrow in _enemiesTargetArrowsList)
+            {
+                targetArrow.Target = null;
+            }
+        }
+
+        if (newCountSpawners <= _spawnersCountThreshold)
+        {
+            for (int i = 0; i < _spawnersTargetArrowsList.Count; i++)
+            {
+                if (i < newCountSpawners)
+                {
+                    _spawnersTargetArrowsList[i].Target = EnemyManager.Instance.activeSpawners[i].gameObject;
+                }
+                else
+                {
+                    _spawnersTargetArrowsList[i].Target = null;
+                }
+            }
+        }
+        else 
+        { 
+            foreach (var targetArrow in _spawnersTargetArrowsList)
+            {
+                targetArrow.Target = null;
+            }
+        }
     }
 
-    private void NewTargetArrow(GameObject target)
+    private TargetArrow NewTargetArrow(string whatTargetArrow="creature", GameObject target = null)
     {
+        GameObject targetArrowType = _creaturesTargetArrowPrefab;
 
-    }
+        if (whatTargetArrow == "structure")
+        {
+            targetArrowType = _structuresTargetArrowPrefab;
+        }
 
-    private void DeactivateTargetArrow()
-    {
-
-    }
-
-    private void PointTargetArrowTowardsTarget(GameObject targetArrow, GameObject target)
-    {
-        Vector2 targetDir = target.transform.position - transform.position;
-        targetArrow.transform.localEulerAngles = new Vector3(0f, 0f, MathUtils.DirToAngleRad(targetDir.x, targetDir.y, _offsetAngleDeg));
+        GameObject newTargetArrow = Instantiate(targetArrowType, transform);
+        newTargetArrow.GetComponent<TargetArrow>().Target = target;
+        return newTargetArrow.GetComponent<TargetArrow>();
     }
 
     private void Subscribe(bool subscribe)
@@ -65,5 +90,20 @@ public class TargetsCompass : MonoBehaviour
         {
             EnemyManager.OnCountsChanged -= HandleEnemyCountChanged;
         }
+    }
+
+    private void OnEnable()
+    {
+        Subscribe(true);
+    }
+
+    private void OnDisable()
+    {
+        Subscribe(false);
+    }
+
+    private void OnDestroy()
+    {
+        Subscribe(false);
     }
 }
