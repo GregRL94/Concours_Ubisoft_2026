@@ -423,6 +423,9 @@ public class MechaController : MonoBehaviour, IHit
 
 
         }
+        //else if (movementPlayer.DashReleased() && _dashCooldownTimer <= _dashCooldown)
+        //    AudioManager.Instance.PlaySound("SFX_CooldownError");
+
 
         if (_isDashing && move == Vector2.zero)
         {
@@ -490,7 +493,7 @@ public class MechaController : MonoBehaviour, IHit
             animIsReadyUltimate.SetBool("isReady", _ultimateReady);
             if (!_hasPlayedUltimateReadySound)
             {
-                AudioManager.Instance.PlaySound("UI_ulti_pret");
+                AudioManager.Instance.PlaySound("UI_ulti_playerready");
                 _hasPlayedUltimateReadySound = true;
             }
         }
@@ -678,6 +681,7 @@ public class MechaController : MonoBehaviour, IHit
     private void Shockwave(float radius, float damage, float repelForce)
     {
         animEffectAOE.SetTrigger("interact");
+        AudioManager.Instance.PlaySound("SFX_Player_aoe");
 
         // Instancie l'effet visuel de l'attaque AOE
         Instantiate(_aoeEffectPrefab, transform.position, Quaternion.identity);
@@ -700,7 +704,6 @@ public class MechaController : MonoBehaviour, IHit
         }
         _aoeTimer = 0f;
         abilityUI?.TriggerAbility("AOE", _aoeCooldown);
-        AudioManager.Instance.PlaySound("SFX_Player_aoe");
     }
 
     IEnumerator MissileSwarm(Collider2D[] targets)
