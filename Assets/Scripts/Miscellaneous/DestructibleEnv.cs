@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DestructibleEnv : MonoBehaviour, IHit
@@ -5,6 +6,8 @@ public class DestructibleEnv : MonoBehaviour, IHit
     [SerializeField] private float _maxHealth = 100f;
     [SerializeField] private int _thresholdDamagedSound = 15;
     [SerializeField] private GameObject _hitEffect;
+    [SerializeField] private GameObject _destroyedEffect;
+    [SerializeField] private List<Sprite> _destroyedSprite = new List<Sprite>();
     private float _currentHealth;
     private float _damageCounter = 0f;
 
@@ -53,8 +56,20 @@ public class DestructibleEnv : MonoBehaviour, IHit
 
     private void _Destroy()
     {
-        // Add destruction effects here (e.g., particle effects, sound, etc.)
         AudioManager.Instance.PlaySound("SFX_Env_debris_destroy");
-        Destroy(gameObject);
+        Instantiate(_destroyedEffect, transform.position, Quaternion.identity);
+        if (TryGetComponent<SpriteRenderer>(out var spriteRenderer))
+        {
+            int randIndex = Random.Range(0, _destroyedSprite.Count);
+            spriteRenderer.sprite = _destroyedSprite[randIndex];
+        }
+        else
+        {
+            int randIndex1 = Random.Range(0, 1);
+            int randIndex2 = Random.Range(2, 3);
+            transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _destroyedSprite[randIndex1];
+            transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = _destroyedSprite[randIndex2];
+        }
+        GetComponent<Collider2D>().enabled = false;
     }
 }

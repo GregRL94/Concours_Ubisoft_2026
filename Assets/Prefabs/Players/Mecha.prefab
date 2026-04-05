@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 2537720267561633478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.63134867, z: -10}
+  m_LocalPosition: {x: 0.81, y: 0.3986516, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -156,7 +156,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 3.359375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -742,7 +742,7 @@ Transform:
   m_GameObject: {fileID: 4503489397842482685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 1.8, z: 0}
+  m_LocalPosition: {x: -0.544, y: 1.808, z: 0}
   m_LocalScale: {x: 1, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1109,7 +1109,7 @@ Transform:
   m_GameObject: {fileID: 5281835591307895253}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1.8, z: 0}
+  m_LocalPosition: {x: 0.547, y: 1.773, z: 0}
   m_LocalScale: {x: 1, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1162,6 +1162,7 @@ Transform:
   - {fileID: 9144434361229252261}
   - {fileID: 7799809895938733571}
   - {fileID: 1780546381287391122}
+  - {fileID: 8016187852778727413}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7251593185117125069
@@ -1279,13 +1280,13 @@ MonoBehaviour:
     <LinearDispersionResetSpeed>k__BackingField: 0.05
   MissileParameters:
     <MissilePrefab>k__BackingField: {fileID: 5773359375257919300, guid: 1b0d5d5f33e350944a07527e3f4c6679, type: 3}
-    <Speed>k__BackingField: 15
-    <RotationSpeed>k__BackingField: 225
+    <Speed>k__BackingField: 12.8
+    <RotationSpeed>k__BackingField: 278
     <Damage>k__BackingField: 30
     <AOEDamage>k__BackingField: 10
     <HoldRotationTimer>k__BackingField: 0.25
-    <HoldMovementTimer>k__BackingField: 0.75
-    <Lifetime>k__BackingField: 5
+    <HoldMovementTimer>k__BackingField: 0.43
+    <Lifetime>k__BackingField: 4.2
     <MissileImpactLayerMask>k__BackingField:
       serializedVersion: 2
       m_Bits: 384
@@ -1301,7 +1302,7 @@ MonoBehaviour:
   _stunStopsAbilities: 1
   _stunStopsMovement: 1
   _movementSpeed: 6
-  _dashSpeedFactor: 8
+  _dashSpeedFactor: 10
   _dashDuration: 0.1
   _dashCooldown: 1
   _dashDoesDamage: 1
@@ -1314,7 +1315,6 @@ MonoBehaviour:
   _dashDamage: 10
   animIsPressedDash: {fileID: 0}
   _meleeAttackPoint: {fileID: 4551997135442846276}
-  _meleeAttackHitBox: {x: 6, y: 3}
   _meleeAttackRadius: 2.5
   _meleeAttackImpactsWhat:
     serializedVersion: 2
@@ -1345,7 +1345,7 @@ MonoBehaviour:
   _aoeImpactsWhat:
     serializedVersion: 2
     m_Bits: 35200
-  _aoeStuns: 1
+  _aoeStuns: 0
   _aoeRepels: 1
   _aoeRadius: 9
   _aoeDamage: 1
@@ -1361,14 +1361,13 @@ MonoBehaviour:
   _missilePoints:
   - {fileID: 3013489770942693113}
   - {fileID: 976736478384787416}
-  _maxTargetingRange: 15
-  _maxNumberOfMissiles: 12
-  _minReleaseForce: 1
-  _maxReleaseForce: 8
-  _missileSpawnInterval: 0.3
+  _maxNumberOfMissiles: 21
+  _minReleaseForce: 2.8
+  _maxReleaseForce: 7.6
+  _missileSpawnInterval: 0.136
   animIsPressedMovement: {fileID: 0}
   animIsPressedShot: {fileID: 0}
-  _ultimateHoldDuration: 1.5
+  _ultimateHoldDuration: 1.2
   _ultimateMax: 100
   animIsReadyUltimate: {fileID: 0}
   _ultimateHoldThreshold: 0.25
@@ -1963,6 +1962,68 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8164805592232001633, guid: 294ffabfeb2170246927e62dd6020411, type: 3}
   m_PrefabInstance: {fileID: 2121558998474667618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2658540696080474529
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 981076627514167658}
+    m_Modifications:
+    - target: {fileID: 5465734750958683732, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465734750958683732, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465734750958683732, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465734750958683732, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465734750958683732, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465734750958683732, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465734750958683732, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465734750958683732, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465734750958683732, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465734750958683732, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492518868629710257, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+      propertyPath: m_Name
+      value: TargetsCompass
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+--- !u!4 &8016187852778727413 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5465734750958683732, guid: b4ee6c5acb058c54d8be9d4febbc6a57, type: 3}
+  m_PrefabInstance: {fileID: 2658540696080474529}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2715964671725846617
 PrefabInstance:
@@ -2662,12 +2723,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Lens.OrthographicSize
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 8912567188512261498}
+      objectReference: {fileID: 0}
     - target: {fileID: 4715727468993008621, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Damping.x
       value: 1
@@ -2714,7 +2775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.63134766
+      value: 0.3735857
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.z

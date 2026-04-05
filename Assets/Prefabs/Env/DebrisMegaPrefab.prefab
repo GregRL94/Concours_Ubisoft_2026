@@ -80,7 +80,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4113190670139705425, guid: 774a6f14428910843a5a203002779893, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce17cd625f00a54f8de64d4d2d33068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashEffect
-  flashMaterial: {fileID: 2100000, guid: 5e1bbd03d91fe6548bddd276da54c513, type: 2}
+  flashMaterial: {fileID: 2100000, guid: fcfae60bdee0d3a479a11b02c6fcaf51, type: 2}
   duration: 0.05
 --- !u!1 &952909497736201518
 GameObject:
@@ -203,6 +203,12 @@ MonoBehaviour:
   _maxHealth: 200
   _thresholdDamagedSound: 15
   _hitEffect: {fileID: 3015472318778711838, guid: b08a0510be9c34444a8a2324107e1583, type: 3}
+  _destroyedEffect: {fileID: 3885693538988036005, guid: caf965e9922864b47a0ac269bdcc13b0, type: 3}
+  _destroyedSprite:
+  - {fileID: 21300000, guid: e041f14334e406b4c81f8c2ef670f35a, type: 3}
+  - {fileID: 21300000, guid: 791a51971cd6cbf41956bc48b61c9a56, type: 3}
+  - {fileID: 21300000, guid: 89a09eb5230ef754497206634db89c3b, type: 3}
+  - {fileID: 21300000, guid: ff025d043c81813488be66062c075bfb, type: 3}
 --- !u!208 &-5557772731230593609
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -299,7 +305,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7749249889505534113, guid: a99c9dc74e6a6b5468dd107c7ed38f59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -323,5 +329,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce17cd625f00a54f8de64d4d2d33068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashEffect
-  flashMaterial: {fileID: 2100000, guid: 5e1bbd03d91fe6548bddd276da54c513, type: 2}
+  flashMaterial: {fileID: 2100000, guid: fcfae60bdee0d3a479a11b02c6fcaf51, type: 2}
   duration: 0.05

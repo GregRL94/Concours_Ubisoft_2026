@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Big_Mikpin
   m_EditorClassIdentifier: Assembly-CSharp::KamikazeData
   enemyName: Big_Mikpin
-  patrolRadius: 30
-  moveSpeed: 5.5
-  maxHealth: 8
+  patrolRadius: 10
+  moveSpeed: 4
+  maxHealth: 16
   detectionRange: 75
   attackRange: 2
   stopDistance: 0
-  damage: 3
+  damage: 16
   ultimateChargeOnHit: 1
   _explosionImpactsWhat:
     serializedVersion: 2
     m_Bits: 192
-  explosionRadius: 3.5
+  explosionRadius: 3
   explosionEffect: {fileID: 3392167224638232088, guid: 7d2fbc055fb51c849b8aa2d7cffe27f8, type: 3}
   explosionDelay: 0.2
   soundExplode: SFX_Ennemi_mikpin_explosion

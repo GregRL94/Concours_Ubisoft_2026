@@ -199,8 +199,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.7
+  m_Offset: {x: -0.002836585, y: 0}
+  m_Radius: 0.48152065
 --- !u!114 &7972849103993556503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce17cd625f00a54f8de64d4d2d33068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashEffect
-  flashMaterial: {fileID: 2100000, guid: 5e1bbd03d91fe6548bddd276da54c513, type: 2}
+  flashMaterial: {fileID: 2100000, guid: 39ec131489364db4ca2397616182a24c, type: 2}
   duration: 0.1
 --- !u!114 &2536993239125905055
 MonoBehaviour:
