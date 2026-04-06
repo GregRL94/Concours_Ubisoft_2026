@@ -46,7 +46,7 @@ public class LaserShotEnnemy : MonoBehaviour, IHit
         if (!(((1 << collider.gameObject.layer) & _impactLayerMask) != 0)) { return; }
         if (collider.TryGetComponent(out IHit hitComponent))
         {
-            //AudioManager.Instance.PlaySound("SFX_Ennemi_boltbat_fireball_hit");
+            AudioManager.Instance.PlaySound("SFX_Ennemi_boltbat_fireball_hit");
             hitComponent.OnHit(_damage);
         }
         _Destroy();

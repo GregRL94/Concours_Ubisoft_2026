@@ -232,9 +232,13 @@ public class AudioManager : MonoBehaviour
         currentMusicId = null;
     }
 
-    public void FadeOutMusic()
+    public void FadeOutMusic(float fadeDuration = 1f)
     {
-        FadeOutRoutine(currentMusic, currentMusic.gameObject, 1f);
+        if (currentMusic != null)
+        {
+            StartCoroutine(FadeOutRoutine(currentMusic, currentMusic.gameObject, fadeDuration));
+        }
+
         StopMusic();
     }
 
