@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 348738212430625748, guid: 0ac4bd8817473f6449971b4d6dcb6a62, type: 3}
       propertyPath: m_Name
-      value: barriere_orange_01 Variant
+      value: barriere_red_01
       objectReference: {fileID: 0}
     - target: {fileID: 573066588657495223, guid: 0ac4bd8817473f6449971b4d6dcb6a62, type: 3}
       propertyPath: m_Sprite
