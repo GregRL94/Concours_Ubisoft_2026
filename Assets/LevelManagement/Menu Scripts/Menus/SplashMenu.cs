@@ -11,6 +11,7 @@ public class SplashMenu : Menu
 
     [Header("UI")]
     [SerializeField] private RectTransform pressAnyButtonText;
+    [SerializeField] private Animator animText;
 
     private bool hasPressed = false;
 
@@ -46,6 +47,7 @@ public class SplashMenu : Menu
         {
             hasPressed = true;
             AudioManager.Instance.PlaySound("SFX_PressAnyButton");
+            if (animText) animText.SetTrigger("pressed");
             OnAnyButtonPressed();
         }
     }
