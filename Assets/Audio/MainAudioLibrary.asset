@@ -37,6 +37,14 @@ MonoBehaviour:
     loop: 1
     randomizePitch: 0
     pitchRange: 0.2
+  - id: Music_WinGame
+    clip: {fileID: 8300000, guid: 3b0efc00ebe48a041a3e3720b2280552, type: 3}
+    type: 0
+    volume: 0.799
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
   - id: MUS_pixel-perfect
     clip: {fileID: 8300000, guid: f02e1701262daa242b71b9434190440a, type: 3}
     type: 0
@@ -104,7 +112,7 @@ MonoBehaviour:
   - id: UI_Submit
     clip: {fileID: 8300000, guid: 242c88ca3c1d469449f2bb44372f28c1, type: 3}
     type: 2
-    volume: 1
+    volume: 0.647
     pitch: 1
     loop: 0
     randomizePitch: 0
@@ -240,7 +248,7 @@ MonoBehaviour:
   - id: SFX_Ennemi_boltbat_fireball_hit
     clip: {fileID: 8300000, guid: af33905c307818b4d8e629759abab9a4, type: 3}
     type: 1
-    volume: 0.42
+    volume: 0.361
     pitch: 1
     loop: 0
     randomizePitch: 1
@@ -335,7 +343,7 @@ MonoBehaviour:
     pitchRange: 0.2
   - id: SFX_ObjectiveCompleted
     clip: {fileID: 8300000, guid: 944b2bb38ebf87445aa872d2bae9c3ad, type: 3}
-    type: 0
+    type: 1
     volume: 0.706
     pitch: 1
     loop: 0
@@ -343,23 +351,15 @@ MonoBehaviour:
     pitchRange: 0.2
   - id: SFX_GameOver
     clip: {fileID: 8300000, guid: da701c8a98d6b844ab5b1f911a0c1324, type: 3}
-    type: 0
+    type: 1
     volume: 0.731
-    pitch: 1
-    loop: 0
-    randomizePitch: 0
-    pitchRange: 0.2
-  - id: SFX_WinGame
-    clip: {fileID: 8300000, guid: 7d2b6e8ad2fb50f4191bf51d9f6fafeb, type: 3}
-    type: 0
-    volume: 0.937
     pitch: 1
     loop: 0
     randomizePitch: 0
     pitchRange: 0.2
   - id: SFX_LevelCompleted
     clip: {fileID: 8300000, guid: f82628ed40ff36e479db64d1865771b0, type: 3}
-    type: 0
+    type: 1
     volume: 0.823
     pitch: 1
     loop: 0
@@ -367,7 +367,7 @@ MonoBehaviour:
     pitchRange: 0.2
   - id: SFX_PressAnyButton
     clip: {fileID: 8300000, guid: 89a3eebb2ec15de4c8c06c7c92a90e24, type: 3}
-    type: 2
+    type: 1
     volume: 1
     pitch: 1
     loop: 0
