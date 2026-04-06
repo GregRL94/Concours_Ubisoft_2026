@@ -333,14 +333,6 @@ MonoBehaviour:
     loop: 0
     randomizePitch: 0
     pitchRange: 0.2
-  - id: SFX_CooldownError
-    clip: {fileID: 8300000, guid: b33bc0eca8a343544ad47af966f20389, type: 3}
-    type: 2
-    volume: 0.555
-    pitch: 0.15
-    loop: 0
-    randomizePitch: 0
-    pitchRange: 0.2
   - id: SFX_ObjectiveCompleted
     clip: {fileID: 8300000, guid: 944b2bb38ebf87445aa872d2bae9c3ad, type: 3}
     type: 0
@@ -358,9 +350,9 @@ MonoBehaviour:
     randomizePitch: 0
     pitchRange: 0.2
   - id: SFX_WinGame
-    clip: {fileID: 8300000, guid: 944b2bb38ebf87445aa872d2bae9c3ad, type: 3}
+    clip: {fileID: 8300000, guid: 7d2b6e8ad2fb50f4191bf51d9f6fafeb, type: 3}
     type: 0
-    volume: 0.812
+    volume: 0.937
     pitch: 1
     loop: 0
     randomizePitch: 0
@@ -376,6 +368,14 @@ MonoBehaviour:
   - id: SFX_PressAnyButton
     clip: {fileID: 8300000, guid: 89a3eebb2ec15de4c8c06c7c92a90e24, type: 3}
     type: 2
+    volume: 1
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
+  - id: SFX_CooldownError
+    clip: {fileID: 8300000, guid: ae5532cebebfcee48b855b493ee71f4c, type: 3}
+    type: 1
     volume: 1
     pitch: 1
     loop: 0

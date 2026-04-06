@@ -319,8 +319,8 @@ public class EndMenu : Menu
     public void OnMainMenuPressed()
     {
         FindAnyObjectByType<MechaController>(FindObjectsInactive.Include)?.BlockInputs();
-        MenuManager.Instance.CloseMenu();
         OnReturnToMainMenu();
+        MenuManager.Instance.CloseMenu();
         TransitionManager.Instance.TransitionToScene("MainMenu", mainMenuTransition, 0f);
     }
 
