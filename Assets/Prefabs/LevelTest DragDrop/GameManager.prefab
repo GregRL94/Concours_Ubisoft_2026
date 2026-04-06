@@ -380,11 +380,11 @@ MonoBehaviour:
   - LevelLabyrinthe
   - LevelFinal
   objectiveTexts:
-  - '1- Tutorial '
-  - 2- Kill all the aliens and nests
-  - 3- Tutorial Boltbat
-  - '4- Survive '
-  - 5- Stay Alive
+  - '1- Kill all the aliens '
+  - 2- Kill all the aliens
+  - 3- Kill all the aliens
+  - '4- Kill all the aliens '
+  - 5- Kill all the aliens
   missionText: {fileID: 5450592457429672380}
   objectiveText: {fileID: 6001591296729202935}
   timerText: {fileID: 311988840212910313}
@@ -399,6 +399,8 @@ MonoBehaviour:
   - MUS_epic-battle
   - MUS_i-dream-in-keygen
   - MUS_pixify
+  objectiveCompleteTimeSound: 2.3
+  colorObjective: {r: 0.03137255, g: 0.9960785, b: 0.08235294, a: 1}
 --- !u!1 &4666667638042560060
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,7 +604,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Enemies : 000'
+  m_text: 'Aliens left : 000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c618a8c9a6552354f8279e0e0c827d22, type: 2}
   m_sharedMaterial: {fileID: -4177698705264874428, guid: c618a8c9a6552354f8279e0e0c827d22, type: 2}

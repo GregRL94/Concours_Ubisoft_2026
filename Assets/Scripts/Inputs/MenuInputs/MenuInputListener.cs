@@ -118,6 +118,7 @@ public class MenuInputListener : MonoBehaviour
 
         lastNavigateTime = Time.unscaledTime;
 
+        AudioManager.Instance.PlaySound("UI_move_to_new_option");
         UINavigate?.Invoke(dir);
     }
 

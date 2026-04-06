@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
     [Header("Music Playlist")]
     public string[] playlistMusic;
 
+    [Header("Objective Complete")]
+    [SerializeField] private float objectiveCompleteTimeSound = 1.5f;
+    [SerializeField] private Color colorObjective = Color.yellow;
+
+
     private int currentObjectiveIndex = 0;
     public int CurrentObjectiveIndex => currentObjectiveIndex;
     private float timer = 0f;
@@ -198,8 +203,8 @@ public class GameManager : MonoBehaviour
         // Petite anim - scale punch 
         yield return StartCoroutine(AnimateObjectiveText());
 
-        // Attente 2 secondes
-        yield return new WaitForSeconds(1.5f);
+        // Attente que sound complete level termine
+        yield return new WaitForSeconds(objectiveCompleteTimeSound);
     }
 
     #endregion
@@ -302,14 +307,18 @@ public class GameManager : MonoBehaviour
         float duration = 0.25f;
         float time = 0f;
 
-        objectiveText.transform.localScale = startScale;
+        if (enemyCountText != null)
+            enemyCountText.text = $"Objective Completed";
+
+        enemyCountText.transform.localScale = startScale;
+        enemyCountText.color = colorObjective;
 
         // Scale up rapide
         while (time < duration)
         {
             time += Time.deltaTime;
             float t = time / duration;
-            objectiveText.transform.localScale = Vector3.Lerp(startScale, targetScale * 1.2f, t);
+            enemyCountText.transform.localScale = Vector3.Lerp(startScale, targetScale * 1.25f, t);
             yield return null;
         }
 
@@ -319,7 +328,7 @@ public class GameManager : MonoBehaviour
         {
             time += Time.deltaTime;
             float t = time / duration;
-            objectiveText.transform.localScale = Vector3.Lerp(targetScale * 1.2f, targetScale, t);
+            enemyCountText.transform.localScale = Vector3.Lerp(targetScale * 1.2f, targetScale, t);
             yield return null;
         }
     }

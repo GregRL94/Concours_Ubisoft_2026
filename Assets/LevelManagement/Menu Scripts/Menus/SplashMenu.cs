@@ -1,4 +1,3 @@
-using DG.Tweening;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +11,7 @@ public class SplashMenu : Menu
 
     [Header("UI")]
     [SerializeField] private RectTransform pressAnyButtonText;
+    [SerializeField] private Animator animText;
 
     private bool hasPressed = false;
 
@@ -47,48 +47,17 @@ public class SplashMenu : Menu
         {
             hasPressed = true;
             AudioManager.Instance.PlaySound("SFX_PressAnyButton");
-            PlayPunchAnimationThenTransition();
-        }
-    }
-
-    private void PlayPunchAnimationThenTransition()
-    {
-        if (pressAnyButtonText != null)
-        {
-            // Punch scale rapide pour feedback
-            pressAnyButtonText.DOPunchScale(
-                Vector3.one * 1.2f, // amplitude du punch
-                0.5f,               // durée
-                1,                  // vibrato
-                0.5f                // elasticité
-            ).OnComplete(() =>
-            {
-                // Une fois l'animation finie -> transition
-                OnAnyButtonPressed();
-            });
-        }
-        else
-        {
-            // fallback si pas de texte
+            if (animText) animText.SetTrigger("pressed");
             OnAnyButtonPressed();
         }
     }
-
+    
     private void OnAnyButtonPressed()
     {
         TransitionManager.Instance.SplashToScene(
             mainMenuSceneName,
             mainMenuTransition,
-            1f // durée fade, par exemple
+            1f // pause
         );
     }
-
-    // Optionnel : pulse continu du texte
-    //private void PlayPulseAnimation()
-    //{
-    //    pulseTween = pressAnyButtonText
-    //        .DOScale(1.1f, 1f)
-    //        .SetEase(Ease.InOutSine)
-    //        .SetLoops(-1, LoopType.Yoyo);
-    //}
 }
