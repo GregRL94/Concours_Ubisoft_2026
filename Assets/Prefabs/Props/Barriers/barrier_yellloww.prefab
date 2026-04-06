@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 7310371086641872363, guid: bb330e9270a41c6449f764005ccb8918, type: 3}
     - target: {fileID: 8045694344184062242, guid: 93ece1bf7a88b0d4396eec00cbe42592, type: 3}
       propertyPath: m_Name
-      value: barriere_orange Variant
+      value: barrier_yellloww
       objectReference: {fileID: 0}
     - target: {fileID: 9185721499520190131, guid: 93ece1bf7a88b0d4396eec00cbe42592, type: 3}
       propertyPath: m_LocalPosition.x
