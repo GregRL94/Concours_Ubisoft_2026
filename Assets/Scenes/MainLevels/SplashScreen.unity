@@ -119,40 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &305815269
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 305815271}
-  m_Layer: 0
-  m_Name: SpashScreen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &305815271
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305815269}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 786830417}
-  - {fileID: 2982167415966207269}
-  - {fileID: 1921666426}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &474075447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -282,7 +248,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 305815271}
+    m_TransformParent: {fileID: 2982167415966207269}
     m_Modifications:
     - target: {fileID: 2041628654879179676, guid: 597adac157858a847b1c7ea6bba9c7c5, type: 3}
       propertyPath: m_Name
@@ -378,7 +344,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 714703131934638434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -881,7 +847,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.16078432, g: 0, b: 0.34509805, a: 0}
+  m_BackGroundColor: {r: 0.27450982, g: 0.10588236, b: 0.43921572, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -935,7 +901,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 305815271}
+  m_Father: {fileID: 2982167415966207269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1921666427
 MonoBehaviour:
@@ -1077,8 +1043,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 786830417}
+  - {fileID: 1921666426}
   - {fileID: 714703131934638434}
-  m_Father: {fileID: 305815271}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1248,8 +1216,6 @@ GameObject:
   - component: {fileID: 1128688269971224377}
   - component: {fileID: 9218685730676860171}
   - component: {fileID: 3597281151914988095}
-  - component: {fileID: 9218685730676860172}
-  - component: {fileID: 9218685730676860173}
   m_Layer: 5
   m_Name: SplashCanvas
   m_TagString: Untagged
@@ -1325,10 +1291,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d508f16418ed54aa5b1f6f0ef516f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplashMenu
-  mainMenuTransition: {fileID: 4934781021813287667, guid: c1523e74d6158244e89bbfec69df8504, type: 3}
+  mainMenuTransition: {fileID: 8601609037258510111, guid: c1523e74d6158244e89bbfec69df8504, type: 3}
   mainMenuSceneName: MainMenu
-  splashCanvas: {fileID: 9218685730676860172}
   pressAnyButtonText: {fileID: 988611924}
+  animText: {fileID: 988611927}
 --- !u!114 &8656847952706612249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,40 +1418,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
---- !u!225 &9218685730676860172
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5985714865868725085}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
---- !u!95 &9218685730676860173
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5985714865868725085}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a0cf23f60d4bb94d859b088aa3c1370, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1494,5 +1426,5 @@ SceneRoots:
   - {fileID: 1453396954}
   - {fileID: 1702648724}
   - {fileID: 1439360951}
-  - {fileID: 305815271}
+  - {fileID: 2982167415966207269}
   - {fileID: 815269599}

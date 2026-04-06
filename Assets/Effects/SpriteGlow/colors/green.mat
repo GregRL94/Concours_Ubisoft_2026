@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: yelloeSpriteGlow 2
+  m_Name: green
   m_Shader: {fileID: -6465566751694194690, guid: a2d037d417f83764e986bfc22ba78937, type: 3}
   m_Parent: {fileID: 2100000, guid: d5b48eaed06b5424b82c77d94111046f, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -39,6 +39,6 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 4.237095, g: 1.5322672, b: 0, a: 0}
+    - _Color: {r: 1.1488597, g: 8.574186, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

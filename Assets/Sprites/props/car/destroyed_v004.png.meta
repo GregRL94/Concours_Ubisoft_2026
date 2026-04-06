@@ -1,0 +1,431 @@
+fileFormatVersion: 2
+guid: 35ccff5cbf267dd4f9a9e6ab83545083
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 642665723374561070
+    second: destroyed_v004_0
+  - first:
+      213: -5764037964376702184
+    second: destroyed_v004_1
+  - first:
+      213: 4343395079143940130
+    second: destroyed_v004_2
+  - first:
+      213: 110121927562186330
+    second: destroyed_v004_3
+  - first:
+      213: 8163991136632819397
+    second: destroyed_v004_4
+  - first:
+      213: 972028373272876948
+    second: destroyed_v004_5
+  - first:
+      213: 2630782754280141828
+    second: destroyed_v004_6
+  - first:
+      213: -2375457561000854191
+    second: destroyed_v004_7
+  - first:
+      213: -1604140060736808205
+    second: destroyed_v004_8
+  - first:
+      213: -3111135022148514367
+    second: destroyed_v004_9
+  - first:
+      213: -4726433388613749769
+    second: destroyed_v004_10
+  - first:
+      213: -536878218514549233
+    second: destroyed_v004_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: destroyed_v004_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 41
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e276f0702153be800800000000000000
+      internalID: 642665723374561070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed_v004_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 46
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8130675b2060200b0800000000000000
+      internalID: -5764037964376702184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed_v004_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 41
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 220ed8befc6d64c30800000000000000
+      internalID: 4343395079143940130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed_v004_3
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 44
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5e43564f4b378100800000000000000
+      internalID: 110121927562186330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed_v004_4
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 20
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cecf602fa25c4170800000000000000
+      internalID: 8163991136632819397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed_v004_5
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 33
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 497d78cc7a65d7d00800000000000000
+      internalID: 972028373272876948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed_v004_6
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 23
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 404771ef9fa628420800000000000000
+      internalID: 2630782754280141828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed_v004_7
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 9
+        width: 11
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d37891feda80fd0800000000000000
+      internalID: -2375457561000854191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed_v004_8
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 19
+        width: 33
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fa1fc52d13fcb9e0800000000000000
+      internalID: -1604140060736808205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed_v004_9
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 13
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd8f8c4e2703d4d0800000000000000
+      internalID: -3111135022148514367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed_v004_10
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 10
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f3b121ffd5586eb0800000000000000
+      internalID: -4726433388613749769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed_v004_11
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 11
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06bbc1da10ac88f0800000000000000
+      internalID: -536878218514549233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 7299e45f5e71b684187a94167c659558, type: 3}
+      name: _Emission
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      destroyed_v004_0: 642665723374561070
+      destroyed_v004_1: -5764037964376702184
+      destroyed_v004_10: -4726433388613749769
+      destroyed_v004_11: -536878218514549233
+      destroyed_v004_2: 4343395079143940130
+      destroyed_v004_3: 110121927562186330
+      destroyed_v004_4: 8163991136632819397
+      destroyed_v004_5: 972028373272876948
+      destroyed_v004_6: 2630782754280141828
+      destroyed_v004_7: -2375457561000854191
+      destroyed_v004_8: -1604140060736808205
+      destroyed_v004_9: -3111135022148514367
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

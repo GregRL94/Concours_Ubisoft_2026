@@ -110,6 +110,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private LayerMask _dashIgnoresWhat;
     [SerializeField] private float _dashDamage = 10f;
     [SerializeField] private Animator animIsPressedDash;
+    [SerializeField] private Animator animEffectDash;
     [Header("Melee attack parameters")]
     [SerializeField] private Transform _meleeAttackPoint;
     [SerializeField] private float _meleeAttackRadius = 5f;
@@ -121,6 +122,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _meleeAttackRepelForce = 100f;
     [SerializeField] private float _meleeAttackCooldown = 1f;
     [SerializeField] private Animator animIsPressedMelee;
+    [SerializeField] private Animator animEffectMelee;
     [Space]
 
     [Header("SHOOTING PLAYER PARAMETERS")]
@@ -138,6 +140,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private bool _angularDispersion = false;
     [SerializeField] private bool _linearDispersion = false;
     [SerializeField] private Animator animIsPressedGun;
+    [SerializeField] private Animator animEffectGun;
 
     [Header("AOE parameters")]
     [SerializeField] private GameObject _aoeEffectPrefab;
@@ -150,6 +153,7 @@ public class MechaController : MonoBehaviour, IHit
     [SerializeField] private float _aoeRepelForce = 100f;
     [SerializeField] private float _aoeCooldown = 5f;
     [SerializeField] private Animator animIsPressedAOE;
+    [SerializeField] private Animator animEffectAOE;
     [Space]
 
     [Header("ULTIMATE TEAM ATTACK PARAMETERS")]
@@ -181,6 +185,9 @@ public class MechaController : MonoBehaviour, IHit
 
     private bool _movementAttemptingUltimate = false;
     private bool _shootAttemptingUltimate = false;
+
+    private bool _ignoreNextMeleeRelease = false;
+    private bool _ignoreNextAOERelease = false;
 
     private bool meleeHold;
     private bool aoeHold;
@@ -399,26 +406,61 @@ public class MechaController : MonoBehaviour, IHit
         }
 
 
-        if (movementPlayer.MeleeReleased()
-            && _movementHoldWasShort
-            && !_movementAttemptingUltimate
-            && _meleeTimer >= _meleeAttackCooldown)
+        //if (movementPlayer.MeleeReleased()
+        //    && _movementHoldWasShort
+        //    && !_movementAttemptingUltimate
+        //    /*&& _meleeTimer >= _meleeAttackCooldown*/)
+        //{
+        //    if (_meleeTimer < _meleeAttackCooldown)
+        //    {
+        //        print("SFX_CooldownError  melee");
+        //        AudioManager.Instance.PlaySound("SFX_CooldownError");
+        //        return;
+        //    }
+
+        //    MeleeAttack(move);
+        //}
+
+        if (movementPlayer.MeleeReleased())
         {
-            MeleeAttack(move);
+            if (_ignoreNextMeleeRelease)
+            {
+                _ignoreNextMeleeRelease = false;
+                return;
+            }
+
+            if (_movementHoldWasShort && !_movementAttemptingUltimate)
+            {
+                if (_meleeTimer < _meleeAttackCooldown)
+                {
+                    print("SFX_CooldownError  melee");
+                    AudioManager.Instance.PlaySound("SFX_CooldownError");
+                    return;
+                }
+
+                MeleeAttack(move);
+            }
         }
 
 
-        if (movementPlayer.DashReleased() && _dashCooldownTimer >= _dashCooldown)
+        if (movementPlayer.DashReleased() /*&& _dashCooldownTimer >= _dashCooldown*/)
         {
+            if(_dashCooldownTimer < _dashCooldown)
+            {
+                print("SFX_CooldownError dash");
+                AudioManager.Instance.PlaySound("SFX_CooldownError");
+                return;
+            }
+
             if (_currentDashCoroutine != null)
             {
                 StopCoroutine(_currentDashCoroutine);
             }
             AudioManager.Instance.PlaySound("SFX_Player_dash");
             _currentDashCoroutine = StartCoroutine(Dash());
-
-
         }
+
+
 
         if (_isDashing && move == Vector2.zero)
         {
@@ -452,12 +494,40 @@ public class MechaController : MonoBehaviour, IHit
             ResetDispersions();
         }
 
-        if (shootPlayer.AOEReleased()
-            && _shootHoldWasShort
-            && !_shootAttemptingUltimate
-            && _aoeTimer >= _aoeCooldown)
+        //if (shootPlayer.AOEReleased()
+        //    && _shootHoldWasShort
+        //    && !_shootAttemptingUltimate
+        //    /*&& _aoeTimer >= _aoeCooldown*/)
+        //{
+        //    if (_aoeTimer < _aoeCooldown)
+        //    {
+        //        print("SFX_CooldownError AOE");
+        //        AudioManager.Instance.PlaySound("SFX_CooldownError");
+        //        return;
+        //    }
+
+        //    Shockwave(_aoeRadius, _aoeDamage, _aoeRepelForce);
+        //}
+
+        if (shootPlayer.AOEReleased())
         {
-            Shockwave(_aoeRadius, _aoeDamage, _aoeRepelForce);
+            if (_ignoreNextAOERelease)
+            {
+                _ignoreNextAOERelease = false;
+                return;
+            }
+
+            if (_shootHoldWasShort && !_shootAttemptingUltimate)
+            {
+                if (_aoeTimer < _aoeCooldown)
+                {
+                    print("SFX_CooldownError AOE");
+                    AudioManager.Instance.PlaySound("SFX_CooldownError");
+                    return;
+                }
+
+                Shockwave(_aoeRadius, _aoeDamage, _aoeRepelForce);
+            }
         }
 
         if (shootPlayer.ShootPressed())
@@ -486,7 +556,7 @@ public class MechaController : MonoBehaviour, IHit
             animIsReadyUltimate.SetBool("isReady", _ultimateReady);
             if (!_hasPlayedUltimateReadySound)
             {
-                AudioManager.Instance.PlaySound("UI_ulti_pret");
+                AudioManager.Instance.PlaySound("UI_ulti_playerready");
                 _hasPlayedUltimateReadySound = true;
             }
         }
@@ -539,11 +609,13 @@ public class MechaController : MonoBehaviour, IHit
         }
 
         // FILL ULTIMATE BAR
-        float sync = 0f;
-        sync += Mathf.Clamp01(_movementHoldTimer / _ultimateHoldDuration) * 0.5f;
-        sync += Mathf.Clamp01(_shootHoldTimer / _ultimateHoldDuration) * 0.5f;
+        float syncP1 = 0f;
+        float syncP2 = 0f;
+        syncP1 += Mathf.Clamp01(_movementHoldTimer / _ultimateHoldDuration);
+        syncP2 += Mathf.Clamp01(_shootHoldTimer / _ultimateHoldDuration);
 
-        ultimateUI?.UpdateCoopHold(sync);
+        ultimateUI?.UpdateCoopHoldP1(syncP1);
+        ultimateUI?.UpdateCoopHoldP2(syncP2);
 
 
         // ACTIVATE ULTIMATE
@@ -575,10 +647,15 @@ public class MechaController : MonoBehaviour, IHit
         _movementAttemptingUltimate = false;
         _shootAttemptingUltimate = false;
 
-        _movementHoldTimer = 0f;
-        _shootHoldTimer = 0f;
+        //_movementHoldTimer = 0f;
+        //_shootHoldTimer = 0f;
 
-        ultimateUI?.UpdateCoopHold(0f);
+        // evite d'activer les abilities normal apres avoir realiser ultimate attack
+        _ignoreNextMeleeRelease = true;
+        _ignoreNextAOERelease = true;
+
+        ultimateUI?.UpdateCoopHoldP1(0f);
+        ultimateUI?.UpdateCoopHoldP2(0f);
         ultimateUI?.ResetUltimate();
     }
     #endregion Input Bindings
@@ -586,6 +663,8 @@ public class MechaController : MonoBehaviour, IHit
     #region Abilities Logic
     private void MeleeAttack(Vector2 attackDir)
     {
+        animEffectMelee.SetTrigger("interact");
+
         // Séparé de la logique propre de la melee attack, permet de hold le mouvement pendant une courte durée après le lancement de l'attaque
         _meleeHoldMovementTimer = _meleeHoldMovementDuration;
         _meleeHoldMovement = true;
@@ -609,6 +688,7 @@ public class MechaController : MonoBehaviour, IHit
 
     IEnumerator Dash()
     {
+        animEffectDash.SetTrigger("interact");
         float startTime = Time.time;
         _isDashing = true;
         _boost0.SetActive(true);
@@ -643,6 +723,7 @@ public class MechaController : MonoBehaviour, IHit
 
     private void ShootLaser(GameObject _laserShotPrefab, bool synchFire = false, bool _advancedShooting = true)
     {
+        animEffectGun.SetTrigger("interact");
         if (!synchFire)
         {
             if (_currentGunIndex > _shootingPoints.Length - 1) { _currentGunIndex = 0; }
@@ -666,6 +747,9 @@ public class MechaController : MonoBehaviour, IHit
 
     private void Shockwave(float radius, float damage, float repelForce)
     {
+        animEffectAOE.SetTrigger("interact");
+        AudioManager.Instance.PlaySound("SFX_Player_aoe");
+
         // Instancie l'effet visuel de l'attaque AOE
         Instantiate(_aoeEffectPrefab, transform.position, Quaternion.identity);
 
@@ -687,7 +771,6 @@ public class MechaController : MonoBehaviour, IHit
         }
         _aoeTimer = 0f;
         abilityUI?.TriggerAbility("AOE", _aoeCooldown);
-        AudioManager.Instance.PlaySound("SFX_Player_aoe");
     }
 
     IEnumerator MissileSwarm(Collider2D[] targets)
@@ -745,6 +828,7 @@ public class MechaController : MonoBehaviour, IHit
         _meleeTimer += Time.deltaTime;
         _aoeTimer += Time.deltaTime;
 
+        //_ultimateCharge += 1;
         // Movement hold during melee attack timer
         if (_meleeHoldMovementTimer > 0f) { _meleeHoldMovementTimer -= Time.deltaTime; }
         else if (_meleeHoldMovement) { _meleeHoldMovement = false; }
@@ -792,8 +876,10 @@ public class MechaController : MonoBehaviour, IHit
     
     public void SetAdvancedShootingControls(bool enabled)
     {
+        //print("enabled aim mode " + enabled);
         if (enabled)
-        {  
+        {
+            _aimingReticle.transform.position = _mechaTop.transform.position + _mechaTop.transform.up * _aimingReticleMaxDistance;
             _aimingReticle.SetActive(true);
             _aimingReticle.transform.SetParent(null, false);
             _advancedShootingControls = true;
@@ -801,6 +887,8 @@ public class MechaController : MonoBehaviour, IHit
         else
         {
             _aimingReticle.transform.SetParent(gameObject.transform);
+            _shootingPoints[0].transform.eulerAngles = _mechaTop.transform.eulerAngles;
+            _shootingPoints[1].transform.eulerAngles = _mechaTop.transform.eulerAngles;
             _aimingReticle.SetActive(false);
             _advancedShootingControls = false;
         }        
@@ -968,12 +1056,14 @@ public class MechaController : MonoBehaviour, IHit
         if (state)
         {
             GameManager.OnUltimateJaugeIncrease += IncreaseUltimateCharge;
-            GameManager.OnSetAdvancedShooting += SetAdvancedShootingControls;
+            AccessibilityMenu.OnSetAdvancedShooting += SetAdvancedShootingControls;
+            SetAdvancedShootingControls(AccessibilityManager.Instance.GetAimMode()); 
+
         }
         else
         {
             GameManager.OnUltimateJaugeIncrease -= IncreaseUltimateCharge;
-            GameManager.OnSetAdvancedShooting -= SetAdvancedShootingControls;
+            AccessibilityMenu.OnSetAdvancedShooting -= SetAdvancedShootingControls;
         }
     }
 

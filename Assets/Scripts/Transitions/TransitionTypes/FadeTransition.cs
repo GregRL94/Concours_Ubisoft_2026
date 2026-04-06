@@ -11,7 +11,9 @@ public class FadeTransition : MonoBehaviour, ITransition
     {
         DontDestroyOnLoad(gameObject); // preservation between scenes 
 
-        if (!canvasGroup)
+        canvasGroup = GetComponent<CanvasGroup>();
+
+        if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
         canvasGroup.alpha = 0f;

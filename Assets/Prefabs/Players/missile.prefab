@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Missile
   _activeHoming: 1
-  _targetReacquisitionRange: 1
+  _targetReacquisitionRange: 8
   _explosionEffect: {fileID: 3392167224638232088, guid: 8054a51c83ceeb1479275bc73a07b5ea, type: 3}
 --- !u!1001 &2385403349259029469
 PrefabInstance:

@@ -20,8 +20,7 @@ public class TargetsCompass : MonoBehaviour
 
     private void HandleEnemyCountChanged(int newCountEnemies, int newCountSpawners)
     {
-        Debug.Log($"Enemy count changed: {newCountEnemies} enemies, {newCountSpawners} spawners");
-        if (newCountEnemies <= _enemiesCountThreshold)
+        if (newCountEnemies <= _enemiesCountThreshold && newCountEnemies > 0 && newCountSpawners < 1)
         {
             for (int i = 0; i < _enemiesTargetArrowsList.Count; i++)
             {
@@ -43,7 +42,7 @@ public class TargetsCompass : MonoBehaviour
             }
         }
 
-        if (newCountSpawners <= _spawnersCountThreshold)
+        if (newCountSpawners <= _spawnersCountThreshold && newCountSpawners > 0)
         {
             for (int i = 0; i < _spawnersTargetArrowsList.Count; i++)
             {

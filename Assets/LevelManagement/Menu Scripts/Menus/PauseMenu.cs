@@ -19,6 +19,7 @@ public class PauseMenu : Menu
 
     public void OnRestartPressed()
     {
+        AudioManager.Instance.PlaySound("UI_startgame");
         TransitionManager.Instance.TransitionRestartScene(restartTransition);
     }
 
@@ -42,10 +43,11 @@ public class PauseMenu : Menu
 
     public void OnMainMenuPressed()
     {
+        AudioManager.Instance.PlaySound("UI_Submit");
+        FindAnyObjectByType<MechaController>(FindObjectsInactive.Include)?.BlockInputs();
         MenuManager.Instance.CloseMenu();
         OnReturnToMainMenu();
         TransitionManager.Instance.TransitionToScene("MainMenu", mainMenuTransition, 0f);
-        //LevelLoader.LoadMainMenuLevel();
     }
 
     public void OnQuitPressed()
@@ -58,6 +60,7 @@ public class PauseMenu : Menu
 
     private void OnEnable()
     {
+        AudioManager.Instance.StopSound("SFX_Player_movement");
         Time.timeScale = 0f;
     }
 

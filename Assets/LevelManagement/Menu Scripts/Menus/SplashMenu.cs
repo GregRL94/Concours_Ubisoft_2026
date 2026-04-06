@@ -1,4 +1,3 @@
-using DG.Tweening;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,62 +10,54 @@ public class SplashMenu : Menu
     [SerializeField] private string mainMenuSceneName = "MainMenu";
 
     [Header("UI")]
-    [SerializeField] private CanvasGroup splashCanvas;
     [SerializeField] private RectTransform pressAnyButtonText;
+    [SerializeField] private Animator animText;
 
-    private Tween pulseTween;
     private bool hasPressed = false;
 
     void Start()
     {
-        // PlayPulseAnimation();
+        AudioManager.Instance.PlayMusic("Music_SplashScreen");
     }
 
     void Update()
     {
         if (hasPressed) return;
 
-        // debug keyboard
+        // Keyboard check
         bool keyboardPressed = Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame;
 
-        // controller
-        bool gamepadPressed = Gamepad.current != null &&
-                              Gamepad.current.allControls
-                              .Any(c => c is ButtonControl b && b.wasPressedThisFrame);
+        // Gamepad buttons only (ignore joysticks)
+        bool gamepadButtonPressed = false;
 
-        if (keyboardPressed || gamepadPressed)
+        foreach (var gamepad in Gamepad.all)
+        {
+            if (gamepad == null) continue;
+
+            if (gamepad.allControls
+                .OfType<ButtonControl>()
+                .Any(b => b.wasPressedThisFrame))
+            {
+                gamepadButtonPressed = true;
+                break;
+            }
+        }
+        // Si clavier ou bouton gamepad pressé
+        if (keyboardPressed || gamepadButtonPressed)
         {
             hasPressed = true;
+            AudioManager.Instance.PlaySound("SFX_PressAnyButton");
+            if (animText) animText.SetTrigger("pressed");
             OnAnyButtonPressed();
         }
     }
-
-    private void PlayPulseAnimation()
-    {
-        // animation pulse text
-        pulseTween = pressAnyButtonText
-            .DOScale(1.1f, 1f)
-            .SetEase(Ease.InOutSine)
-            .SetLoops(-1, LoopType.Yoyo);
-    }
-
+    
     private void OnAnyButtonPressed()
     {
-        pulseTween.Kill();
-
-        // Petit feedback scale
-        pressAnyButtonText
-            .DOScale(0.9f, 0.3f)
-            .SetEase(Ease.OutQuad);
-
-        // Fade OUT
-
         TransitionManager.Instance.SplashToScene(
             mainMenuSceneName,
-            mainMenuTransition
+            mainMenuTransition,
+            1f // pause
         );
-
     }
-
-
 }

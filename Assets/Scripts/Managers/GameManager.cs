@@ -10,7 +10,6 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static Action<float> OnUltimateJaugeIncrease; // event pour augmenter la jauge ultimate, float = amount
-    public static Action<bool> OnSetAdvancedShooting; // event pour activer/désactiver le tir avancé, bool = enabled/disabled
     public static GameManager Instance;
 
     [Header("Transition Prefabs")]
@@ -42,6 +41,11 @@ public class GameManager : MonoBehaviour
 
     [Header("Music Playlist")]
     public string[] playlistMusic;
+
+    [Header("Objective Complete")]
+    [SerializeField] private float objectiveCompleteTimeSound = 1.5f;
+    [SerializeField] private Color colorObjective = Color.yellow;
+
 
     private int currentObjectiveIndex = 0;
     public int CurrentObjectiveIndex => currentObjectiveIndex;
@@ -146,10 +150,7 @@ public class GameManager : MonoBehaviour
         enemyAnimRoutine = StartCoroutine(AnimateEnemyCount());
     }
 
-    public void SetAdvancedShooting(bool enabled)
-    {
-        OnSetAdvancedShooting?.Invoke(enabled);
-    }
+
 
     #endregion
 
@@ -202,8 +203,8 @@ public class GameManager : MonoBehaviour
         // Petite anim - scale punch 
         yield return StartCoroutine(AnimateObjectiveText());
 
-        // Attente 2 secondes
-        yield return new WaitForSeconds(1.5f);
+        // Attente que sound complete level termine
+        yield return new WaitForSeconds(objectiveCompleteTimeSound);
     }
 
     #endregion
@@ -284,18 +285,19 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        MusicPlaylistStart();
         UpdateUI();
     }
 
-    //private int GetSceneIndex(string sceneName)
-    //{
-    //    for (int i = 0; i < levelScenes.Length; i++)
-    //    {
-    //        if (levelScenes[i] == sceneName)
-    //            return i;
-    //    }
-    //    return 0; // défaut = mission 1
-    //}
+    private int GetSceneIndex(string sceneName)
+    {
+        for (int i = 0; i < levelScenes.Count; i++)
+        {
+            if (levelScenes[i] == sceneName)
+                return i;
+        }
+        return 0; // défaut = mission 1
+    }
 
     private IEnumerator AnimateObjectiveText()
     {
@@ -305,14 +307,18 @@ public class GameManager : MonoBehaviour
         float duration = 0.25f;
         float time = 0f;
 
-        objectiveText.transform.localScale = startScale;
+        if (enemyCountText != null)
+            enemyCountText.text = $"Objective Completed";
+
+        enemyCountText.transform.localScale = startScale;
+        enemyCountText.color = colorObjective;
 
         // Scale up rapide
         while (time < duration)
         {
             time += Time.deltaTime;
             float t = time / duration;
-            objectiveText.transform.localScale = Vector3.Lerp(startScale, targetScale * 1.2f, t);
+            enemyCountText.transform.localScale = Vector3.Lerp(startScale, targetScale * 1.25f, t);
             yield return null;
         }
 
@@ -322,7 +328,7 @@ public class GameManager : MonoBehaviour
         {
             time += Time.deltaTime;
             float t = time / duration;
-            objectiveText.transform.localScale = Vector3.Lerp(targetScale * 1.2f, targetScale, t);
+            enemyCountText.transform.localScale = Vector3.Lerp(targetScale * 1.2f, targetScale, t);
             yield return null;
         }
     }

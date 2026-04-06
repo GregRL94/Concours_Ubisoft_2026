@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -26,7 +27,17 @@ public class AccessibilityMenu : Menu
     [SerializeField] private TextMeshProUGUI playerDamageText;
     [SerializeField] private TextMeshProUGUI enemyDamageText;
 
+    [Header("UI Background")]
+    [SerializeField] private GameObject accessibilityBG;
+
+    [Header("Toggles")]
+    [SerializeField] private Toggle crtToggle;
+    [SerializeField] private Toggle aimModeToggle;
+
     private float lastMoveTime;
+
+    public static Action<bool> OnSetAdvancedShooting; // event pour activer/désactiver le tir avancé, bool = enabled/disabled
+
 
     void Start()
     {
@@ -41,9 +52,16 @@ public class AccessibilityMenu : Menu
         playerDamageSlider.onValueChanged.AddListener(OnPlayerDamageChanged);
         enemyDamageSlider.onValueChanged.AddListener(OnEnemyDamageChanged);
 
+        crtToggle.isOn = AccessibilityManager.Instance.IsCRTEffectsEnabled();
+        crtToggle.onValueChanged.AddListener(SetOnCRTToggle);
+
+        aimModeToggle.isOn = AccessibilityManager.Instance.GetAimMode();
+        aimModeToggle.onValueChanged.AddListener(SetAdvancedShooting);
         // Text multiplier 
         UpdatePlayerText(AccessibilityManager.Instance.playerDamageDealtMultiplier);
         UpdateEnemyText(AccessibilityManager.Instance.enemyDamageDealtMultiplier);
+
+
     }
 
 
@@ -51,10 +69,15 @@ public class AccessibilityMenu : Menu
     {
         MenuInputListener.UINavigate += HandleSliderNavigate;
 
-        // Check si on est dans MainMenu
+        // Behaviour en mode Gameplay
         if (!MenuManager.Instance.IsMainMenuScene())
         {
             Time.timeScale = 0f;
+            accessibilityBG.SetActive(true);
+        }
+        else // Behaviour en mode MainMenu
+        {
+            accessibilityBG.SetActive(false);
         }
     }
 
@@ -70,9 +93,12 @@ public class AccessibilityMenu : Menu
 
     void SetupSlider(Slider slider)
     {
-        slider.minValue = 1f;
-        slider.maxValue = 3f;
+        slider.minValue = 0.5f;
+        slider.maxValue = 2f;
         slider.wholeNumbers = false;
+
+        // default start
+        slider.value = 1f;
     }
 
     // CONTROLLER INPUT
@@ -139,22 +165,51 @@ public class AccessibilityMenu : Menu
     // TEXT UPDATE
     void UpdatePlayerText(float value)
     {
-        playerDamageText.text = FormatMultiplier(value);
-        playerDamageText.text = $"<b>{FormatMultiplier(value)}</b>";
+        //playerDamageText.text = FormatMultiplierDifficulty(value);
+        playerDamageText.text = $"<b>{FormatMultiplierPlayerDifficulty(value)}</b>";
     }
 
     void UpdateEnemyText(float value)
     {
-        enemyDamageText.text = FormatMultiplier(value);
-        enemyDamageText.text = $"<b>{FormatMultiplier(value)}</b>";
+        //enemyDamageText.text = FormatMultiplierDifficulty(value);
+        enemyDamageText.text = $"<b>{FormatMultiplierEnemyDifficulty(value)}</b>";
     }
 
-    string FormatMultiplier(float value)
+    // Code de couleur de difficulté avec du CSS 
+    string FormatMultiplierPlayerDifficulty(float value)
     {
-        // Si entier "2x"
-        if (Mathf.Approximately(value % 1f, 0f))
-            return ((int)value) + "x";
-        // Sinon "1.5x"
-        return value.ToString("0.0") + "x";
+        if (Mathf.Approximately(value, 1f))
+            return "<color=white>1x Normal</color>";
+
+        if (value < 1f)
+            return $"<color=red>{value:0.0}x Hard</color>";
+
+        return $"<color=green>{value:0.0}x Easy</color>";
     }
+    string FormatMultiplierEnemyDifficulty(float value)
+    {
+        if (Mathf.Approximately(value, 1f))
+            return "<color=white>1x Normal</color>";
+
+        if (value < 1f)
+            return $"<color=green>{value:0.0}x Easy</color>";
+
+        return $"<color=red>{value:0.0}x Hard</color>";
+    }
+
+
+    //BUTTON CLICKS
+    public void SetOnCRTToggle(bool value)
+    {
+        AccessibilityManager.Instance.SetCRTEffects(value);
+        AudioManager.Instance.PlaySound("UI_Submit");
+    }
+
+    public void SetAdvancedShooting(bool enabled)
+    {
+        AccessibilityManager.Instance.SetAimMode(enabled);
+        OnSetAdvancedShooting?.Invoke(enabled);
+    }
+
+
 }

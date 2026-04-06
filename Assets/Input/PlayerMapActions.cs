@@ -587,19 +587,8 @@ public partial class @PlayerMapActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c6775e59-ff4b-4f24-9736-7ba0d3c6878e"",
+                    ""id"": ""35723b16-ec29-4b1c-a8b6-02f9d6f4b477"",
                     ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee4dfde2-902f-4409-b03c-6ec367f03937"",
-                    ""path"": ""<Keyboard>/backquote"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",

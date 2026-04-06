@@ -19,7 +19,8 @@ public class MainMenu : Menu
 
     private void OnEnable()
     {
-        AudioManager.Instance.PlayMusic("Music_MainMenu");
+        if(AudioManager.Instance)
+            AudioManager.Instance.PlayMusic("Music_MainMenu");
     }
     public void OnPlayPressed()
     {
@@ -28,7 +29,7 @@ public class MainMenu : Menu
 
     private IEnumerator OnPlayPressedRoutine()
     {
-        AudioManager.Instance.PlaySound("UI_Submit");
+        AudioManager.Instance.PlaySound("UI_startgame");
 
         //TransitionManager.Instance.FadeInCurrentScene(null, MenuManager.Instance.GetPlayerChoiceMenu(), 0f);
         //if (playerChoiceMenu != null)

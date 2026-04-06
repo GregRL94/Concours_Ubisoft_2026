@@ -232,6 +232,12 @@ public class AudioManager : MonoBehaviour
         currentMusicId = null;
     }
 
+    public void FadeOutMusic()
+    {
+        FadeOutRoutine(currentMusic, currentMusic.gameObject, 1f);
+        StopMusic();
+    }
+
     //  SFX / UI - ONE SHOT
     public void PlaySound(string soundId, Vector3? position = null)
     {
@@ -301,7 +307,7 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-        source.Stop();
+        if(source != null) source.Stop();
         Destroy(soundGO);
     }
 
