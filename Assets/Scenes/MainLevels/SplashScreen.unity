@@ -1294,6 +1294,7 @@ MonoBehaviour:
   mainMenuTransition: {fileID: 8601609037258510111, guid: c1523e74d6158244e89bbfec69df8504, type: 3}
   mainMenuSceneName: MainMenu
   pressAnyButtonText: {fileID: 988611924}
+  animText: {fileID: 988611927}
 --- !u!114 &8656847952706612249
 MonoBehaviour:
   m_ObjectHideFlags: 0

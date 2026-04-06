@@ -19,7 +19,8 @@ public class MainMenu : Menu
 
     private void OnEnable()
     {
-        AudioManager.Instance.PlayMusic("Music_MainMenu");
+        if(AudioManager.Instance)
+            AudioManager.Instance.PlayMusic("Music_MainMenu");
     }
     public void OnPlayPressed()
     {
