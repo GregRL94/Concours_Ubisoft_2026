@@ -248,7 +248,7 @@ public class PlayerChoiceMenu : Menu
         if (slot < PlayerSlot.Left)
             slot = PlayerSlot.Right;
 
-        AudioManager.Instance.PlaySound("UI_Navigate");
+        AudioManager.Instance.PlaySound("UI_move_to_new_option");
     }
 
     // VALIDATION
