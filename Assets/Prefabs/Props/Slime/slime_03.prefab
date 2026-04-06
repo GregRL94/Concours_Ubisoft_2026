@@ -12,9 +12,21 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1878874183162359460, guid: 18dff5ee4f1c41d4abc17d8ae33d82b5, type: 3}
+    - target: {fileID: 479951219281064108, guid: 95542a9e26e9a9248a8980b408aa1c72, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 479951219281064108, guid: 95542a9e26e9a9248a8980b408aa1c72, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7985493
+      objectReference: {fileID: 0}
+    - target: {fileID: 479951219281064108, guid: 95542a9e26e9a9248a8980b408aa1c72, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8303343
+      objectReference: {fileID: 0}
     - target: {fileID: 1949257217567529757, guid: 95542a9e26e9a9248a8980b408aa1c72, type: 3}
       propertyPath: m_Name
-      value: slime (1) Variant
+      value: slime_03
       objectReference: {fileID: 0}
     - target: {fileID: 4006499745126079825, guid: 95542a9e26e9a9248a8980b408aa1c72, type: 3}
       propertyPath: m_LocalPosition.x
