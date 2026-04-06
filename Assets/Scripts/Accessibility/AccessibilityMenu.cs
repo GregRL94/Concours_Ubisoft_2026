@@ -27,6 +27,9 @@ public class AccessibilityMenu : Menu
     [SerializeField] private TextMeshProUGUI playerDamageText;
     [SerializeField] private TextMeshProUGUI enemyDamageText;
 
+    [Header("UI Background")]
+    [SerializeField] private GameObject accessibilityBG;
+
     [Header("Toggles")]
     [SerializeField] private Toggle crtToggle;
     [SerializeField] private Toggle aimModeToggle;
@@ -66,10 +69,15 @@ public class AccessibilityMenu : Menu
     {
         MenuInputListener.UINavigate += HandleSliderNavigate;
 
-        // Check si on est dans MainMenu
+        // Behaviour en mode Gameplay
         if (!MenuManager.Instance.IsMainMenuScene())
         {
             Time.timeScale = 0f;
+            accessibilityBG.SetActive(true);
+        }
+        else // Behaviour en mode MainMenu
+        {
+            accessibilityBG.SetActive(false);
         }
     }
 

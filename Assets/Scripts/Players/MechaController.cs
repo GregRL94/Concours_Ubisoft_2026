@@ -186,6 +186,9 @@ public class MechaController : MonoBehaviour, IHit
     private bool _movementAttemptingUltimate = false;
     private bool _shootAttemptingUltimate = false;
 
+    private bool _ignoreNextMeleeRelease = false;
+    private bool _ignoreNextAOERelease = false;
+
     private bool meleeHold;
     private bool aoeHold;
     private bool dashHold;
@@ -403,28 +406,60 @@ public class MechaController : MonoBehaviour, IHit
         }
 
 
-        if (movementPlayer.MeleeReleased()
-            && _movementHoldWasShort
-            && !_movementAttemptingUltimate
-            && _meleeTimer >= _meleeAttackCooldown)
+        //if (movementPlayer.MeleeReleased()
+        //    && _movementHoldWasShort
+        //    && !_movementAttemptingUltimate
+        //    /*&& _meleeTimer >= _meleeAttackCooldown*/)
+        //{
+        //    if (_meleeTimer < _meleeAttackCooldown)
+        //    {
+        //        print("SFX_CooldownError  melee");
+        //        AudioManager.Instance.PlaySound("SFX_CooldownError");
+        //        return;
+        //    }
+
+        //    MeleeAttack(move);
+        //}
+
+        if (movementPlayer.MeleeReleased())
         {
-            MeleeAttack(move);
+            if (_ignoreNextMeleeRelease)
+            {
+                _ignoreNextMeleeRelease = false;
+                return;
+            }
+
+            if (_movementHoldWasShort && !_movementAttemptingUltimate)
+            {
+                if (_meleeTimer < _meleeAttackCooldown)
+                {
+                    print("SFX_CooldownError  melee");
+                    AudioManager.Instance.PlaySound("SFX_CooldownError");
+                    return;
+                }
+
+                MeleeAttack(move);
+            }
         }
 
 
-        if (movementPlayer.DashReleased() && _dashCooldownTimer >= _dashCooldown)
+        if (movementPlayer.DashReleased() /*&& _dashCooldownTimer >= _dashCooldown*/)
         {
+            if(_dashCooldownTimer < _dashCooldown)
+            {
+                print("SFX_CooldownError dash");
+                AudioManager.Instance.PlaySound("SFX_CooldownError");
+                return;
+            }
+
             if (_currentDashCoroutine != null)
             {
                 StopCoroutine(_currentDashCoroutine);
             }
             AudioManager.Instance.PlaySound("SFX_Player_dash");
             _currentDashCoroutine = StartCoroutine(Dash());
-
-
         }
-        //else if (movementPlayer.DashReleased() && _dashCooldownTimer <= _dashCooldown)
-        //    AudioManager.Instance.PlaySound("SFX_CooldownError");
+
 
 
         if (_isDashing && move == Vector2.zero)
@@ -459,12 +494,40 @@ public class MechaController : MonoBehaviour, IHit
             ResetDispersions();
         }
 
-        if (shootPlayer.AOEReleased()
-            && _shootHoldWasShort
-            && !_shootAttemptingUltimate
-            && _aoeTimer >= _aoeCooldown)
+        //if (shootPlayer.AOEReleased()
+        //    && _shootHoldWasShort
+        //    && !_shootAttemptingUltimate
+        //    /*&& _aoeTimer >= _aoeCooldown*/)
+        //{
+        //    if (_aoeTimer < _aoeCooldown)
+        //    {
+        //        print("SFX_CooldownError AOE");
+        //        AudioManager.Instance.PlaySound("SFX_CooldownError");
+        //        return;
+        //    }
+
+        //    Shockwave(_aoeRadius, _aoeDamage, _aoeRepelForce);
+        //}
+
+        if (shootPlayer.AOEReleased())
         {
-            Shockwave(_aoeRadius, _aoeDamage, _aoeRepelForce);
+            if (_ignoreNextAOERelease)
+            {
+                _ignoreNextAOERelease = false;
+                return;
+            }
+
+            if (_shootHoldWasShort && !_shootAttemptingUltimate)
+            {
+                if (_aoeTimer < _aoeCooldown)
+                {
+                    print("SFX_CooldownError AOE");
+                    AudioManager.Instance.PlaySound("SFX_CooldownError");
+                    return;
+                }
+
+                Shockwave(_aoeRadius, _aoeDamage, _aoeRepelForce);
+            }
         }
 
         if (shootPlayer.ShootPressed())
@@ -586,6 +649,10 @@ public class MechaController : MonoBehaviour, IHit
 
         //_movementHoldTimer = 0f;
         //_shootHoldTimer = 0f;
+
+        // evite d'activer les abilities normal apres avoir realiser ultimate attack
+        _ignoreNextMeleeRelease = true;
+        _ignoreNextAOERelease = true;
 
         ultimateUI?.UpdateCoopHoldP1(0f);
         ultimateUI?.UpdateCoopHoldP2(0f);

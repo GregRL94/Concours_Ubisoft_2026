@@ -344,7 +344,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 714703131934638434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1294,6 +1294,7 @@ MonoBehaviour:
   mainMenuTransition: {fileID: 8601609037258510111, guid: c1523e74d6158244e89bbfec69df8504, type: 3}
   mainMenuSceneName: MainMenu
   pressAnyButtonText: {fileID: 988611924}
+  animText: {fileID: 988611927}
 --- !u!114 &8656847952706612249
 MonoBehaviour:
   m_ObjectHideFlags: 0

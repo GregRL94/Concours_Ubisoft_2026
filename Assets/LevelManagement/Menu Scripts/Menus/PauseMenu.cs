@@ -43,7 +43,8 @@ public class PauseMenu : Menu
 
     public void OnMainMenuPressed()
     {
-        AudioManager.Instance.PlaySound("UI_Back");
+        AudioManager.Instance.PlaySound("UI_Submit");
+        FindAnyObjectByType<MechaController>(FindObjectsInactive.Include)?.BlockInputs();
         MenuManager.Instance.CloseMenu();
         OnReturnToMainMenu();
         TransitionManager.Instance.TransitionToScene("MainMenu", mainMenuTransition, 0f);
@@ -59,6 +60,7 @@ public class PauseMenu : Menu
 
     private void OnEnable()
     {
+        AudioManager.Instance.StopSound("SFX_Player_movement");
         Time.timeScale = 0f;
     }
 
