@@ -78,9 +78,6 @@ public class EnemyAI : MonoBehaviour, IHit
 
     public void TakeDamage(float damage)
     {
-        if(AccessibilityManager.Instance != null)
-            damage = AccessibilityManager.Instance.ModifyPlayerDamageDealt(damage);
-
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
         if (TryGetComponent<EnemyHealthBar>(out var healthBar)) { healthBar.TakeDamage(damage); }
         GameManager.Instance.IncreaseUltimateJauge(data.ultimateChargeOnHit);
