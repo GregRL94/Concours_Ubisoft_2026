@@ -109,10 +109,18 @@ MonoBehaviour:
     loop: 0
     randomizePitch: 0
     pitchRange: 0.2
+  - id: MUS_colors-everywhere
+    clip: {fileID: 8300000, guid: b6070d306ae87b44ca703b9b28f8f421, type: 3}
+    type: 0
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    randomizePitch: 0
+    pitchRange: 0.2
   - id: UI_Submit
     clip: {fileID: 8300000, guid: 242c88ca3c1d469449f2bb44372f28c1, type: 3}
     type: 2
-    volume: 1
+    volume: 0.647
     pitch: 1
     loop: 0
     randomizePitch: 0
@@ -248,7 +256,7 @@ MonoBehaviour:
   - id: SFX_Ennemi_boltbat_fireball_hit
     clip: {fileID: 8300000, guid: af33905c307818b4d8e629759abab9a4, type: 3}
     type: 1
-    volume: 0.42
+    volume: 0.361
     pitch: 1
     loop: 0
     randomizePitch: 1
