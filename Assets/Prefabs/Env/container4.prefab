@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7097833540666284658}
   - component: {fileID: 2117836194983655114}
   - component: {fileID: 585007887420031273}
+  - component: {fileID: 7856987571183916161}
   m_Layer: 11
   m_Name: container4
   m_TagString: Untagged
@@ -138,3 +139,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.98, y: 2.0625}
   m_EdgeRadius: 0
+--- !u!208 &7856987571183916161
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958876372745006463}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.031, y: 1.047, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
