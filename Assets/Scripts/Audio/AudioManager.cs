@@ -307,7 +307,7 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-        source.Stop();
+        if(source != null) source.Stop();
         Destroy(soundGO);
     }
 

@@ -312,11 +312,13 @@ public class EndMenu : Menu
     // BUTTONS
     public void OnRestartPressed()
     {
+        AudioManager.Instance.PlaySound("UI_startgame");
         TransitionManager.Instance.TransitionRestartScene(restartTransition);
     }
 
     public void OnMainMenuPressed()
     {
+        FindAnyObjectByType<MechaController>(FindObjectsInactive.Include)?.BlockInputs();
         MenuManager.Instance.CloseMenu();
         OnReturnToMainMenu();
         TransitionManager.Instance.TransitionToScene("MainMenu", mainMenuTransition, 0f);
