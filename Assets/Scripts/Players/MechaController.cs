@@ -262,11 +262,6 @@ public class MechaController : MonoBehaviour, IHit
 
     }
 
-    public void BlockInputs(float duration = 0.25f)
-    {
-        _inputBlockTimer = duration;
-    }
-
     // Mise à jour des timers de cooldowns, gestion des abilités actives et des collisions de dash
     private void Update()
     {
@@ -297,51 +292,6 @@ public class MechaController : MonoBehaviour, IHit
         else if (!_dashCollisionsDisabled && (_bc2D.excludeLayers & _dashIgnoresWhat) != 0) { _bc2D.excludeLayers &= ~_dashIgnoresWhat; } // Reactive les collisions avec les layers ignores apres le dash
     }
 
-    private void HoldInput()
-    {
-        // HOLD INPUT
-        meleeHold = movementPlayer.MeleeHold();
-        aoeHold = shootPlayer.AOEHold();
-        dashHold = movementPlayer.DashHold();
-        laserHold = shootPlayer.ShootHold();
-    }
-
-    private void AnimButtonAbilities()
-    {
-        // ABILITIES UI ANIM SYNC
-        if (meleeHold)
-        {
-            animIsPressedMelee.SetBool("isPressed", true);
-            _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
-        }
-        else
-        {
-            animIsPressedMelee.SetBool("isPressed", false);
-            _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
-        }
-
-        if (aoeHold)
-        {
-            animIsPressedAOE.SetBool("isPressed", true);
-            _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
-        }
-        else
-        {
-            animIsPressedAOE.SetBool("isPressed", false);
-            _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
-        }
-
-        if (laserHold)
-            animIsPressedGun.SetBool("isPressed", true);
-        else
-            animIsPressedGun.SetBool("isPressed", false);
-
-        if (dashHold)
-            animIsPressedDash.SetBool("isPressed", true);
-        else
-            animIsPressedDash.SetBool("isPressed", false);
-    }
-
     private void LateUpdate()
     {
         if (_advancedShootingControls)
@@ -366,6 +316,21 @@ public class MechaController : MonoBehaviour, IHit
             shootPlayer = p1;
         }
     }
+
+    private void HoldInput()
+    {
+        // HOLD INPUT
+        meleeHold = movementPlayer.MeleeHold();
+        aoeHold = shootPlayer.AOEHold();
+        dashHold = movementPlayer.DashHold();
+        laserHold = shootPlayer.ShootHold();
+    }
+
+    public void BlockInputs(float duration = 0.25f)
+    {
+        _inputBlockTimer = duration;
+    }
+
     private void HandleMovement()
     {
         // --------------- SI STUN STOP ICI ---------------
@@ -577,24 +542,28 @@ public class MechaController : MonoBehaviour, IHit
         {
             _movementHoldTimer += Time.deltaTime;
             animIsPressedMovement.SetBool("isPressed", true);
+            _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
         }
         else
         {
             _movementHoldWasShort = _movementHoldTimer < _ultimateHoldThreshold;
             _movementHoldTimer = 0f;
             animIsPressedMovement.SetBool("isPressed", false);
+            _leftMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
         }
 
         if (aoeHold)
         {
             _shootHoldTimer += Time.deltaTime;
             animIsPressedShot.SetBool("isPressed", true);
+            _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", true);
         }
         else
         {
             _shootHoldWasShort = _shootHoldTimer < _ultimateHoldThreshold;
             _shootHoldTimer = 0f;
             animIsPressedShot.SetBool("isPressed", false);
+            _rightMissileLauncher.GetComponent<Animator>().SetBool("isActivated", false);
         }
 
         // CHARGED ULTIMATE 
@@ -657,6 +626,38 @@ public class MechaController : MonoBehaviour, IHit
         ultimateUI?.UpdateCoopHoldP1(0f);
         ultimateUI?.UpdateCoopHoldP2(0f);
         ultimateUI?.ResetUltimate();
+    }
+
+    private void AnimButtonAbilities()
+    {
+        // ABILITIES UI ANIM SYNC
+        if (meleeHold)
+        {
+            animIsPressedMelee.SetBool("isPressed", true);
+        }
+        else
+        {
+            animIsPressedMelee.SetBool("isPressed", false);
+        }
+
+        if (aoeHold)
+        {
+            animIsPressedAOE.SetBool("isPressed", true);
+        }
+        else
+        {
+            animIsPressedAOE.SetBool("isPressed", false);
+        }
+
+        if (laserHold)
+            animIsPressedGun.SetBool("isPressed", true);
+        else
+            animIsPressedGun.SetBool("isPressed", false);
+
+        if (dashHold)
+            animIsPressedDash.SetBool("isPressed", true);
+        else
+            animIsPressedDash.SetBool("isPressed", false);
     }
     #endregion Input Bindings
 
