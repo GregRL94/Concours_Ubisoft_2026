@@ -378,7 +378,6 @@ public class MechaController : MonoBehaviour, IHit
         //{
         //    if (_meleeTimer < _meleeAttackCooldown)
         //    {
-        //        print("SFX_CooldownError  melee");
         //        AudioManager.Instance.PlaySound("SFX_CooldownError");
         //        return;
         //    }
@@ -398,7 +397,7 @@ public class MechaController : MonoBehaviour, IHit
             {
                 if (_meleeTimer < _meleeAttackCooldown)
                 {
-                    print("SFX_CooldownError  melee");
+                    abilityUI?.TriggerAbilityCooldownRedFlag("Melee"); // effet rouge
                     AudioManager.Instance.PlaySound("SFX_CooldownError");
                     return;
                 }
@@ -412,7 +411,7 @@ public class MechaController : MonoBehaviour, IHit
         {
             if(_dashCooldownTimer < _dashCooldown)
             {
-                print("SFX_CooldownError dash");
+                abilityUI?.TriggerAbilityCooldownRedFlag("Dash"); 
                 AudioManager.Instance.PlaySound("SFX_CooldownError");
                 return;
             }
@@ -466,7 +465,6 @@ public class MechaController : MonoBehaviour, IHit
         //{
         //    if (_aoeTimer < _aoeCooldown)
         //    {
-        //        print("SFX_CooldownError AOE");
         //        AudioManager.Instance.PlaySound("SFX_CooldownError");
         //        return;
         //    }
@@ -486,7 +484,7 @@ public class MechaController : MonoBehaviour, IHit
             {
                 if (_aoeTimer < _aoeCooldown)
                 {
-                    print("SFX_CooldownError AOE");
+                    abilityUI?.TriggerAbilityCooldownRedFlag("AOE");
                     AudioManager.Instance.PlaySound("SFX_CooldownError");
                     return;
                 }
@@ -885,7 +883,6 @@ public class MechaController : MonoBehaviour, IHit
     
     public void SetAdvancedShootingControls(bool enabled)
     {
-        //print("enabled aim mode " + enabled);
         if (enabled)
         {
             _aimingReticle.transform.position = _mechaTop.transform.position + _mechaTop.transform.up * _aimingReticleMaxDistance;
