@@ -676,7 +676,7 @@ public class MechaController : MonoBehaviour, IHit
             if (hitObject.TryGetComponent(out IHit hitComponent))
             {
                 Vector2 repelDirection = (hitObject.transform.position - transform.position).normalized;
-                hitComponent.OnHit(_meleeDamage);
+                hitComponent.OnHit(ApplyAccessibilityDamageModifier(_meleeDamage));
                 if (_meleeAttackStuns) { hitComponent.OnHitStun(_meleeAttackStunDuration); }
                 if (_meleeAttackRepels) { hitComponent.OnHitRepel(_meleeAttackRepelForce, repelDirection); }                
             }
@@ -685,7 +685,6 @@ public class MechaController : MonoBehaviour, IHit
         AudioManager.Instance.PlaySound("SFX_Player_melee");
         abilityUI?.TriggerAbility("Melee", _meleeAttackCooldown);
     }
-
 
     IEnumerator Dash()
     {
@@ -765,7 +764,7 @@ public class MechaController : MonoBehaviour, IHit
             if (hitObject.TryGetComponent(out IHit hitComponent))
             {
                 Vector2 repelDirection = (hitObject.transform.position - transform.position).normalized;
-                hitComponent.OnHit(damage);
+                hitComponent.OnHit(ApplyAccessibilityDamageModifier(damage));
                 if (_aoeRepels) { hitComponent.OnHitRepel(repelForce, repelDirection); }
                 if (_aoeStuns) { hitComponent.OnHitStun(_aoeStunDuration); }
             }
@@ -798,8 +797,8 @@ public class MechaController : MonoBehaviour, IHit
             missileLogic.SetupMissile(MissileParameters.Speed,
                 MissileParameters.RotationSpeed,
                 MissileParameters.Lifetime,
-                MissileParameters.Damage,
-                MissileParameters.AOEDamage,
+                ApplyAccessibilityDamageModifier(MissileParameters.Damage),
+                ApplyAccessibilityDamageModifier(MissileParameters.AOEDamage),
                 MissileParameters.HoldRotationTimer,
                 MissileParameters.HoldMovementTimer,
                 MissileParameters.MissileImpactLayerMask);
@@ -859,6 +858,15 @@ public class MechaController : MonoBehaviour, IHit
     #endregion Abilities Logic
 
     #region Damage & Health Logic
+    private float ApplyAccessibilityDamageModifier(float damage)
+    {
+        if (AccessibilityManager.Instance != null)
+        {
+            damage = AccessibilityManager.Instance.ModifyPlayerDamageDealt(damage);
+        }
+        return damage;
+    }
+
     private void Stun(float stunDuration)
     {
         if (stunDuration <= 0f) return;
@@ -975,7 +983,7 @@ public class MechaController : MonoBehaviour, IHit
         if (laserShotGO.TryGetComponent(out LaserShot laserShotComponent))
         {
             float lifeTime = advancedShooting ? CalculateShotLifeTime(gunIndex) : LaserShotParameters.Lifetime;
-            laserShotComponent.SetupLaserShoot(LaserShotParameters.Speed, LaserShotParameters.Damage, lifeTime, LaserShotParameters.LaserImpactLayerMask);
+            laserShotComponent.SetupLaserShoot(LaserShotParameters.Speed, ApplyAccessibilityDamageModifier(LaserShotParameters.Damage), lifeTime, LaserShotParameters.LaserImpactLayerMask);
         }
     }
 
@@ -1045,7 +1053,7 @@ public class MechaController : MonoBehaviour, IHit
         {
             if (collision.collider.TryGetComponent(out IHit hitComponent))
             {
-                hitComponent.OnHit(_dashDamage); // Inflige des degats de dash
+                hitComponent.OnHit(ApplyAccessibilityDamageModifier(_dashDamage)); // Inflige des degats de dash
             }
         }
     }
