@@ -92,12 +92,16 @@ public class MenuInputListener : MonoBehaviour
     private void OnNavigateStarted(InputAction.CallbackContext context)
     {
         Vector2 dir = context.ReadValue<Vector2>();
-        if (dir.magnitude < 0.9f)
+
+        if (dir == Vector2.zero)
+            return;
+
+        if (dir.magnitude < 0.5f)
             return;
 
         dir = new Vector2(
-            Mathf.Abs(dir.x) > Mathf.Abs(dir.y) ? Mathf.Sign(dir.x) : 0,
-            Mathf.Abs(dir.y) > Mathf.Abs(dir.x) ? Mathf.Sign(dir.y) : 0
+            Mathf.Abs(dir.x) > 0.5f ? Mathf.Sign(dir.x) : 0,
+            Mathf.Abs(dir.y) > 0.5f ? Mathf.Sign(dir.y) : 0
         );
 
         currentDir = dir;
@@ -105,6 +109,8 @@ public class MenuInputListener : MonoBehaviour
 
 
         nextRepeatTime = Time.unscaledTime + firstRepeatDelay;
+
+
 
         UINavigate?.Invoke(currentDir);
     }
@@ -118,7 +124,6 @@ public class MenuInputListener : MonoBehaviour
 
         lastNavigateTime = Time.unscaledTime;
 
-        AudioManager.Instance.PlaySound("UI_move_to_new_option");
         UINavigate?.Invoke(dir);
     }
 
@@ -165,10 +170,8 @@ public class MenuInputListener : MonoBehaviour
             audioManager.PlaySound("UI_Back");
             MenuManager.Instance.ClearMenu();
             MenuManager.Instance.CloseMenu();
-            //FindAnyObjectByType<MechaController>(FindObjectsInactive.Include)?.IgnoreInputsForFrames();
             FindAnyObjectByType<MechaController>(FindObjectsInactive.Include)?.BlockInputs();
         }
-
 
     }
 
@@ -176,9 +179,6 @@ public class MenuInputListener : MonoBehaviour
     {
         if (!context.performed) return;
 
-        //if (menuManager.HasOpenMenu)
-        //{
-        //}
     }
 
     private void OnPause(InputAction.CallbackContext context)
@@ -206,6 +206,26 @@ public class MenuInputListener : MonoBehaviour
         {
             menuManager.CloseMenu();
         }
+    }
+
+    private bool ShouldPlayNavigationSound()
+    {
+        if (menuManager == null)
+            menuManager = MenuManager.Instance;
+
+        if (menuManager == null)
+            return false;
+
+        bool isInUI =
+            IsMainMenuScene() ||
+            menuManager.IsPauseMenuActive() ||
+            menuManager.IsSettingsMenuActive() ||
+            menuManager.IsAccessibilityMenuActive();
+
+        if (!isInUI)
+            return false;
+
+        return true;
     }
 
     private bool IsMainMenuScene() =>
