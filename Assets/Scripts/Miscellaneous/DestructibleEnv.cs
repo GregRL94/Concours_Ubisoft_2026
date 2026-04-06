@@ -71,5 +71,13 @@ public class DestructibleEnv : MonoBehaviour, IHit
             transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = _destroyedSprite[randIndex2];
         }
         GetComponent<Collider2D>().enabled = false;
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).CompareTag("VFX"))
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+        }
     }
 }
