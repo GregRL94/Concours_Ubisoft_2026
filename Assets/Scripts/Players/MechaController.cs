@@ -811,7 +811,8 @@ public class MechaController : MonoBehaviour, IHit
     {
         //print("enabled aim mode " + enabled);
         if (enabled)
-        {  
+        {
+            _aimingReticle.transform.position = _mechaTop.transform.position + _mechaTop.transform.up * _aimingReticleMaxDistance;
             _aimingReticle.SetActive(true);
             _aimingReticle.transform.SetParent(null, false);
             _advancedShootingControls = true;
@@ -819,6 +820,8 @@ public class MechaController : MonoBehaviour, IHit
         else
         {
             _aimingReticle.transform.SetParent(gameObject.transform);
+            _shootingPoints[0].transform.eulerAngles = _mechaTop.transform.eulerAngles;
+            _shootingPoints[1].transform.eulerAngles = _mechaTop.transform.eulerAngles;
             _aimingReticle.SetActive(false);
             _advancedShootingControls = false;
         }        
