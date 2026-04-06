@@ -11,8 +11,10 @@ public class MechaAbilityUI : MonoBehaviour
     {
         public string abilityName;           // Nom ability
         public Image abilityImage;           // Image
-        public TextMeshProUGUI abilityLabel; // Txt nom + temps
+        //public TextMeshProUGUI abilityLabel; // Txt nom + temps
+        public Image cooldownErrorFlash; // Image rouge transparente pour l’effet red flag
         [HideInInspector] public Coroutine currentCoroutine;
+        [HideInInspector] public Coroutine errorCoroutine; // pour éviter les overlaps
     }
 
     [Header("Configure your abilities in the Inspector")]
@@ -23,7 +25,10 @@ public class MechaAbilityUI : MonoBehaviour
     [SerializeField] private float punchStrength = 0.15f;
     [SerializeField] private float punchFrequency = 1f; // optionnel pour modif la courbe
 
-
+    [Header("Cooldown Flag Settings")]
+    private float cooldownRedFlagDuration = 0.15f;
+    [SerializeField, Range(0f, 1f)]
+    private float cooldownRedFlagMaxOpacity = 0.7f;
     private void Start()
     {
         foreach (var ability in abilities)
@@ -34,8 +39,8 @@ public class MechaAbilityUI : MonoBehaviour
                 ability.abilityImage.transform.localScale = Vector3.one;
             }
 
-            if (ability.abilityLabel != null)
-                ability.abilityLabel.text = ability.abilityName;
+            //if (ability.abilityLabel != null)
+            //    ability.abilityLabel.text = ability.abilityName;
         }
     }
 
@@ -65,6 +70,48 @@ public class MechaAbilityUI : MonoBehaviour
         }
     }
 
+    public void TriggerAbilityCooldownRedFlag(string abilityName)
+    {
+        var ability = abilities.Find(a => a.abilityName == abilityName);
+        if (ability == null || ability.cooldownErrorFlash == null) return;
+
+        // Stopper animation précédente 
+        if (ability.errorCoroutine != null)
+            StopCoroutine(ability.errorCoroutine);
+
+        ability.errorCoroutine = StartCoroutine(CooldownRedFlagCoroutine(ability));
+    }
+
+    private IEnumerator CooldownRedFlagCoroutine(AbilityUI ability)
+    {
+        Color baseColor = ability.cooldownErrorFlash.color;
+        float t = 0f;
+
+        // Fade in
+        while (t < cooldownRedFlagDuration * 0.5f)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(0f, cooldownRedFlagMaxOpacity, t / (cooldownRedFlagDuration * 0.5f));
+            ability.cooldownErrorFlash.color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
+            yield return null;
+        }
+
+        t = 0f;
+
+        // Fade out
+        while (t < cooldownRedFlagDuration * 0.5f)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(cooldownRedFlagMaxOpacity, 0f, t / (cooldownRedFlagDuration * 0.5f));
+            ability.cooldownErrorFlash.color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
+            yield return null;
+        }
+
+        // Reset 
+        ability.cooldownErrorFlash.color = new Color(baseColor.r, baseColor.g, baseColor.b, 0f);
+        ability.errorCoroutine = null;
+    }
+
     private IEnumerator CooldownRoutine(AbilityUI ability, float cooldownDuration)
     {
         float timer = 0f;
@@ -78,11 +125,11 @@ public class MechaAbilityUI : MonoBehaviour
             if (ability.abilityImage != null)
                 ability.abilityImage.fillAmount = 1f - t;
 
-            if (ability.abilityLabel != null)
-            {
-                float remaining = Mathf.Ceil(cooldownDuration - timer);
-                ability.abilityLabel.text = $"{ability.abilityName} {remaining}s";
-            }
+            //if (ability.abilityLabel != null)
+            //{
+            //    float remaining = Mathf.Ceil(cooldownDuration - timer);
+            //    ability.abilityLabel.text = $"{ability.abilityName} {remaining}s";
+            //}
 
             yield return null;
         }
@@ -93,8 +140,8 @@ public class MechaAbilityUI : MonoBehaviour
             ability.abilityImage.fillAmount = 0f;
         }
 
-        if (ability.abilityLabel != null)
-            ability.abilityLabel.text = ability.abilityName;
+        //if (ability.abilityLabel != null)
+        //    ability.abilityLabel.text = ability.abilityName;
 
         ability.currentCoroutine = null;
     }
