@@ -1,17 +1,20 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class CreditsScroller : MonoBehaviour
 {
     [Header("Configuration du scroll")]
     public float scrollSpeed = 50f;
+
+    [Tooltip("Multiplicateur quand le joueur maintient le bouton")]
+    public float fastForwardMultiplier = 3f;
+
     public RectTransform creditsText;
-    public float endOffset = 100f; //Distance après laquelle le texte fini
 
     private Vector2 startPosition;
     private bool isScrolling = false;
 
-    private void OnEnable()
+    private void Awake()
     {
         if (creditsText == null)
         {
@@ -20,29 +23,45 @@ public class CreditsScroller : MonoBehaviour
             return;
         }
 
-        // sauvegarde la position de départ
         startPosition = creditsText.anchoredPosition;
+    }
+
+    private void OnEnable()
+    {
+        creditsText.anchoredPosition = startPosition;
         isScrolling = true;
+    }
+
+    private void OnDisable()
+    {
+        isScrolling = false;
+        creditsText.anchoredPosition = startPosition;
     }
 
     private void Update()
     {
         if (!isScrolling) return;
 
-        // Déplacement vers le haut
-        creditsText.anchoredPosition += Vector2.up * scrollSpeed * Time.deltaTime;
+        float currentSpeed = scrollSpeed;
 
-        // On vérifie si on a dépassé la limite
-        if (creditsText.anchoredPosition.y >= startPosition.y + creditsText.rect.height + endOffset)
+        // Input manettes + clavier
+        bool isHoldingFast = Keyboard.current != null && Keyboard.current.spaceKey.isPressed;
+
+        foreach (var gamepad in Gamepad.all)
         {
-            isScrolling = false;
-            OnCreditsFinished();
+            if (gamepad.buttonSouth.isPressed)
+            {
+                isHoldingFast = true;
+                break;
+            }
         }
-    }
 
-    private void OnCreditsFinished()
-    {
-        gameObject.SetActive(false);
-        Debug.Log("Crédits terminés !");
+        if (isHoldingFast)
+        {
+            currentSpeed *= fastForwardMultiplier;
+        }
+
+        // Scroll
+        creditsText.anchoredPosition += Vector2.up * currentSpeed * Time.deltaTime;
     }
 }
