@@ -16,7 +16,7 @@ MonoBehaviour:
   patrolRadius: 1
   moveSpeed: 3
   maxHealth: 300
-  detectionRange: 10
+  detectionRange: 75
   attackRange: 4
   stopDistance: 4
   damage: 5
