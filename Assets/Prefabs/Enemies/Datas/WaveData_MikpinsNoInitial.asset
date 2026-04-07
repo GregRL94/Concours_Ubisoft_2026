@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 127e019230bca7f46a8b84a630f58b9b, type: 3}
-  m_Name: WaveData_Mikpins
+  m_Name: WaveData_MikpinsNoInitial
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
   enemyPrefabs:
   - {fileID: 1392904071871295899, guid: 159017082eff5b7418adf0764b0970fe, type: 3}
   - {fileID: 1392904071871295899, guid: 393bba4de0c85704c94df54e19b0fba9, type: 3}
   - {fileID: 1392904071871295899, guid: 07fd88637fa19a642813f1a408becfd7, type: 3}
   - {fileID: 1392904071871295899, guid: ce0fd2b8632f6dd4c94d60909985d741, type: 3}
-  initialBatchSize: 4
+  initialBatchSize: 0
   regularBatchSize: 4
   timeBetweenWaves: 12
   spawnIntervalWithinBatch: 0.3
