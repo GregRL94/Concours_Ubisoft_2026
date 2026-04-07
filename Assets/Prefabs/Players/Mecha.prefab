@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 2537720267561633478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3735857, z: -10}
+  m_LocalPosition: {x: 0, y: -0.6313484, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -157,7 +157,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 3.90625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -744,7 +744,7 @@ Transform:
   m_GameObject: {fileID: 4503489397842482685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.544, y: 1.808, z: 0}
+  m_LocalPosition: {x: -0.5, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1111,7 +1111,7 @@ Transform:
   m_GameObject: {fileID: 5281835591307895253}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.547, y: 1.773, z: 0}
+  m_LocalPosition: {x: 0.5, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1597,16 +1597,17 @@ MonoBehaviour:
   abilities:
   - abilityName: Dash
     abilityImage: {fileID: 0}
-    abilityLabel: {fileID: 0}
+    cooldownErrorFlash: {fileID: 0}
   - abilityName: Melee
     abilityImage: {fileID: 0}
-    abilityLabel: {fileID: 0}
+    cooldownErrorFlash: {fileID: 0}
   - abilityName: AOE
     abilityImage: {fileID: 0}
-    abilityLabel: {fileID: 0}
-  punchDuration: 0.08
-  punchStrength: 0.15
+    cooldownErrorFlash: {fileID: 0}
+  punchDuration: 0.2
+  punchStrength: 0.2
   punchFrequency: 1
+  cooldownRedFlagMaxOpacity: 0.5
 --- !u!114 &7658851919928563416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1672,7 +1673,7 @@ Transform:
   m_GameObject: {fileID: 7682065259496983473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6313485, z: 0}
+  m_LocalPosition: {x: 0.00000023841858, y: -0.63134766, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2878,7 +2879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Lens.OrthographicSize
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4062502756210987258, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: Target.TrackingTarget
@@ -2930,7 +2931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3735857
+      value: -0.6313484
       objectReference: {fileID: 0}
     - target: {fileID: 8603204594943563051, guid: 67ee2a47f22386340b72deb4cd31a81f, type: 3}
       propertyPath: m_LocalPosition.z
