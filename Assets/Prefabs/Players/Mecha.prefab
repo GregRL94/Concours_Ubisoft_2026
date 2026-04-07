@@ -157,7 +157,7 @@ Camera:
   far clip plane: 1000
   field of view: 3.67
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 3.90625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1526,7 +1526,7 @@ MonoBehaviour:
   _missileSpawnInterval: 0.136
   animIsPressedMovement: {fileID: 0}
   animIsPressedShot: {fileID: 0}
-  _ultimateHoldDuration: 2
+  _ultimateHoldDuration: 1.2
   _ultimateMax: 100
   animIsReadyUltimate: {fileID: 0}
   _ultimateHoldThreshold: 0.25
@@ -1597,15 +1597,12 @@ MonoBehaviour:
   abilities:
   - abilityName: Dash
     abilityImage: {fileID: 0}
-    abilityLabel: {fileID: 0}
     cooldownErrorFlash: {fileID: 0}
   - abilityName: Melee
     abilityImage: {fileID: 0}
-    abilityLabel: {fileID: 0}
     cooldownErrorFlash: {fileID: 0}
   - abilityName: AOE
     abilityImage: {fileID: 0}
-    abilityLabel: {fileID: 0}
     cooldownErrorFlash: {fileID: 0}
   punchDuration: 0.2
   punchStrength: 0.2
@@ -1676,7 +1673,7 @@ Transform:
   m_GameObject: {fileID: 7682065259496983473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6313485, z: 0}
+  m_LocalPosition: {x: 0.00000023841858, y: -0.63134766, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
