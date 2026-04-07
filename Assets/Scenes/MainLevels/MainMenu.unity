@@ -1233,7 +1233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7785482061067099525, guid: 4fa22e95a7cf651499e1f36a3c7caa98, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7863703069345566449, guid: 4fa22e95a7cf651499e1f36a3c7caa98, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2150,16 +2150,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "====== CREDITS ======\n\n---- PRODUCTION ----\nProducer - Gr\xE9gory Largange\n\n----
-    GAME DESIGN ----\nLead Game Designer - F\xE9lix Barette\nGame Designer - Nasredine
-    Bensadock\nGame Designer - C\xE9dric Zinck\n\n---- LEVEL DESIGN ----\nLevel Designer
-    - F\xE9lix Barette\n\n---- PROGRAMMING ----\nLead Programmer - Ajmal Shah\nAI
+    GAME DESIGN ----\nLead Game Designer - F\xE9lix Barrette\nGame Designer - Nasredine
+    Bensadok\nGame Designer - C\xE9dric Zinck\n\n---- LEVEL DESIGN ----\nLevel Designer
+    - F\xE9lix Barrette\n\n---- PROGRAMMING ----\nLead Programmer - Ajmal Shah\nAI
     Programmer - Diego Duran\nGameplay Programmer - Gr\xE9gory Largange\nSystem Programmer
     - Ajmal Shah\n\n--------- ART ---------\nLead Artist - Manuel Lamy\nCharacter
     Artist - Manuel Lamy, Victor Gileau\nEnvironment Artist - Victor Gileau, Manuel
-    Lamy\nVFX Artist - Manuel Lamy, Victor Gileau\n\n------- AUDIO -------\nSFX Artist
-    - C\xE9dric Zinck\nAudio Integrator - C\xE9dric Zinck\n\n---- SYSTEMS INTEGRATION
-    ----\nManuel Lamy\nGr\xE9gory Largange\nAjmal Shah\n\nExternal ressources:\n--
-    List of ressources --\nPixabay\nMixkit\n==============="
+    Lamy\nVFX Artist - Manuel Lamy\n\n------- AUDIO -------\nSFX Artist - C\xE9dric
+    Zinck\nAudio Integrator - C\xE9dric Zinck\n\n---- SYSTEMS INTEGRATION ----\nManuel
+    Lamy\nGr\xE9gory Largange\nAjmal Shah\n\nExternal ressources:\n-- List of ressources
+    --\nPixabay\nMixkit\n==============="
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 839456915cb000b438530741f4179929, type: 2}
   m_sharedMaterial: {fileID: 7272742781362945869, guid: 839456915cb000b438530741f4179929, type: 2}
