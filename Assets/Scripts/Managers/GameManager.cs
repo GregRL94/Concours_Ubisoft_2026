@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 
 using System.Collections.Generic;
 using System.Collections;
+using System;
 
 
 public class GameManager : MonoBehaviour
 {
+    public static Action<float> OnUltimateJaugeIncrease; // event pour augmenter la jauge ultimate, float = amount
     public static GameManager Instance;
 
     [Header("Transition Prefabs")]
@@ -25,13 +27,25 @@ public class GameManager : MonoBehaviour
     [Header("Objectives Texts")]
     [SerializeField] private string[] objectiveTexts; // index correspond à levelScenes
 
-    [Header("UI References")]
+    [Header("UI Text References")]
     [SerializeField] private TextMeshProUGUI missionText;
     [SerializeField] private TextMeshProUGUI objectiveText;
     [SerializeField] private TextMeshProUGUI timerText;
 
+
+    [Header("Enemy Count Text")]
+    [SerializeField] private TextMeshProUGUI enemyCountText;
+    [SerializeField] private float maxScale = 1.1f;
+    [SerializeField] private float durationEnemyCount = 0.1f;
+    private Coroutine enemyAnimRoutine;
+
     [Header("Music Playlist")]
     public string[] playlistMusic;
+
+    [Header("Objective Complete")]
+    [SerializeField] private float objectiveCompleteTimeSound = 1.5f;
+    [SerializeField] private Color colorObjective = Color.yellow;
+
 
     private int currentObjectiveIndex = 0;
     public int CurrentObjectiveIndex => currentObjectiveIndex;
@@ -42,6 +56,8 @@ public class GameManager : MonoBehaviour
 
     public enum GameplayState { Playing, Transition, Win, Lose }
     public GameplayState CurrentState { get; private set; }
+
+    public int AliensCount { get; private set; }
 
     void Awake()
     {
@@ -116,6 +132,26 @@ public class GameManager : MonoBehaviour
         int ms = (int)((timer * 100) % 100);
         timerText.text = $"{minutes:D2}:{seconds:D2}:{ms:D2}";
     }
+
+
+
+    public void UpdateCountsUI(int enemyCount, int spawnerCount)
+    {
+        AliensCount = enemyCount + spawnerCount;
+
+        if (enemyCountText != null)
+            enemyCountText.text = $"Aliens left: {AliensCount}";
+
+        // todo: add sound cue for enemy count
+
+        if (enemyAnimRoutine != null)
+            StopCoroutine(enemyAnimRoutine);
+
+        enemyAnimRoutine = StartCoroutine(AnimateEnemyCount());
+    }
+
+
+
     #endregion
 
     #region MUSIC
@@ -167,8 +203,8 @@ public class GameManager : MonoBehaviour
         // Petite anim - scale punch 
         yield return StartCoroutine(AnimateObjectiveText());
 
-        // Attente 2 secondes
-        yield return new WaitForSeconds(1.5f);
+        // Attente que sound complete level termine
+        yield return new WaitForSeconds(objectiveCompleteTimeSound);
     }
 
     #endregion
@@ -176,7 +212,7 @@ public class GameManager : MonoBehaviour
     #region TRANSITIONS
     public void MissionAccomplished()
     {
-        Debug.Log("Objective Completed");
+        //Debug.Log("Objective Completed");
         TransitionManager.Instance.FadeInCurrentScene(nextLevelTransition, MenuManager.Instance.GetNextLevelMenu(), 0f);
     }
 
@@ -219,8 +255,6 @@ public class GameManager : MonoBehaviour
             TransitionManager.Instance.TransitionToScene(nextScene, mission5Transition, 0f);
         }
 
-        // todo: faudra plus de scenestranstion different si les designers decident d'avoir plus de niveaux
-
         hasWon = false;
         CurrentState = GameplayState.Playing;
     }
@@ -245,24 +279,27 @@ public class GameManager : MonoBehaviour
     private void OnSceneReloaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneReloaded;
+        enemyCountText.color = Color.white;
         UpdateUI();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        enemyCountText.color = Color.white;
+        MusicPlaylistStart();
         UpdateUI();
     }
 
-    //private int GetSceneIndex(string sceneName)
-    //{
-    //    for (int i = 0; i < levelScenes.Length; i++)
-    //    {
-    //        if (levelScenes[i] == sceneName)
-    //            return i;
-    //    }
-    //    return 0; // défaut = mission 1
-    //}
+    private int GetSceneIndex(string sceneName)
+    {
+        for (int i = 0; i < levelScenes.Count; i++)
+        {
+            if (levelScenes[i] == sceneName)
+                return i;
+        }
+        return 0; // défaut = mission 1
+    }
 
     private IEnumerator AnimateObjectiveText()
     {
@@ -272,14 +309,18 @@ public class GameManager : MonoBehaviour
         float duration = 0.25f;
         float time = 0f;
 
-        objectiveText.transform.localScale = startScale;
+        if (enemyCountText != null)
+            enemyCountText.text = $"Objective Completed";
+
+        enemyCountText.transform.localScale = startScale;
+        enemyCountText.color = colorObjective;
 
         // Scale up rapide
         while (time < duration)
         {
             time += Time.deltaTime;
             float t = time / duration;
-            objectiveText.transform.localScale = Vector3.Lerp(startScale, targetScale * 1.2f, t);
+            enemyCountText.transform.localScale = Vector3.Lerp(startScale, targetScale * 1.25f, t);
             yield return null;
         }
 
@@ -289,9 +330,62 @@ public class GameManager : MonoBehaviour
         {
             time += Time.deltaTime;
             float t = time / duration;
-            objectiveText.transform.localScale = Vector3.Lerp(targetScale * 1.2f, targetScale, t);
+            enemyCountText.transform.localScale = Vector3.Lerp(targetScale * 1.2f, targetScale, t);
             yield return null;
         }
     }
     #endregion
+
+    #region INGAME EVENTS BINDINGS
+    public void IncreaseUltimateJauge(float amount)
+    {
+        OnUltimateJaugeIncrease?.Invoke(amount);
+    }
+
+    void OnEnable()
+    {
+        EnemyManager.OnCountsChanged += UpdateCountsUI;
+    }
+
+    void OnDisable()
+    {
+        EnemyManager.OnCountsChanged -= UpdateCountsUI;
+    }
+    #endregion
+
+    #region ANIMATION UI
+    private IEnumerator AnimateEnemyCount()
+    {
+        Transform t = enemyCountText.transform;
+
+        Vector3 baseScale = Vector3.one;
+        Vector3 targetScale = Vector3.one * maxScale;
+
+        float duration = durationEnemyCount;
+        float time = 0f;
+
+        // Scale up
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float tLerp = time / duration;
+            t.localScale = Vector3.Lerp(baseScale, targetScale, tLerp);
+            yield return null;
+        }
+
+        time = 0f;
+
+        // Scale down
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float tLerp = time / duration;
+            t.localScale = Vector3.Lerp(targetScale, baseScale, tLerp);
+            yield return null;
+        }
+
+        t.localScale = baseScale;
+    }
+    #endregion
+
 }

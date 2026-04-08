@@ -1,0 +1,385 @@
+fileFormatVersion: 2
+guid: 6dfdc03a77173654580bf14393309421
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4473166372859343794
+    second: car04_destroy_BandW_0
+  - first:
+      213: 3618971024195384913
+    second: car04_destroy_BandW_1
+  - first:
+      213: 9097883116972194218
+    second: car04_destroy_BandW_2
+  - first:
+      213: -2512941741768041710
+    second: car04_destroy_BandW_3
+  - first:
+      213: 3209264329445472473
+    second: car04_destroy_BandW_4
+  - first:
+      213: -4530193275798507769
+    second: car04_destroy_BandW_5
+  - first:
+      213: 857425695321289463
+    second: car04_destroy_BandW_6
+  - first:
+      213: 462836059001744605
+    second: car04_destroy_BandW_7
+  - first:
+      213: 108377924347114924
+    second: car04_destroy_BandW_8
+  - first:
+      213: 5523182656631400628
+    second: car04_destroy_BandW_9
+  - first:
+      213: 354679775200817187
+    second: car04_destroy_BandW_10
+  - first:
+      213: 7302654964231397044
+    second: car04_destroy_BandW_11
+  - first:
+      213: 2158165194744394423
+    second: car04_destroy_BandW_12
+  - first:
+      213: 3007220767443934294
+    second: car04_destroy_BandW_13
+  - first:
+      213: 3448734831632905975
+    second: car04_destroy_BandW_14
+  - first:
+      213: 146644758670392893
+    second: car04_destroy_BandW_15
+  - first:
+      213: -6780428376756333815
+    second: car04_destroy_BandW_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: car04_destroy_BandW_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 8
+        width: 74
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c0f7c32ee1ce1c0800000000000000
+      internalID: -4473166372859343794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: car04_destroy_BandW_1
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 7
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 156f89de8fa293230800000000000000
+      internalID: 3618971024195384913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: car04_destroy_BandW_2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 6
+        width: 75
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa9b6230e7c224e70800000000000000
+      internalID: 9097883116972194218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: car04_destroy_BandW_3
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 4
+        width: 77
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b1aaccccc302dd0800000000000000
+      internalID: -2512941741768041710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: car04_destroy_BandW_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 4
+        width: 94
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d8fdea77e8998c20800000000000000
+      internalID: 3209264329445472473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: car04_destroy_BandW_8
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 4
+        width: 94
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca53432e529018100800000000000000
+      internalID: 108377924347114924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: car04_destroy_BandW_10
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 2
+        width: 97
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3203cd950631ce400800000000000000
+      internalID: 354679775200817187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: car04_destroy_BandW_11
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 4
+        width: 84
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be5144bffd385560800000000000000
+      internalID: 7302654964231397044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: car04_destroy_BandW_12
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 4
+        width: 84
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b2f9576fc753fd10800000000000000
+      internalID: 2158165194744394423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f501ec1b87d59614cab7c970b98a4807
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: e123b8c4bafbc9d49badf6c6e93e3618, type: 3}
+      name: _Emission
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      car04_destroy_BandW_0: -4473166372859343794
+      car04_destroy_BandW_1: 3618971024195384913
+      car04_destroy_BandW_10: 354679775200817187
+      car04_destroy_BandW_11: 7302654964231397044
+      car04_destroy_BandW_12: 2158165194744394423
+      car04_destroy_BandW_13: 3007220767443934294
+      car04_destroy_BandW_14: 3448734831632905975
+      car04_destroy_BandW_15: 146644758670392893
+      car04_destroy_BandW_16: -6780428376756333815
+      car04_destroy_BandW_2: 9097883116972194218
+      car04_destroy_BandW_3: -2512941741768041710
+      car04_destroy_BandW_4: 3209264329445472473
+      car04_destroy_BandW_5: -4530193275798507769
+      car04_destroy_BandW_6: 857425695321289463
+      car04_destroy_BandW_7: 462836059001744605
+      car04_destroy_BandW_8: 108377924347114924
+      car04_destroy_BandW_9: 5523182656631400628
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

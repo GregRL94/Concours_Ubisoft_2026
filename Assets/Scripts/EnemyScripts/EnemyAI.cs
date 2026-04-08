@@ -6,13 +6,14 @@ public class EnemyAI : MonoBehaviour, IHit
     [Header("Donnees de l'ennemi")] 
     public EnemyData data; //Nouvellle fiche de stats ScriptableObj
     public Animator animator {get; private set;}
-    [Header("BloodSplash Particles")]
+    [Header("Effects")]
     public GameObject bloodSplashPrefab;
+    public ParticleSystem stunEffect;
     [Header("Références de combat")]
     public Transform firePoint;
     public EnemyState.EnemyStateMachine StateMachine { get; set; }
     
-    
+    public float DistanceToPlayer { get;private set; }
     //Variables privees synchronisees avec Data
     private float currentHealth;
     public NavMeshAgent Agent { get; set; } 
@@ -23,6 +24,9 @@ public class EnemyAI : MonoBehaviour, IHit
     public PatrolState PatrolState { get; private set; }
     public ChaseState ChaseState { get; private set; }
     public AttackState AttackState { get; private set; }
+    public StunState StunState { get; private set; }
+
+    private float _minkaiDamageCounter = 0f;
 
     // Flag pour ne pas relancer l'animation de mort
     private bool _isDead;
@@ -65,22 +69,41 @@ public class EnemyAI : MonoBehaviour, IHit
     // Update is called once per frame
     void Update()
     {
+        if (Player != null)
+        {
+            DistanceToPlayer = Vector2.Distance(transform.position, Player.position);
+        }
         StateMachine.CurrentState.Update();
     }
 
     public void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+        if (TryGetComponent<EnemyHealthBar>(out var healthBar)) { healthBar.TakeDamage(damage); }
+        GameManager.Instance.IncreaseUltimateJauge(data.ultimateChargeOnHit);
+
         float randBloodChance = UnityEngine.Random.Range(0f, 1f);
         if (damage > 0f && randBloodChance >= 0.5f)
         {
             Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
             Instantiate(bloodSplashPrefab, transform.position, Quaternion.identity);
         }
+
+
         currentHealth -= damage;
         if (currentHealth <= 0 && !_isDead)
         {
             Die();
+        }
+        // Jouer son de damage du minkai
+        else if (data is MeleeData mData)
+        {
+            _minkaiDamageCounter += damage;
+            if (_minkaiDamageCounter­­>=mData.thresholdDamagedSound) {
+                AudioManager.Instance.PlaySound(mData.soundDamaged);
+                _minkaiDamageCounter = 0;
+            }
+            
         }
     }
     private void FixedUpdate()
@@ -97,10 +120,17 @@ public class EnemyAI : MonoBehaviour, IHit
         }
     
     	if (data is KamikazeData kdata) 
-	{
-		AttackState.Explode(kdata);
-	}	
-        Debug.Log("ENEMY DIEEED!!!");
+	    {
+		    AttackState.Explode(kdata);
+	    }
+        else if (data is MeleeData mData)
+        {
+            AudioManager.Instance.PlaySound(mData.soundDeath);
+        }
+        else if (data is SniperData sData)
+        {
+            AudioManager.Instance.PlaySound(sData.soundDeath);
+        }
         animator.SetTrigger("Die");
         _isDead = true;
     }
@@ -108,7 +138,6 @@ public class EnemyAI : MonoBehaviour, IHit
     // Si les ennemis ne passe pas par Die() -> on le unregistre
     private void OnDestroy()
     {
-        Debug.Log("ENEMY DIEEED WITHOUT GOING ON DIE METHOD!!!");
         if (!_isDead && EnemyManager.Instance != null)
         {
             EnemyManager.Instance.UnRegisterEnemy(this);
@@ -129,16 +158,18 @@ public class EnemyAI : MonoBehaviour, IHit
         TakeDamage(damage);
     }
 
-    public void OnHitRepel(float damage, float repelForce, Vector2 repelDirection)
+    public void OnHitRepel(float repelForce, Vector2 repelDirection)
     {
-        if(rb!= null)
-            rb.AddForce(repelDirection *repelForce, ForceMode2D.Impulse);
-        TakeDamage(damage);
+        if (rb!= null) { rb.AddForce(repelDirection * repelForce, ForceMode2D.Impulse); }            
     }
 
-    public void OnHitStun(float damage, float stunDuration)
+    public void OnHitStun(float stunDuration)
     {
-        // Implémenter la logique de stun ici (par exemple, désactiver les mouvements et les attaques pendant stunDuration)
-        TakeDamage(damage);
+        if (!_isDead)
+        {
+            Debug.Log("On ma stunned");
+            StunState stunState = new StunState(this, StateMachine, stunDuration);
+            StateMachine.ChangeState(stunState);
+        }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine.Rendering.Universal;
 
 public class Missile : MonoBehaviour
 {
+    [SerializeField] private bool _activeHoming = true;
+    [SerializeField, Range(1f, 10f)] private float _targetReacquisitionRange = 5f;
     [SerializeField] private GameObject _explosionEffect;
     private TrailRenderer _trailRenderer;
     private ParticleSystem _particleSystem;    
@@ -14,6 +16,7 @@ public class Missile : MonoBehaviour
     private float _rotationSpeed;
     private float _lifetime;
     private float _damage;
+    private float _aoeDamage;
     private float _holdRotationTimer;
     private float _holdMovementTimer;
     private float _timer;
@@ -48,32 +51,37 @@ public class Missile : MonoBehaviour
         {
             ActivateMissileEffects();
         }
+        if (_target == null && _activeHoming)
+        {
+            _target = ReAcquireTarget();
+        }
         if (_rotationActive)
         {
-            RotateTowardsTarget();
+            if (_target) { RotateTowardsTarget(); }
         }
         if (_movementActive)
         {
             Move();
         }
-        if (_timer >= _lifetime || _target == null)
+        if (_timer >= _lifetime)
         {
             _Destroy();
         }
     }
 
-    public void SetupMissile(float speed, float rotationSpeed, float lifetime, float damage, float holdRotationTimer, float holdMovementTimer, LayerMask missileImpactsWhat)
+    public void SetupMissile(float speed, float rotationSpeed, float lifetime, float damage, float aoeDamage, float holdRotationTimer, float holdMovementTimer, LayerMask missileImpactsWhat)
     {
         _speed = speed;
         _rotationSpeed = rotationSpeed;
         _lifetime = lifetime;
         _damage = damage;
+        _aoeDamage = aoeDamage;
         _holdRotationTimer = holdRotationTimer;
         _holdMovementTimer = holdMovementTimer;
         _impactLayerMask = missileImpactsWhat;
     }
 
-    public void SetTarget(GameObject target)
+    public void SetTarget(GameObject target=null)
     {
         _target = target;
     }
@@ -104,9 +112,34 @@ public class Missile : MonoBehaviour
         }
     }
 
+    private GameObject ReAcquireTarget()
+    {
+        GameObject newTarget = null;
+
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, _targetReacquisitionRange, _impactLayerMask))
+        {
+            if (newTarget == null)
+            {
+                newTarget = collider.gameObject;
+            }
+            else
+            {
+                float currentTargetDistance = Vector2.Distance(transform.position, newTarget.transform.position);
+                float potentialTargetDistance = Vector2.Distance(transform.position, collider.transform.position);
+                if (potentialTargetDistance < currentTargetDistance)
+                {
+                    newTarget = collider.gameObject;
+                }
+            }
+        }
+
+        return newTarget;
+    }
+
     private void _Destroy()
     {
-        Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+        GameObject explosion = Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+        explosion.GetComponent<ExplosionEffect>()?.SetupExplosion(_aoeDamage, _impactLayerMask);
         AudioManager.Instance.PlaySound("SFX_ulti_missile_explosion");
         Destroy(gameObject);
     }

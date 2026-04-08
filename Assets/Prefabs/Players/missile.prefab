@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 6891889226241378540}
   - component: {fileID: 4242927359019807128}
   - component: {fileID: 6239975591008425011}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1060936779
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 20
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2142898263834977675, guid: 4a711b1415d8ec74d919da0801b6b429, type: 3}
@@ -303,7 +303,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 35f9af731805fe1439c5f4c6dd9eca3a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -323,7 +323,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1060936779
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 15
   m_MaskInteraction: 0
   m_Time: 0.8
@@ -399,6 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac1fd555c78d9e4fa3c288556d0bd59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Missile
+  _activeHoming: 1
+  _targetReacquisitionRange: 8
   _explosionEffect: {fileID: 3392167224638232088, guid: 8054a51c83ceeb1479275bc73a07b5ea, type: 3}
 --- !u!1001 &2385403349259029469
 PrefabInstance:
@@ -450,7 +452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3652456662877449109, guid: 62b6074675a5d9648b333398279ede8a, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3652456662877449109, guid: 62b6074675a5d9648b333398279ede8a, type: 3}
       propertyPath: m_SortingOrder

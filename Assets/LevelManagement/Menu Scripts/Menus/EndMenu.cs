@@ -44,6 +44,9 @@ public class EndMenu : Menu
     [SerializeField] private float delayBeforePunch = 0.2f;
     [SerializeField] private float timerRevealDuration = 0.8f;
 
+    [SerializeField] private FadeTransition restartTransition;
+    [SerializeField] private FadeTransition mainMenuTransition;
+
     private Vector3 initialPosition;
 
     private void Awake()
@@ -72,6 +75,9 @@ public class EndMenu : Menu
 
     IEnumerator AnimationRoutine()
     {
+        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlayMusic("Music_WinGame");
+
         // titre punch + shake
         yield return StartCoroutine(ScalePunch(titleText));
         yield return StartCoroutine(Shake());
@@ -306,13 +312,16 @@ public class EndMenu : Menu
     // BUTTONS
     public void OnRestartPressed()
     {
-        GameManager.Instance.RestartLevel();
+        AudioManager.Instance.PlaySound("UI_startgame");
+        TransitionManager.Instance.TransitionRestartScene(restartTransition);
     }
 
     public void OnMainMenuPressed()
     {
+        FindAnyObjectByType<MechaController>(FindObjectsInactive.Include)?.BlockInputs();
         OnReturnToMainMenu();
-        LevelLoader.LoadMainMenuLevel();
+        MenuManager.Instance.CloseMenu();
+        TransitionManager.Instance.TransitionToScene("MainMenu", mainMenuTransition, 0f);
     }
 
     public void OnQuitPressed()

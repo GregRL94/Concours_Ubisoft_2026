@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1656899726386707784}
   - component: {fileID: -6331466321129152172}
   - component: {fileID: 5930228685647784632}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: LaserShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

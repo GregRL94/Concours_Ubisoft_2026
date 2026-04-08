@@ -11,4 +11,5 @@ public class EnemyData : ScriptableObject
     public float attackRange = 4f;
     public float stopDistance = 3f;
     public float damage = 10f;
+    public float ultimateChargeOnHit = 1f;
 }

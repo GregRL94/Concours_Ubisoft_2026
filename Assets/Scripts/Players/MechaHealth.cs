@@ -34,6 +34,9 @@ public class MechaHealth : MonoBehaviour
     {
         if (isInIFrame) return; // ignore damage si en iframe
 
+        if(AccessibilityManager.Instance != null)
+            damage = AccessibilityManager.Instance.ModifyEnemyDamageDealt(damage);
+
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
@@ -51,6 +54,7 @@ public class MechaHealth : MonoBehaviour
         if (currentHealth <= 0)
         { 
             isDead = true;
+            AudioManager.Instance.PlaySound("SFX_Player_mort");
             StartCoroutine(DeathRoutine());
         }
     }

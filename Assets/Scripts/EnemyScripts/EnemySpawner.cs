@@ -9,6 +9,14 @@ public class EnemySpawner : MonoBehaviour, IHit
     public float health = 100f;
 
     public float spreadRadius = 2f; //Rayon de repartition
+
+    public GameObject _destroyedEffect;
+
+    // Flag pour ne pas relancer l'animation de mort
+    private bool _isDead = false;
+
+    
+    private List<GameObject> _myActiveEnemies = new List<GameObject>();
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,13 +31,23 @@ public class EnemySpawner : MonoBehaviour, IHit
     IEnumerator SpawnRoutine()
     {
         //Batch initiale
+        AudioManager.Instance.PlaySound(waveSettings.soundToPlay);
         yield return StartCoroutine(SpawnBatch(waveSettings.initialBatchSize));
         
         //Batches regulieres
         while (health > 0)
         {
             yield return new WaitForSeconds(waveSettings.timeBetweenWaves);
-            yield return StartCoroutine(SpawnBatch(waveSettings.regularBatchSize));
+            //On nettoie les references mortes avant de verifier la limite
+            CleanEnemyList();
+            
+            //On ne lance un nouveau batch que si on n'a pas atteint le quota d'ennemie
+            if (_myActiveEnemies.Count < waveSettings.maxActiveEnemies)
+            {
+                AudioManager.Instance.PlaySound(waveSettings.soundToPlay);
+                yield return StartCoroutine(SpawnBatch(waveSettings.regularBatchSize));  
+            }
+            
             
         }
     }
@@ -37,9 +55,19 @@ public class EnemySpawner : MonoBehaviour, IHit
 
     IEnumerator SpawnBatch(int batchSize)
     {
+        
         for (int i = 0; i < batchSize; i++)
         {
-            SpawnEnemy();
+            CleanEnemyList();
+            if (_myActiveEnemies.Count < waveSettings.maxActiveEnemies)
+            {
+                SpawnEnemy();
+            }
+            else
+            {
+                break;
+            }
+            
             yield return new WaitForSeconds(waveSettings.spawnIntervalWithinBatch);
         }
     }
@@ -52,6 +80,10 @@ public class EnemySpawner : MonoBehaviour, IHit
 
         //Spawn a la position du spawner
         GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        
+        
+        //On enregistre l'ennemi dans la liste locale du spawner
+        _myActiveEnemies.Add(enemy);
         
         //Repartition pour ne pas clump
         Vector2 randomOffset = Random.insideUnitCircle * spreadRadius;
@@ -68,34 +100,46 @@ public class EnemySpawner : MonoBehaviour, IHit
         } 
         
     }
-
+    //Methode utilitaire pour nettoyer les ennemis detruits
+    private void CleanEnemyList()
+    {
+        _myActiveEnemies.RemoveAll(e=>e == null);
+    }
     private void TakeDamage(float damage)
     {
         if (TryGetComponent<FlashEffect>(out var flashEffect)) { flashEffect.Flash(); }
+
+        if (AccessibilityManager.Instance != null)
+            damage = AccessibilityManager.Instance.ModifyPlayerDamageDealt(damage);
+
+
+        if (TryGetComponent<EnemyHealthBar>(out var healthBar)) { healthBar.TakeDamage(damage); }
         health -= damage;
         Bloodstains._instance.SpawnBlood(transform.position, -transform.up);
-        Debug.Log("Spawner got hit!");
-        if (health <= 0)
+        if (health <= 0 && !_isDead)
         {
-            if (EnemyManager.Instance != null)
-            {
-                EnemyManager.Instance.UnRegisterSpawner(this);
-            }
-            GetComponent<Animator>()?.SetTrigger("Die");
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        if (EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.UnRegisterSpawner(this);
+        }
+        Instantiate(_destroyedEffect, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlaySound(waveSettings.soundDeath);
+        GetComponent<Animator>()?.SetTrigger("Die");
+        _isDead = true;
     }
 
     public void OnHit(float damage)
     {
 	    TakeDamage(damage);
     }
-    public void OnHitRepel(float damage, float ff, Vector2 V)
-    {
-        TakeDamage(damage);
-    }
 
-    public void OnHitStun(float f, float ff) {}
-    
-    //BoltBat ne change pas de direction lorsqu'il commence a shoot l'ennemi. Le boltbat continue de shoot vers la derniere direction du joueur
-    //Si le mikpin se fait shoot/attack de melee, il doit exploser et il fait ses degats
+    public void OnHitRepel(float ff, Vector2 V) {}
+
+    public void OnHitStun(float ff) {}
 }

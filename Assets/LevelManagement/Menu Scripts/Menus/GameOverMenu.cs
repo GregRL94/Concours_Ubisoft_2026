@@ -28,6 +28,9 @@ public class GameOverMenu : Menu
     [SerializeField] private float impactScale = 1.3f;
     [SerializeField] private float shakeStrength = 15f;
 
+    [SerializeField] private FadeTransition restartTransition;
+    [SerializeField] private FadeTransition mainMenuTransition;
+
     private Vector3 gameStartInitial;
     private Vector3 overStartInitial;
 
@@ -37,26 +40,6 @@ public class GameOverMenu : Menu
         gameStartInitial = gameStart.position;
         overStartInitial = overStart.position;
     }
-
-    //private void Start()
-    //{
-    //    gameStart.position = gameStartInitial;
-    //    overStart.position = overStartInitial;
-
-    //    // save ds memoire
-    //    gameStartInitial = gameStart.position;
-    //    overStartInitial = overStart.position;
-
-
-    //}
-
-    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    //{
-    //    // save ds memoire
-    //    gameStartInitial = gameStart.position;
-    //    overStartInitial = overStart.position;
-    //}
-
 
     private void OnEnable()
     {
@@ -84,7 +67,9 @@ public class GameOverMenu : Menu
 
     IEnumerator AnimationRoutine()
     {
-      
+        AudioManager.Instance.FadeOutMusic();
+        AudioManager.Instance.PlaySound("SFX_GameOver");
+
         yield return StartCoroutine(Slide(gameText, gameCenter.position, slideDuration));
 
         yield return new WaitForSecondsRealtime(delayBetweenTexts);
@@ -208,14 +193,18 @@ public class GameOverMenu : Menu
     // ---------------------------
     public void OnRestartPressed()
     {
-        GameManager.Instance.RestartLevel();
+        AudioManager.Instance.PlaySound("UI_startgame");
+        TransitionManager.Instance.TransitionRestartScene(restartTransition);
     }
 
     public void OnMainMenuPressed()
     {
+        FindAnyObjectByType<MechaController>(FindObjectsInactive.Include)?.BlockInputs();
         OnReturnToMainMenu();
-        LevelLoader.LoadMainMenuLevel();
+        MenuManager.Instance.CloseMenu();
+        TransitionManager.Instance.TransitionToScene("MainMenu", mainMenuTransition, 0f);
     }
+
 
     public void OnQuitPressed()
     {

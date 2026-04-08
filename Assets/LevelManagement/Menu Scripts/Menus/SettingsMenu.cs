@@ -25,6 +25,10 @@ public class SettingsMenu : Menu
     private Color _rightArrowOriginalColor;
 
 
+    [Header("UI Background")]
+    [SerializeField] private GameObject settingsBG;
+
+
     [Header("Audio Settings (dB)")]
     [SerializeField] private float maxDb = -6f; // slider à 1 à environ -6 dB
     //[SerializeField] private float minDb = -80f;
@@ -37,6 +41,8 @@ public class SettingsMenu : Menu
     [Header("VSync Toggle")]
     [SerializeField] private Toggle vSyncToggle;
     [SerializeField] private bool isVSyncToggle;
+
+
 
     private Resolution[] resolutions;
     private int currentResolutionIndex;
@@ -120,11 +126,15 @@ public class SettingsMenu : Menu
     public void SetSFXVolume(float value)
     {
         audioMixer.SetFloat("SFXVolume", LinearToDb(value));
+        if (GameObject.Find("SFX_Player_laser_tir") == null)
+            AudioManager.Instance.PlaySound("SFX_Player_laser_tir");
     }
 
     public void SetUIVolume(float value)
     {
         audioMixer.SetFloat("UIVolume", LinearToDb(value));
+        if (GameObject.Find("UI_Submit") == null)
+            AudioManager.Instance.PlaySound("UI_Submit");
     }
 
     // GRAPHICS
@@ -199,10 +209,15 @@ public class SettingsMenu : Menu
     {
         MenuInputListener.UINavigate += HandleResolutionNavigate;
 
-        // Check si on est dans MainMenu
+        // Behaviour en mode Gameplay
         if (!MenuManager.Instance.IsMainMenuScene())
         {
             Time.timeScale = 0f;
+            settingsBG.SetActive(true);
+        }
+        else // Behaviour en mode MainMenu
+        {
+            settingsBG.SetActive(false);
         }
     }
 

@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49fc1e8113d32ae4885b0aa85b56ff60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AccessibilityManager
-  playerDamageMultiplier: 1
-  enemyDamageMultiplier: 1
+  playerDamageDealtMultiplier: 1
+  enemyDamageDealtMultiplier: 1

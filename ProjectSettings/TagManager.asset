@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - VFX
   layers:
   - Default
   - TransparentFX
@@ -12,15 +13,15 @@ TagManager:
   - Water
   - UI
   - Player
-  - Enemy
-  - Env_Half_Cover
+  - Enemy_Creatures
+  - Enemy_Structures
   - Env_Full_Cover
   - Env_Soft_Wall
   - Env_Rubbles
   - Deco
-  - 
-  - 
-  - 
+  - Toit
+  - Projectiles_Player
+  - Projectiles_Enemies
   - 
   - 
   - 
@@ -50,8 +51,17 @@ TagManager:
   - name: Player
     uniqueID: 3234030517
     locked: 0
+  - name: Effects
+    uniqueID: 3138092521
+    locked: 0
   - name: Screen
     uniqueID: 2142730279
+    locked: 0
+  - name: toit
+    uniqueID: 1203872617
+    locked: 0
+  - name: UI
+    uniqueID: 1060406055
     locked: 0
   m_RenderingLayers:
   - Default
