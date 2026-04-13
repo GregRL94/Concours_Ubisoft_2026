@@ -169,12 +169,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc22db9c52d9e2c4389d9765716fed73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleEnv
-  _maxHealth: 150
+  _maxHealth: 75
   _thresholdDamagedSound: 15
   _hitEffect: {fileID: 3015472318778711838, guid: b08a0510be9c34444a8a2324107e1583, type: 3}
   _destroyedEffect: {fileID: 3885693538988036005, guid: 5e08f76a0d013164397ace0fb1e575bd, type: 3}
   _destroyedSprite:
-  - {fileID: -3316326259009356468, guid: bdde3cb546172e74f873420722e5e86c, type: 3}
+  - {fileID: 21300000, guid: bdde3cb546172e74f873420722e5e86c, type: 3}
 --- !u!114 &6812251385415398157
 MonoBehaviour:
   m_ObjectHideFlags: 0

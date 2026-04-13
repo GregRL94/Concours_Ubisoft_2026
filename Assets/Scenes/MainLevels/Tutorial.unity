@@ -13018,7 +13018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3680219207735809868, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
       propertyPath: orthographic size
-      value: 8.4375
+      value: 3.90625
       objectReference: {fileID: 0}
     - target: {fileID: 4235779837525528367, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
       propertyPath: m_IsActive
@@ -13092,6 +13092,18 @@ PrefabInstance:
       propertyPath: abilities.Array.data[3].abilityImage
       value: 
       objectReference: {fileID: 1665726984}
+    - target: {fileID: 7588572628328435216, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+      propertyPath: abilities.Array.data[0].cooldownErrorFlash
+      value: 
+      objectReference: {fileID: 1132423224}
+    - target: {fileID: 7588572628328435216, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+      propertyPath: abilities.Array.data[1].cooldownErrorFlash
+      value: 
+      objectReference: {fileID: 1132423223}
+    - target: {fileID: 7588572628328435216, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
+      propertyPath: abilities.Array.data[2].cooldownErrorFlash
+      value: 
+      objectReference: {fileID: 1665726983}
     - target: {fileID: 7658851919928563416, guid: fbc40521e9c09b440a555fa57282e5bf, type: 3}
       propertyPath: holdFillImage
       value: 
@@ -14358,6 +14370,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3780973842705758539, guid: 35d944db068a59848aa3c8c5ab584c59, type: 3}
   m_PrefabInstance: {fileID: 1119243403}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1132423223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9214082871713766856, guid: 0f15213fcb82d5748b2abfc63b65ed2c, type: 3}
+  m_PrefabInstance: {fileID: 1665726982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &1132423224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6096824583525341029, guid: 0f15213fcb82d5748b2abfc63b65ed2c, type: 3}
+  m_PrefabInstance: {fileID: 1665726982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1135661647
 GameObject:
   m_ObjectHideFlags: 0
@@ -21377,6 +21411,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f15213fcb82d5748b2abfc63b65ed2c, type: 3}
+--- !u!114 &1665726983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2809863980331359528, guid: 0f15213fcb82d5748b2abfc63b65ed2c, type: 3}
+  m_PrefabInstance: {fileID: 1665726982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!114 &1665726984 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7216800107685054227, guid: 0f15213fcb82d5748b2abfc63b65ed2c, type: 3}
@@ -23485,7 +23530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4993109725630663389, guid: 3630c4b9cfa621f3aa2844a7f1cbe4bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.24
+      value: -5.04
       objectReference: {fileID: 0}
     - target: {fileID: 4993109725630663389, guid: 3630c4b9cfa621f3aa2844a7f1cbe4bf, type: 3}
       propertyPath: m_LocalPosition.y

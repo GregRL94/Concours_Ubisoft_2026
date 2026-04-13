@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
         // UI + SFX
         objectiveText.text = "OBJECTIVE COMPLETED";
         AudioManager.Instance.PlaySound("SFX_ObjectiveCompleted");
-        
+
         // Petite anim - scale punch 
         yield return StartCoroutine(AnimateObjectiveText());
 
@@ -279,12 +279,14 @@ public class GameManager : MonoBehaviour
     private void OnSceneReloaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneReloaded;
+        enemyCountText.color = Color.white;
         UpdateUI();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        enemyCountText.color = Color.white;
         MusicPlaylistStart();
         UpdateUI();
     }
