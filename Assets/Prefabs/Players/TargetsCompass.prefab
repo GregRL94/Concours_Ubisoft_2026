@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TargetsCompass
   _creaturesTargetArrowPrefab: {fileID: 1056207287166269657, guid: 0614f0a935a418842be57d3898cc36d0, type: 3}
   _structuresTargetArrowPrefab: {fileID: 6961411217265524635, guid: fb43bff117725084492a9dad5efc7f33, type: 3}
-  _enemiesCountThreshold: 5
+  _enemiesCountThreshold: 6
   _spawnersCountThreshold: 1

@@ -2158,8 +2158,13 @@ MonoBehaviour:
     Artist - Manuel Lamy, Victor Gileau\nEnvironment Artist - Victor Gileau, Manuel
     Lamy\nVFX Artist - Manuel Lamy\n\n------- AUDIO -------\nSFX Artist - C\xE9dric
     Zinck\nAudio Integrator - C\xE9dric Zinck\n\n---- SYSTEMS INTEGRATION ----\nManuel
-    Lamy\nGr\xE9gory Largange\nAjmal Shah\n\nExternal ressources:\n-- List of ressources
-    --\nPixabay\nMixkit\n==============="
+    Lamy\nGr\xE9gory Largange\nAjmal Shah\n\n---- THANKS ----\nOur deepest thanks
+    to our mentors, which provided us with priceless advices all along the development.
+    The game wouldn't be the same without them.\n\nAlexandre Moge\nWiliam Filipe\n\nAnd 
+    thanks to our Advisory Teacher,\n\nDominic Arsenault \n\n\n\n-- EXTERNAL RESSOURCES
+    --\nAll external musics from Pixabay\n\n- Music by Lesiakower -\nI Dream in KEYGEN\r\nBitwise\r\nPixify\r\nBattle
+    Time\r\n8-bit Takeover\r\nArcade Party\r\nEpic Battle\r\nColors Everywhere!\n\nMFCC
+    - Retro Arcade Game Music\nu_e9ltwq6qh9 - Retro Game Music\n\n==============="
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 839456915cb000b438530741f4179929, type: 2}
   m_sharedMaterial: {fileID: 7272742781362945869, guid: 839456915cb000b438530741f4179929, type: 2}
