@@ -725,16 +725,22 @@ public class MechaController : MonoBehaviour, IHit
         if (!synchFire)
         {
             if (_currentGunIndex > _shootingPoints.Length - 1) { _currentGunIndex = 0; }
-            if (_advancedShooting) { ApplyAngularDispersion(_currentGunIndex); }
-            InstantiateShotAtGunIndex(_currentGunIndex, _advancedShooting);
+            if (!CheckGunCollision(_shootingPoints[_currentGunIndex]))
+            {
+                if (_advancedShooting) { ApplyAngularDispersion(_currentGunIndex); }
+                InstantiateShotAtGunIndex(_currentGunIndex, _advancedShooting);
+            }
             _currentGunIndex++;
         }
         else
         {
             for (int i = 0; i < _shootingPoints.Length; i++)
             {
-                if (_advancedShooting) { ApplyAngularDispersion(i); }
-                InstantiateShotAtGunIndex(i, _advancedShooting);
+                if (!CheckGunCollision(_shootingPoints[i]))
+                {
+                    if (_advancedShooting) { ApplyAngularDispersion(i); }
+                    InstantiateShotAtGunIndex(i, _advancedShooting);
+                }
             }
         }
         _laserCoolDown = 0f;
@@ -903,6 +909,12 @@ public class MechaController : MonoBehaviour, IHit
     private void RotateUpperMech(float rotDir)
     {
         _mechaTop.transform.Rotate(0f, 0f, -rotDir * _mechaTopRotSpeed * Time.deltaTime);
+    }
+
+    private bool CheckGunCollision(Transform gunPos)
+    {
+        Vector2 origin = _mechaTop.transform.position + gunPos.localPosition.x * _mechaTop.transform.right;
+        return Physics2D.Raycast(origin, (Vector2)gunPos.position - origin, Vector2.Distance(origin, gunPos.position), LayerMask.GetMask("Env_Full_Cover"));
     }
 
     private void AimReticle(Vector2 aim)
